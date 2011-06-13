@@ -1,0 +1,27 @@
+[core]
+	pager = less -R
+	excludesfile = ~/.gitignore
+[color]
+	ui = auto
+[user]
+	name = Tibor Claassen
+	email = tc@codebeige.net
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	cia = commit --amend
+	br = branch
+  sb = show-branch
+  cp = cherry-pick
+  staged = diff --cached
+  rb = rebase
+  rbc = rebase --continue
+  rbs = rebase --skip
+  rl = reflog
+  rs = remote show
+  rt = remote
+  ru = remote update
+  rp = remote prune
+  sm = submodule
+  clear = reset --hard

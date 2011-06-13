@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/tc/.rvm/gems/ruby-1.9.2-p180@tm_pro/gems/prawn_rails-0.0.4'
+let g:netrw_dirhist_2='/Users/tc/Documents/PeepCode/peepcode-046-vim-code/dotvim-basic'
+let g:netrw_dirhist_3='/Users/tc/Documents/PeepCode/peepcode-046-vim-code/tutorial-apache-files'
