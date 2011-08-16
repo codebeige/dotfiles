@@ -52,9 +52,17 @@ autocmd FileType ruby setlocal foldmethod=syntax foldlevel=1
 autocmd FileType css  setlocal foldmethod=indent foldlevel=1 shiftwidth=2 tabstop=2
 
 """ Mappings
-let mapleader=','
+let mapleader=' '
 
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" swap direction for repeat f-movement commands
+nnoremap ; ,
+nnoremap , ;
+
+vnoremap ; ,
+vnoremap , ;
+
+" clear recent search
+nnoremap <silent> <leader><bar> :nohlsearch<bar>:echo<cr>
 
 """ Extensions
 
