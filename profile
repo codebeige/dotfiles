@@ -1,5 +1,4 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# export EDITOR='/usr/local/bin/mate -w'
 export EDITOR='/usr/local/bin/vim'
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -9,6 +8,8 @@ alias bx='bundle exec'
 alias rails='bundle exec rails'
 alias rake='bundle exec rake'
 alias spork='bundle exec spork'
+
+alias gitrm='git rm $(git ls-files --deleted)'
 
 # open a new tab on Terminal with the current working dir
 function tab {
