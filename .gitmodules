@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-haml"]
 	path = vim/bundle/vim-haml
 	url = git://github.com/tpope/vim-haml.git
+[submodule "vim/bundle/rooter.vim"]
+	path = vim/bundle/rooter.vim
+	url = git://github.com/airblade/vim-rooter.git
