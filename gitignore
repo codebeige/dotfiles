@@ -4,3 +4,4 @@
 .rvmrc
 *.swp
 tags
+*.pyc

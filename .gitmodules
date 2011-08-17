@@ -19,3 +19,6 @@
 [submodule "vim/bundle/dirdiff"]
 	path = vim/bundle/dirdiff
 	url = git://github.com/vim-scripts/DirDiff.vim.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = git://github.com/vim-scripts/UltiSnips.git
