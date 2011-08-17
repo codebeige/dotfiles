@@ -82,3 +82,11 @@ runtime macros/matchit.vim
 
 " redgreen
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:UltiSnipsEditSplit="horizontal"
+map <Leader>use :UltiSnipsEdit<CR>

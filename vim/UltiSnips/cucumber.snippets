@@ -1,0 +1,9 @@
+snippet f "Cucumber feature description" b
+@wip
+Feature: ${1:`!p snip.rv = ' '.join(snip.basename.split('_')).capitalize() or "Title"`}
+  In order to ${2:value}
+  As a ${3:role}
+  I want ${4:feature}
+
+$0
+endsnippet
