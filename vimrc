@@ -71,6 +71,12 @@ let NERDTreeHijackNetrw=0
 let NERDTreeShowBookmarks=1
 nmap <silent> <D-O> :NERDTreeToggle<CR>
 
+" peepopen
+map <unique> <silent> <Leader>po <Plug>PeepOpen
+
+" bufexplorer
+let g:bufExplorerShowRelativePath=1
+
 " matchit
 runtime macros/matchit.vim
 
