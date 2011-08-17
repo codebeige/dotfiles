@@ -2,7 +2,7 @@
 set nocompatible
 
 " Load bundles
-silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#infect()
 silent! call pathogen#helptags()
 
 """ Appearance
@@ -64,7 +64,12 @@ vnoremap , ;
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
-""" Extensions
+""" Bundles
+
+" nerdtree
+let NERDTreeHijackNetrw=0
+let NERDTreeShowBookmarks=1
+nmap <silent> <D-O> :NERDTreeToggle<CR>
 
 " matchit
 runtime macros/matchit.vim
