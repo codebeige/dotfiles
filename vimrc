@@ -60,10 +60,24 @@ let mapleader=" "
 " swap direction for repeat f-movement commands
 nnoremap ; ,
 nnoremap , ;
-
 vnoremap ; ,
 vnoremap , ;
 
+" make German keyboard layout more useful in normal mode
+nmap ü `
+nmap Ü '
+vmap ü `
+vmap Ü `
+
+nmap üü ``
+nmap ÜÜ ''
+vmap üü ``
+vmap ÜÜ ''
+
+nmap ö <C-]>
+nmap ä <C-t>
+
+nmap ß /
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
