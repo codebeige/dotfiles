@@ -78,6 +78,7 @@ nmap ö <C-]>
 nmap ä <C-t>
 
 nmap ß /
+
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
@@ -104,3 +105,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:UltiSnipsEditSplit="horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
+
+" supertab
+let g:SuperTabMappingForward="<a-tab>"
+let g:SuperTabMappingBackward="<as-tab>"
