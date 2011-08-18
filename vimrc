@@ -37,6 +37,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+runtime macros/matchit.vim
+runtime macros/justify.vim
+
 """ File handling
 set backupdir=$HOME/.vim.bak//,.
 set directory=$HOME/.vim.swp//,.
@@ -76,9 +79,6 @@ map <unique> <silent> <Leader>po <Plug>PeepOpen
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
-
-" matchit
-runtime macros/matchit.vim
 
 " redgreen
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec

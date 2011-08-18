@@ -6,3 +6,5 @@ set antialias
 
 set guioptions-=T
 set lines=60 columns=140
+
+runtime macros/shellmenu.vim
