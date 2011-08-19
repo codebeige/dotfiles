@@ -77,7 +77,11 @@ vmap ÜÜ ''
 nmap ö <C-]>
 nmap ä <C-t>
 
-nmap ß /
+nmap ß /\v
+nmap ¿ /
+nmap ? ?\v
+nmap ˙ ?
+nmap ' *
 
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
