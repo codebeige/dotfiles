@@ -51,9 +51,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-autocmd FileType ruby setlocal foldmethod=syntax foldlevel=1
-autocmd FileType css  setlocal foldmethod=indent foldlevel=1 shiftwidth=2 tabstop=2
-
 """ Mappings
 let mapleader=" "
 
