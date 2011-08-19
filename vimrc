@@ -74,6 +74,7 @@ vmap ÜÜ ''
 nmap ö <C-]>
 nmap ä <C-t>
 
+" searching
 nmap ß /\v
 nmap ¿ /
 nmap ? ?\v
@@ -91,6 +92,9 @@ nmap <S-Tab> <<
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
+" completion
+inoremap <A-Tab> <C-n>
+inoremap <A-S-Tab> <C-x><C-o>
 
 """ Bundles
 
@@ -115,7 +119,3 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:UltiSnipsEditSplit="horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
-
-" supertab
-let g:SuperTabMappingForward="<a-tab>"
-let g:SuperTabMappingBackward="<as-tab>"
