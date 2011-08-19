@@ -83,8 +83,17 @@ nmap ? ?\v
 nmap ˙ ?
 nmap ' *
 
+nmap <D-F> :Ack 
+
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
+
+" shifting indent for selection
+nmap <Tab> >>
+nmap <S-Tab> <<
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
 
 """ Bundles
 
