@@ -96,6 +96,10 @@ vmap <S-Tab> <gv
 inoremap <A-Tab> <C-n>
 inoremap <A-S-Tab> <C-x><C-o>
 
+"change case
+nnoremap ç ~
+vnoremap ç ~
+
 """ Bundles
 
 " nerdtree
