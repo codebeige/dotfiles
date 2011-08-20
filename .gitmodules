@@ -43,3 +43,6 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "sweetrspec"]
+	path = sweetrspec
+	url = git://github.com/duskhacker/sweet-rspec-vim.git
