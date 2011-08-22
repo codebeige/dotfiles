@@ -96,15 +96,16 @@ vmap <S-Tab> <gv
 inoremap <A-Tab> <C-n>
 inoremap <A-S-Tab> <C-x><C-o>
 
-"change case
+" change case
 nnoremap ç ~
 vnoremap ç ~
+
+" toggle bg
+call togglebg#map("<F5>")
 
 """ Bundles
 
 " nerdtree
-let NERDTreeHijackNetrw=0
-let NERDTreeShowBookmarks=1
 nmap <silent> <D-O> :NERDTreeToggle<CR>
 
 " peepopen
