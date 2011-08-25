@@ -40,9 +40,9 @@
 [submodule "vim/bundle/ragtag"]
 	path = vim/bundle/ragtag
 	url = git://github.com/tpope/vim-ragtag.git
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "sweetrspec"]
 	path = sweetrspec
 	url = git://github.com/duskhacker/sweet-rspec-vim.git
+[submodule "tcomment_vim"]
+	path = tcomment_vim
+	url = git://github.com/tomtom/tcomment_vim.git
