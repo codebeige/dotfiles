@@ -87,14 +87,13 @@ nmap <D-F> :Ack
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
 " shifting indent for selection
-nmap <Tab> >>
-nmap <S-Tab> <<
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 " completion
-inoremap <A-Tab> <C-n>
-inoremap <A-S-Tab> <C-x><C-o>
+inoremap <C-o> <C-x><C-o>
 
 " change case
 nnoremap ç ~
@@ -106,7 +105,7 @@ call togglebg#map("<F5>")
 """ Bundles
 
 " nerdtree
-nmap <silent> <D-O> :NERDTreeToggle<CR>
+nmap <silent> <C-b> :NERDTreeToggle<CR>
 
 " peepopen
 map <unique> <silent> <Leader>po <Plug>PeepOpen
@@ -115,12 +114,9 @@ map <unique> <silent> <Leader>po <Plug>PeepOpen
 let g:bufExplorerShowRelativePath=1
 
 " redgreen
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsListSnippets = "<c-f>" 
+let g:UltiSnipsEditSplit    = "horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
