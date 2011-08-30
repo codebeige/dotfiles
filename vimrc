@@ -105,7 +105,8 @@ call togglebg#map("<F5>")
 """ Bundles
 
 " nerdtree
-nmap <silent> <C-b> :NERDTreeToggle<CR>
+nmap <silent> <Leader>ntt  :NERDTreeToggle<CR>
+nmap <silent> <F5>         :NERDTreeToggle<CR>
 
 " peepopen
 map <unique> <silent> <Leader>po <Plug>PeepOpen
