@@ -52,3 +52,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/makegreen"]
+	path = vim/bundle/makegreen
+	url = git://github.com/reinh/vim-makegreen.git

@@ -47,6 +47,7 @@ set directory=$HOME/.vim.swp//,.
 syntax enable
 filetype plugin indent on
 
+set makeprg=rake
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -114,8 +115,9 @@ map <unique> <silent> <Leader>po <Plug>PeepOpen
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
 
-" redgreen
+" makegreen
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+map <unique> <silent> <Leader>r :call MakeGreen()<cr>
 
 " ultisnips
 let g:UltiSnipsListSnippets = "<c-f>" 
@@ -125,3 +127,7 @@ map <Leader>use :UltiSnipsEdit<CR>
 " toggle invisibles
 map <Leader>i :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+
+" command-t
+let g:CommandTAcceptSelectionMap=['<CR>', '<Space>']
+let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
