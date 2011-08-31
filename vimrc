@@ -99,14 +99,14 @@ inoremap <C-o> <C-x><C-o>
 nnoremap ç ~
 vnoremap ç ~
 
-" toggle bg
-call togglebg#map("<F5>")
-
 """ Bundles
 
+" solarized
+call togglebg#map("<F5>")
+
 " nerdtree
-nmap <silent> <Leader>ntt  :NERDTreeToggle<CR>
-nmap <silent> <F5>         :NERDTreeToggle<CR>
+nmap <silent> <Leader>nt  :NERDTreeToggle<CR>
+nmap <silent> <F6>        :NERDTreeToggle<CR>
 
 " peepopen
 map <unique> <silent> <Leader>po <Plug>PeepOpen
@@ -121,3 +121,7 @@ let g:bufExplorerShowRelativePath=1
 let g:UltiSnipsListSnippets = "<c-f>" 
 let g:UltiSnipsEditSplit    = "horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
+	
+" toggle invisibles
+map <Leader>i :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
