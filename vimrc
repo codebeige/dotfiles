@@ -117,7 +117,7 @@ let g:bufExplorerShowRelativePath=1
 
 " makegreen
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-map <unique> <silent> <Leader>r :call MakeGreen()<cr>
+map <unique> <silent> <Leader>mg :call MakeGreen()<cr>
 
 " ultisnips
 let g:UltiSnipsListSnippets = "<c-f>" 
@@ -131,3 +131,7 @@ set listchars=tab:▸\ ,eol:¬
 " command-t
 let g:CommandTAcceptSelectionMap=['<CR>', '<Space>']
 let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
+
+" specky
+let g:speckyRunSpecCmd       = "bundle exec rspec -r ~/.vim/bundle/specky/ruby/specky_formatter.rb -f SpeckyFormatter"
+let g:speckyQuoteSwitcherKey = "<Leader>:"
