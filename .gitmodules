@@ -55,3 +55,6 @@
 [submodule "vim/bundle/makegreen"]
 	path = vim/bundle/makegreen
 	url = git://github.com/reinh/vim-makegreen.git
+[submodule "vim/bundle/rvm"]
+	path = vim/bundle/rvm
+	url = git://github.com/tpope/vim-rvm.git
