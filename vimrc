@@ -108,8 +108,10 @@ vnoremap ç ~
 call togglebg#map("<F5>")
 
 " nerdtree
+let g:NERDTreeWinSize=35
 nmap <silent> <Leader>nt  :NERDTreeToggle<CR>
 nmap <silent> <F6>        :NERDTreeToggle<CR>
+nmap <silent> <leader>ntf :NERDTreeFind<CR>
 
 " peepopen
 map <unique> <silent> <Leader>po <Plug>PeepOpen
@@ -122,7 +124,10 @@ let g:bufExplorerShowRelativePath=1
 map <unique> <silent> <Leader>mg :call MakeGreen()<cr>
 
 " ultisnips
-let g:UltiSnipsListSnippets = "<c-f>" 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets = "<a-tab>" 
 let g:UltiSnipsEditSplit    = "horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
 	
