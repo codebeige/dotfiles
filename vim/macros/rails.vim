@@ -1,2 +1,3 @@
 silent! Rlcd
-silent! Rtree | wincmd p
+" silent! Rtree
+" silent! wincmd p

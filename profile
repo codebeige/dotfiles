@@ -4,21 +4,13 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 alias redcar=wrapped_redcar
 
-alias bx='bundle exec'
-alias rails='bundle exec rails'
-alias rake='bundle exec rake'
-alias spork='bundle exec spork'
+# alias bx='bundle exec'
+# alias rails='bundle exec rails'
+# alias rake='bundle exec rake'
+# alias spork='bundle exec spork'
+# alias cap='bundle exec cap'
 
 alias gitrm='git rm $(git ls-files --deleted)'
-
-# open a new tab on Terminal with the current working dir
-function tab {
-	osascript -e "
-		tell application \"System Events\" to tell process \"Terminal\" to keystroke \"t\" using command down
-		delay 0.5
-		tell application \"Terminal\" to do script \"cd \\\"$(PWD)\\\"\" in selected tab of the front window
-	" > /dev/null 2>&1
-}
 
 # git prompt
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
@@ -45,5 +37,8 @@ else
   export PS1='\[\e[0;34m\]\u@\h:\[\e[1;34m\] \W \[\e[0m\]\$ '
 fi
 
-# load rvm
-[[ -s "/Users/tc/.rvm/scripts/rvm" ]] && source "/Users/tc/.rvm/scripts/rvm"
+# rbenv
+eval "$(rbenv init -)"
+
+# bundle-exec
+[ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh

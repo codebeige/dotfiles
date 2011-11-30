@@ -16,6 +16,30 @@ context '${1:context}' do
 end
 endsnippet
 
+snippet b "before block" b
+before do
+  $0
+end
+endsnippet
+
+snippet ba "before all block" b
+before(:all) do
+  $0
+end
+endsnippet
+
+snippet a "after block" b
+after do
+  $0
+end
+endsnippet
+
+snippet aa "after all block" b
+after(:all) do
+  $0
+end
+endsnippet
+
 snippet it "test" b
 it '${1:description}' do
   $0
@@ -35,9 +59,33 @@ snippet .shs "should have_selector" i
 endsnippet
 
 snippet shs "should have_selector" b
-${1:actual}.should have_selector('${2:expected}')
+${1:rendered}.should have_selector('${2:expected}')
+endsnippet
+
+snippet .snhs "should_not have_selector" i
+.should_not have_selector('${1:expected}')
+endsnippet
+
+snippet snhs "should_not have_selector" b
+${1:rendered}.should_not have_selector('${2:expected}')
 endsnippet
 
 snippet .srt "should route_to" i
 .should route_to(controller: '${1:controller}', action: '${2:action}'${3:, ${4:param}: '${5:value}'})
+endsnippet
+
+snippet .sbat "should be_able_to" i
+.should be_able_to(${1::manage}, ${2::all})
+endsnippet
+
+snippet sbat "should be_able_to" b
+${1:ability}.should be_able_to(${2::manage}, ${3::all})
+endsnippet
+
+snippet .snbat "should_not be_able_to" i
+.should_not be_able_to(${1::manage}, ${2::all})
+endsnippet
+
+snippet snbat "should_not be_able_to" b
+${1:ability}.should_not be_able_to(${2::manage}, ${3::all})
 endsnippet

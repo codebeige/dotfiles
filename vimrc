@@ -19,13 +19,15 @@ set number
 set numberwidth=5
 
 set wrap
-set scrolloff=3
+set linebreak
 set ruler
 
+set mouse=a
 set visualbell
 
 """ Behaviour
 set hidden
+set history=50
 
 set wildmenu
 set wildmode=list:longest
@@ -33,7 +35,6 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 
 set incsearch
-set hlsearch
 set ignorecase
 set smartcase
 
@@ -43,7 +44,6 @@ runtime macros/justify.vim
 """ File handling
 set backupdir=$HOME/.vim.bak//,.
 set directory=$HOME/.vim.swp//,.
-
 syntax enable
 filetype plugin indent on
 
@@ -57,50 +57,20 @@ set expandtab
 """ Mappings
 let mapleader=" "
 
-" swap direction for repeat f-movement commands
-nnoremap ; ,
-nnoremap , ;
-vnoremap ; ,
-vnoremap , ;
+map ß <C-]>
 
-" make German keyboard layout more useful in normal mode
-nmap ü `
-nmap Ü '
-vmap ü `
-vmap Ü `
+map ° ~
 
-nmap üü ``
-nmap ÜÜ ''
-vmap üü ``
-vmap ÜÜ ''
+map ü `
+map Ü '
+map üü ``
+map ÜÜ ''
 
-nmap ö <C-]>
-nmap ä <C-t>
-
-" searching
-nmap ß /\v
-nmap ¿ /
-nmap ? ?\v
-nmap ˙ ?
-nmap ' *
-
-nmap <D-F> :Ack 
+" toggle hlsearch
+map <Leader>hl  :set hlsearch!<cr> 
 
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
-
-" shifting indent for selection
-nnoremap <Tab> >>
-nnoremap <S-Tab> <<
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-
-" completion
-inoremap <C-o> <C-x><C-o>
-
-" change case
-nnoremap ç ~
-vnoremap ç ~
 
 """ Bundles
 
@@ -108,10 +78,11 @@ vnoremap ç ~
 call togglebg#map("<F5>")
 
 " nerdtree
+let g:NERDTreeHijackNetrw=1
 let g:NERDTreeWinSize=35
-nmap <silent> <Leader>nt  :NERDTreeToggle<CR>
 nmap <silent> <F6>        :NERDTreeToggle<CR>
 nmap <silent> <leader>ntf :NERDTreeFind<CR>
+nmap <silent> <Leader>ntt :NERDTreeToggle<CR>
 
 " peepopen
 map <unique> <silent> <Leader>po <Plug>PeepOpen
@@ -124,10 +95,7 @@ let g:bufExplorerShowRelativePath=1
 map <unique> <silent> <Leader>mg :call MakeGreen()<cr>
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsListSnippets = "<a-tab>" 
+let g:UltiSnipsListSnippets = "<s-tab>" 
 let g:UltiSnipsEditSplit    = "horizontal"
 map <Leader>use :UltiSnipsEdit<CR>
 	
@@ -142,3 +110,19 @@ let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
 " specky
 let g:speckyRunSpecCmd       = "bundle exec rspec -r ~/.vim/bundle/specky/ruby/specky_formatter.rb -f SpeckyFormatter"
 let g:speckyQuoteSwitcherKey = "<Leader>:"
+
+" bdd
+map <leader>ca  :wa<bar>!bundle exec cucumber features<cr>
+map <leader>cw  :wa<bar>!bundle exec cucumber -p wip<cr>
+map <leader>c%  :wa<bar>!bundle exec cucumber %<cr>
+
+map <leader>ra  :wa<bar>!bundle exec rspec spec<cr>
+map <leader>r%  :wa<bar>let g:RspecRecentTestFile=expand('%:p')<bar>!bundle exec rspec --format=documentation %<cr>
+map <leader>rr  :wa<bar>execute("!bundle exec rspec --format=documentation " . g:RspecRecentTestFile)<cr>
+
+" Rails stuff
+autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+
+" Change cursor in insert mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
