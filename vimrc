@@ -72,6 +72,10 @@ map <Leader>hl  :set hlsearch!<cr>
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
+" Change cursor in insert mode
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 """ Bundles
 
 " solarized
@@ -87,10 +91,6 @@ nmap <silent> <Leader>ntt :NERDTreeToggle<CR>
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
 
-" makegreen
-" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-map <unique> <silent> <Leader>mg :call MakeGreen()<cr>
-
 " ultisnips
 let g:UltiSnipsListSnippets = "<s-tab>" 
 let g:UltiSnipsEditSplit    = "horizontal"
@@ -104,9 +104,14 @@ set listchars=tab:▸\ ,eol:¬
 let g:CommandTAcceptSelectionMap=['<CR>', '<Space>']
 let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
 
-" specky
-let g:speckyRunSpecCmd       = "bundle exec rspec -r ~/.vim/bundle/specky/ruby/specky_formatter.rb -f SpeckyFormatter"
-let g:speckyQuoteSwitcherKey = "<Leader>:"
+" Rails stuff
+autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+
+" CoffeScript
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenablet
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+""" Scripts
 
 " bdd
 map <leader>ca  :wa<bar>!bundle exec cucumber features<cr>
@@ -116,14 +121,3 @@ map <leader>c%  :wa<bar>!bundle exec cucumber %<cr>
 map <leader>ra  :wa<bar>!bundle exec rspec spec<cr>
 map <leader>r%  :wa<bar>let g:RspecRecentTestFile=expand('%:p')<bar>!bundle exec rspec --format=documentation %<cr>
 map <leader>rr  :wa<bar>execute("!bundle exec rspec --format=documentation " . g:RspecRecentTestFile)<cr>
-
-" Rails stuff
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-
-" Change cursor in insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" CoffeScript
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenablet
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
