@@ -84,9 +84,6 @@ nmap <silent> <F6>        :NERDTreeToggle<CR>
 nmap <silent> <leader>ntf :NERDTreeFind<CR>
 nmap <silent> <Leader>ntt :NERDTreeToggle<CR>
 
-" peepopen
-map <unique> <silent> <Leader>po <Plug>PeepOpen
-
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
 
