@@ -66,6 +66,16 @@ map Ü '
 map üü ``
 map ÜÜ ''
 
+" simulate word blocks with pipe chars
+nnoremap di\| T\|d,
+nnoremap da\| F\|d,
+nnoremap ci\| T\|c,
+nnoremap ca\| F\|c,
+nnoremap yi\| T\|y,
+nnoremap ya\| F\|y,
+nnoremap vi\| T\|v,
+nnoremap va\| F\|v,
+
 " toggle hlsearch
 map <Leader>hl  :set hlsearch!<cr> 
 
@@ -108,7 +118,7 @@ let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
 
 " CoffeScript
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenablet
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 """ Scripts
