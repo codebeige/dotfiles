@@ -82,6 +82,17 @@ map <Leader>hl  :set hlsearch!<cr>
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
+" tabs
+map th :tabfirst<CR>
+map tj :tabnext<CR>
+map tk :tabprev<CR>
+map tl :tablast<CR>
+map tc :tabclose<CR>
+map tt :tabedit<Space>
+map tn :tabnext<Space>
+map tm :tabm<Space>
+map tv :tabedit<Space>$MYVIMRC<CR>
+
 " Change cursor in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -102,17 +113,22 @@ nmap <silent> <Leader>ntt :NERDTreeToggle<CR>
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsListSnippets = "<s-tab>" 
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsListSnippets="<F8>"
 let g:UltiSnipsEditSplit    = "horizontal"
-map <Leader>use :UltiSnipsEdit<CR>
+map <Leader>snip :UltiSnipsEdit<CR>
 	
 " toggle invisibles
 map <Leader>i :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
+" simplefold
+map <silent> <Leader>z <Plug>SimpleFold_Foldsearch
+
 " command-t
-let g:CommandTAcceptSelectionMap=['<CR>', '<Space>']
-let g:CommandTAcceptSelectionSplitMap=['<C-s>', '<C-CR>', '<M-Space>']
+nnoremap <silent> <Leader>f :CommandT<CR>
 
 " Rails stuff
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
@@ -120,6 +136,9 @@ autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.r
 " CoffeScript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+" delimitMate
+let g:delimitMate_excluded_regions=""
 
 """ Scripts
 
