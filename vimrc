@@ -118,7 +118,7 @@ let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 let g:UltiSnipsListSnippets="<F8>"
 let g:UltiSnipsEditSplit    = "horizontal"
-map <Leader>snip :UltiSnipsEdit<CR>
+map <Leader>sne :UltiSnipsEdit<CR>
 	
 " toggle invisibles
 map <Leader>i :set list!<CR>
@@ -129,6 +129,8 @@ map <silent> <Leader>z <Plug>SimpleFold_Foldsearch
 
 " command-t
 nnoremap <silent> <Leader>f :CommandT<CR>
+let g:CommandTAcceptSelectionMap=['<CR>']
+let g:CommandTAcceptSelectionSplitMap=['<C-i>']
 
 " Rails stuff
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
