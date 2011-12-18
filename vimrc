@@ -147,6 +147,12 @@ au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 " delimitMate
 let g:delimitMate_excluded_regions=""
 
+" SQL
+let g:sql_type_default       = 'pgsql'
+let g:dbext_default_type     = 'PGSQL'
+let g:ftplugin_sql_omni_key  = '<C-x>'
+let g:omni_sql_include_owner = 0
+
 """ Scripts
 
 " bdd
