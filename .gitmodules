@@ -13,9 +13,6 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://github.com/wincent/Command-T.git
 [submodule "vim/bundle/dirdiff"]
 	path = vim/bundle/dirdiff
 	url = git://github.com/vim-scripts/DirDiff.vim.git

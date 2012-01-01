@@ -145,7 +145,9 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " delimitMate
-let g:delimitMate_excluded_regions=""
+let g:delimitMate_excluded_regions = ""
+let g:delimitMate_expand_space     = 1
+let g:delimitMate_expand_cr        = 1
 
 " SQL
 let g:sql_type_default       = 'pgsql'
@@ -153,7 +155,7 @@ let g:dbext_default_type     = 'PGSQL'
 let g:ftplugin_sql_omni_key  = '<C-x>'
 let g:omni_sql_include_owner = 0
 
-""" Scripts
+""" Scripts & commands
 
 " bdd
 map <leader>ca  :wa<bar>!bundle exec cucumber features<cr>
@@ -163,3 +165,21 @@ map <leader>c%  :wa<bar>!bundle exec cucumber %<cr>
 map <leader>ra  :wa<bar>!bundle exec rspec spec<cr>
 map <leader>r%  :wa<bar>let g:RspecRecentTestFile=expand('%:p')<bar>!bundle exec rspec --format=documentation %<cr>
 map <leader>rr  :wa<bar>execute("!bundle exec rspec --format=documentation " . g:RspecRecentTestFile)<cr>
+
+" project vimrc
+if !exists('loaded_vimrc')
+  function! s:SourceVimrc()
+    let s:local_vimrc = getcwd() . '/.vimrc'
+    if s:local_vimrc != $MYVIMRC && filereadable(s:local_vimrc) 
+      exec 'source' . s:local_vimrc
+    endif
+  endfunction
+
+  command! Vimrc :call <SID>SourceVimrc()
+  augroup vimrc
+    autocmd!
+    autocmd BufEnter * :Vimrc 
+  augroup END
+
+  let loaded_vimrc = 1
+endif
