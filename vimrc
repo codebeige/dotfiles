@@ -114,11 +114,11 @@ let g:bufExplorerShowRelativePath=1
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<F8>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsListSnippets="<S-Tab>"
 let g:UltiSnipsEditSplit    = "horizontal"
-map <Leader>sne :UltiSnipsEdit<CR>
+map <Leader>use :UltiSnipsEdit<CR>
 	
 " toggle invisibles
 map <Leader>i :set list!<CR>
@@ -155,7 +155,15 @@ let g:dbext_default_type     = 'PGSQL'
 let g:ftplugin_sql_omni_key  = '<C-x>'
 let g:omni_sql_include_owner = 0
 
-""" Scripts & commands
+" Markdown Preview
+" let g:MarkdownPreviewTMP           = '~/.vim/bundle/markdown-preview/tmp/'
+" let g:MarkdownPreviewDefaultStyles = '~/.vim/bundle/markdown-preview/stylesheets/'
+" let g:MarkdownPreviewDefaultTheme    = 'readable'
+let g:MarkdownPreviewAlwaysOpen      = 1
+
+autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown map <buffer> <leader>b :MDP<CR>
+
+"" Scripts & commands
 
 " bdd
 map <leader>ca  :wa<bar>!bundle exec cucumber features<cr>
@@ -165,21 +173,3 @@ map <leader>c%  :wa<bar>!bundle exec cucumber %<cr>
 map <leader>ra  :wa<bar>!bundle exec rspec spec<cr>
 map <leader>r%  :wa<bar>let g:RspecRecentTestFile=expand('%:p')<bar>!bundle exec rspec --format=documentation %<cr>
 map <leader>rr  :wa<bar>execute("!bundle exec rspec --format=documentation " . g:RspecRecentTestFile)<cr>
-
-" project vimrc
-if !exists('loaded_vimrc')
-  function! s:SourceVimrc()
-    let s:local_vimrc = getcwd() . '/.vimrc'
-    if s:local_vimrc != $MYVIMRC && filereadable(s:local_vimrc) 
-      exec 'source' . s:local_vimrc
-    endif
-  endfunction
-
-  command! Vimrc :call <SID>SourceVimrc()
-  augroup vimrc
-    autocmd!
-    autocmd BufEnter * :Vimrc 
-  augroup END
-
-  let loaded_vimrc = 1
-endif
