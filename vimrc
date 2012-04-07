@@ -114,11 +114,11 @@ let g:bufExplorerShowRelativePath=1
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-let g:UltiSnipsListSnippets="<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+let g:UltiSnipsListSnippets="<C-Tab>"
 let g:UltiSnipsEditSplit    = "horizontal"
-map <Leader>use :UltiSnipsEdit<CR>
+map <Leader>snip :UltiSnipsEdit<CR>
 	
 " toggle invisibles
 map <Leader>i :set list!<CR>
