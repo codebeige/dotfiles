@@ -155,13 +155,8 @@ let g:dbext_default_type     = 'PGSQL'
 let g:ftplugin_sql_omni_key  = '<C-x>'
 let g:omni_sql_include_owner = 0
 
-" Markdown Preview
-" let g:MarkdownPreviewTMP           = '~/.vim/bundle/markdown-preview/tmp/'
-" let g:MarkdownPreviewDefaultStyles = '~/.vim/bundle/markdown-preview/stylesheets/'
-" let g:MarkdownPreviewDefaultTheme    = 'readable'
-let g:MarkdownPreviewAlwaysOpen      = 1
-
-autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown map <buffer> <leader>b :MDP<CR>
+" Hammer
+autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<CR>
 
 "" Scripts & commands
 
@@ -173,3 +168,6 @@ map <leader>c%  :wa<bar>!bundle exec cucumber %<cr>
 map <leader>ra  :wa<bar>!bundle exec rspec spec<cr>
 map <leader>r%  :wa<bar>let g:RspecRecentTestFile=expand('%:p')<bar>!bundle exec rspec --format=documentation %<cr>
 map <leader>rr  :wa<bar>execute("!bundle exec rspec --format=documentation " . g:RspecRecentTestFile)<cr>
+
+" RagTag
+let g:ragtag_global_maps = 1
