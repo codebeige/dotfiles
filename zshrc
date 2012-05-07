@@ -36,3 +36,6 @@ export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 
 alias cdd='cd ~/dev'
 alias cdl='cd ~/lab'
+
+bindkey -M viins '^ä' vi-cmd-mode
+bindkey -M viins '^ ' vi-cmd-mode
