@@ -40,7 +40,7 @@ word = vim.eval('expand("<cword>")')
 def launchDoc(filename):
     docfile = path.join(basepath, filename)
     if path.exists(docfile) and path.isfile(docfile):
-        webbrowser.open(docfile)
+        webbrowser.open("file://" + docfile)
         return True
     return False
 

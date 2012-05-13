@@ -156,3 +156,7 @@ let g:ragtag_global_maps = 1
 
 " bdd
 autocmd BufNewFile,BufReadPost *.coffee map <leader>b :wa<bar>:silent !rake browser<cr>
+
+" processing
+let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
+autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
