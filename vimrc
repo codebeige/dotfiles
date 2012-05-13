@@ -83,6 +83,9 @@ map <Leader>hl  :set hlsearch!<cr>
 " clear recent search
 nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
 
+" insert line delimiter and enter newline
+autocmd BufNewFile,BufReadPost *.pde,*.js map <leader><cr> A;<esc>
+
 " path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set path+=test/**,spec/**,app/**,lib/**,config/**
