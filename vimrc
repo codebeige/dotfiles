@@ -67,7 +67,7 @@ map ° ~
 map ö [
 map ä ]
 
-map <leader>cc :cclose<cr>
+map <leader>q :cclose<cr>
 
 " simulate word blocks with pipe chars
 nnoremap di\| T\|d,
@@ -136,6 +136,9 @@ autocmd User Rails Rnavcommand sass app/assets/stylesheets -glob=**/* -suffix=.s
 autocmd User Rails Rnavcommand feature features -suffix=.feature
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
 autocmd User Rails map <leader>r :Rake<cr>
+
+" Rake
+autocmd User Rake map <leader>r :Rake<cr>
 
 " CoffeScript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
