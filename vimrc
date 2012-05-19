@@ -37,7 +37,7 @@ set backspace=indent,eol,start
 set incsearch
 set ignorecase
 set smartcase
-set hlsearch
+set nohlsearch
 
 runtime macros/matchit.vim
 runtime macros/justify.vim
@@ -59,8 +59,8 @@ set expandtab
 let mapleader=","
 
 " do not use esc
-noremap  <C-ä>  <Esc>
-noremap! <C-ä>  <Esc>
+noremap  <c-ä>  <esc>
+noremap! <c-ä>  <esc>
  
 map ° ~
 
@@ -80,10 +80,10 @@ nnoremap vi\| T\|v,
 nnoremap va\| F\|v,
 
 " toggle hlsearch
-map <Leader>hl  :set hlsearch!<cr> 
+map <leader>hl  :set hlsearch!<cr> 
 
 " clear recent search
-nnoremap <silent> <Leader><BS> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <leader><bs> :nohlsearch<bar>:echo<cr>
 
 " insert line delimiter and enter newline
 autocmd BufNewFile,BufReadPost *.pde,*.js map <leader><cr> A;<esc>
@@ -93,38 +93,40 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 set path+=test/**,spec/**,app/**,lib/**,config/**
 
 " Change cursor in insert mode
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<esc>]50;CursorShape=1\x7"
+let &t_EI = "\<esc>]50;CursorShape=0\x7"
 
 """ Bundles
 
 " solarized
-call togglebg#map("<F5>")
+call togglebg#map("<f5>")
 
 " nerdtree
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeWinSize=50
-nmap <silent> <F6>        :NERDTreeToggle<CR>
-nmap <silent> <Leader>tt  :NERDTreeToggle<CR>
-nmap <silent> <leader>tf  :NERDTreeFind<CR>
+nmap <silent> <f6>        :NERDTreeToggle<cr>
+nmap <silent> <leader>tt  :NERDTreeToggle<cr>
+nmap <silent> <leader>tf  :NERDTreeFind<cr>
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-let g:UltiSnipsListSnippets="<C-Tab>"
-let g:UltiSnipsEditSplit    = "horizontal"
-map <Leader>snip :UltiSnipsEdit<CR>
+let g:UltiSnipsSnippetDirectories = ["snippets"]
+let g:UltiSnipsEditSplit          = "horizontal"
 	
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsListSnippets        = "<s-tab>"
+map <leader><tab> :UltiSnipsEdit<cr>
+
 " toggle invisibles
-map <Leader>i :set list!<CR>
+map <leader>i :set list!<cr>
 set listchars=tab:▸\ ,eol:¬
 
 " simplefold
-map <silent> <Leader>z <Plug>SimpleFold_Foldsearch
+map <silent> <leader>z <plug>SimpleFold_Foldsearch
 
 " ctrlP
 let g:ctrlp_mruf_exclude='/tmp/.*\|/temp/.*'
@@ -146,19 +148,19 @@ autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
 " Smartinput
 call smartinput#map_to_trigger('i', '#', '#', '#')
-call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<Left>', 'filetype': ['ruby', 'coffee'], 'syntax': ['Constant', 'Special']})
+call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby', 'coffee'], 'syntax': ['Constant', 'Special']})
 
-call smartinput#map_to_trigger('i', '<Bar>', '<Bar>', '<Bar>')
-call smartinput#define_rule({'at': '\({\|\<do\>\)\s*\%#', 'char': '<Bar>', 'input': '<Bar><Bar><Left>', 'filetype': ['ruby']})
+call smartinput#map_to_trigger('i', '<bar>', '<bar>', '<bar>')
+call smartinput#define_rule({'at': '\({\|\<do\>\)\s*\%#', 'char': '<bar>', 'input': '<bar><bar><left>', 'filetype': ['ruby']})
 
 " SQL
 let g:sql_type_default       = 'pgsql'
 let g:dbext_default_type     = 'PGSQL'
-let g:ftplugin_sql_omni_key  = '<C-x>'
+let g:ftplugin_sql_omni_key  = '<c-x>'
 let g:omni_sql_include_owner = 0
 
 " Hammer
-autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<CR>
+autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<cr>
 
 " RagTag
 let g:ragtag_global_maps = 1
@@ -171,3 +173,6 @@ autocmd BufNewFile,BufReadPost *.coffee map <leader>b :wa<bar>:silent !rake brow
 " processing
 let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
 autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
+
+" ruby specs
+autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.spec
