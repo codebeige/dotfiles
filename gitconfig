@@ -30,3 +30,5 @@
 	amend = commit --amend
 	aa = add --all
 	ctags = !.git/hooks/ctags
+[init]
+	templatedir = ~/.git_template
