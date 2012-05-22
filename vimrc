@@ -178,3 +178,6 @@ autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.minispec
 
 " ctags
 map <leader>ü !ctags -R --exclude=.git --languages=-javascript,sql<cr>
+
+" tagbar
+nmap <f8> :TagbarToggle<cr>
