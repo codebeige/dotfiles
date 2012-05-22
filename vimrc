@@ -57,15 +57,12 @@ set expandtab
 
 """ Mappings
 let mapleader=","
-
-" do not use esc
-noremap  <c-ä>  <esc>
-noremap! <c-ä>  <esc>
  
 map ° ~
 
 map ö [
 map ä ]
+" remember: <c-ü> behaves like <c-]>
 
 map <leader>q :cclose<cr>
 
@@ -112,7 +109,7 @@ nmap <silent> <leader>tf  :NERDTreeFind<cr>
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsSnippetDirectories = ["snippets"]
+let g:UltiSnipsSnippetDirectories = ["snippets","UltiSnips"]
 let g:UltiSnipsEditSplit          = "horizontal"
 	
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -138,6 +135,8 @@ autocmd User Rails Rnavcommand sass app/assets/stylesheets -glob=**/* -suffix=.s
 autocmd User Rails Rnavcommand feature features -suffix=.feature
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
 autocmd User Rails map <leader>r :Rake<cr>
+autocmd User Rails/**/*.rb setlocal filetype=ruby.rails
+autocmd User Rails/spec/**/*_spec.rb setlocal filetype=ruby.rails.minispec
 
 " Rake
 autocmd User Rake map <leader>r :Rake<cr>
@@ -175,4 +174,7 @@ let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/mo
 autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
 
 " ruby specs
-autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.spec
+autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.minispec
+
+" ctags
+map <leader>ü !ctags -R --exclude=.git --languages=-javascript,sql<cr>

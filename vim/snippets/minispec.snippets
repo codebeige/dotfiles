@@ -1,0 +1,44 @@
+snippet rqh "require helper" b
+require "spec_helper"
+
+$0
+endsnippet
+
+snippet d "describe" b
+describe ${1:"${2:subject}"} do
+  $0
+end
+endsnippet
+
+snippet c "context" b
+context ${1:"${2:context}"} do
+  $0
+end
+endsnippet
+
+snippet b "before block" b
+before do
+  $0
+end
+endsnippet
+
+snippet a "after block" b
+after do
+  $0
+end
+endsnippet
+
+snippet i "spec" b
+it "${1:description}" do
+  $0
+end
+endsnippet
+
+snippet .me "must_equal" i
+.must_equal ${1:expected}
+endsnippet
+
+
+snippet .we "wont_equal" i
+.wont_equal ${1:expected}
+endsnippet

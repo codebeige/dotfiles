@@ -29,3 +29,4 @@
 	dc = diff --cached
 	amend = commit --amend
 	aa = add --all
+	ctags = !.git/hooks/ctags

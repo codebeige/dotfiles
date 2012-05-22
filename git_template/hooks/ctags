@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+rm -rf tags
+ctags --tag-relative -R --exclude=.git --languages=-javascript,sql

@@ -43,3 +43,5 @@ eval "$(rbenv init -)"
 
 # bundle-exec
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
+export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH
