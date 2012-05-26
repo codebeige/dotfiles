@@ -113,7 +113,7 @@ nmap <silent> <leader>tf  :NERDTreeFind<cr>
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsSnippetDirectories = ["snippets","UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 let g:UltiSnipsEditSplit          = "horizontal"
 	
 let g:UltiSnipsExpandTrigger       = "<tab>"
