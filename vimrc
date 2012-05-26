@@ -39,6 +39,10 @@ set ignorecase
 set smartcase
 set nohlsearch
 
+set infercase
+" set spell
+set spelllang=en_us
+
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
