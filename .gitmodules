@@ -115,3 +115,6 @@
 [submodule "vim/bundle/nodelint"]
 	path = vim/bundle/nodelint
 	url = https://github.com/bigfish/vim-nodelint.git
+[submodule "vim/bundle/processing"]
+	path = vim/bundle/processing
+	url = https://github.com/sophacles/vim-processing.git

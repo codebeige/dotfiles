@@ -97,6 +97,11 @@ set path+=test/**,spec/**,app/**,lib/**,config/**
 let &t_SI = "\<esc>]50;CursorShape=1\x7"
 let &t_EI = "\<esc>]50;CursorShape=0\x7"
 
+" OmniCompletion
+if has("autocmd") && exists("+omnifunc")            
+  autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+endif
+
 """ Bundles
 
 " solarized
