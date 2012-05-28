@@ -121,6 +121,3 @@
 [submodule "vim/bundle/javacomplete"]
 	path = vim/bundle/javacomplete
 	url = https://github.com/vim-scripts/javacomplete.git
-[submodule "vim/bundle/jcommenter"]
-	path = vim/bundle/jcommenter
-	url = https://github.com/vim-scripts/jcommenter.vim.git
