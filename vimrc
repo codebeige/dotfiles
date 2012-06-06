@@ -64,9 +64,15 @@ let mapleader=","
  
 map ° ~
 
+nnoremap ' `
+nnoremap ` '
+nnoremap ´ '
+
 map ö [
 map ä ]
+
 " remember: <c-ü> behaves like <c-]>
+" remember: <c-ä> behaves like <esc>
 
 map <leader>q :cclose<cr>
 
