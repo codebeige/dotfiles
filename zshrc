@@ -26,7 +26,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx ruby bundler brew pow powder rails3 vi-mode node npm)
+plugins=(git git-flow osx ruby bundler brew pow powder rails3 vi-mode node npm)
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/themes/codebeige.zsh-theme # source theme ourselves until themes in custom folder are fully supported
