@@ -46,6 +46,10 @@ set spelllang=en_us
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
+au VimEnter * NoMatchParen
+nmap ,nmp :NoMatchParen<cr>
+nmap ,dmp :DoMatchParen<cr>
+
 """ File handling
 set backupdir=$HOME/.vim.bak//,.
 set directory=$HOME/.vim.swp//,.
