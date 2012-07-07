@@ -193,7 +193,7 @@ let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/mo
 autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
 
 " ruby specs
-autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.minispec
+" autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.spec
 
 " ctags
 map <leader>ü !ctags -R --exclude=.git --languages=-javascript,sql<cr>
