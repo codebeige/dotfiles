@@ -1,0 +1,34 @@
+snippet fea "Feature" b
+Feature: ${1:`!p snip.rv = re.sub("_", " ", snip.basename)`}
+  In order to ${2:value}
+  As a ${3:role}
+  I want to ${4:feature}
+
+  $0
+endsnippet
+
+snippet b "Background" b
+Background:
+  Given ${1:context}
+endsnippet
+
+snippet s "Scenario" b
+Scenario: ${1:title}
+  $0
+endsnippet
+
+snippet g "Given" b
+Given ${1:context}
+endsnippet
+
+snippet w "When" b
+When ${1:action}
+endsnippet
+
+snippet t "Then" b
+Then ${1:outcome}
+endsnippet
+
+snippet a "And" b
+And ${1:supplement}
+endsnippet

@@ -31,7 +31,10 @@ plugins=(git git-flow osx ruby bundler brew pow powder rails3 vi-mode node npm)
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/themes/codebeige.zsh-theme # source theme ourselves until themes in custom folder are fully supported
 
-export EDITOR='/usr/local/bin/vim'
+unsetopt correct_all
+setopt correct
+
+export EDITOR='vim'
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 
 alias cdd='cd ~/dev'

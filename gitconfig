@@ -34,3 +34,7 @@
 	templatedir = ~/.git_template
 [credential]
 	helper = osxkeychain
+#[push]
+#	default = simple
+[push]
+	default = simple

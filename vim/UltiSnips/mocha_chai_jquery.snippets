@@ -1,0 +1,51 @@
+snippet .sh "should have" i
+.should.have "${1:selector}"
+endsnippet
+
+snippet .snh "should not have" i
+.should.not.have "${1:selector}"
+endsnippet
+
+snippet .shc "should have class" i
+.should.have.class "${1:class}"
+endsnippet
+
+snippet .sht "should have text" i
+.should.have.text "${1:class}"
+endsnippet
+
+snippet .sm "should match" i
+.should.match "${1:selector}"
+endsnippet
+
+snippet .shl "should have length" i
+.should.have.length ${1:0}
+endsnippet
+
+snippet .shp "should have property" i
+.should.have.property "${1:prop}"${2:, ${3:value}}
+endsnippet
+
+snippet .shdp "should have deep property" i
+.should.have.deep.property "${1:prop}"${2:, ${3:value}}
+endsnippet
+
+snippet .sne "should exist" i
+.should.exist
+endsnippet
+
+snippet .sne "should not exist" i
+.should.not.exist
+endsnippet
+
+snippet .sbt "should be true" i
+.should.be.true
+endsnippet
+
+snippet .sbf "should be false" i
+.should.be.false
+endsnippet
+
+snippet .sbn "should be null" i
+.should.be.null
+endsnippet

@@ -1,17 +1,17 @@
 snippet sh "require spec_helper" b
-require 'spec_helper'
+require "spec_helper"
 
 $0
 endsnippet
 
 snippet d "describe" b
-describe '${1:context}' do
+describe ${1:"${2:context}"} do
   $0
 end
 endsnippet
 
 snippet c "context" b
-context '${1:context}' do
+context "${1:context}" do
   $0
 end
 endsnippet
@@ -22,28 +22,24 @@ before do
 end
 endsnippet
 
-snippet ba "before all block" b
-before(:all) do
-  $0
-end
-endsnippet
-
 snippet a "after block" b
 after do
   $0
 end
 endsnippet
 
-snippet aa "after all block" b
-after(:all) do
+snippet i "test" b
+it "${1:description}" do
   $0
 end
 endsnippet
 
-snippet it "test" b
-it '${1:description}' do
-  $0
-end
+snippet s "should" b
+${1:actual}.should ${2:==} ${3:expected}
+endsnippet
+
+snippet .s "should" i
+.should ${1:==} ${2:expected}
 endsnippet
 
 snippet .s= "should ==" i
@@ -55,23 +51,23 @@ ${1:actual}.should == ${2:expected}
 endsnippet
 
 snippet .shs "should have_selector" i
-.should have_selector('${1:expected}')
+.should have_selector("${1:expected}")
 endsnippet
 
 snippet shs "should have_selector" b
-${1:rendered}.should have_selector('${2:expected}')
+${1:rendered}.should have_selector("${2:expected}")
 endsnippet
 
 snippet .snhs "should_not have_selector" i
-.should_not have_selector('${1:expected}')
+.should_not have_selector("${1:expected}")
 endsnippet
 
 snippet snhs "should_not have_selector" b
-${1:rendered}.should_not have_selector('${2:expected}')
+${1:rendered}.should_not have_selector("${2:expected}")
 endsnippet
 
 snippet .srt "should route_to" i
-.should route_to(controller: '${1:controller}', action: '${2:action}'${3:, ${4:param}: '${5:value}'})
+.should route_to(controller: "${1:controller}", action: "${2:action}"${3:, ${4:param}: "${5:value}"})
 endsnippet
 
 snippet .sbat "should be_able_to" i

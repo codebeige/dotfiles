@@ -1,0 +1,28 @@
+snippet .b "been" i
+.been
+endsnippet
+
+snippet .co "calledOnce" i
+.calledOnce
+endsnippet
+
+snippet .cw "calledWith" i
+.calledWith
+endsnippet
+
+snippet .shbco "should.have.been.calledOnce" i
+.should.have.been.calledOnce
+endsnippet
+
+snippet .shbcw "should.have.been.calledWith" i
+.should.have.been.calledWith ${1:arguments}
+endsnippet
+
+snippet .snhbc "should not have been called" i
+.should.not.have.been.called
+endsnippet
+
+snippet xhr "use XMLHttpFakeRequest" b
+@xhr = sinon.useFakeXMLHttpRequest()
+@xhr.onCreate = (@request) =>
+endsnippet

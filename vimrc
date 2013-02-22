@@ -51,6 +51,7 @@ nmap ,nmp :NoMatchParen<cr>
 nmap ,dmp :DoMatchParen<cr>
 
 """ File handling
+set noswapfile
 set backupdir=$HOME/.vim.bak//,.
 set directory=$HOME/.vim.swp//,.
 syntax enable
@@ -62,6 +63,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+""" Clipboard
+" set clipboard=unnamed
 
 """ Mappings
 let mapleader=","
@@ -77,6 +81,7 @@ map ä ]
 
 " remember: <c-ü> behaves like <c-]>
 " remember: <c-ä> behaves like <esc>
+" remember: <c-6> behaves like <c-^>
 
 map <leader>q :cclose<cr>
 
@@ -154,8 +159,8 @@ autocmd User Rails Rnavcommand sass app/assets/stylesheets -glob=**/* -suffix=.s
 autocmd User Rails Rnavcommand feature features -suffix=.feature
 autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
 autocmd User Rails map <leader>r :Rake<cr>
-autocmd User Rails/**/*.rb setlocal filetype=ruby.rails
-autocmd User Rails/spec/**/*_spec.rb setlocal filetype=ruby.rails.minispec
+autocmd User Rails/**/*.rb UltiSnipsAddFiletypes rails.ruby
+autocmd User Rails/spec/**/*_spec.rb UltiSnipsAddFiletypes rspec.rails.ruby
 
 " Rake
 autocmd User Rake map <leader>r :Rake<cr>
@@ -163,10 +168,11 @@ autocmd User Rake map <leader>r :Rake<cr>
 " CoffeScript
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
 
 " Smartinput
 call smartinput#map_to_trigger('i', '#', '#', '#')
-call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby', 'coffee'], 'syntax': ['Constant', 'Special']})
+call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby'], 'syntax': ['Constant', 'Special']})
 
 call smartinput#map_to_trigger('i', '<bar>', '<bar>', '<bar>')
 call smartinput#define_rule({'at': '\({\|\<do\>\)\s*\%#', 'char': '<bar>', 'input': '<bar><bar><left>', 'filetype': ['ruby']})
@@ -185,18 +191,40 @@ let g:ragtag_global_maps = 1
 
 "" Scripts & commands
 
-" bdd
-autocmd BufNewFile,BufReadPost *.coffee map <leader>b :wa<bar>:silent !rake browser<cr>
-
 " processing
 let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
 autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
-
-" ruby specs
-" autocmd BufNewFile,BufReadPost *_spec.rb set filetype=ruby.spec
 
 " ctags
 map <leader>ü !ctags -R --exclude=.git --languages=-javascript,sql<cr>
 
 " tagbar
 nmap <f8> :TagbarToggle<cr>
+
+" HAML assets
+autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
+
+" Spinach
+autocmd User Rails/features/*.feature  let b:rails_alternate = substitute(rails#buffer().path() , 'features/\(.*\)\.feature' , 'features/steps/\1.rb' , '')
+autocmd User Rails/features/steps/*.rb let b:rails_alternate = substitute(rails#buffer().path() , 'features/steps/\(.*\)\.rb' , 'features/\1.feature' , '')
+autocmd User Rails/features/*          let b:rails_related   = b:rails_root . '/features/support/env.rb'
+autocmd User Rails/features/*.feature  nmap <buffer> <leader>sc :execute '!spinach' rails#buffer().path()<cr>
+autocmd User Rails/features/steps/*.rb nmap <buffer> <leader>sc :execute '!spinach' b:rails_alternate<cr>
+autocmd User Rails/features/*          nmap <buffer> <leader>sw :execute '!rake' 'spinach:wip'<cr>
+autocmd User Rails/features/*.feature  let b:rails_alternate = substitute(rails#buffer().path() , 'features/\(.*\)\.feature' , 'features/steps/\1.rb' , '')
+autocmd User Rails/features/*.feature  UltiSnipsAddFiletypes gherkin
+
+" Backbone development
+autocmd User Rails/app/*.js.coffee       let b:rails_alternate = substitute(rails#buffer().path() , 'app/\(.*\)\.js\.coffee'            , 'spec/\1_spec.js.coffee' , '')
+autocmd User Rails/spec/*_spec.js.coffee let b:rails_alternate = substitute(rails#buffer().path() , 'spec/\(.*\)_spec\.js\.coffee'      , 'app/\1.js.coffee'       , '')
+autocmd User Rails/app/*_view.js.coffee  let b:rails_related   = substitute(rails#buffer().path() , 'app/views/\(.*\)_view\.js\.coffee' , 'app/templates/\1.hamlc' , '')
+
+" Konacha
+autocmd User Rails/spec/*_spec.js.coffee let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/spec/\(.*\)_spec\.js\.coffee' , 'http://localhost:3500/\1' , '' )
+autocmd User Rails/app/*.js.coffee       let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/app/\(.*\)\.js\.coffee'       , 'http://localhost:3500/\1' , '' )
+autocmd User Rails/*.js.coffee nmap <buffer> <leader>kr :execute '!open' '-a "Google Chrome"' b:konacha_url<bar>!osascript -e 'tell application "iTerm" to activate'<cr>:redraw!<cr>
+autocmd User Rails/*.js.coffee nmap <buffer> <leader>ko :execute '!open' '-a "Google Chrome"' b:konacha_url<cr><cr>
+autocmd User Rails/*.js.coffee nmap <buffer> <leader>ka :!open http://localhost:3500<cr><cr>
+
+" disable automatic linebreaks
+autocmd FileType vim set textwidth=0
