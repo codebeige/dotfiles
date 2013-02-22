@@ -127,3 +127,6 @@
 [submodule "vim/bundle/ruby-minitest"]
 	path = vim/bundle/ruby-minitest
 	url = https://github.com/sunaku/vim-ruby-minitest.git
+[submodule "vim/bundle/markdown-folding"]
+	path = vim/bundle/markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding.git
