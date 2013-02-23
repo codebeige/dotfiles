@@ -1,7 +1,7 @@
 " Make it a real vim
 set nocompatible
 
-" Load bundles
+""" Load bundles
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
 
@@ -166,9 +166,9 @@ autocmd User Rails/spec/**/*_spec.rb UltiSnipsAddFiletypes rspec.rails.ruby
 autocmd User Rake map <leader>r :Rake<cr>
 
 " CoffeScript
-autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
+autocmd BufNewFile,BufReadPost *.coffee normal zR
 
 " Smartinput
 call smartinput#map_to_trigger('i', '#', '#', '#')
@@ -189,7 +189,7 @@ autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map 
 " RagTag
 let g:ragtag_global_maps = 1
 
-"" Scripts & commands
+""" Scripts & commands
 
 " processing
 let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
@@ -228,3 +228,5 @@ autocmd User Rails/*.js.coffee nmap <buffer> <leader>ka :!open http://localhost:
 
 " disable automatic linebreaks
 autocmd FileType vim set textwidth=0
+
+" vim: set fdm=expr fde=getline(v\:lnum)=~'"""'?'>1'\:'=':
