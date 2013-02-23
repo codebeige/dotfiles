@@ -2,6 +2,7 @@
 set nocompatible
 
 """ Load bundles
+runtime bundle/pathogen/autoload/pathogen.vim
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
 
