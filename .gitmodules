@@ -139,3 +139,6 @@
 [submodule "vim/bundle/zoomwin"]
 	path = vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/tortoise-typing"]
+	path = vim/bundle/tortoise-typing
+	url = https://github.com/thanthese/Tortoise-Typing.git
