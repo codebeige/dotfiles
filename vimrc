@@ -126,9 +126,8 @@ call togglebg#map("<f5>")
 " nerdtree
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeWinSize=50
-nmap <silent> <f6>        :NERDTreeToggle<cr>
-nmap <silent> <leader>tt  :NERDTreeToggle<cr>
-nmap <silent> <leader>tf  :NERDTreeFind<cr>
+nmap <silent> <leader>dt  :NERDTreeToggle<cr>
+nmap <silent> <leader>df  :NERDTreeFind<cr>
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
@@ -197,10 +196,11 @@ let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/mo
 autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
 
 " ctags
-map <leader>ü !ctags -R --exclude=.git --languages=-javascript,sql<cr>
+map <leader>ü !ctags -R<cr>
 
 " tagbar
-nmap <f8> :TagbarToggle<cr>
+nmap <leader>to :TagbarOpenAutoClose<cr>
+nmap <leader>tt :TagbarToggle<cr>
 
 " HAML assets
 autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
