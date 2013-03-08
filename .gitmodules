@@ -142,3 +142,6 @@
 [submodule "vim/bundle/tortoise-typing"]
 	path = vim/bundle/tortoise-typing
 	url = https://github.com/thanthese/Tortoise-Typing.git
+[submodule "vim/bundle/ag"]
+	path = vim/bundle/ag
+	url = https://github.com/rking/ag.vim.git
