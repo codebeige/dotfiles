@@ -150,6 +150,7 @@ set listchars=tab:▸\ ,eol:¬
 map <silent> <leader>z <plug>SimpleFold_Foldsearch
 
 " ctrlP
+let g:ctrlp_custom_ignore = '\v[\/]stats$'
 let g:ctrlp_mruf_exclude='/tmp/.*\|/temp/.*'
 let g:ctrlp_dotfiles=0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir']
