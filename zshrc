@@ -25,12 +25,11 @@ ZSH_THEME="codebeige"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow osx ruby bundler brew pow powder rails3 rake rbenv vi-mode node npm coffee)
+plugins=(git git-extras git-flow osx ruby bundler brew pow powder rails3 rake rbenv vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
 
-unsetopt correct_all
-setopt correct
+setopt nocorrectall correct nobeep rmstarwait
 
 bindkey -M viins '^ä' vi-cmd-mode
 
@@ -41,6 +40,6 @@ export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
 
-
 alias cdd='cd ~/dev'
 alias cdl='cd ~/lab'
+alias cdot='cd ~/Dropbox/dotfiles'
