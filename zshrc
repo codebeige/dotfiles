@@ -1,12 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="codebeige"
+ZSH_THEME="codebeige"
 
 
 # Set to this to use case-sensitive completion
@@ -26,19 +25,22 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow osx ruby bundler brew pow powder rails3 vi-mode node npm)
+plugins=(git git-flow osx ruby bundler brew pow powder rails3 rake rbenv vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH_CUSTOM/themes/codebeige.zsh-theme # source theme ourselves until themes in custom folder are fully supported
 
 unsetopt correct_all
 setopt correct
 
+bindkey -M viins '^ä' vi-cmd-mode
+
 export EDITOR='vim'
+export PROCESSING_HOME=$HOME/lab/processing
+export MAVEN_OPTS="-Xmx1024m"
+export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
+export NODE_PATH="/usr/local/lib/node"
+
 
 alias cdd='cd ~/dev'
 alias cdl='cd ~/lab'
-
-bindkey -M viins '^ä' vi-cmd-mode
-bindkey -M viins '^ ' vi-cmd-mode

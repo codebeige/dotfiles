@@ -94,7 +94,7 @@ nnoremap ca\| F\|c,
 nnoremap yi\| T\|y,
 nnoremap ya\| F\|y,
 nnoremap vi\| T\|v,
-nnoremap va\| F\|v,
+nnoremap va\| F\|v,https://github.com/rking/ag.vim.git
 
 " toggle hlsearch
 map <leader>hl  :set hlsearch!<cr> 
@@ -172,8 +172,8 @@ autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coff
 autocmd BufNewFile,BufReadPost *.coffee normal zR
 
 " Smartinput
-call smartinput#map_to_trigger('i', '#', '#', '#')
-call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby'], 'syntax': ['Constant', 'Special']})
+" call smartinput#map_to_trigger('i', '#', '#', '#')
+" call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby'], 'syntax': ['Constant', 'Special']})
 
 call smartinput#map_to_trigger('i', '<bar>', '<bar>', '<bar>')
 call smartinput#define_rule({'at': '\({\|\<do\>\)\s*\%#', 'char': '<bar>', 'input': '<bar><bar><left>', 'filetype': ['ruby']})
@@ -189,6 +189,9 @@ autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map 
 
 " RagTag
 let g:ragtag_global_maps = 1
+
+" DWM
+let g:dwm_map_keys=0
 
 """ Scripts & commands
 

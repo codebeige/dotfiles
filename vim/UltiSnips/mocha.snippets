@@ -29,7 +29,7 @@ snippet e "expect" b
 expect( ${1:actual} ).$0
 endsnippet
 
-snippet rsh "require spec_helper" b
+snippet #=sh "require spec_helper" b
 #= require spec_helper
 #= require ${1:`!p snip.rv = re.sub("_?spec/?(\..*)?", "", path)`}
 
