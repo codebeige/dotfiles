@@ -7,7 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="codebeige"
 
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -25,13 +24,11 @@ ZSH_THEME="codebeige"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-flow osx ruby bundler brew pow powder rails3 rake rbenv vi-mode node npm coffee)
+plugins=(git git-extras git-flow osx ruby rake bundler brew pow powder rails3 rbenv vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
 
 setopt nocorrectall correct nobeep rmstarwait
-
-bindkey -M viins '^ä' vi-cmd-mode
 
 export EDITOR='vim'
 export PROCESSING_HOME=$HOME/lab/processing
@@ -40,6 +37,6 @@ export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
 
-alias cdd='cd ~/dev'
-alias cdl='cd ~/lab'
-alias cdot='cd ~/Dropbox/dotfiles'
+hash -d dot=/Users/tc/Dropbox/dotfiles
+hash -d dev=/Users/tc/dev
+hash -d lab=/Users/tc/lab

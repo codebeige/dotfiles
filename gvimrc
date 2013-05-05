@@ -1,8 +1,9 @@
 set encoding=utf-8
 
-set background=light
-set guifont=Menlo:h12
 set antialias
+set guifont=Menlo:h11
+set linespace=1
+" set background=light
 
 set guioptions=egm
 set lines=60 columns=140

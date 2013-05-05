@@ -1,13 +1,12 @@
 highlight clear MatchParen
-highlight MatchParen term=reverse cterm=reverse ctermfg=6 gui=reverse guifg=#2aa198
-
-highlight clear NonText
-highlight clear SpecialKey
+highlight MatchParen term=reverse cterm=reverse ctermfg=2 gui=reverse guifg=#2aa198
+highlight Visual term=reverse cterm=reverse ctermfg=6 gui=reverse guifg=#2aa198
 
 if &background == "dark"
-  highlight NonText    ctermfg=6 guifg=#586e75
-  highlight SpecialKey ctermfg=6 guifg=#586e75
-else
-  highlight NonText    ctermfg=2 guifg=Grey
-  highlight SpecialKey ctermfg=2 guifg=Grey
+  highlight Cursor guibg=turquoise1
+  highlight CursorLine ctermbg=9
+  highlight CursorLineNr ctermbg=9 ctermfg=5 guifg=DarkSlateGray3
+  highlight StatusLineNC ctermfg=9 ctermbg=0 cterm=reverse
+  highlight VertSplit ctermfg=9 ctermbg=0 cterm=reverse
+  highlight Pmenu ctermbg=7
 endif

@@ -7,8 +7,12 @@ silent! call pathogen#infect()
 silent! call pathogen#helptags()
 
 """ Appearance
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
 colorscheme solarized
-set background=dark
 
 set title
 set laststatus=2
@@ -24,7 +28,9 @@ set linebreak
 set ruler
 
 set mouse=a
+
 set visualbell
+set cursorline
 
 """ Behaviour
 set hidden
@@ -41,13 +47,17 @@ set smartcase
 set nohlsearch
 
 set infercase
+
 " set spell
 set spelllang=en_us
 
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
-au VimEnter * NoMatchParen
+" disable automatic linebreaks
+autocmd FileType vim set textwidth=0
+
+" au VimEnter * NoMatchParen
 nmap ,nmp :NoMatchParen<cr>
 nmap ,dmp :DoMatchParen<cr>
 
@@ -66,7 +76,10 @@ set shiftwidth=2
 set expandtab
 
 """ Clipboard
-" set clipboard=unnamed
+set clipboard=unnamed
+
+""" Command mode
+" set shellcmdflag=-ci
 
 """ Mappings
 let mapleader=","
@@ -209,29 +222,10 @@ nmap <leader>tt :TagbarToggle<cr>
 " HAML assets
 autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
 
-" Spinach
-autocmd User Rails/features/*.feature  let b:rails_alternate = substitute(rails#buffer().path() , 'features/\(.*\)\.feature' , 'features/steps/\1.rb' , '')
-autocmd User Rails/features/steps/*.rb let b:rails_alternate = substitute(rails#buffer().path() , 'features/steps/\(.*\)\.rb' , 'features/\1.feature' , '')
-autocmd User Rails/features/*          let b:rails_related   = b:rails_root . '/features/support/env.rb'
-autocmd User Rails/features/*.feature  nmap <buffer> <leader>sc :execute '!spinach' rails#buffer().path()<cr>
-autocmd User Rails/features/steps/*.rb nmap <buffer> <leader>sc :execute '!spinach' b:rails_alternate<cr>
-autocmd User Rails/features/*          nmap <buffer> <leader>sw :execute '!rake' 'spinach:wip'<cr>
-autocmd User Rails/features/*.feature  let b:rails_alternate = substitute(rails#buffer().path() , 'features/\(.*\)\.feature' , 'features/steps/\1.rb' , '')
-autocmd User Rails/features/*.feature  UltiSnipsAddFiletypes gherkin
-
-" Backbone development
-autocmd User Rails/app/*.js.coffee       let b:rails_alternate = substitute(rails#buffer().path() , 'app/\(.*\)\.js\.coffee'            , 'spec/\1_spec.js.coffee' , '')
-autocmd User Rails/spec/*_spec.js.coffee let b:rails_alternate = substitute(rails#buffer().path() , 'spec/\(.*\)_spec\.js\.coffee'      , 'app/\1.js.coffee'       , '')
-autocmd User Rails/app/*_view.js.coffee  let b:rails_related   = substitute(rails#buffer().path() , 'app/views/\(.*\)_view\.js\.coffee' , 'app/templates/\1.hamlc' , '')
-
 " Konacha
-autocmd User Rails/spec/*_spec.js.coffee let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/spec/\(.*\)_spec\.js\.coffee' , 'http://localhost:3500/\1' , '' )
-autocmd User Rails/app/*.js.coffee       let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/app/\(.*\)\.js\.coffee'       , 'http://localhost:3500/\1' , '' )
-autocmd User Rails/*.js.coffee nmap <buffer> <leader>kr :execute '!open' '-a "Google Chrome"' b:konacha_url<bar>!osascript -e 'tell application "iTerm" to activate'<cr>:redraw!<cr>
-autocmd User Rails/*.js.coffee nmap <buffer> <leader>ko :execute '!open' '-a "Google Chrome"' b:konacha_url<cr><cr>
-autocmd User Rails/*.js.coffee nmap <buffer> <leader>ka :!open http://localhost:3500<cr><cr>
-
-" disable automatic linebreaks
-autocmd FileType vim set textwidth=0
+" autocmd User Rails/app/*.js.coffee       let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/app/\(.*\)\.js\.coffee'       , 'http://localhost:3500/\1' , '' )
+" autocmd User Rails/*.js.coffee nmap <buffer> <leader>kr :execute '!open' '-a "Google Chrome"' b:konacha_url<bar>!osascript -e 'tell application "iTerm" to activate'<cr>:redraw!<cr>
+" autocmd User Rails/*.js.coffee nmap <buffer> <leader>ko :execute '!open' '-a "Google Chrome"' b:konacha_url<cr><cr>
+" autocmd User Rails/*.js.coffee nmap <buffer> <leader>ka :!open http://localhost:3500<cr><cr>
 
 " vim: set fdm=expr fde=getline(v\:lnum)=~'"""'?'>1'\:'=':
