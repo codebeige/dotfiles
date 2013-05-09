@@ -9,4 +9,9 @@ if &background == "dark"
   highlight StatusLineNC ctermfg=9 ctermbg=0 cterm=reverse
   highlight VertSplit ctermfg=9 ctermbg=0 cterm=reverse
   highlight Pmenu ctermbg=7
+else
+  highlight CursorLineNr cterm=reverse ctermbg=7 ctermfg=5 
+  highlight VertSplit ctermfg=9 ctermbg=8 cterm=reverse
+  highlight Pmenu ctermfg=0 ctermbg=6
+  highlight PmenuSel cterm=reverse ctermbg=8
 endif
