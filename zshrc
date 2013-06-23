@@ -24,7 +24,7 @@ ZSH_THEME="codebeige"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-flow osx ruby rake bundler brew pow powder rails3 rbenv vi-mode node npm coffee)
+plugins=(rbenv git git-extras git-flow osx ruby rake bundler brew pow powder rails3 vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,7 +36,3 @@ export MAVEN_OPTS="-Xmx1024m"
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
-
-hash -d dot=/Users/tc/Dropbox/dotfiles
-hash -d dev=/Users/tc/dev
-hash -d lab=/Users/tc/lab

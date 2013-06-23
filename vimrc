@@ -76,7 +76,7 @@ set shiftwidth=2
 set expandtab
 
 """ Clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 """ Command mode
 " set shellcmdflag=-ci
@@ -164,9 +164,10 @@ map <silent> <leader>z <plug>SimpleFold_Foldsearch
 
 " ctrlP
 let g:ctrlp_custom_ignore = '\v[\/]stats$'
-let g:ctrlp_mruf_exclude='/tmp/.*\|/temp/.*'
-let g:ctrlp_dotfiles=0
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
+let g:ctrlp_dotfiles = 0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir']
+let g:ctrlp_arg_map = 1
 
 " Rails stuff
 autocmd User Rails Rnavcommand sass app/assets/stylesheets -glob=**/* -suffix=.sass
