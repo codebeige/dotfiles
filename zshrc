@@ -41,3 +41,5 @@ cdpath=($HOME/src $HOME/lab $HOME/Dropbox/dotfiles /usr/local)
 hash -d dot=$HOME/Dropbox/dotfiles
 hash -d processing=$HOME/Documents/Processing
 hash -d homebrew=/usr/local
+
+alias vimupdate='cd ~dot && git submodule foreach git pull origin master'
