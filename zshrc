@@ -28,7 +28,7 @@ plugins=(rbenv git git-extras git-flow osx ruby rake bundler brew pow powder rai
 
 source $ZSH/oh-my-zsh.sh
 
-setopt nocorrectall correct nobeep rmstarwait
+setopt nocorrectall correct nobeep rmstarwait auto_cd
 
 export EDITOR='vim'
 export PROCESSING_HOME=$HOME/lab/processing
@@ -36,3 +36,8 @@ export MAVEN_OPTS="-Xmx1024m"
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
+
+cdpath=($HOME/src $HOME/lab $HOME/Dropbox/dotfiles /usr/local) 
+hash -d dot=$HOME/Dropbox/dotfiles
+hash -d processing=$HOME/Documents/Processing
+hash -d homebrew=/usr/local

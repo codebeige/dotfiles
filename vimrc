@@ -207,6 +207,9 @@ let g:ragtag_global_maps = 1
 " DWM
 let g:dwm_map_keys=0
 
+" Processing
+let g:use_processing_java=1
+
 """ Scripts & commands
 
 " processing
