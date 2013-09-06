@@ -36,3 +36,5 @@
 	helper = osxkeychain
 [push]
 	default = simple
+[github]
+	user = codebeige

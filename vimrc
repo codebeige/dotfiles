@@ -209,6 +209,7 @@ let g:dwm_map_keys=0
 
 " Processing
 let g:use_processing_java=1
+map <leader>rp :RunProcessing<cr><cr>
 
 """ Scripts & commands
 
@@ -222,6 +223,9 @@ map <leader>ü !ctags -R<cr>
 " tagbar
 nmap <leader>to :TagbarOpenAutoClose<cr>
 nmap <leader>tt :TagbarToggle<cr>
+
+" gist
+let g:gist_clip_command = 'pbcopy'
 
 " HAML assets
 autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml

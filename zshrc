@@ -28,18 +28,23 @@ plugins=(rbenv git git-extras git-flow osx ruby rake bundler brew pow powder rai
 
 source $ZSH/oh-my-zsh.sh
 
-setopt nocorrectall correct nobeep rmstarwait auto_cd
+setopt nocorrectall correct nobeep rmstarwait
 
 export EDITOR='vim'
-export PROCESSING_HOME=$HOME/lab/processing
+export PROCESSING_HOME=$HOME/Documents/Processing
 export MAVEN_OPTS="-Xmx1024m"
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
 
-cdpath=($HOME/src $HOME/lab $HOME/Dropbox/dotfiles /usr/local) 
-hash -d dot=$HOME/Dropbox/dotfiles
+cdpath=($HOME/src $HOME/src/* $HOME/opt $HOME/Documents $HOME/Dropbox/dotfiles) 
+hash -d dots=$HOME/Dropbox/dotfiles
 hash -d processing=$HOME/Documents/Processing
-hash -d homebrew=/usr/local
+hash -d brew=/usr/local
 
-alias vimupdate='cd ~dot && git submodule foreach git pull origin master'
+alias dotupdate='cd $HOME/Dropbox/dotfiles && git submodule foreach git pull origin master && cd -'
+alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
+# alias rp5='JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home rp5'
+# alias jrp5='jruby -S rp5'
+
+alias gcp='git commit -vp'
