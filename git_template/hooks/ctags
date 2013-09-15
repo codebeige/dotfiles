@@ -1,5 +1,10 @@
 #!/bin/sh
 set -e
-trap "rm -f .git/tags.$$" EXIT
+trap "rm -f .git/*tags.$$" EXIT
 ctags --tag-relative -Rf.git/tags.$$ --exclude=.git --languages=-javascript,sql
 mv .git/tags.$$ .git/tags
+
+if command -v coffeetags >/dev/null; then
+  coffeetags --recursive --include-vars | sed -E 's:([[:space:]])\./:\1../:' > .git/coffee.tags.$$
+  mv .git/coffee.tags.$$ .git/coffee.tags
+fi

@@ -133,6 +133,7 @@ if has("autocmd") && exists("+omnifunc")
   autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 endif
 
+
 """ Bundles
 
 " solarized
@@ -141,8 +142,8 @@ call togglebg#map("<f5>")
 " nerdtree
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeWinSize=50
-nmap <silent> <leader>dt  :NERDTreeToggle<cr>
-nmap <silent> <leader>df  :NERDTreeFind<cr>
+nmap <silent> <leader>ft  :NERDTreeToggle<cr>
+nmap <silent> <leader>ff  :NERDTreeFind<cr>
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
@@ -213,6 +214,28 @@ let g:dwm_map_keys=0
 let g:use_processing_java=1
 map <leader>rp :RunProcessing<cr><cr>
 
+" tagbar
+nmap <leader>to :TagbarOpenAutoClose<cr>
+nmap <leader>tt :TagbarToggle<cr>
+
+let g:tagbar_iconchars = ['▸', '▾']
+
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '--include-vars',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
+
 """ Scripts & commands
 
 " processing
@@ -222,9 +245,6 @@ autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osasc
 " ctags
 map <leader>ü !ctags -R<cr>
 
-" tagbar
-nmap <leader>to :TagbarOpenAutoClose<cr>
-nmap <leader>tt :TagbarToggle<cr>
 
 " gist
 let g:gist_clip_command = 'pbcopy'
