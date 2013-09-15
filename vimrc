@@ -1,10 +1,12 @@
 " Make it a real vim
-set nocompatible
+" set nocompatible
 
 """ Load bundles
-runtime bundle/pathogen/autoload/pathogen.vim
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
+" runtime bundle/pathogen/autoload/pathogen.vim
+" silent! call pathogen#infect()
+" silent! call pathogen#helptags()
+
+source ~/.vim/bundles.vim
 
 """ Appearance
 if has('gui_running')

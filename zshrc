@@ -46,3 +46,4 @@ alias dotupdate='cd $HOME/Dropbox/dotfiles && git submodule foreach git pull ori
 alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
 
 alias gcp='git commit -vp'
+alias viminit='vim -u ~/.vim/bundles.vim +BundleInstall +q'
