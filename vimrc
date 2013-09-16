@@ -1,11 +1,4 @@
-" Make it a real vim
-" set nocompatible
-
-""" Load bundles
-" runtime bundle/pathogen/autoload/pathogen.vim
-" silent! call pathogen#infect()
-" silent! call pathogen#helptags()
-
+""" Load bundles using Vundle
 source ~/.vim/bundles.vim
 
 """ Appearance
@@ -60,8 +53,8 @@ runtime macros/justify.vim
 autocmd FileType vim set textwidth=0
 
 " au VimEnter * NoMatchParen
-nmap ,nmp :NoMatchParen<cr>
-nmap ,dmp :DoMatchParen<cr>
+noremap ]om :NoMatchParen<cr>
+noremap [om :DoMatchParen<cr>
 
 """ File handling
 set noswapfile
@@ -94,7 +87,7 @@ map ä ]
 " remember: <c-ä> behaves like <esc>
 " remember: <c-6> behaves like <c-^>
 
-map <leader>q :cclose<cr>
+noremap <leader>q :cclose<cr>
 
 " simulate word blocks with pipe chars
 nnoremap di\| T\|d,
@@ -106,18 +99,8 @@ nnoremap ya\| F\|y,
 nnoremap vi\| T\|v,
 nnoremap va\| F\|v,https://github.com/rking/ag.vim.git
 
-" toggle hlsearch
-map <leader>hl  :set hlsearch!<cr> 
-
-" clear recent search
-nnoremap <silent> <leader><bs> :nohlsearch<bar>:echo<cr>
-
-" insert line delimiter and enter newline
-autocmd BufNewFile,BufReadPost *.pde,*.js map <leader><cr> A;<esc>
-
-" path
+" Expand active file dir
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-set path+=test/**,spec/**,app/**,lib/**,config/**
 
 " Change cursor in insert mode
 let &t_SI = "\<esc>]50;CursorShape=1\x7"
@@ -140,8 +123,8 @@ call togglebg#map("<f5>")
 " nerdtree
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeWinSize=50
-nmap <silent> <leader>ft  :NERDTreeToggle<cr>
-nmap <silent> <leader>ff  :NERDTreeFind<cr>
+noremap <silent> <leader>ft  :NERDTreeToggle<cr>
+noremap <silent> <leader>ff  :NERDTreeFind<cr>
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
@@ -154,14 +137,14 @@ let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsListSnippets        = "<s-tab>"
-map <leader><tab> :UltiSnipsEdit<cr>
+noremap <leader><tab> :UltiSnipsEdit<cr>
 
 " toggle invisibles
-map <leader>i :set list!<cr>
+noremap <leader>i :set list!<cr>
 set listchars=tab:▸\ ,eol:¬
 
 " simplefold
-map <silent> <leader>z <plug>SimpleFold_Foldsearch
+noremap <silent> <leader>z <plug>SimpleFold_Foldsearch
 
 " ctrlP
 let g:ctrlp_custom_ignore = '\v[\/]stats$'
@@ -207,11 +190,11 @@ let g:dwm_map_keys=0
 
 " Processing
 let g:use_processing_java=1
-map <leader>rp :RunProcessing<cr><cr>
+noremap <leader>rp :RunProcessing<cr><cr>
 
 " tagbar
-nmap <leader>to :TagbarOpenAutoClose<cr>
-nmap <leader>tt :TagbarToggle<cr>
+noremap <leader>to :TagbarOpenAutoClose<cr>
+noremap <leader>tt :TagbarToggle<cr>
 
 let g:tagbar_iconchars = ['▸', '▾']
 
@@ -235,10 +218,10 @@ endif
 
 " processing
 let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
-autocmd BufNewFile,BufReadPost *.pde map <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
+autocmd BufNewFile,BufReadPost *.pde noremap <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
 
 " ctags
-map <leader>ü !ctags -R<cr>
+noremap <leader>ü !ctags -R<cr>
 
 
 " gist
