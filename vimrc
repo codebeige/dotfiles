@@ -77,11 +77,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-""" Clipboard
-" set clipboard=unnamed
-
-""" Command mode
-" set shellcmdflag=-ci
 
 """ Mappings
 let mapleader=","
@@ -133,6 +128,9 @@ if has("autocmd") && exists("+omnifunc")
   autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 endif
 
+" Toggle folds
+nnoremap <cr> za
+
 
 """ Bundles
 
@@ -183,10 +181,7 @@ autocmd User Rails/spec/**/*_spec.rb UltiSnipsAddFiletypes rspec.rails.ruby
 " Rake
 autocmd User Rake map <leader>r :Rake<cr>
 
-" CoffeScript
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
-autocmd BufNewFile,BufReadPost *.coffee normal zR
+
 
 " Smartinput
 " call smartinput#map_to_trigger('i', '#', '#', '#')
@@ -249,13 +244,31 @@ map <leader>ü !ctags -R<cr>
 " gist
 let g:gist_clip_command = 'pbcopy'
 
+
+""" FileTypes
+
 " HAML assets
 autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
 
-" Konacha
-" autocmd User Rails/app/*.js.coffee       let b:konacha_url = substitute( rails#buffer().path() , b:rails_root . '/app/\(.*\)\.js\.coffee'       , 'http://localhost:3500/\1' , '' )
-" autocmd User Rails/*.js.coffee nmap <buffer> <leader>kr :execute '!open' '-a "Google Chrome"' b:konacha_url<bar>!osascript -e 'tell application "iTerm" to activate'<cr>:redraw!<cr>
-" autocmd User Rails/*.js.coffee nmap <buffer> <leader>ko :execute '!open' '-a "Google Chrome"' b:konacha_url<cr><cr>
-" autocmd User Rails/*.js.coffee nmap <buffer> <leader>ka :!open http://localhost:3500<cr><cr>
+" CoffeScript
+augroup coffee
+  autocmd!
+  autocmd FileType coffee setlocal shiftwidth=2 expandtab
+  autocmd FileType coffee setlocal suffixesadd+=.js.coffee,.coffee,.js
+  autocmd FileType coffee setlocal path+=vendor/assets/javascripts
+  autocmd FileType coffee normal zR
+  autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
+augroup END
+ 
+""" Commands
+command! Path :call EchoPath()
+function! EchoPath()
+  echo join(split(&path, ","), "\n")
+endfunction
+
+command! TagFiles :call EchoTags()
+function! EchoTags()
+  echo join(split(&tags, ","), "\n")
+endfunction
 
 " vim: set fdm=expr fde=getline(v\:lnum)=~'"""'?'>1'\:'=':

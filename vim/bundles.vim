@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 
 """
 
+
 Bundle 'airblade/vim-rooter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bigfish/vim-nodelint'
@@ -29,6 +30,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'mkitt/markdown-preview.vim'
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'nelstrom/vim-qargs'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'pangloss/vim-simplefold'
 Bundle 'rizzatti/dash.vim'
@@ -54,7 +56,6 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
-
 Bundle 'AfterColors.vim'
 Bundle 'applescript.vim'
 Bundle 'bufexplorer.zip'
