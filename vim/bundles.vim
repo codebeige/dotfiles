@@ -8,7 +8,6 @@ Bundle 'gmarik/vundle'
 
 """
 
-
 Bundle 'AfterColors.vim'
 Bundle 'airblade/vim-rooter'
 Bundle 'altercation/vim-colors-solarized'
@@ -17,6 +16,7 @@ Bundle 'bigfish/vim-nodelint'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'bufexplorer.zip'
 Bundle 'dbext.vim'
+Bundle 'gitv'
 Bundle 'godlygeek/tabular'
 Bundle 'IndexedSearch'
 Bundle 'javacomplete'

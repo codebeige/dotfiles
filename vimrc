@@ -2,11 +2,6 @@
 source ~/.vim/bundles.vim
 
 """ Appearance
-if has('gui_running')
-  set background=light
-else
-  set background=dark
-endif
 colorscheme solarized
 
 set title
@@ -112,7 +107,7 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 " Toggle folds
-nnoremap <cr> za
+nnoremap <space> za
 
 
 """ Bundles
