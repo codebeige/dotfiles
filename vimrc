@@ -44,8 +44,6 @@ set spelllang=en_us
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
-" disable automatic linebreaks
-autocmd FileType vim set textwidth=0
 
 " au VimEnter * NoMatchParen
 noremap ]om :NoMatchParen<cr>
@@ -68,6 +66,7 @@ set expandtab
 
 """ Mappings
 let mapleader=","
+let maplovalleader="-"
  
 map ° ~
 
@@ -156,19 +155,6 @@ let g:ctrlp_dotfiles = 0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir']
 let g:ctrlp_arg_map = 1
 
-" Rails stuff
-autocmd User Rails Rnavcommand sass app/assets/stylesheets -glob=**/* -suffix=.sass
-autocmd User Rails Rnavcommand feature features -suffix=.feature
-autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-autocmd User Rails map <leader>r :Rake<cr>
-autocmd User Rails/**/*.rb UltiSnipsAddFiletypes rails.ruby
-autocmd User Rails/spec/**/*_spec.rb UltiSnipsAddFiletypes rspec.rails.ruby
-
-" Rake
-autocmd User Rake map <leader>r :Rake<cr>
-
-
-
 " Smartinput
 " call smartinput#map_to_trigger('i', '#', '#', '#')
 " call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby'], 'syntax': ['Constant', 'Special']})
@@ -181,9 +167,6 @@ let g:sql_type_default       = 'pgsql'
 let g:dbext_default_type     = 'PGSQL'
 let g:ftplugin_sql_omni_key  = '<c-x>'
 let g:omni_sql_include_owner = 0
-
-" Hammer
-autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<cr>
 
 " RagTag
 let g:ragtag_global_maps = 1
@@ -221,11 +204,13 @@ endif
 
 " processing
 let processing_doc_path="/Applications/Processing.app/Contents/Resources/Java/modes/java/reference"
-autocmd BufNewFile,BufReadPost *.pde noremap <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
+augroup buffer_processing
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.pde noremap <leader>r :w<bar>silent execute "!osascript $PROCESSING_HOME/scripts/run.applescript"<bar>redraw!<cr>
+augroup END
 
 " ctags
 noremap <leader>ü !ctags -R<cr>
-
 
 " gist
 let g:gist_clip_command = 'pbcopy'
@@ -233,11 +218,20 @@ let g:gist_clip_command = 'pbcopy'
 
 """ FileTypes
 
-" HAML assets
-autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
+" VimScript
+augroup file_type_vim
+  autocmd!
+  autocmd FileType vim set textwidth=0
+augroup END
+
+" HAMLCoffee
+augroup file_type_hamlc
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
+augroup END
 
 " CoffeScript
-augroup coffee
+augroup file_type_coffee
   autocmd!
   autocmd FileType coffee setlocal shiftwidth=2 expandtab
   autocmd FileType coffee setlocal suffixesadd+=.js.coffee,.coffee,.js
@@ -245,6 +239,13 @@ augroup coffee
   autocmd FileType coffee normal zR
   autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
 augroup END
+
+" Hammer
+augroup buffer_hammer
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<cr>
+augroup END
+
  
 """ Commands
 command! Path :call EchoPath()
