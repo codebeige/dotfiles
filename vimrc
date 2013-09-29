@@ -103,11 +103,18 @@ let &t_EI = "\<esc>]50;CursorShape=0\x7"
 
 " OmniCompletion
 if has("autocmd") && exists("+omnifunc")            
-  autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+  augroup file_type_omni_completion
+    autocmd!
+    autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+  augroup END
 endif
 
 " Toggle folds
 nnoremap <space> za
+
+" Edit .vimrc
+nnoremap <leader>ve :split $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
 
 
 """ Bundles
@@ -132,7 +139,8 @@ let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsListSnippets        = "<s-tab>"
-noremap <leader><tab> :UltiSnipsEdit<cr>
+noremap <leader>se :UltiSnipsEdit<cr>
+noremap <leader>ss :UltiSnipsEdit<cr>
 
 " toggle invisibles
 noremap <leader>i :set list!<cr>

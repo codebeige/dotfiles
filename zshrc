@@ -24,7 +24,7 @@ ZSH_THEME="codebeige"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv git git-extras git-flow osx ruby rake bundler brew pow powder rails3 vi-mode node npm coffee)
+plugins=(rbenv git git-extras git-flow-avh osx ruby rake bundler brew pow powder rails3 vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
 
