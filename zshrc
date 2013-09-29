@@ -22,6 +22,9 @@ ZSH_THEME="codebeige"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+# Move customization out of original git repo
+ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(rbenv git git-extras git-flow-avh osx ruby rake bundler brew pow powder rails3 vi-mode node npm coffee)
