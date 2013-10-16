@@ -1,0 +1,30 @@
+#!/usr/bin/osascript
+
+on run argv
+  tell application "Google Chrome"
+    repeat with i from 1 to (count argv)
+      set a to item i of argv
+      set loaded to false
+      repeat with w in windows
+        set j to 0
+        repeat with t in tabs of w
+          set j to j + 1
+          set u to URL of t
+          if (u is a) or (u is (a & "/")) then
+            set loaded to true
+            set active tab index of w to j
+            set index of w to 1
+            tell t to reload
+            activate
+          end if 
+        end repeat
+      end repeat
+      if not loaded then
+        open location a
+        activate
+      end if
+    end repeat
+  end tell
+end run
+
+# vim: ft=applescript:
