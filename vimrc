@@ -218,6 +218,12 @@ let g:gist_clip_command = 'pbcopy'
 
 """ FileTypes
 
+" all
+augroup file_type_all
+  autocmd!
+  autocmd BufWinENter * normal zR
+augroup END
+
 " VimScript
 augroup file_type_vim
   autocmd!
@@ -236,7 +242,6 @@ augroup file_type_coffee
   autocmd FileType coffee setlocal shiftwidth=2 expandtab
   autocmd FileType coffee setlocal suffixesadd+=.js.coffee,.coffee,.js
   autocmd FileType coffee setlocal path+=vendor/assets/javascripts
-  autocmd FileType coffee normal zR
   autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
 augroup END
 
