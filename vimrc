@@ -263,4 +263,17 @@ function! EchoTags()
   echo join(split(&tags, ","), "\n")
 endfunction
 
+command! Konacha :call Konacha()
+function! Konacha()
+  let path = ''
+  let base = expand('%:r:r')
+  if base =~# '\v^(app|spec)'
+    let path = substitute(base, '\v^[^/]+/(.{-})(_spec)?$', '\1', '')
+  endif
+  let url = 'http://localhost:3500/'.path
+  execute('silent !chrome '.url)
+  redraw!
+  echo 'Konacha: '.url
+endfunction
+
 " vim: set fdm=expr fde=getline(v\:lnum)=~'"""'?'>1'\:'=':
