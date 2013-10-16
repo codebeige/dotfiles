@@ -48,5 +48,4 @@ hash -d brew=/usr/local
 alias dotupdate='cd $HOME/Dropbox/dotfiles && git submodule foreach git pull origin master && cd -'
 alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
 
-alias gcp='git commit -vp'
 alias viminit='vim -u ~/.vim/bundles.vim +BundleInstall +q'
