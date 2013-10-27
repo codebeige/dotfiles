@@ -5,6 +5,7 @@ source ~/.vim/bundles.vim
 colorscheme solarized
 
 set title
+
 set laststatus=2
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set showcmd
@@ -67,7 +68,7 @@ set expandtab
 """ Mappings
 let mapleader=","
 let maplovalleader="-"
- 
+
 map ° ~
 
 nnoremap ' `
@@ -101,7 +102,7 @@ let &t_SI = "\<esc>]50;CursorShape=1\x7"
 let &t_EI = "\<esc>]50;CursorShape=0\x7"
 
 " OmniCompletion
-if has("autocmd") && exists("+omnifunc")            
+if has("autocmd") && exists("+omnifunc")
   augroup file_type_omni_completion
     autocmd!
     autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
@@ -133,7 +134,7 @@ let g:bufExplorerShowRelativePath=1
 " ultisnips
 let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 let g:UltiSnipsEditSplit          = "horizontal"
-	
+
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
@@ -251,7 +252,13 @@ augroup buffer_hammer
   autocmd BufNewFile,BufReadPost *.mkd,*.md,*.markdown,*.mdown,*.html,*.xhtml map <buffer> <leader>b :Hammer<cr>
 augroup END
 
- 
+" DeleteTrailingWhitespace
+let g:DeleteTrailingWhitespace_Action = 'ask'
+
+nnoremap <leader>d$ :<c-u>%DeleteTrailingWhitespace<cr>
+vnoremap <leader>d$ :DeleteTrailingWhitespace<cr>
+
+
 """ Commands
 command! Path :call EchoPath()
 function! EchoPath()
