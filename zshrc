@@ -27,7 +27,7 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rbenv git git-extras git-flow-avh osx ruby rake bundler brew pow powder rails3 vi-mode node npm coffee)
+plugins=(git git-extras git-flow-avh osx ruby rake bundler brew pow powder rails vi-mode node npm coffee)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -35,17 +35,14 @@ setopt nocorrectall correct nobeep rmstarwait
 
 export EDITOR='vim'
 export PROCESSING_HOME=$HOME/Documents/Processing
-export MAVEN_OPTS="-Xmx1024m"
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
 
-cdpath=($HOME/src $HOME/src/* $HOME/opt $HOME/Documents $HOME/Dropbox/dotfiles) 
+cdpath=($HOME/src $HOME/src/* $HOME/opt $HOME/Documents $HOME/Dropbox/dotfiles)
 hash -d dots=$HOME/Dropbox/dotfiles
-hash -d processing=$HOME/Documents/Processing
 hash -d brew=/usr/local
 
-alias dotupdate='cd $HOME/Dropbox/dotfiles && git submodule foreach git pull origin master && cd -'
 alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
 
 alias viminit='vim -u ~/.vim/bundles.vim +BundleInstall +q'

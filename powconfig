@@ -1,2 +1,0 @@
-eval $(rbenv init -)
-export PATH=$(rbenv root)/shims:$(rbenv root)/bin:$PATH

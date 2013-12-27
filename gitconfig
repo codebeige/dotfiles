@@ -1,6 +1,6 @@
 [core]
 	pager = less -R
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/tc/.gitignore
 	quotepath = false
 [color]
 	ui = auto
@@ -38,3 +38,9 @@
 	default = simple
 [github]
 	user = codebeige
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

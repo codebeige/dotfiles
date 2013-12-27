@@ -132,7 +132,7 @@ noremap <silent> <leader>ff  :NERDTreeFind<cr>
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+let g:UltiSnipsSnippetDirectories = ["snippets"]
 let g:UltiSnipsEditSplit          = "horizontal"
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -277,7 +277,7 @@ function! Konacha()
   if base =~# '\v^(app|spec)'
     let path = substitute(base, '\v^[^/]+/(.{-})(_spec)?$', '\1', '')
   endif
-  let url = 'http://localhost:3500/'.path
+  let url = 'http://localhost:3500/'.path.'_spec'
   execute('silent !chrome '.url)
   redraw!
   echo 'Konacha: '.url

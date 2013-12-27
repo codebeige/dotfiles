@@ -1,0 +1,75 @@
+snippet e "expect" b
+expect( ${1:object} ).to.
+endsnippet
+
+snippet e! "expect not" b
+expect( ${1:object} ).to.not.
+endsnippet
+
+snippet .= "equal" i
+.equal ${1:value}
+endsnippet
+
+snippet .e "deeply equal" i
+.eql ${1:object}
+endsnippet
+
+snippet .bt "be true" i
+.be.true
+endsnippet
+
+snippet .bn "be null" i
+.be.null
+endsnippet
+
+snippet .be "be empty" i
+.be.empty
+endsnippet
+
+snippet .hl "have length of" i
+.have.lengthOf ${1:1}
+endsnippet
+
+snippet .hp "have property" i
+.have.property '${1:name}'${2:, ${3:value}}
+endsnippet
+
+snippet .hp. "have property…" i
+.have.property('${1:name}').
+endsnippet
+
+snippet .hdp "have deep property" i
+.have.deep.property '${1:name}'${2:, ${3:value}}
+endsnippet
+
+snippet .hdp. "have deep property…" i
+.have.deep.property('${1:name}').
+endsnippet
+
+snippet .hop "have own property" i
+.have.ownProperty '${1:name}'${2:, ${3:value}}
+endsnippet
+
+snippet .bi "be instance of" i
+.be.an.instanceOf ${1:Array}
+endsnippet
+
+snippet .bi. "be instance of…" i
+.be.an.instanceOf(${1:Array}).
+endsnippet
+
+snippet .t= "that equals" i
+.that.equals ${1:object}
+endsnippet
+
+snippet .te "that deeply equals" i
+.that.eql ${1:object}
+endsnippet
+
+snippet .tie "that is empty" i
+.that.is.empty
+endsnippet
+
+snippet .wl "with length of" i
+.with.lengthOf ${1:1}
+endsnippet
