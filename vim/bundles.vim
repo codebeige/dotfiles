@@ -69,6 +69,7 @@ Bundle 'ZoomWin'
 
 Bundle 'ShowTrailingWhitespace'
 Bundle 'DeleteTrailingWhitespace'
+Bundle 'tpope/vim-eunuch'
 
 """
 
