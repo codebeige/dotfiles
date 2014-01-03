@@ -78,12 +78,14 @@ nnoremap ´ '
 map ö [
 map ä ]
 
-inoremap <c-l> <c-@>
 
 " remember: <c-ü> behaves like <c-]>
 " remember: <c-ä> behaves like <esc>
 " remember: <c-6> behaves like <c-^>
 " remember: <c-2> behaves like <c-@>
+
+nnoremap <leader>a <c-^>
+inoremap <c-l> <c-@>
 
 noremap <leader>q :cclose<cr>
 
