@@ -1,0 +1,80 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'
+
+"""
+
+Plugin 'AfterColors.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'applescript.vim'
+Plugin 'bigfish/vim-nodelint'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'bufexplorer.zip'
+Plugin 'dbext.vim'
+Plugin 'gitv'
+Plugin 'godlygeek/tabular'
+Plugin 'IndexedSearch'
+Plugin 'javacomplete'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-lastpat'
+Plugin 'kana/vim-textobj-line'
+Plugin 'kana/vim-textobj-syntax'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'matthias-guenther/hammer.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'mkitt/markdown-preview.vim'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'nelstrom/vim-qargs'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'pangloss/vim-simplefold'
+Plugin 'rizzatti/dash.vim'
+Plugin 'rizzatti/funcoo.vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'shemerey/vim-project'
+Plugin 'SirVer/ultisnips'
+Plugin 'sophacles/vim-processing'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'taglist.vim'
+Plugin 'TailMinusF'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-capslock'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'ZoomWin'
+
+Plugin 'ShowTrailingWhitespace'
+Plugin 'DeleteTrailingWhitespace'
+Plugin 'tpope/vim-eunuch'
+Plugin 'mattn/emmet-vim'
+Plugin 'Auto-Pairs'
+
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
+Plugin 'paredit.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+
+"""
+
+filetype plugin indent on

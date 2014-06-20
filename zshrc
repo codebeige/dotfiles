@@ -27,7 +27,8 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-flow-avh osx ruby rake bundler brew pow powder rails vi-mode node npm coffee)
+plugins=(git git-extras git-flow-avh osx ruby rake bundler brew pow powder
+         rails vi-mode node npm coffee per-directory-history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,7 +40,7 @@ export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH="/usr/local/lib/node"
 
-cdpath=($HOME/src $HOME/src/* $HOME/opt $HOME/Documents $HOME/Dropbox/dotfiles)
+cdpath=($HOME/src $HOME/src/* $HOME/lab)
 hash -d dots=$HOME/Dropbox/dotfiles
 hash -d brew=/usr/local
 

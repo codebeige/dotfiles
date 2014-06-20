@@ -1,5 +1,5 @@
 """ Load bundles using Vundle
-source ~/.vim/bundles.vim
+source ~/.vim/plugins.vim
 
 """ Appearance
 colorscheme solarized
@@ -17,6 +17,7 @@ set numberwidth=5
 set wrap
 set linebreak
 set ruler
+set colorcolumn=81
 
 set mouse=a
 
@@ -36,7 +37,6 @@ set incsearch
 set ignorecase
 set smartcase
 set nohlsearch
-
 set infercase
 
 " set spell
@@ -130,14 +130,14 @@ call togglebg#map("<f5>")
 " nerdtree
 let g:NERDTreeHijackNetrw=0
 let g:NERDTreeWinSize=50
-noremap <silent> <leader>ft  :NERDTreeToggle<cr>
-noremap <silent> <leader>ff  :NERDTreeFind<cr>
+noremap <silent> <leader>ntt :NERDTreeToggle<cr>
+noremap <silent> <leader>ntf :NERDTreeFind<cr>
 
 " bufexplorer
 let g:bufExplorerShowRelativePath=1
 
 " ultisnips
-let g:UltiSnipsSnippetDirectories = ["snippets"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
 let g:UltiSnipsEditSplit          = "horizontal"
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -145,7 +145,6 @@ let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsListSnippets        = "<s-tab>"
 noremap <leader>se :UltiSnipsEdit<cr>
-noremap <leader>ss :UltiSnipsEdit<cr>
 
 " toggle invisibles
 noremap <leader>i :set list!<cr>
@@ -160,13 +159,6 @@ let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir']
 let g:ctrlp_arg_map = 1
-
-" Smartinput
-" call smartinput#map_to_trigger('i', '#', '#', '#')
-" call smartinput#define_rule({'at': '\%#', 'char': '#', 'input': '#{}<left>', 'filetype': ['ruby'], 'syntax': ['Constant', 'Special']})
-
-call smartinput#map_to_trigger('i', '<bar>', '<bar>', '<bar>')
-call smartinput#define_rule({'at': '\({\|\<do\>\)\s*\%#', 'char': '<bar>', 'input': '<bar><bar><left>', 'filetype': ['ruby']})
 
 " SQL
 let g:sql_type_default       = 'pgsql'
@@ -246,8 +238,8 @@ augroup END
 augroup file_type_coffee
   autocmd!
   autocmd FileType coffee setlocal shiftwidth=2 expandtab
-  autocmd FileType coffee setlocal suffixesadd+=.js.coffee,.coffee,.js
-  autocmd FileType coffee setlocal path+=vendor/assets/javascripts
+  autocmd FileType coffee setlocal suffixesadd=.hamlc,.js.coffee,.coffee,.js
+  autocmd FileType coffee setlocal path=app/templates,app,app/config,vendor/assets/javascripts
   autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
 augroup END
 
@@ -269,6 +261,14 @@ let g:DeleteTrailingWhitespace_Action = 'ask'
 nnoremap <leader>d$ :<c-u>%DeleteTrailingWhitespace<cr>
 vnoremap <leader>d$ :DeleteTrailingWhitespace<cr>
 
+" Auto-Pairs
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsMapCR   = 0
+
+let g:AutoPairsShortcutToggle     = '<c-a>c'
+let g:AutoPairsShortcutJump       = '<c-a>j'
+let g:AutoPairsShortcutBackInsert = '<c-a>k'
+let g:AutoPairsShortcutFastWrap   = '<c-a>l'
 
 """ Commands
 command! Path :call EchoPath()
@@ -294,4 +294,8 @@ function! Konacha()
   echo 'Konacha: '.url
 endfunction
 
-" vim: set fdm=expr fde=getline(v\:lnum)=~'"""'?'>1'\:'=':
+command! TType call TType()
+function! TType()
+  call tortoiseTyping#TutorialTyping()
+  let b:AutoPairs = {}
+endfunction
