@@ -10,3 +10,86 @@ syntax enable
 filetype plugin indent on
 set backspace=indent,eol,start
 set hidden
+
+" sensible defaults
+set backspace=indent,eol,start
+set mouse=a
+set title
+set laststatus=2
+set autoindent
+set complete-=i
+set nrformats-=octal
+set history=500
+
+" macros
+runtime macros/matchit.vim
+
+" tabs and shifting
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+set shiftround
+
+" keyboard
+
+" remember: <c-ü> behaves like <c-]>
+" remember: <c-ä> behaves like <esc>
+" remember: <c-6> behaves like <c-^>
+" remember: <c-2> behaves like <c-@>
+
+map ö [
+map ä ]
+
+map ° ~
+
+nnoremap ' `
+nnoremap ` '
+nnoremap ´ '
+
+inoremap <c-l> <c-@>
+set timeout
+set ttimeout
+set ttimeoutlen=100
+
+" mappings
+let mapleader=","
+let maplocalleader="-"
+
+" appearance
+silent! colorscheme solarized
+
+set number
+set numberwidth=5
+
+set wrap
+set linebreak
+set ruler
+set colorcolumn=80
+
+set statusline=[%n]\ %(%h%q%w\ %)%.40f\ %y
+set statusline+=%=%m
+if exists('g:loaded_fugitive')
+  set statusline+=%{fugitive#statusline()}
+endif
+set statusline+=%20.(%l:%c\ (%L/%p%%)%)
+
+set visualbell
+set showcmd
+set showmode
+
+" change cursor in insert mode
+let &t_SI = "\<esc>]50;CursorShape=1\x7"
+let &t_EI = "\<esc>]50;CursorShape=0\x7"
+
+" find & replace
+set incsearch
+set nohlsearch
+set ignorecase
+set smartcase
+set infercase
+
+" going wild
+set wildmenu
+set wildmode=list:longest,full
