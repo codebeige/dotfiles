@@ -19,7 +19,11 @@ set laststatus=2
 set autoindent
 set complete-=i
 set nrformats-=octal
-set history=500
+set history=1000
+
+" misc
+set autoread
+set sessionoptions-=options
 
 " macros
 runtime macros/matchit.vim
@@ -75,9 +79,10 @@ if exists('g:loaded_fugitive')
 endif
 set statusline+=%20.(%l:%c\ (%L/%p%%)%)
 
-set visualbell
 set showcmd
 set showmode
+set ruler
+set visualbell
 
 " change cursor in insert mode
 let &t_SI = "\<esc>]50;CursorShape=1\x7"
