@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/tc/Dropbox/dotfiles'
+let g:netrw_dirhist_2='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim'
+let g:netrw_dirhist_3='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim/runtime'
+let g:netrw_dirhist_4='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim'
+let g:netrw_dirhist_5='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim/runtime'
+let g:netrw_dirhist_6='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim/runtime/autoload'
+let g:netrw_dirhist_7='/usr/local/Cellar/macvim/7.4-71/MacVim.app/Contents/Resources/vim/runtime'
