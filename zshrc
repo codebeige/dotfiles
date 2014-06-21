@@ -45,5 +45,3 @@ hash -d dots=$HOME/Dropbox/dotfiles
 hash -d brew=/usr/local
 
 alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
-
-alias viminit='vim -u ~/.vim/bundles.vim +BundleInstall +q'
