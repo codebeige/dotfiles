@@ -34,3 +34,12 @@
 [submodule "vim/bundle/eunuch"]
 	path = vim/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/bundle/ag"]
+	path = vim/bundle/ag
+	url = https://github.com/rking/ag.vim.git
+[submodule "vim/bundle/qargs"]
+	path = vim/bundle/qargs
+	url = https://github.com/nelstrom/vim-qargs.git
+[submodule "vim/bundle/indexedsearch"]
+	path = vim/bundle/indexedsearch
+	url = https://github.com/vim-scripts/IndexedSearch.git
