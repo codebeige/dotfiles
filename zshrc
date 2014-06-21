@@ -27,8 +27,8 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-flow-avh osx ruby rake bundler brew pow powder
-         rails vi-mode node npm coffee per-directory-history)
+plugins=(git git-flow-avh osx ruby rake bundler brew pow powder rails vi-mode
+         node npm coffee per-directory-history)
 
 source $ZSH/oh-my-zsh.sh
 
