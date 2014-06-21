@@ -58,3 +58,9 @@
 [submodule "vim/bundle/vinegar"]
 	path = vim/bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/bundle/delete-trailing-whitespace"]
+	path = vim/bundle/delete-trailing-whitespace
+	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
+[submodule "vim/bundle/show-trailing-whitespace"]
+	path = vim/bundle/show-trailing-whitespace
+	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
