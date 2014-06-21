@@ -67,3 +67,15 @@
 [submodule "vim/bundle/visual-star-search"]
 	path = vim/bundle/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
+[submodule "vim/bundle/endwise"]
+	path = vim/bundle/endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/capslock"]
+	path = vim/bundle/capslock
+	url = https://github.com/tpope/vim-capslock.git
+[submodule "vim/bundle/easy-align"]
+	path = vim/bundle/easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "vim/bundle/visualrepeat"]
+	path = vim/bundle/visualrepeat
+	url = https://github.com/vim-scripts/visualrepeat.git
