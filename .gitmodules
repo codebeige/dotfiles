@@ -64,3 +64,6 @@
 [submodule "vim/bundle/show-trailing-whitespace"]
 	path = vim/bundle/show-trailing-whitespace
 	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
+[submodule "vim/bundle/visual-star-search"]
+	path = vim/bundle/visual-star-search
+	url = https://github.com/bronson/vim-visual-star-search.git
