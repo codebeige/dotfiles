@@ -62,8 +62,6 @@ let mapleader=","
 let maplocalleader="-"
 
 " appearance
-silent! colorscheme solarized
-
 set number
 set numberwidth=5
 
