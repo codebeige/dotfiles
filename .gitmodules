@@ -79,3 +79,6 @@
 [submodule "vim/bundle/emmet"]
 	path = vim/bundle/emmet
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/bundle/camel_case_motion"]
+	path = vim/bundle/camel_case_motion
+	url = https://github.com/bkad/CamelCaseMotion.git
