@@ -76,3 +76,6 @@
 [submodule "vim/bundle/visualrepeat"]
 	path = vim/bundle/visualrepeat
 	url = https://github.com/vim-scripts/visualrepeat.git
+[submodule "vim/bundle/emmet"]
+	path = vim/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
