@@ -48,10 +48,6 @@ map ä ]
 
 map ° ~
 
-nnoremap ' `
-nnoremap ` '
-nnoremap ´ '
-
 inoremap <c-l> <c-@>
 set timeout
 set ttimeout
