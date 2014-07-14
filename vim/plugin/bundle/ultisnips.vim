@@ -6,5 +6,5 @@ noremap <leader>se :UltiSnipsEdit<cr>
 
 augroup plugin_ultisnips
   autocmd!
-  autocmd BufNewFile,BufReadPost *_spec.js.coffee UltiSnipsAddFiletypes mocha.coffee
+  autocmd BufNewFile,BufReadPost *_spec{.js}\\\{,1\}.coffee UltiSnipsAddFiletypes mocha.coffee
 augroup END
