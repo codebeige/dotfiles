@@ -38,7 +38,7 @@ export EDITOR='vim'
 export PROCESSING_HOME=$HOME/Documents/Processing
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH=$(npm root -g)
 
 cdpath=($HOME/src $HOME/src/* $HOME/lab)
 hash -d dots=$HOME/Dropbox/dotfiles
