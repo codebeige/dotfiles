@@ -85,3 +85,6 @@
 [submodule "vim/bundle/aftercolors"]
 	path = vim/bundle/aftercolors
 	url = https://github.com/calvinchengx/vim-aftercolors.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
