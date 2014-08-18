@@ -1,9 +1,23 @@
+snippet ! "use strict" b
+'use strict'
+endsnippet
+
+snippet r "require"
+require('$1')$0
+endsnippet
+
+snippet =r "require assignment"
+$1 = require('${2:$1}')$0
+endsnippet
+
 snippet -> "anonymous function" i
-function ($1) {
-  $0
-}
+function ($1) {$0}
 endsnippet
 
 snippet l "console log" w
 console.log($0)
+endsnippet
+
+snippet if "if statement" b
+if ($1) {$0}
 endsnippet
