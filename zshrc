@@ -41,7 +41,7 @@ export PSQL_EDITOR='vim -c"set syntax=pgsql"'
 export NODE_PATH=$(npm root -g)
 
 cdpath=($HOME/src $HOME/src/* $HOME/lab)
-hash -d dots=$HOME/Dropbox/dotfiles
+hash -d dots=$HOME/dotfiles
 hash -d brew=/usr/local
 
 alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
