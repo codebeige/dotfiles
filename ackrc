@@ -16,4 +16,3 @@ rdoc=.rdoc
 --markdown
 --actionscript
 --objc
---ignore-dir=.idea
