@@ -38,10 +38,8 @@ export EDITOR='vim'
 export PROCESSING_HOME=$HOME/Documents/Processing
 export HOMEBREW_NO_EMOJI=1
 export PSQL_EDITOR='vim -c"set syntax=pgsql"'
-export NODE_PATH=$(npm root -g)
+export NODE_PATH=$(npm root -g 2>/dev/null)
 
 cdpath=($HOME/src $HOME/src/* $HOME/lab)
 hash -d dots=$HOME/dotfiles
 hash -d brew=/usr/local
-
-alias java6='export JAVA_HOME=`/usr/libexec/java_home -v "1.6*"`'
