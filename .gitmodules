@@ -118,6 +118,3 @@
 [submodule "vim/bundle/less"]
 	path = vim/bundle/less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "vim/bundle/smartgf"]
-	path = vim/bundle/smartgf
-	url = https://github.com/gorkunov/smartgf.vim.git
