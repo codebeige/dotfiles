@@ -118,3 +118,6 @@
 [submodule "vim/bundle/less"]
 	path = vim/bundle/less
 	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/bundle/bracketed-paste"]
+	path = vim/bundle/bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
