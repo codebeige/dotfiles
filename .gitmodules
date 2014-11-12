@@ -121,6 +121,3 @@
 [submodule "vim/bundle/bracketed-paste"]
 	path = vim/bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
-[submodule "vim/bundle/direnv"]
-	path = vim/bundle/direnv
-	url = https://github.com/zimbatm/direnv.vim.git
