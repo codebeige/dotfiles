@@ -32,14 +32,7 @@ plugins=(git git-flow-avh osx ruby rake brew brew-cask pow powder rails vi-mode
 
 source $ZSH/oh-my-zsh.sh
 
+###############################################################################
+
 setopt nocorrectall correct nobeep rmstarwait
-
 export EDITOR='vim'
-export PROCESSING_HOME=$HOME/Documents/Processing
-export HOMEBREW_NO_EMOJI=1
-export PSQL_EDITOR='vim -c"set syntax=pgsql"'
-export NODE_PATH=$(npm root -g 2>/dev/null)
-
-cdpath=($HOME/src $HOME/src/* $HOME/lab)
-hash -d dots=$HOME/dotfiles
-hash -d brew=/usr/local
