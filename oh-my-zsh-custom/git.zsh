@@ -14,3 +14,5 @@ alias gl!='git fetch && git reset --hard origin/$(current_branch)'
 
 alias grb='git rebase'
 compdef _git grb=git-rebase
+
+alias grbd='git rebase develop'
