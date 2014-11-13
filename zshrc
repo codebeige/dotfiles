@@ -25,10 +25,12 @@ ZSH_THEME="blinks"
 # Move customization out of original git repo
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
+BUNDLED_COMMANDS=spinach
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow-avh osx ruby rake bundler brew brew-cask pow powder rails
-         vi-mode node npm coffee per-directory-history safe-paste cp)
+plugins=(git git-flow-avh osx ruby rake brew brew-cask pow powder vi-mode node
+         npm coffee per-directory-history safe-paste cp)
 
 source $ZSH/oh-my-zsh.sh
 
