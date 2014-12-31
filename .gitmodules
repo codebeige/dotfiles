@@ -121,6 +121,3 @@
 [submodule "vim/bundle/bracketed-paste"]
 	path = vim/bundle/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
-[submodule "vim/bundle/argwrap"]
-	path = vim/bundle/argwrap
-	url = https://github.com/FooSoft/vim-argwrap.git
