@@ -136,3 +136,6 @@
 [submodule "vim/bundle/local-vimrc"]
 	path = vim/bundle/local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
