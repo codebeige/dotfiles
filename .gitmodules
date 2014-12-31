@@ -106,9 +106,6 @@
 [submodule "vim/bundle/undoquit"]
 	path = vim/bundle/undoquit
 	url = https://github.com/AndrewRadev/undoquit.vim.git
-[submodule "vim/bundle/advanced-diff-options"]
-	path = vim/bundle/advanced-diff-options
-	url = https://github.com/vim-scripts/AdvancedDiffOptions.git
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
