@@ -55,7 +55,7 @@ set ttimeoutlen=100
 
 " mappings
 let mapleader=","
-let maplocalleader="-"
+let maplocalleader=",,"
 
 " appearance
 set number
