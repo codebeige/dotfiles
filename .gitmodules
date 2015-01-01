@@ -142,3 +142,6 @@
 [submodule "vim/bundle/angular"]
 	path = vim/bundle/angular
 	url = https://github.com/burnettk/vim-angular.git
+[submodule "vim/bundle/indentline"]
+	path = vim/bundle/indentline
+	url = https://github.com/Yggdroot/indentLine.git
