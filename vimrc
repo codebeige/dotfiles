@@ -60,6 +60,7 @@ let maplocalleader=",,"
 " appearance
 set number
 set numberwidth=5
+set cursorline
 
 set wrap
 set linebreak

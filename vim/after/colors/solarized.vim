@@ -6,3 +6,9 @@ highlight clear MatchParen
 highlight MatchParen term=reverse cterm=reverse gui=reverse
 
 highlight ShowTrailingWhitespace ctermbg=1
+
+if &background == "dark"
+  highlight CursorLineNr ctermbg=0
+else
+  highlight CursorLineNr ctermbg=7
+endif
