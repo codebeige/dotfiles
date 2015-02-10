@@ -2,16 +2,20 @@ snippet ! "use strict" b
 'use strict'
 endsnippet
 
-snippet r "require"
+snippet rq "require"
 require('$1')$0
 endsnippet
 
-snippet =r "require assignment"
+snippet =rq "require assignment"
 $1 = require('${2:$1}')$0
 endsnippet
 
 snippet f "anonymous function" w
 function ($1) {$0}
+endsnippet
+
+snippet r "return statement" b
+return ${1:null}
 endsnippet
 
 snippet l "console log" w
