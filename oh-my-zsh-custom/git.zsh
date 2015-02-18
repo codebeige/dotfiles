@@ -16,3 +16,7 @@ alias grb='git rebase'
 compdef _git grb=git-rebase
 
 alias grbd='git rebase develop'
+compdef _git grbd=git-rebase
+
+alias grh='git reset --hard'
+compdef _git grh=git-reset
