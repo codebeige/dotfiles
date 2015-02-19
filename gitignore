@@ -6,3 +6,4 @@
 tags
 *.pyc
 *.draft
+.lvimrc
