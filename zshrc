@@ -30,7 +30,7 @@ BUNDLED_COMMANDS=spinach
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git git-flow-avh osx ruby rake brew brew-cask pow powder vi-mode node
-         npm coffee per-directory-history safe-paste cp)
+         npm coffee per-directory-history safe-paste cp lein)
 
 source $ZSH/oh-my-zsh.sh
 
