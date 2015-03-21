@@ -151,3 +151,12 @@
 [submodule "vim/bundle/switch"]
 	path = vim/bundle/switch
 	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule "vim/bundle/leiningen"]
+	path = vim/bundle/leiningen
+	url = https://github.com/tpope/vim-leiningen.git
+[submodule "vim/bundle/dispatch"]
+	path = vim/bundle/dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "vim/bundle/fireplace"]
+	path = vim/bundle/fireplace
+	url = https://github.com/tpope/vim-fireplace.git
