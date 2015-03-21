@@ -160,3 +160,9 @@
 [submodule "vim/bundle/fireplace"]
 	path = vim/bundle/fireplace
 	url = https://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/sexp"]
+	path = vim/bundle/sexp
+	url = https://github.com/guns/vim-sexp.git
+[submodule "vim/bundle/sexp-mappings-for-regular-people"]
+	path = vim/bundle/sexp-mappings-for-regular-people
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
