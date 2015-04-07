@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufReadPost *.hamlc set filetype=haml
+autocmd BufNewFile,BufReadPost *.hamlc setfiletype haml
