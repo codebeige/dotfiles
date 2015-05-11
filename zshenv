@@ -8,3 +8,12 @@ if which rbenv > /dev/null; then
   fi
   path=($RBENV_ROOT/shims "$path[@]")
 fi
+
+if which brew > /dev/null; then
+  if [[ ! -n $NVM_DIR ]];then
+    export NVM_DIR=~/.nvm
+  fi
+  if [[ -f $(brew --prefix nvm)/nvm.sh ]]; then
+    source $(brew --prefix nvm)/nvm.sh
+  fi
+fi
