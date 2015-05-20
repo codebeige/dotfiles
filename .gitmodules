@@ -166,3 +166,6 @@
 [submodule "vim/bundle/sexp-mappings-for-regular-people"]
 	path = vim/bundle/sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+[submodule "vim/bundle/node"]
+	path = vim/bundle/node
+	url = https://github.com/moll/vim-node.git
