@@ -1,0 +1,7 @@
+{ "node"     : true
+, "asi"      : true
+, "laxcomma" : true
+, "laxbreak" : true
+, "boss"     : true
+, "eqnull"   : true
+}
