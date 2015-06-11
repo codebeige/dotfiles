@@ -1,7 +1,8 @@
-{ "node"     : true
-, "asi"      : true
-, "laxcomma" : true
-, "laxbreak" : true
-, "boss"     : true
-, "eqnull"   : true
+{ "node"      : true
+, "asi"       : true
+, "laxcomma"  : true
+, "laxbreak"  : true
+, "boss"      : true
+, "eqnull"    : true
+, "validthis" : true
 }
