@@ -14,12 +14,22 @@ snippet f "anonymous function" w
 function ($1) {$0}
 endsnippet
 
+snippet fn "function definition"
+function $1($2) {
+  ${3:return null}
+}
+endsnippet
+
 snippet r "return statement" b
 return ${1:null}
 endsnippet
 
-snippet l "console log" w
+snippet l "console log" b
 console.log($0)
+endsnippet
+
+snippet e "console error" b
+console.error($0)
 endsnippet
 
 snippet if "if statement" b
