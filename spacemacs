@@ -69,7 +69,7 @@ before layers configuration."
                          solarized-dark)
                          ;;leuven
                          ;;monokai
-                         ;;zenburn)
+                         ;;zenburn
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -148,10 +148,18 @@ before layers configuration."
   ;; User initialization goes here
   )
 
+(defun escape-or-quit (prompt)
+  (if (key-binding [escape]) [escape] (kbd "C-g")))
+
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
-  (setq-default line-spacing 2))
+
+  (setq-default line-spacing 2)
+
+  (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
+  (global-set-key (kbd "C-ü") (kbd "C-]")))
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
