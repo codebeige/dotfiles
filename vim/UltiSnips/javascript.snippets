@@ -35,3 +35,10 @@ endsnippet
 snippet if "if statement" b
 if ($1) {$0}
 endsnippet
+
+snippet t "tape test case" b
+test('${1:does something}', function (t) {
+  ${2:t.fail('TODO: not implemented')}
+  t.end()
+})
+endsnippet
