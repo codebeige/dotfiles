@@ -1,0 +1,6 @@
+compdef _git gcp=git-commit
+compdef _git gf=git-flow
+compdef _git gff=git-diff
+compdef _git gp!=git-push
+compdef _git grb=git-rebase
+compdef _git grbd=git-rebase
