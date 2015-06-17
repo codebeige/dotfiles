@@ -121,18 +121,12 @@
 [submodule "vim/bundle/splitjoin"]
 	path = vim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
-[submodule "vim/bundle/angular-vim-snippets"]
-	path = vim/bundle/angular-vim-snippets
-	url = https://github.com/matthewsimo/angular-vim-snippets.git
 [submodule "vim/bundle/local-vimrc"]
 	path = vim/bundle/local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/angular"]
-	path = vim/bundle/angular
-	url = https://github.com/burnettk/vim-angular.git
 [submodule "vim/bundle/indentline"]
 	path = vim/bundle/indentline
 	url = https://github.com/Yggdroot/indentLine.git
