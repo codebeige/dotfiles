@@ -153,15 +153,11 @@ before layers configuration."
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
 
-  (setq-default line-spacing 2)
-
-  (setq-default fci-rule-use-dashes t)
-  (setq-default fci-dash-pattern 0.6)
+  (add-hook 'after-change-major-mode-hook 'fci-mode)
 
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
   (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
-   
   (global-set-key (kbd "C-ü") (kbd "C-]")))
 
 ;; Do not write anything past this comment. This is where Emacs will
