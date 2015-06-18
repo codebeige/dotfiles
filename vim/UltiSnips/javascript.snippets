@@ -3,15 +3,11 @@ snippet ! "use strict" b
 endsnippet
 
 snippet rq "require"
-require('$1')$0
-endsnippet
-
-snippet =rq "require assignment"
-$1 = require('${2:$1}')$0
+require('$1')
 endsnippet
 
 snippet f "anonymous function" w
-function ($1) {$0}
+function ($1) {$2}
 endsnippet
 
 snippet fn "function definition"
@@ -25,15 +21,15 @@ return ${1:null}
 endsnippet
 
 snippet l "console log" b
-console.log($0)
+console.log($1)
 endsnippet
 
 snippet e "console error" b
-console.error($0)
+console.error($1)
 endsnippet
 
 snippet if "if statement" b
-if ($1) {$0}
+if ($1) {$2}
 endsnippet
 
 snippet t "tape test case" b
