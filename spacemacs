@@ -27,6 +27,7 @@
      ;; shell
      ;; syntax-checking
      evil-commentary
+     clojure
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -67,9 +68,6 @@ before layers configuration."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(solarized-light
                          solarized-dark)
-                         ;;leuven
-                         ;;monokai
-                         ;;zenburn
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -153,7 +151,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
 
-  (add-hook 'after-change-major-mode-hook 'fci-mode)
+  ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
 
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
