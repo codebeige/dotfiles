@@ -2,8 +2,7 @@
 .svn
 *.tmproj
 .rvmrc
-*.swp
-*.swo
+.*.sw?
 tags
 *.pyc
 *.draft
