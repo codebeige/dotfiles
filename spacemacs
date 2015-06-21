@@ -156,6 +156,7 @@ before layers configuration."
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
 
+  (setq-default js2-strict-missing-semi-warning nil)
   ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
 
   (defun escape-or-quit (prompt)
