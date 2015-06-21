@@ -175,3 +175,6 @@
 [submodule "vim/bundle/unite-quickfix"]
 	path = vim/bundle/unite-quickfix
 	url = https://github.com/osyo-manga/unite-quickfix.git
+[submodule "vim/bundle/unite-grep-vcs"]
+	path = vim/bundle/unite-grep-vcs
+	url = https://github.com/lambdalisue/unite-grep-vcs.git

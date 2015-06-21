@@ -24,7 +24,9 @@ nnoremap <leader>ll :<C-u>Unite -no-split -no-empty -buffer-name=locations locat
 nnoremap <leader>lj :<C-u>Unite -no-split -no-empty -buffer-name=jumps     jump<cr>
 nnoremap <leader>lc :<C-u>Unite -no-split -no-empty -buffer-name=changes   change<cr>
 
-nnoremap <leader>fp :<C-u>Unite -no-split -buffer-name=pattern grep<cr>
+nnoremap <leader>fg :<C-u>Unite -no-split -buffer-name=project grep/git:!<cr>
+nnoremap <leader>fp :<C-u>Unite -no-split -buffer-name=pattern grep:!<cr>
+
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden --ignore-dir .git --ignore-dir tmp'
