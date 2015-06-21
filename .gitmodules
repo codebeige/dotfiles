@@ -178,3 +178,9 @@
 [submodule "vim/bundle/unite-grep-vcs"]
 	path = vim/bundle/unite-grep-vcs
 	url = https://github.com/lambdalisue/unite-grep-vcs.git
+[submodule "vim/bundle/vinegar"]
+	path = vim/bundle/vinegar
+	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
