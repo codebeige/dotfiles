@@ -172,3 +172,6 @@
 [submodule "vim/bundle/unite-outline"]
 	path = vim/bundle/unite-outline
 	url = https://github.com/Shougo/unite-outline.git
+[submodule "vim/bundle/unite-quickfix"]
+	path = vim/bundle/unite-quickfix
+	url = https://github.com/osyo-manga/unite-quickfix.git
