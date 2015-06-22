@@ -3,4 +3,4 @@ augroup show_trailing_whitespace
   autocmd BufNewFile,BufRead COMMIT_EDITMSG call ShowTrailingWhitespace#Set(0,0)
 augroup END
 
-highlight ShowTrailingWhitespace ctermbg=1
+highlight ShowTrailingWhitespace ctermbg=red guibg=red
