@@ -1,7 +1,1 @@
-let g:netrw_list_hide = "^\./$," .
-                      \ "^\.DS_Store$," .
-                      \ "^\.git$," .
-                      \ "^\.sw.$," .
-                      \ "^..*\.sw.$," .
-                      \ "^\.netrwhist$," .
-                      \ "^\.nrepl-history$"
+let g:netrw_list_hide = g:netrw_list_hide . ",^\./$"
