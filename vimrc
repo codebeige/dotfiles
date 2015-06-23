@@ -98,4 +98,4 @@ set infercase
 " going wild
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=.DS_Store,.git,.*.sw?,.sw?,.netrwhist,.nrepl-history
+set wildignore=.DS_Store,.git/,.s[a-z][a-z],.*.sw[a-z],.netrwhist,.nrepl-history

@@ -3,6 +3,7 @@
 *.tmproj
 .rvmrc
 .*.sw?
+.s??
 tags
 *.pyc
 *.draft
