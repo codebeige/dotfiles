@@ -155,13 +155,12 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
-
-  (setq-default js2-strict-missing-semi-warning nil)
-  ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
+  (setq default-frame-alist '((width . 140)(height . 45)))
 
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
   (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
+
   (global-set-key (kbd "C-ü") (kbd "C-]")))
 
 ;; Do not write anything past this comment. This is where Emacs will
