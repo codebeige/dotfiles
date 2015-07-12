@@ -155,7 +155,6 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
-  (setq default-frame-alist '((width . 140)(height . 45)))
 
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
