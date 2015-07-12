@@ -133,9 +133,6 @@
 [submodule "vim/bundle/dispatch"]
 	path = vim/bundle/dispatch
 	url = https://github.com/tpope/vim-dispatch
-[submodule "vim/bundle/fireplace"]
-	path = vim/bundle/fireplace
-	url = https://github.com/tpope/vim-fireplace.git
 [submodule "vim/bundle/sexp"]
 	path = vim/bundle/sexp
 	url = https://github.com/guns/vim-sexp.git
@@ -148,9 +145,6 @@
 [submodule "vim/bundle/javascript-syntax"]
 	path = vim/bundle/javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
-[submodule "vim/bundle/salve"]
-	path = vim/bundle/salve
-	url = https://github.com/tpope/vim-salve.git
 [submodule "vim/bundle/unite"]
 	path = vim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
