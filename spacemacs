@@ -19,11 +19,9 @@
      ;; ----------------------------------------------------------------
      auto-completion
      emacs-lisp
-     (git :variables
-          git-gutter-use-fringe t)
+     git
      markdown
-     (org :variables
-          org-enable-github-support t)
+     org
      shell
      syntax-checking
      evil-commentary
@@ -32,7 +30,6 @@
      javascript
      ruby
      osx
-     foo
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
