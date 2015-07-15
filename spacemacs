@@ -29,7 +29,7 @@
      html
      javascript
      ruby
-     osx
+     ;; (osx :variables osx-use-option-as-meta nil)
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -153,6 +153,17 @@ before layers configuration."
  This function is called at the very end of Spacemacs
 initialization after layers configuration."
 
+  ;; appearance
+  (add-to-list 'default-frame-alist '(internal-border-width . 5))
+
+  ;; emmet
+  (setq emmet-move-cursor-between-quotes t)
+  (add-hook 'emmet-mode-hook
+    (lambda ()
+      (define-key emmet-mode-keymap (kbd "C-j") 'emmet-next-edit-point)
+      (define-key emmet-mode-keymap (kbd "C-k") 'emmet-prev-edit-point)))
+
+  ;; German keyboard
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
   (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
