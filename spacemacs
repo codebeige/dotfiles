@@ -22,14 +22,16 @@
      git
      markdown
      org
-     shell
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      syntax-checking
+     version-control
      evil-commentary
      clojure
      html
      javascript
      ruby
-     ;; (osx :variables osx-use-option-as-meta nil)
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -68,7 +70,9 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(solarized-light
+   dotspacemacs-themes '(spacemacs-light
+                         spacemacs-dark
+                         solarized-light
                          solarized-dark)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -98,14 +102,14 @@ before layers configuration."
    dotspacemacs-use-ido nil
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content.
-   dotspacemacs-enable-paste-micro-state nil
+   dotspacemacs-enable-paste-micro-state t
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
    dotspacemacs-guide-key-delay 0.4
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil ;; to boost the loading time.
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -155,6 +159,7 @@ initialization after layers configuration."
 
   ;; appearance
   (add-to-list 'default-frame-alist '(internal-border-width . 5))
+  (setq powerline-default-separator nil)
 
   ;; emmet
   (setq emmet-move-cursor-between-quotes t)
