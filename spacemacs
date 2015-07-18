@@ -167,6 +167,10 @@ initialization after layers configuration."
       (define-key emmet-mode-keymap (kbd "C-j") 'emmet-next-edit-point)
       (define-key emmet-mode-keymap (kbd "C-k") 'emmet-prev-edit-point)))
 
+  ;; vim-surround
+  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
+  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+
   ;; German keyboard
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
