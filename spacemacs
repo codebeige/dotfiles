@@ -78,7 +78,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Akkurat Mono Pro"
-                               :size 15
+                               :size 15.0
                                :weight normal
                                :width normal
                                :powerline-scale 1.5)
@@ -111,10 +111,10 @@ before layers configuration."
    dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX."
-   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-fullscreen-use-non-native t
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (Emacs 24.4+ only)
@@ -148,7 +148,7 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
-  ;; User initialization goes here
+   ;; User initialization goes here
   )
 
 (defun dotspacemacs/config ()
@@ -159,6 +159,10 @@ initialization after layers configuration."
   ;; appearance
   (add-to-list 'default-frame-alist '(internal-border-width . 5))
   (setq powerline-default-separator nil)
+  (fancy-battery-mode)
+
+  ;; bookmarks
+  (evil-leader/set-key "hb" 'helm-filtered-bookmarks) ; fixed upstream, remove when merged
 
   ;; emmet
   (setq emmet-move-cursor-between-quotes t)
