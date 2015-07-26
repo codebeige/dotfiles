@@ -38,3 +38,7 @@ source $ZSH/oh-my-zsh.sh
 
 setopt nocorrectall correct nobeep rmstarwait
 export EDITOR='vim'
+
+export LANG='de_DE.UTF-8'
+export LC_ALL='de_DE.UTF-8'
+export TERM='xterm-256color'

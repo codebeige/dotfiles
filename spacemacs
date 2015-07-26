@@ -23,8 +23,10 @@
      markdown
      org
      (shell :variables
+            shell-default-shell 'multi-term
+            shell-default-term-shell "/bin/zsh"
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'top)
      syntax-checking
      version-control
      evil-commentary
@@ -164,16 +166,27 @@ initialization after layers configuration."
   ;; bookmarks
   (evil-leader/set-key "hb" 'helm-filtered-bookmarks) ; fixed upstream, remove when merged
 
+  ;; git
+  (setq-default git-magit-status-fullscreen t)
+  (setq magit-repository-directories '("~/src/" "~/lab/"))
+
   ;; emmet
   (setq emmet-move-cursor-between-quotes t)
   (add-hook 'emmet-mode-hook
-    (lambda ()
-      (define-key emmet-mode-keymap (kbd "C-j") 'emmet-next-edit-point)
-      (define-key emmet-mode-keymap (kbd "C-k") 'emmet-prev-edit-point)))
+            (lambda ()
+              (define-key emmet-mode-keymap (kbd "C-j") 'emmet-next-edit-point)
+              (define-key emmet-mode-keymap (kbd "C-k") 'emmet-prev-edit-point)))
 
   ;; vim-surround
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
+
+  ;; multi-term
+  (evil-leader/set-key "#" 'shell-pop-multiterm)
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (add-to-list 'term-bind-key-alist '("M-ö" . multi-term-prev))
+              (add-to-list 'term-bind-key-alist '("M-ä" . multi-term-next))))
 
   ;; German keyboard
   (defun escape-or-quit (prompt)
