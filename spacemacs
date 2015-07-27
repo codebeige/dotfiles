@@ -186,8 +186,8 @@ initialization after layers configuration."
   (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
-  ;; multi-term
-  (evil-leader/set-key "#" 'shell-pop-multiterm)
+  ;; shell
+  (global-set-key (kbd "C-SPC") 'spacemacs/default-pop-shell)
   (add-hook 'term-mode-hook
             (lambda ()
               (add-to-list 'term-bind-key-alist '("M-ö" . multi-term-prev))
