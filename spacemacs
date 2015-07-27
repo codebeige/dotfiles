@@ -39,7 +39,9 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(clojure-cheatsheet)
+   dotspacemacs-additional-packages '(clojure-cheatsheet
+                                      magit-gitflow)
+
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -167,8 +169,11 @@ initialization after layers configuration."
   (evil-leader/set-key "hb" 'helm-filtered-bookmarks) ; fixed upstream, remove when merged
 
   ;; git
-  (setq-default git-magit-status-fullscreen t)
+  ;; (setq-default git-magit-status-fullscreen t)
   (setq magit-repository-directories '("~/src/" "~/lab/"))
+  (require 'magit-gitflow)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+  (evil-define-key 'emacs magit-status-mode-map "O" 'magit-gitflow-popup)
 
   ;; emmet
   (setq emmet-move-cursor-between-quotes t)
