@@ -193,6 +193,45 @@ initialization after layers configuration."
               (add-to-list 'term-bind-key-alist '("M-ö" . multi-term-prev))
               (add-to-list 'term-bind-key-alist '("M-ä" . multi-term-next))))
 
+  ;; clojurescript
+  (evil-leader/set-key-for-mode 'clojurescript-mode
+    "mhh" 'cider-doc
+    "mhg" 'cider-grimoire
+    "mhj" 'cider-javadoc
+
+    "meb" 'cider-eval-buffer
+    "mee" 'cider-eval-last-sexp
+    "mef" 'cider-eval-defun-at-point
+    "mer" 'cider-eval-region
+    "mew" 'cider-eval-last-sexp-and-replace
+
+    "mgb" 'cider-jump-back
+    "mge" 'cider-jump-to-compilation-error
+    "mgg" 'cider-jump-to-var
+    "mgr" 'cider-jump-to-resource
+
+    "msb" 'cider-load-buffer
+    "msB" 'spacemacs/cider-send-buffer-in-repl-and-focus
+    "msc" 'cider-connect
+    "mse" 'spacemacs/cider-send-last-sexp-to-repl
+    "msE" 'spacemacs/cider-send-last-sexp-to-repl-focus
+    "msf" 'spacemacs/cider-send-function-to-repl
+    "msF" 'spacemacs/cider-send-function-to-repl-focus
+    "msi" 'cider-jack-in
+    "msn" 'spacemacs/cider-send-ns-form-to-repl
+    "msN" 'spacemacs/cider-send-ns-form-to-repl-focus
+    "msq" 'cider-quit
+    "msr" 'spacemacs/cider-send-region-to-repl
+    "msR" 'spacemacs/cider-send-region-to-repl-focus
+    "mss" 'cider-switch-to-repl-buffer
+
+    "mta" 'spacemacs/cider-test-run-all-tests
+    "mtr" 'spacemacs/cider-test-rerun-tests
+    "mtt" 'spacemacs/cider-test-run-focused-test
+
+    "mdi" 'cider-inspect
+    "mdb" 'cider-debug-defun-at-point)
+
   ;; German keyboard
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
