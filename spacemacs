@@ -232,6 +232,9 @@ initialization after layers configuration."
     "mdi" 'cider-inspect
     "mdb" 'cider-debug-defun-at-point)
 
+  ;; Web
+  (setq web-mode-markup-indent-offset 2)
+
   ;; German keyboard
   (defun escape-or-quit (prompt)
     (if (key-binding [escape]) [escape] (kbd "C-g")))
