@@ -1,1 +1,1 @@
-alias lein="rlwrap lein"
+alias rlein="rlwrap lein"

@@ -74,8 +74,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         spacemacs-dark)
+   dotspacemacs-themes '(solarized-light
+                         solarized-dark)
 
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -232,8 +232,16 @@ initialization after layers configuration."
     "mdi" 'cider-inspect
     "mdb" 'cider-debug-defun-at-point)
 
-  ;; Web
+  ;; indentation
+  (setq-default indent-tabs-mode nil)
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq css-indent-offset 2)
+  (setq js-indent-level 2)
+  (setq javascript-indent-level 2)
+  (setq coffee-tab-width 2)
+  (setq js2-basic-offset 2)
 
   ;; German keyboard
   (defun escape-or-quit (prompt)
