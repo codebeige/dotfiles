@@ -181,3 +181,9 @@
 [submodule "vim/bundle/slime"]
 	path = vim/bundle/slime
 	url = https://github.com/jpalardy/vim-slime.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "vim/bundle/rainbow"]
+	path = vim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow.git

@@ -9,15 +9,14 @@
 (require 'package)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
- 	                 ("marmalade" . "http://marmalade-repo.org/packages/")
-	                 ("melpa" . "http://melpa.milkbox.net/packages/")
-	                 ("melpa-stable" . "https://stable.melpa.org/packages/")))
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(defvar my-packages '(cider
-		      paredit))
+(defvar my-packages '(cider paredit))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
-		      
+
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
 (dolist (p my-packages) (when (not (package-installed-p p)) (package-install p)))
