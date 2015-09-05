@@ -187,3 +187,9 @@
 [submodule "vim/bundle/rainbow"]
 	path = vim/bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "vim/bundle/fireplace"]
+	path = vim/bundle/fireplace
+	url = https://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/salve"]
+	path = vim/bundle/salve
+	url = https://github.com/tpope/vim-salve
