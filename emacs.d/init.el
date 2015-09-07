@@ -23,6 +23,12 @@
 ;; appearance
 (setq ring-bell-function 'ignore)
 
+;; German keyboard
+(defun escape-or-quit (prompt)
+  (if (key-binding [escape]) [escape] (kbd "C-g")))
+(define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
+(global-set-key (kbd "C-ü") (kbd "C-]"))
+
 ;; customized
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
