@@ -2,9 +2,6 @@
 (setq ns-alternate-modifier 'none)
 (setq ns-command-modifier 'meta)
 
-;; appearance
-(setq ring-bell-function 'ignore)
-
 ;; packages
 (require 'package)
 
@@ -13,13 +10,18 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(defvar my-packages '(cider paredit))
+(defvar my-packages '(cider
+                      paredit
+                      solarized-theme))
 
-(setq package-pinned-packages '((cider . "melpa-stable")))
+(setq package-pinned-packages '((cider . "melpa-stable"))
 
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
 (dolist (p my-packages) (when (not (package-installed-p p)) (package-install p)))
+
+;; appearance
+(setq ring-bell-function 'ignore)
 
 ;; customized
 (custom-set-variables
@@ -28,6 +30,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wombat)))
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(inhibit-startup-screen t)
  '(tool-bar-mode nil))
 (custom-set-faces
