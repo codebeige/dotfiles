@@ -14,7 +14,7 @@
                       paredit
                       solarized-theme))
 
-(setq package-pinned-packages '((cider . "melpa-stable"))
+(setq package-pinned-packages '((cider . "melpa-stable")))
 
 (package-initialize)
 (when (not package-archive-contents) (package-refresh-contents))
