@@ -12,7 +12,8 @@
 
 (defvar my-packages '(cider
                       paredit
-                      solarized-theme))
+                      solarized-theme
+                      ido-vertical-mode))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
@@ -22,6 +23,13 @@
 
 ;; appearance
 (setq ring-bell-function 'ignore)
+
+;; global navigation
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(ido-vertical-mode 1)
+
 
 ;; German keyboard
 (defun escape-or-quit (prompt)
