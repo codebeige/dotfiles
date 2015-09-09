@@ -13,7 +13,8 @@
 (defvar my-packages '(cider
                       paredit
                       solarized-theme
-                      ido-vertical-mode))
+                      ido-vertical-mode
+                      smex))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
@@ -30,6 +31,12 @@
 (ido-mode 1)
 (ido-vertical-mode 1)
 
+;; commands
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; German keyboard
 (defun escape-or-quit (prompt)
