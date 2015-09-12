@@ -190,6 +190,3 @@
 [submodule "vim/bundle/fireplace"]
 	path = vim/bundle/fireplace
 	url = https://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/salve"]
-	path = vim/bundle/salve
-	url = https://github.com/tpope/vim-salve
