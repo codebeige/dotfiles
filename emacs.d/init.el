@@ -32,6 +32,10 @@
 (load-theme 'solarized-light t)
 (set-face-attribute 'default nil :family "Source Code Pro" :height 145)
 
+;; whitespace
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
 ;; global navigation
 (setq vc-follow-symlinks t)
 (setq ido-enable-flex-matching t)
