@@ -14,7 +14,8 @@
                       paredit
                       solarized-theme
                       ido-vertical-mode
-                      smex))
+                      smex
+                      guide-key))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
@@ -50,6 +51,12 @@
   (if (key-binding [escape]) [escape] (kbd "C-g")))
 (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
 (global-set-key (kbd "C-ü") (kbd "C-]"))
+
+;; info
+(require 'guide-key)
+(setq guide-key/guide-key-sequence t)
+(setq guide-key/popup-window-position 'bottom)
+(guide-key-mode 1)
 
 ;; tempfiles
 (defconst emacs-tmp-dir "~/.emacs-tmp/")
