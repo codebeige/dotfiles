@@ -32,6 +32,7 @@
 (set-face-attribute 'default nil :family "Source Code Pro" :height 145)
 
 ;; global navigation
+(setq vc-follow-symlinks t)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
