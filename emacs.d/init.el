@@ -9,9 +9,14 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("melpa-stable" . "https://stable.melpa.org/packages/")))
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
-(defvar my-packages '(cider
-                      paredit
+(defvar my-packages '(paredit
+                      clojure-mode
+                      clojure-mode-extra-font-locking
+                      cider
                       solarized-theme
                       ido-vertical-mode
                       smex
@@ -21,9 +26,9 @@
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
-(package-initialize)
-(when (not package-archive-contents) (package-refresh-contents))
-(dolist (p my-packages) (when (not (package-installed-p p)) (package-install p)))
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 ;; GUI
 (setq ring-bell-function 'ignore)
