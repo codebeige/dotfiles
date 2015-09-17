@@ -15,7 +15,8 @@
                       solarized-theme
                       ido-vertical-mode
                       smex
-                      guide-key))
+                      guide-key
+                      nyan-mode))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
@@ -27,6 +28,10 @@
 (setq ring-bell-function 'ignore)
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
+(nyan-mode t)
+(add-to-list 'default-frame-alist '(height . 45))
+(add-to-list 'default-frame-alist '(width . 120))
 
 ;; appearance
 (load-theme 'solarized-light t)
