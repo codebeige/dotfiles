@@ -16,7 +16,8 @@
                       ido-vertical-mode
                       smex
                       guide-key
-                      nyan-mode))
+                      nyan-mode
+                      rainbow-delimiters))
 
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
@@ -36,6 +37,7 @@
 ;; appearance
 (load-theme 'solarized-light t)
 (set-face-attribute 'default nil :family "Source Code Pro" :height 145)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; whitespace
 (setq-default indent-tabs-mode nil)
