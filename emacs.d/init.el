@@ -38,20 +38,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; GUI
-(setq ring-bell-function 'ignore)
-(setq inhibit-startup-message t)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(nyan-mode t)
-(add-to-list 'default-frame-alist '(height . 45))
-(add-to-list 'default-frame-alist '(width . 120))
-
-;; appearance
-(load-theme 'solarized-light t)
-(set-face-attribute 'default nil :family "Source Code Pro" :height 145)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 ;; whitespace
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -94,6 +80,8 @@
 ;; OS X only
 (when (memq window-system '(mac ns))
   (load "osx"))
+
+(load "ui")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
