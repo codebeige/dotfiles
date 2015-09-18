@@ -8,7 +8,7 @@
   (tool-bar-mode -1))
 
 (setq-default frame-title-format "%b (%f)")
-(setq initial-frame-alist '((top . 100)
+(setq initial-frame-alist '((top . 50)
                             (left . 100)
                             (width . 120)
                             (height . 45)))
