@@ -1,7 +1,3 @@
-;; modifier keys
-(setq ns-alternate-modifier 'none)
-(setq ns-command-modifier 'meta)
-
 ;; set up package management
 (require 'package)
 (add-to-list 'package-archives
@@ -92,10 +88,12 @@
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)
 
-;; set up environment for on OS X
+;; configuration
+(add-to-list 'load-path "~/.emacs.d/config/")
+
+;; OS X only
 (when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+  (load "osx"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
