@@ -2,17 +2,22 @@
 (setq ns-alternate-modifier 'none)
 (setq ns-command-modifier 'meta)
 
-;; packages
+;; set up package management
 (require 'package)
+(add-to-list 'package-archives
+             '("marmelade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("tromey" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+;; list of packages
 (defvar my-packages '(paredit
                       clojure-mode
                       clojure-mode-extra-font-locking
@@ -24,8 +29,15 @@
                       nyan-mode
                       rainbow-delimiters))
 
+
+;; OS X only packages
+(if (eq system-type 'darwin)
+    (add-to-list 'my-packages 'exec-path-from-shell))
+
+;; pinned packages
 (setq package-pinned-packages '((cider . "melpa-stable")))
 
+;; install packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
@@ -79,6 +91,10 @@
 (setq backup-directory-alist `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix emacs-tmp-dir)
+
+;; set up environment for on OS X
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
