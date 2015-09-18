@@ -26,7 +26,7 @@
                       rainbow-delimiters))
 
 
-;; OS X only packages
+;;; Mac only
 (if (eq system-type 'darwin)
     (add-to-list 'my-packages 'exec-path-from-shell))
 
@@ -44,11 +44,10 @@
 (load "ui")
 (load "nav")
 (load "cmd")
-(load "keys")
 (load "tmp")
 (load "edit")
 
-;; Mac only
+;;; Mac only
 (when (memq window-system '(mac ns))
   (load "osx"))
 
