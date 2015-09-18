@@ -42,13 +42,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; global navigation
-(setq vc-follow-symlinks t)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-(ido-vertical-mode 1)
-
 ;; commands
 (require 'smex)
 (smex-initialize)
@@ -82,6 +75,7 @@
   (load "osx"))
 
 (load "ui")
+(load "nav")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
