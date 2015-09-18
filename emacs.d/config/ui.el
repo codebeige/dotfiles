@@ -15,7 +15,3 @@
 
 (load-theme 'solarized-light t)
 (set-face-attribute 'default nil :family "Source Code Pro" :height 145)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-(global-linum-mode)
-(nyan-mode t)

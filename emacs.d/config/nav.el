@@ -3,13 +3,11 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-(ido-everywhere 1)
 (ido-mode 1)
-
+(ido-everywhere 1)
 (ido-vertical-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
 
+(setq ido-enable-flex-matching t)
 (setq ido-use-virtual-buffers t)
 
 (setq ido-use-file-at-point 'guess)
@@ -26,4 +24,4 @@
       (message "Opening file...")
     (message "Aborting")))
 
-(global-set-key (kbd "C-c C-f") 'ido-recentf-open)
+(global-set-key (kbd "C-c f") 'ido-recentf-open)
