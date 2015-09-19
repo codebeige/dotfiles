@@ -14,7 +14,4 @@
                             (height . 45)))
 
 (set-face-attribute 'default nil :family "Source Code Pro" :height 145)
-
-(setq solarized-use-variable-pitch nil)
-(setq solarized-use-less-bold t)
 (load-theme 'solarized-light t)
