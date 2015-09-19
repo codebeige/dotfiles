@@ -46,6 +46,9 @@
 (load "cmd")
 (load "tmp")
 (load "edit")
+(load "autoload")
+(load "elisp")
+(load "clojure")
 
 ;;; Mac only
 (when (memq window-system '(mac ns))
