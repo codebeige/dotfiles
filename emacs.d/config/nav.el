@@ -15,6 +15,7 @@
 
 (require 'flx-ido)
 (flx-ido-mode 1)
+(setq gc-cons-threshold 20000000) ; tune garbage collection
 
 (require 'recentf)
 (recentf-mode 1)
