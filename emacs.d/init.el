@@ -25,7 +25,8 @@
                       guide-key
                       nyan-mode
                       rainbow-delimiters
-                      projectile))
+                      projectile
+                      company))
 
 
 ;;; Mac only
