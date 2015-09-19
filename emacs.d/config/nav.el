@@ -13,6 +13,9 @@
 (setq ido-use-file-at-point 'guess)
 (setq ffap-require-prefix t)
 
+(require 'flx-ido)
+(flx-ido-mode 1)
+
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 15)

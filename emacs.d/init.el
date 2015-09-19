@@ -20,6 +20,7 @@
                       cider
                       solarized-theme
                       ido-vertical-mode
+                      flx-ido
                       smex
                       guide-key
                       nyan-mode
