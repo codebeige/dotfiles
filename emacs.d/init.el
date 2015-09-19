@@ -23,7 +23,8 @@
                       smex
                       guide-key
                       nyan-mode
-                      rainbow-delimiters))
+                      rainbow-delimiters
+                      projectile))
 
 
 ;;; Mac only

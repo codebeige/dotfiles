@@ -25,3 +25,6 @@
     (message "Aborting")))
 
 (global-set-key (kbd "C-c f") 'ido-recentf-open)
+
+
+(projectile-global-mode)
