@@ -26,7 +26,9 @@
                       nyan-mode
                       rainbow-delimiters
                       projectile
-                      company))
+                      company
+                      magit
+                      magit-gitflow))
 
 
 ;;; Mac only
@@ -52,6 +54,7 @@
 (load "autoload")
 (load "elisp")
 (load "clojure")
+(load "git")
 
 ;;; Mac only
 (when (memq window-system '(mac ns))
