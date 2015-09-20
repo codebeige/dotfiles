@@ -30,5 +30,9 @@
 
 (global-set-key (kbd "C-c f") 'ido-recentf-open)
 
-
 (projectile-global-mode)
+
+(require 'neotree)
+(setq neo-theme 'nerd)
+(global-set-key (kbd "C-c t") 'neotree-toggle)
+

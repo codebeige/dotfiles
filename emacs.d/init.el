@@ -28,7 +28,8 @@
                       projectile
                       company
                       magit
-                      magit-gitflow))
+                      magit-gitflow
+                      neotree))
 
 
 ;;; Mac only
