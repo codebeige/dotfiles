@@ -9,10 +9,6 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
 ;; list of packages
 (defvar my-packages '(paredit
                       clojure-mode
@@ -38,6 +34,11 @@
 
 ;; pinned packages
 (setq package-pinned-packages '((cider . "melpa-stable")))
+
+;; initialize package manager
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;; install packages
 (dolist (p my-packages)
