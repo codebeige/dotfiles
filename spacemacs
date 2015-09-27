@@ -12,26 +12,14 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
      emacs-lisp
-     ;; git
-     ;; markdown
-     ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; syntax-checking
+     evil-commentary
+     git
      version-control
 
-     evil-commentary
-
-     ;; private configuration layers
+     ;; private
      german-keyboard
      )
    ;; List of additional packages that will be installed without being
@@ -168,6 +156,9 @@ layers configuration."
   (setq powerline-default-separator nil)
   (setq neo-theme 'nerd)
   (global-company-mode)
+  (setq magit-repository-directories '("~/src/" "~/lab/"))
+  (setq nyan-wavy-trail nil
+        nyan-animate-nyancat nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
