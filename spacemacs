@@ -22,6 +22,7 @@
 
      ;; private
      german-keyboard
+     miniml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -154,12 +155,11 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (setq powerline-default-separator nil)
-  (setq neo-theme 'nerd)
+
   (global-company-mode)
-  (setq magit-repository-directories '("~/src/" "~/lab/"))
-  (setq nyan-wavy-trail nil
-        nyan-animate-nyancat nil)
+
+  (setq magit-repository-directories '("~/src/"
+                                       "~/lab/"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
