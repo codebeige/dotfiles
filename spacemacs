@@ -13,6 +13,7 @@
    dotspacemacs-configuration-layers
    '(
      auto-completion
+     clojure
      (colors :variables colors-enable-nyan-cat-progress-bar t)
      emacs-lisp
      evil-commentary
