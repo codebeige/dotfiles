@@ -29,6 +29,8 @@
      ;; syntax-checking
      version-control
 
+     evil-commentary
+
      ;; private configuration layers
      german-keyboard
      )
