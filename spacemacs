@@ -17,7 +17,7 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -28,6 +28,8 @@
      ;;        shell-default-position 'bottom)
      ;; syntax-checking
      version-control
+
+     ;; private configuration layers
      german-keyboard
      )
    ;; List of additional packages that will be installed without being
@@ -162,7 +164,9 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (setq powerline-default-separator nil)
-  (setq neo-theme 'nerd))
+  (setq neo-theme 'nerd)
+  (global-company-mode)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
