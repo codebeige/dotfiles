@@ -149,17 +149,19 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
+  )
 
-  ;; User initialization goes here
-
+(defun dotspacemacs/user-init ()
+  "User initialization goes here"
   (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
   (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
   (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
   (add-to-list 'package-pinned-packages '(cljr-helm . "melpa-stable") t)
   (add-to-list 'package-pinned-packages '(ac-cider . "melpa-stable") t)
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
