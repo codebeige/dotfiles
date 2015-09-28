@@ -8,5 +8,4 @@
   (let ((use-dialog-box nil))
     ad-do-it))
 
-;; (setq nyan-wavy-trail nil
-;;       nyan-animate-nyancat nil)
+(add-hook 'nyan-mode-hook 'miniml-nyan-mode)

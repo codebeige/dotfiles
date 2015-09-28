@@ -31,8 +31,8 @@
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
 
-(defun miniml/init-neotree ()
+(defun miniml/post-init-neotree ()
   (setq neo-theme 'nerd))
 
-(defun miniml/init-powerline ()
+(defun miniml/post-init-powerline ()
   (setq powerline-default-separator nil))

@@ -12,12 +12,10 @@
 
 (setq miniml-pre-extensions
       '(
-        ;; pre extension names go here
         ))
 
 (setq miniml-post-extensions
       '(
-        miniml-nyan-mode
         ))
 
 ;; For each extension, define a function %LAYERNAME%/init-<extension-name>
@@ -29,8 +27,3 @@
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
-
-(defun miniml/init-miniml-nyan-mode ()
-  (add-hook 'nyan-mode-hook
-            (lambda () (setq nyan-animate-nyancat nil
-                             nyan-wavy-trail nil))))
