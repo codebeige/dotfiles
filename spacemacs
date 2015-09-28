@@ -23,6 +23,7 @@
      ;; private
      german-keyboard
      miniml
+     unicorns-in-space
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -134,7 +135,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
@@ -148,16 +149,21 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
+
   ;; User initialization goes here
+
+  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+  (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(cljr-helm . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(ac-cider . "melpa-stable") t)
   )
 
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-
   (global-company-mode)
-
   (setq magit-repository-directories '("~/src/"
                                        "~/lab/"))
   )
