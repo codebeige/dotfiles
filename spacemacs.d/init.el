@@ -6,43 +6,31 @@
   "Configuration Layers declaration."
   (setq-default
    ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs-private/")
+   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      auto-completion
+     clojure
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
      emacs-lisp
+     evil-commentary
      git
      markdown
-     org
-     (shell :variables
-            shell-default-shell 'multi-term
-            shell-default-term-shell "/bin/zsh"
-            shell-default-height 30
-            shell-default-position 'top)
-     syntax-checking
      version-control
-     evil-commentary
-     clojure
-     html
-     javascript
-     ruby)
 
-   ;; List of additional packages that will be installed wihout being
+     ;; private
+     german-keyboard
+     miniml
+     unicorns-in-space
+     )
+   ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(clojure-cheatsheet
-                                      magit-gitflow
-                                      feature-mode)
-
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -68,7 +56,7 @@ before layers configuration."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed.
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
    dotspacemacs-startup-lists '(recents projects)
@@ -76,17 +64,21 @@ before layers configuration."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(solarized-light
-                         solarized-dark)
-
+                         solarized-dark
+                         spacemacs-light
+                         spacemacs-dark
+                         leuven
+                         monokai
+                         zenburn)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Akkurat Mono Pro"
-                               :size 15.0
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 15
                                :weight normal
                                :width normal
-                               :powerline-scale 1.5)
+                               :powerline-scale 1.0)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -101,12 +93,17 @@ before layers configuration."
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
    dotspacemacs-command-key ":"
+   ;; Location where to auto-save files. Possible values are `original' to
+   ;; auto-save the file in-place, `cache' to auto-save the file to another
+   ;; file stored in the cache directory and `nil' to disable auto-saving.
+   ;; Default value is `cache'.
+   dotspacemacs-auto-save-file-location 'cache
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
    ;; `find-files' (SPC f f) is replaced.
    dotspacemacs-use-ido nil
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content.
-   dotspacemacs-enable-paste-micro-state t
+   dotspacemacs-enable-paste-micro-state nil
    ;; Guide-key delay in seconds. The Guide-key is the popup buffer listing
    ;; the commands bound to the current keystrokes.
    dotspacemacs-guide-key-delay 0.4
@@ -116,10 +113,10 @@ before layers configuration."
    dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX."
-   dotspacemacs-fullscreen-use-non-native t
+   dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (Emacs 24.4+ only)
@@ -133,13 +130,13 @@ before layers configuration."
    ;; Transparency can be toggled through `toggle-transparency'.
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line.
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
@@ -153,103 +150,26 @@ before layers configuration."
    ;; Not used for now.
    dotspacemacs-default-package-repository nil
    )
-   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-init ()
+  "User initialization goes here"
+  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+  (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(clj-refactor . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(cljr-helm . "melpa-stable") t)
+  (add-to-list 'package-pinned-packages '(ac-cider . "melpa-stable") t)
+  )
+
+(defun dotspacemacs/user-config ()
   "Configuration function.
- This function is called at the very end of Spacemacs
-initialization after layers configuration."
-
-  ;; appearance
-  (add-to-list 'default-frame-alist '(internal-border-width . 5))
-  (setq powerline-default-separator nil)
-  (fancy-battery-mode)
-
-  ;; bookmarks
-  (evil-leader/set-key "hb" 'helm-filtered-bookmarks) ; fixed upstream, remove when merged
-
-  ;; git
-  ;; (setq-default git-magit-status-fullscreen t)
+ This function is called at the very end of Spacemacs initialization after
+layers configuration."
+  (global-company-mode)
+  (setq auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
   (setq magit-repository-directories '("~/src/" "~/lab/"))
-  (require 'magit-gitflow)
-  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-  (evil-define-key 'emacs magit-status-mode-map "O" 'magit-gitflow-popup)
-
-  ;; emmet
-  (setq emmet-move-cursor-between-quotes t)
-  (add-hook 'emmet-mode-hook
-            (lambda ()
-              (define-key emmet-mode-keymap (kbd "C-j") 'emmet-next-edit-point)
-              (define-key emmet-mode-keymap (kbd "C-k") 'emmet-prev-edit-point)))
-
-  ;; vim-surround
-  (evil-define-key 'visual evil-surround-mode-map "s" 'evil-substitute)
-  (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
-
-  ;; shell
-  (global-set-key (kbd "C-SPC") 'spacemacs/default-pop-shell)
-  (add-hook 'term-mode-hook
-            (lambda ()
-              (add-to-list 'term-bind-key-alist '("M-ö" . multi-term-prev))
-              (add-to-list 'term-bind-key-alist '("M-ä" . multi-term-next))))
-
-  ;; clojurescript
-  (evil-leader/set-key-for-mode 'clojurescript-mode
-    "mhh" 'cider-doc
-    "mhg" 'cider-grimoire
-    "mhj" 'cider-javadoc
-
-    "meb" 'cider-eval-buffer
-    "mee" 'cider-eval-last-sexp
-    "mef" 'cider-eval-defun-at-point
-    "mer" 'cider-eval-region
-    "mew" 'cider-eval-last-sexp-and-replace
-
-    "mgb" 'cider-jump-back
-    "mge" 'cider-jump-to-compilation-error
-    "mgg" 'cider-jump-to-var
-    "mgr" 'cider-jump-to-resource
-
-    "msb" 'cider-load-buffer
-    "msB" 'spacemacs/cider-send-buffer-in-repl-and-focus
-    "msc" 'cider-connect
-    "mse" 'spacemacs/cider-send-last-sexp-to-repl
-    "msE" 'spacemacs/cider-send-last-sexp-to-repl-focus
-    "msf" 'spacemacs/cider-send-function-to-repl
-    "msF" 'spacemacs/cider-send-function-to-repl-focus
-    "msi" 'cider-jack-in
-    "msn" 'spacemacs/cider-send-ns-form-to-repl
-    "msN" 'spacemacs/cider-send-ns-form-to-repl-focus
-    "msq" 'cider-quit
-    "msr" 'spacemacs/cider-send-region-to-repl
-    "msR" 'spacemacs/cider-send-region-to-repl-focus
-    "mss" 'cider-switch-to-repl-buffer
-
-    "mta" 'spacemacs/cider-test-run-all-tests
-    "mtr" 'spacemacs/cider-test-rerun-tests
-    "mtt" 'spacemacs/cider-test-run-focused-test
-
-    "mdi" 'cider-inspect
-    "mdb" 'cider-debug-defun-at-point)
-
-  ;; indentation
-  (setq-default indent-tabs-mode nil)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq css-indent-offset 2)
-  (setq js-indent-level 2)
-  (setq javascript-indent-level 2)
-  (setq coffee-tab-width 2)
-  (setq js2-basic-offset 2)
-
-  ;; German keyboard
-  (defun escape-or-quit (prompt)
-    (if (key-binding [escape]) [escape] (kbd "C-g")))
-  (define-key key-translation-map (kbd "C-ä") 'escape-or-quit)
-
-  (global-set-key (kbd "C-ü") (kbd "C-]")))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
