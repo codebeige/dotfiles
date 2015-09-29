@@ -168,6 +168,7 @@ before layers configuration."
 layers configuration."
   (global-company-mode)
   (setq auto-completion-private-snippets-directory "~/.spacemacs.d/snippets/")
+  (defalias 'yas--template-file 'yas--template-get-file)
   (setq magit-repository-directories '("~/src/" "~/lab/"))
   )
 
