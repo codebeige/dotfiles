@@ -1,3 +1,7 @@
-set lispwords+=this-as
+let g:clojure_align_subforms = 1
+
+let g:clojure_fuzzy_indent = 1
+let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '-as$']
+let g:clojure_fuzzy_indent_blacklist = ['-fn$', '\v^with-%(meta|out-str|loading-context)$']
 
 let b:commentary_format=';; %s'
