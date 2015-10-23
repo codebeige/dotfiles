@@ -187,3 +187,6 @@
 [submodule "vim/bundle/fireplace"]
 	path = vim/bundle/fireplace
 	url = https://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/clojure-highlight"]
+	path = vim/bundle/clojure-highlight
+	url = https://github.com/guns/vim-clojure-highlight.git
