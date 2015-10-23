@@ -6,3 +6,5 @@ highlight ShowTrailingWhitespace ctermbg=red
 
 highlight clear MatchParen
 highlight MatchParen term=reverse cterm=reverse gui=reverse
+
+highlight clojureError term=reverse cterm=reverse ctermfg=3 guifg=Black guibg=Yellow
