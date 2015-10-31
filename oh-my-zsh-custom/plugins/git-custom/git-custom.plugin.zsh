@@ -1,5 +1,4 @@
 alias gcp='git commit -vp'
-alias gf='git flow'
 alias gff='git diff --ignore-blank-lines'
 alias gp!='git push -f'
 alias gl!='git fetch && git reset --hard origin/$(current_branch)'
