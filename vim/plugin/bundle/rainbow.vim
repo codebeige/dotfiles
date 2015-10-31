@@ -1,7 +1,7 @@
 let g:rainbow_active = 1
 
 let g:rainbow_conf = {
-  \   'ctermfgs': ['DarkRed', 'DarkGreen', 'DarkBlue', 'DarkMagenta', 'Brown', 'Magenta'],
+  \   'ctermfgs': ['DarkRed', 'DarkBlue', 'DarkMagenta', 'DarkGreen', 'Brown', 'Magenta'],
   \   'separately': {
   \   }
   \ }
