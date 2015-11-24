@@ -13,7 +13,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/{}.clj",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer :all]]",
+      \       "  (:require [clojure.test :refer :all]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
