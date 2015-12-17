@@ -196,3 +196,6 @@
 [submodule "vim/bundle/salve"]
 	path = vim/bundle/salve
 	url = https://github.com/tpope/vim-salve.git
+[submodule "vim/bundle/visual-split"]
+	path = vim/bundle/visual-split
+	url = https://github.com/wellle/visual-split.vim.git
