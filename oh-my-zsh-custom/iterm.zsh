@@ -1,12 +1,27 @@
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+  # wrap sequence for tmux
+  trigger_escape_code() {
+    if (($+TMUX)); then
+      print -n -- "\033Ptmux;\033$1\033\\"
+    else
+      print -n -- "$1"
+    fi
+  }
+
   # switch to iTerm profile by name
-  change_profile() { print -n -- "\033]50;SetProfile=$1\a" }
+  change_profile() {
+    trigger_escape_code "\033]50;SetProfile=$1\a"
+  }
 
   # set cursor shape (0: block, 1:vertical bar, 2:underline)
-  change_cursor_shape() { print -n -- "\033]50;CursorShape=$1\a" }
+  change_cursor_shape() {
+    trigger_escape_code "\033]50;CursorShape=$1\a"
+  }
 
   # clear scrollback history
-  clear_scrollback() { print -n -- "\033]50;ClearScrollback\a" }
+  clear_scrollback() {
+    trigger_escape_code "\033]50;ClearScrollback\a"
+  }
 
   # toggle solarized theme
   toggle_solarized_mode() {
