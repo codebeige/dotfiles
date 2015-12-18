@@ -202,3 +202,6 @@
 [submodule "vim/plugin/vitality"]
 	path = vim/plugin/vitality
 	url = https://github.com/sjl/vitality.vim.git
+[submodule "vim/bundle/tmux"]
+	path = vim/bundle/tmux
+	url = https://github.com/tmux-plugins/vim-tmux.git
