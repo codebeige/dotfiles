@@ -10,6 +10,7 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
 
   # switch to iTerm profile by name
   change_profile() {
+    export ITERM_PROFILE="$1"
     trigger_escape_code "\033]50;SetProfile=$1\a"
   }
 
@@ -23,17 +24,30 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
     trigger_escape_code "\033]50;ClearScrollback\a"
   }
 
-  # toggle solarized theme
-  toggle_solarized_mode() {
-    case ${SOLARIZED_THEME:-dark} in
-      light) export SOLARIZED_THEME=dark ;;
-      *)     export SOLARIZED_THEME=light;;
-    esac
-    change_profile "Solarized ${(C)SOLARIZED_THEME}"
-    clear_scrollback
-    source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+  # source theme file
+  reload_theme() {
+    if [ ! "$ZSH_THEME" = ""  ]; then
+      if [ -f "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme" ]; then
+        source "$ZSH_CUSTOM/$ZSH_THEME.zsh-theme"
+      elif [ -f "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme" ]; then
+        source "$ZSH_CUSTOM/themes/$ZSH_THEME.zsh-theme"
+      else
+        source "$ZSH/themes/$ZSH_THEME.zsh-theme"
+      fi
+    fi
   }
-  alias tgm=toggle_solarized_mode
+
+  toggle_background_mode() {
+    if [[ "$ITERM_PROFILE" =~ '^(.*)(Dark|Light)(.*)$' ]]; then
+      case $match[2] in
+        Dark)  change_profile "$match[1]Light$match[3]";;
+        Light) change_profile "$match[1]Dark$match[3]" ;;
+      esac
+      clear_scrollback
+      reload_theme
+    fi
+  }
+  alias tgm=toggle_background_mode
 
   # change cursor according to vi-mode
   function zle-line-init {

@@ -1,4 +1,4 @@
-if $SOLARIZED_THEME == 'light'
+if $ITERM_PROFILE =~ '\clight'
   set background=light
 else
   set background=dark
