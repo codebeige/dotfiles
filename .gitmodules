@@ -199,3 +199,6 @@
 [submodule "vim/bundle/visual-split"]
 	path = vim/bundle/visual-split
 	url = https://github.com/wellle/visual-split.vim.git
+[submodule "vim/plugin/vitality"]
+	path = vim/plugin/vitality
+	url = https://github.com/sjl/vitality.vim.git
