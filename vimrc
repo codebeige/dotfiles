@@ -11,6 +11,9 @@ filetype plugin indent on
 set backspace=indent,eol,start
 set hidden
 
+" fix mouse reporting inside tmux sessions
+set ttymouse=xterm2
+
 " sensible defaults
 set backspace=indent,eol,start
 set mouse=a
