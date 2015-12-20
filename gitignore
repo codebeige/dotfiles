@@ -5,6 +5,7 @@
 .*.sw?
 .s??
 tags
+tags-ja
 *.pyc
 *.draft
 .lvimrc
