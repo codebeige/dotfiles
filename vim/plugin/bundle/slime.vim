@@ -1,6 +1,5 @@
-" let g:slime_target = "tmux"
-" let g:slime_no_mappings = 1
+let g:slime_target = "tmux"
 
-xmap <leader>s <Plug>SlimeRegionSend
-nmap <leader>s <Plug>SlimeMotionSend
-nmap <leader>ss <Plug>SlimeLineSend
+xmap <localleader>s <Plug>SlimeRegionSend
+nmap <localleader>s <Plug>SlimeMotionSend
+nmap <localleader>ss <Plug>SlimeLineSend
