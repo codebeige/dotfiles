@@ -1,0 +1,4 @@
+Host gmah.net
+  HostName circinus.uberspace.de
+  User gmah
+  ForwardAgent yes
