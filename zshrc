@@ -53,5 +53,3 @@ if which brew > /dev/null 2>&1; then
     source $(brew --prefix nvm)/nvm.sh
   fi
 fi
-
-path=(~/bin "$path[@]")
