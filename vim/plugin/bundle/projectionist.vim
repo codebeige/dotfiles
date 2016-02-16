@@ -8,6 +8,10 @@ let g:projectionist_heuristics = {
       \     "alternate": "test/{}_test.clj",
       \     "template": "(ns {dot|hyphenate})"
       \   },
+      \   "lib/*.clj": {
+      \     "type": "library",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
       \   "test/*_test.clj": {
       \     "type": "test",
       \     "alternate": "src/{}.clj",
