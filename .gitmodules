@@ -55,9 +55,6 @@
 [submodule "vim/bundle/visual-star-search"]
 	path = vim/bundle/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
-[submodule "vim/bundle/endwise"]
-	path = vim/bundle/endwise
-	url = https://github.com/tpope/vim-endwise.git
 [submodule "vim/bundle/capslock"]
 	path = vim/bundle/capslock
 	url = https://github.com/tpope/vim-capslock.git
@@ -205,3 +202,6 @@
 [submodule "vim/bundle/liquid"]
 	path = vim/bundle/liquid
 	url = https://github.com/tpope/vim-liquid.git
+[submodule "vim/bundle/lexima"]
+	path = vim/bundle/lexima
+	url = https://github.com/cohama/lexima.vim.git
