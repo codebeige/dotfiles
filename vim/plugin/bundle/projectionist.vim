@@ -49,5 +49,36 @@ let g:projectionist_heuristics = {
       \       "---",
       \       "{open}% extends parent %{close}"
       \     ]
+      \   },
+      \   "app/content_types/*.yml": {
+      \     "type": "content",
+      \     "alternate": "data/{}.yml",
+      \     "template": [
+      \       "name: {basename|blank|capitalize}",
+      \       "slug: {basename|hyphenate}",
+      \       "description: # TODO: provide description",
+      \       "label_field_name: name",
+      \       "order_by: manually",
+      \       "order_direction: asc",
+      \       "",
+      \       "fields:",
+      \       "",
+      \       "- name:",
+      \       "    label: Name",
+      \       "    type: string",
+      \       "    required: true"
+      \     ]
+      \   },
+      \   "data/*.yml": {
+      \     "type": "data",
+      \     "alternate": "app/content_types/{}.yml",
+      \     "template": [
+      \       "- \"{basename|singular|blank|capitalize} 1\":",
+      \       "    property: Foo # TODO edit fields",
+      \       "- \"{basename|singular|blank|capitalize} 2\":",
+      \       "    property: Bar # TODO edit fields",
+      \       "- \"{basename|singular|blank|capitalize} 3\":",
+      \       "    property: Baz # TODO edit fields"
+      \     ]
       \   }
       \ }}
