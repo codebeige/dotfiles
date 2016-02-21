@@ -8,4 +8,5 @@ augroup plugin_ultisnips
   autocmd!
   autocmd BufNewFile,BufReadPost *_spec{.js}\\\{,1\}.coffee UltiSnipsAddFiletypes mocha.coffee
   autocmd BufNewFile,BufReadPost *_spec.rb UltiSnipsAddFiletypes rspec.ruby
+  autocmd BufNewFile,BufReadPost *.liquid.haml UltiSnipsAddFiletypes liquid.haml
 augroup END
