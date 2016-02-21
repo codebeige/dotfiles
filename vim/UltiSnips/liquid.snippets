@@ -1,0 +1,50 @@
+snippet if "if" b
+{% if ${1:condition} %}
+$0
+{% endif %}
+endsnippet
+
+snippet else "else" b
+{% else %}
+$0
+endsnippet
+
+snippet unless "unless" b
+{% unless ${1:condition} %}
+$0
+{% endunless %}
+endsnippet
+
+snippet case "case" b
+{% case ${1:expression} %}
+{% when ${2:value} %}
+$0
+{% endcase %}
+endsnippet
+
+snippet when "when" b
+{% when ${1:value} %}
+$0
+endsnippet
+
+snippet for "for" b
+{% for ${1:item} in ${2:items} %}
+$0
+{% endfor %}
+endsnippet
+
+snippet assign "assign" b
+{% assign ${1:variable} = ${2:value} %}
+endsnippet
+
+# locomotive
+
+snippet block "block" b
+{% block ${1:name} %}
+$0
+{% endblock %}
+endsnippet
+
+snippet extends "extends" b
+{% extends ${1:parent} %}
+endsnippet
