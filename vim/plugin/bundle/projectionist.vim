@@ -35,4 +35,19 @@ let g:projectionist_heuristics = {
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   }
+      \ },
+      \ "config/site.yml": {
+      \   "app/views/pages/*.liquid.haml": {
+      \     "type": "template",
+      \     "template": [
+      \       "---",
+      \       "title: {basename|blank|capitalize}",
+      \       "handle: {basename|hyphenate}",
+      \       "published: true",
+      \       "listed: true",
+      \       "position: 1",
+      \       "---",
+      \       "{open}% extends parent %{close}"
+      \     ]
+      \   }
       \ }}
