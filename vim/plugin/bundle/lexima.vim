@@ -50,3 +50,12 @@ call lexima#add_rule({
   \ 'input_after': '<cr>{% endfor %}',
   \ 'except': '\C^\(\s*\){% for\>\%(.*\)%}\%#\n\%(\s*\n\)*\1{%\s\+endfor\>',
   \ })
+
+" snippets
+call lexima#add_rule({
+  \ 'filetype': ['snippets'],
+  \ 'at': '\C^snippet\s.\+\%#',
+  \ 'char': '<cr>',
+  \ 'input_after': '<cr>endsnippet',
+  \ 'except': '\C^snippet\s.\+\%#\n\%(\s*\n\)*endsnippet\>',
+  \ })
