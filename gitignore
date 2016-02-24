@@ -4,9 +4,10 @@
 .rvmrc
 .*.sw?
 .s??
-tags
-tags-ja
 *.pyc
 *.draft
 .lvimrc
 .nrepl-*
+
+**/doc/tags
+**/doc/tags-ja
