@@ -81,4 +81,21 @@ let g:projectionist_heuristics = {
       \       "    property: Baz # TODO edit fields"
       \     ]
       \   }
+      \ },
+      \ "Gemfile": {
+      \   "lib/*.rb": {
+      \     "type": "source",
+      \     "alternate": "spec/{}_spec.rb"
+      \   },
+      \   "spec/*_spec.rb": {
+      \     "type": "test",
+      \     "alternate": "lib/{}.rb",
+      \     "template": [
+      \       "require 'spec_helper'",
+      \       "",
+      \       "describe {camelcase|colons} do",
+      \       "  it 'does something'",
+      \       "end"
+      \     ]
+      \   }
       \ }}
