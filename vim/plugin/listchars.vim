@@ -1,1 +1,1 @@
-set listchars=eol:¬,tab:→·,trail:·,extends:»,precedes:«
+set listchars=eol:¬,tab:▸\ ,space:·,extends:»,precedes:«
