@@ -205,3 +205,6 @@
 [submodule "vim/bundle/lexima"]
 	path = vim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git
+[submodule "vim/bundle/renamer"]
+	path = vim/bundle/renamer
+	url = https://github.com/qpkorr/vim-renamer.git
