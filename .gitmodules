@@ -208,3 +208,6 @@
 [submodule "vim/bundle/renamer"]
 	path = vim/bundle/renamer
 	url = https://github.com/qpkorr/vim-renamer.git
+[submodule "vim/bundle/rspec"]
+	path = vim/bundle/rspec
+	url = https://github.com/thoughtbot/vim-rspec.git
