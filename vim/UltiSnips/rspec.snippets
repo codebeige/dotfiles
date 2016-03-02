@@ -8,25 +8,25 @@ endsnippet
 
 snippet d "describe" b
 describe '$1' do
-  $0
+  ${2:# TODO: add examples}
 end
 endsnippet
 
 snippet c "context" b
 context '$1' do
-  $0
+  ${2:# TODO: add examples}
 end
 endsnippet
 
 snippet b "before each" b
 before do
-  $0
+  ${2:# TODO: implement setup}
 end
 endsnippet
 
 snippet i "example" b
 it '$1' do
-  $0
+  ${2:pending 'not implemented'}
 end
 endsnippet
 
