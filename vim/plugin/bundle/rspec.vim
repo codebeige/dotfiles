@@ -1,5 +1,5 @@
-map <localleader>r :call RunCurrentSpecFile()<CR>
-map <localleader>t :call RunNearestSpec()<CR>
+map <localleader>t :call RunCurrentSpecFile()<CR>
+map <localleader>s :call RunNearestSpec()<CR>
 map <localleader>a :call RunAllSpecs()<CR>
 map <localleader>l :call RunLastSpec()<CR>
 

@@ -89,6 +89,7 @@ let g:projectionist_heuristics = {
       \   },
       \   "spec/*_spec.rb": {
       \     "type": "test",
+      \     "dispatch": "rspec spec/{}_spec.rb",
       \     "alternate": "lib/{}.rb",
       \     "template": [
       \       "require 'spec_helper'",
