@@ -51,6 +51,8 @@ map ä ]
 
 map ° ~
 
+nnoremap gü g]
+
 inoremap <c-l> <c-@>
 set timeout
 set ttimeout
