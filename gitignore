@@ -8,6 +8,6 @@
 *.draft
 .lvimrc
 .nrepl-*
-
-**/doc/tags
-**/doc/tags-ja
+tags
+tags-ja
+!tags/
