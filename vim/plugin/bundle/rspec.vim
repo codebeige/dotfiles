@@ -1,10 +1,15 @@
-nnoremap <localleader>f :call RunCurrentSpecFile()<CR>
-nnoremap <localleader>t :call RunNearestSpec()<CR>
-nnoremap <localleader>a :call RunAllSpecs()<CR>
-nnoremap <localleader>l :call RunLastSpec()<CR>
-
 let g:rspec_command = 'Dispatch -compiler=rspec' .
                     \ ' bundle exec rspec' .
                     \ ' --format progress --out tmp/test.report' .
                     \ ' --format progress' .
                     \ ' {spec}'
+
+augroup RspecPlugin
+  autocmd!
+  autocmd BufNewFile,BufRead *_spec.rb
+        \ nnoremap <buffer> <localleader>r :call RunCurrentSpecFile()<cr>|
+        \ nnoremap <buffer> <localleader>t :call RunNearestSpec()<cr>|
+        \ nnoremap <buffer> <localleader>a :call RunAllSpecs()<cr>
+  autocmd Filetype ruby
+        \ nnoremap <buffer> <localleader>l :call RunLastSpec()<cr>
+augroup END

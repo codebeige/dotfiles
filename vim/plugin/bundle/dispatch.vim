@@ -1,2 +1,2 @@
-nnoremap <localleader>r :Dispatch<cr>
-nnoremap <localleader>R :Dispatch!<cr>
+nnoremap <leader>r :Dispatch<cr>
+nnoremap <leader>R :Dispatch!<cr>
