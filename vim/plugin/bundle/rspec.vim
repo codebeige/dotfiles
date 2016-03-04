@@ -1,8 +1,4 @@
-let g:rspec_command = 'Dispatch -compiler=rspec' .
-                    \ ' bundle exec rspec' .
-                    \ ' --format progress --out tmp/test.report' .
-                    \ ' --format progress' .
-                    \ ' {spec}'
+let g:rspec_command = 'Dispatch rspec {spec}'
 
 augroup RspecPlugin
   autocmd!
