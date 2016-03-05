@@ -29,7 +29,19 @@
 	dc = diff --cached
 	amend = commit --amend
 	aa = add --all
+	dt = difftool
+	mt = mergetool
 [push]
 	default = simple
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
 [github]
 	user = codebeige
+[diff]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+	keepBackup = false
+[difftool]
+	prompt = false
