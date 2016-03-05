@@ -3,6 +3,7 @@ let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsListSnippets        = "<s-tab>"
 noremap <leader>se :UltiSnipsEdit<cr>
+noremap <leader>sl :call UltiSnips#ListSnippets()<cr>
 
 augroup plugin_ultisnips
   autocmd!
