@@ -6,13 +6,13 @@ snippet rh "require rails helper" b
 require 'rails_helper'
 endsnippet
 
-snippet d "describe" b
+snippet des "describe" b
 describe '$1' do
   ${2:# TODO: add examples}
 end
 endsnippet
 
-snippet c "context" b
+snippet con "context" b
 context '$1' do
   ${2:# TODO: add examples}
 end
@@ -32,4 +32,8 @@ endsnippet
 
 snippet e "expectation" b
 expect($1).to $0
+endsnippet
+
+snippet l "let" b
+let(${1::fixture}) { $2 }
 endsnippet
