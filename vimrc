@@ -72,13 +72,6 @@ set linebreak
 set ruler
 set colorcolumn=80
 
-set statusline=[%n]\ %(%h%q%w\ %)%.40f\ %y
-set statusline+=%=%m
-if exists('g:loaded_fugitive')
-  set statusline+=%{fugitive#statusline()}
-endif
-set statusline+=%20.(%l:%c\ (%L/%p%%)%)
-
 set showcmd
 set showmode
 set ruler
