@@ -1,21 +1,31 @@
-snippet sh "require spec helper" b
+snippet rsh "require spec helper" b
 require 'spec_helper'
 endsnippet
 
-snippet rh "require rails helper" b
+snippet rrh "require rails helper" b
 require 'rails_helper'
 endsnippet
 
-snippet des "describe" b
+snippet de "describe" b
 describe '$1' do
   ${2:# TODO: add examples}
 end
 endsnippet
 
-snippet con "context" b
+snippet co "context" b
 context '$1' do
   ${2:# TODO: add examples}
 end
+endsnippet
+
+snippet it "example" b
+it '$1' do
+  ${2:pending 'not implemented'}
+end
+endsnippet
+
+snippet l "let" b
+let(${1::fixture}) { $2 }
 endsnippet
 
 snippet b "before each" b
@@ -24,16 +34,14 @@ before do
 end
 endsnippet
 
-snippet i "example" b
-it '$1' do
-  ${2:pending 'not implemented'}
-end
-endsnippet
-
 snippet e "expectation" b
 expect($1).to $0
 endsnippet
 
-snippet l "let" b
-let(${1::fixture}) { $2 }
+snippet er "method expectation" b
+expect(${1:double}).to receive(${2::message})${3/.+/(?0:.with\()/}${3:args}${3/.+/(?0:\))/} { ${4:nil} }
+endsnippet
+
+snippet ar "method stub" b
+allow(${1:double}).to receive(${2::message})${3/.+/(?0:.with\()/}${3:args}${3/.+/(?0:\))/} { ${4:nil} }
 endsnippet
