@@ -1,4 +1,4 @@
-let g:ctrlp_custom_ignore = '\v[\/](stats|node_modules|log)$'
+" let g:ctrlp_custom_ignore = '\v[\/](stats|node_modules|log)$'
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_extensions = ['tag', 'quickfix', 'dir']
@@ -7,3 +7,4 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtClearCache()': ['<F5>', '<c-g>'],
   \ 'PrtExit()':       ['<esc>', '<c-c>'],
   \ }
+let g:ctrlp_working_path_mode = '0'
