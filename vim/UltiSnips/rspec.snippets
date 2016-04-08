@@ -1,24 +1,24 @@
-snippet rsh "require spec helper" b
+snippet rs "require spec helper" b
 require 'spec_helper'
 endsnippet
 
-snippet rrh "require rails helper" b
+snippet rr "require rails helper" b
 require 'rails_helper'
 endsnippet
 
-snippet de "describe" b
+snippet d "describe" b
 describe '$1' do
   ${2:# TODO: add examples}
 end
 endsnippet
 
-snippet co "context" b
+snippet c "context" b
 context '$1' do
   ${2:# TODO: add examples}
 end
 endsnippet
 
-snippet it "example" b
+snippet i "example" b
 it '$1' do
   ${2:pending 'not implemented'}
 end
@@ -44,4 +44,22 @@ endsnippet
 
 snippet ar "method stub" b
 allow(${1:double}).to receive(${2::message})${3/.+/(?0:.with\()/}${3:args}${3/.+/(?0:\))/} { ${4:nil} }
+endsnippet
+
+snippet f "feature" b
+feature '$1' do
+  ${2:# TODO: add examples}
+end
+endsnippet
+
+snippet s "scenario" b
+scenario '$1' do
+  ${2:# TODO: add examples}
+end
+endsnippet
+
+snippet b "background" b
+background '$1' do
+  ${2:# TODO: add examples}
+end
 endsnippet
