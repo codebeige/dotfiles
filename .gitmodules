@@ -2,215 +2,215 @@
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
+	path = vim/bundle/default/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+	path = vim/bundle/default/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
+	path = vim/bundle/default/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/unimpaired"]
-	path = vim/bundle/unimpaired
+	path = vim/bundle/default/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "vim/bundle/repeat"]
-	path = vim/bundle/repeat
+	path = vim/bundle/default/repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "vim/bundle/abolish"]
-	path = vim/bundle/abolish
+	path = vim/bundle/default/abolish
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim/bundle/commentary"]
-	path = vim/bundle/commentary
+	path = vim/bundle/default/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "vim/bundle/eunuch"]
-	path = vim/bundle/eunuch
+	path = vim/bundle/default/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "vim/bundle/ag"]
-	path = vim/bundle/ag
+	path = vim/bundle/default/ag
 	url = https://github.com/rking/ag.vim.git
 [submodule "vim/bundle/qargs"]
-	path = vim/bundle/qargs
+	path = vim/bundle/default/qargs
 	url = https://github.com/nelstrom/vim-qargs.git
 [submodule "vim/bundle/indexedsearch"]
-	path = vim/bundle/indexedsearch
+	path = vim/bundle/default/indexedsearch
 	url = https://github.com/vim-scripts/IndexedSearch.git
 [submodule "vim/bundle/coffee-script"]
-	path = vim/bundle/coffee-script
+	path = vim/bundle/default/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/ultisnips"]
-	path = vim/bundle/ultisnips
+	path = vim/bundle/python/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "vim/bundle/rails"]
-	path = vim/bundle/rails
+	path = vim/bundle/default/rails
 	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/projectionist"]
-	path = vim/bundle/projectionist
+	path = vim/bundle/default/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
 [submodule "vim/bundle/delete-trailing-whitespace"]
-	path = vim/bundle/delete-trailing-whitespace
+	path = vim/bundle/default/delete-trailing-whitespace
 	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
 [submodule "vim/bundle/show-trailing-whitespace"]
-	path = vim/bundle/show-trailing-whitespace
+	path = vim/bundle/default/show-trailing-whitespace
 	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
 [submodule "vim/bundle/visual-star-search"]
-	path = vim/bundle/visual-star-search
+	path = vim/bundle/default/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
 [submodule "vim/bundle/capslock"]
-	path = vim/bundle/capslock
+	path = vim/bundle/default/capslock
 	url = https://github.com/tpope/vim-capslock.git
 [submodule "vim/bundle/easy-align"]
-	path = vim/bundle/easy-align
+	path = vim/bundle/default/easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "vim/bundle/visualrepeat"]
-	path = vim/bundle/visualrepeat
+	path = vim/bundle/default/visualrepeat
 	url = https://github.com/vim-scripts/visualrepeat.git
 [submodule "vim/bundle/emmet"]
-	path = vim/bundle/emmet
+	path = vim/bundle/default/emmet
 	url = https://github.com/mattn/emmet-vim.git
 [submodule "vim/bundle/camel_case_motion"]
-	path = vim/bundle/camel_case_motion
+	path = vim/bundle/default/camel_case_motion
 	url = https://github.com/bkad/CamelCaseMotion.git
 [submodule "vim/bundle/aftercolors"]
-	path = vim/bundle/aftercolors
+	path = vim/bundle/default/aftercolors
 	url = https://github.com/calvinchengx/vim-aftercolors.git
 [submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
+	path = vim/bundle/default/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/vim-textobj-user"]
-	path = vim/bundle/textobj-user
+	path = vim/bundle/default/textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
 [submodule "vim/bundle/vim-textobj-rubyblock"]
-	path = vim/bundle/textobj-rubyblock
+	path = vim/bundle/default/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
 [submodule "vim/bundle/vim-textobj-line"]
-	path = vim/bundle/textobj-line
+	path = vim/bundle/default/textobj-line
 	url = https://github.com/kana/vim-textobj-line.git
 [submodule "vim/bundle/slim"]
-	path = vim/bundle/slim
+	path = vim/bundle/default/slim
 	url = https://github.com/slim-template/vim-slim.git
 [submodule "vim/bundle/undoquit"]
-	path = vim/bundle/undoquit
+	path = vim/bundle/default/undoquit
 	url = https://github.com/AndrewRadev/undoquit.vim.git
 [submodule "vim/bundle/jade"]
-	path = vim/bundle/jade
+	path = vim/bundle/default/jade
 	url = https://github.com/digitaltoad/vim-jade.git
 [submodule "vim/bundle/stylus"]
-	path = vim/bundle/stylus
+	path = vim/bundle/default/stylus
 	url = https://github.com/wavded/vim-stylus.git
 [submodule "vim/bundle/less"]
-	path = vim/bundle/less
+	path = vim/bundle/default/less
 	url = https://github.com/groenewege/vim-less.git
 [submodule "vim/bundle/bracketed-paste"]
-	path = vim/bundle/bracketed-paste
+	path = vim/bundle/default/bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
 [submodule "vim/bundle/splitjoin"]
-	path = vim/bundle/splitjoin
+	path = vim/bundle/default/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "vim/bundle/local-vimrc"]
-	path = vim/bundle/local-vimrc
+	path = vim/bundle/default/local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
+	path = vim/bundle/default/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/indentline"]
-	path = vim/bundle/indentline
+	path = vim/bundle/default/indentline
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule "vim/bundle/ragtag"]
-	path = vim/bundle/ragtag
+	path = vim/bundle/default/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
 [submodule "vim/bundle/switch"]
-	path = vim/bundle/switch
+	path = vim/bundle/default/switch
 	url = https://github.com/AndrewRadev/switch.vim.git
 [submodule "vim/bundle/dispatch"]
-	path = vim/bundle/dispatch
+	path = vim/bundle/default/dispatch
 	url = https://github.com/tpope/vim-dispatch
 [submodule "vim/bundle/sexp"]
-	path = vim/bundle/sexp
+	path = vim/bundle/default/sexp
 	url = https://github.com/guns/vim-sexp.git
 [submodule "vim/bundle/sexp-mappings-for-regular-people"]
-	path = vim/bundle/sexp-mappings-for-regular-people
+	path = vim/bundle/default/sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 [submodule "vim/bundle/node"]
-	path = vim/bundle/node
+	path = vim/bundle/default/node
 	url = https://github.com/moll/vim-node.git
 [submodule "vim/bundle/javascript-syntax"]
-	path = vim/bundle/javascript-syntax
+	path = vim/bundle/default/javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "vim/bundle/unite"]
-	path = vim/bundle/unite
+	path = vim/bundle/default/unite
 	url = https://github.com/Shougo/unite.vim.git
 [submodule "vim/bundle/neomru"]
-	path = vim/bundle/neomru
+	path = vim/bundle/default/neomru
 	url = https://github.com/Shougo/neomru.vim.git
 [submodule "vim/bundle/unite-tag"]
-	path = vim/bundle/unite-tag
+	path = vim/bundle/default/unite-tag
 	url = https://github.com/tsukkee/unite-tag.git
 [submodule "vim/bundle/unite-history"]
-	path = vim/bundle/unite-history
+	path = vim/bundle/default/unite-history
 	url = https://github.com/thinca/vim-unite-history
 [submodule "vim/bundle/unite-mark"]
-	path = vim/bundle/unite-mark
+	path = vim/bundle/default/unite-mark
 	url = https://github.com/tacroe/unite-mark
 [submodule "vim/bundle/vimproc"]
-	path = vim/bundle/vimproc
+	path = vim/bundle/default/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/bundle/unite-outline"]
-	path = vim/bundle/unite-outline
+	path = vim/bundle/default/unite-outline
 	url = https://github.com/Shougo/unite-outline.git
 [submodule "vim/bundle/unite-quickfix"]
-	path = vim/bundle/unite-quickfix
+	path = vim/bundle/default/unite-quickfix
 	url = https://github.com/osyo-manga/unite-quickfix.git
 [submodule "vim/bundle/unite-grep-vcs"]
-	path = vim/bundle/unite-grep-vcs
+	path = vim/bundle/default/unite-grep-vcs
 	url = https://github.com/lambdalisue/unite-grep-vcs.git
 [submodule "vim/bundle/vinegar"]
-	path = vim/bundle/vinegar
+	path = vim/bundle/default/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
 [submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
+	path = vim/bundle/default/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/slime"]
-	path = vim/bundle/slime
+	path = vim/bundle/default/slime
 	url = https://github.com/jpalardy/vim-slime.git
 [submodule "vim/bundle/vim-clojure-static"]
-	path = vim/bundle/clojure-static
+	path = vim/bundle/default/clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
 [submodule "vim/bundle/rainbow"]
-	path = vim/bundle/rainbow
+	path = vim/bundle/default/rainbow
 	url = https://github.com/luochen1990/rainbow.git
 [submodule "vim/bundle/fireplace"]
-	path = vim/bundle/fireplace
+	path = vim/bundle/default/fireplace
 	url = https://github.com/tpope/vim-fireplace.git
 [submodule "vim/bundle/clojure-highlight"]
-	path = vim/bundle/clojure-highlight
+	path = vim/bundle/default/clojure-highlight
 	url = https://github.com/guns/vim-clojure-highlight.git
 [submodule "vim/bundle/undotree"]
-	path = vim/bundle/undotree
+	path = vim/bundle/default/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule "vim/bundle/salve"]
-	path = vim/bundle/salve
+	path = vim/bundle/default/salve
 	url = https://github.com/tpope/vim-salve.git
 [submodule "vim/bundle/visual-split"]
-	path = vim/bundle/visual-split
+	path = vim/bundle/default/visual-split
 	url = https://github.com/wellle/visual-split.vim.git
 [submodule "vim/plugin/vitality"]
 	path = vim/plugin/vitality
 	url = https://github.com/sjl/vitality.vim.git
 [submodule "vim/bundle/tmux"]
-	path = vim/bundle/tmux
+	path = vim/bundle/default/tmux
 	url = https://github.com/tmux-plugins/vim-tmux.git
 [submodule "vim/bundle/liquid"]
-	path = vim/bundle/liquid
+	path = vim/bundle/default/liquid
 	url = https://github.com/tpope/vim-liquid.git
 [submodule "vim/bundle/lexima"]
-	path = vim/bundle/lexima
+	path = vim/bundle/default/lexima
 	url = https://github.com/cohama/lexima.vim.git
 [submodule "vim/bundle/renamer"]
-	path = vim/bundle/renamer
+	path = vim/bundle/default/renamer
 	url = https://github.com/qpkorr/vim-renamer.git
 [submodule "vim/bundle/rspec"]
-	path = vim/bundle/rspec
+	path = vim/bundle/default/rspec
 	url = https://github.com/thoughtbot/vim-rspec.git
 [submodule "vim/bundle/bundler"]
-	path = vim/bundle/bundler
+	path = vim/bundle/default/bundler
 	url = https://github.com/tpope/vim-bundler.git

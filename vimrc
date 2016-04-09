@@ -3,7 +3,10 @@ set nocompatible
 
 " load plugins
 runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
+call pathogen#infect('bundle/default/{}')
+if has('python')
+  call pathogen#infect('bundle/python/{}')
+endif
 
 " what should be the defaults anyway
 syntax enable
@@ -12,7 +15,9 @@ set backspace=indent,eol,start
 set hidden
 
 " fix mouse reporting inside tmux sessions
-set ttymouse=xterm2
+if has('mouse_xterm')
+  set ttymouse=xterm2
+endif
 
 " sensible defaults
 set backspace=indent,eol,start
