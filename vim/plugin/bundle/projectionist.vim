@@ -82,7 +82,7 @@ let g:projectionist_heuristics = {
       \     ]
       \   }
       \ },
-      \ "Gemfile": {
+      \ "Gemfile&spec/spec_helper.rb": {
       \   "lib/*.rb": {
       \     "type": "source",
       \     "alternate": "spec/{}_spec.rb"
@@ -100,11 +100,11 @@ let g:projectionist_heuristics = {
       \     ]
       \   }
       \ },
-      \ "spec/rails_helper.rb": {
+      \ "Gemfile&spec/features/&spec/rails_helper.rb": {
       \   "spec/features/*_spec.rb": {
       \     "type": "spec",
       \     "command": "feature",
-      \     "dispatch": "rspec spec/features/{}.rb",
+      \     "dispatch": "rspec spec/features/{}_spec.rb",
       \     "task": "spec:features",
       \     "keywords": "with_scope fill_in find",
       \     "related": ["spec/support/env.rb", "spec/rails_helper.rb"],
