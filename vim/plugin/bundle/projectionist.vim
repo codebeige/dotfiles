@@ -82,15 +82,22 @@ let g:projectionist_heuristics = {
       \     ]
       \   }
       \ },
-      \ "Gemfile&spec/spec_helper.rb": {
+      \ "spec/spec_helper.rb": {
       \   "lib/*.rb": {
+      \     "type": "source",
+      \     "alternate": "spec/{}_spec.rb"
+      \   },
+      \   "app/*.rb": {
       \     "type": "source",
       \     "alternate": "spec/{}_spec.rb"
       \   },
       \   "spec/*_spec.rb": {
       \     "type": "spec",
       \     "dispatch": "rspec spec/{}_spec.rb",
-      \     "alternate": "lib/{}.rb",
+      \     "alternate": [
+      \       "app/{}.rb",
+      \       "lib/{}.rb",
+      \     ],
       \     "template": [
       \       "require 'spec_helper'",
       \       "",
@@ -100,20 +107,16 @@ let g:projectionist_heuristics = {
       \     ]
       \   }
       \ },
-      \ "Gemfile&spec/features/&spec/rails_helper.rb": {
+      \ "spec/features/&spec/rails_helper.rb": {
       \   "spec/features/*_spec.rb": {
-      \     "type": "spec",
-      \     "command": "feature",
       \     "dispatch": "rspec spec/features/{}_spec.rb",
-      \     "task": "spec:features",
-      \     "keywords": "with_scope fill_in find",
-      \     "related": ["spec/support/env.rb", "spec/rails_helper.rb"],
       \     "template": [
       \       "require 'rails_helper'",
       \       "",
       \       "feature '{capitalize|blank}' do",
       \       "  #TODO: add scenarios",
       \       "end",
-      \     ]
+      \     ],
+      \     "type": "feature",
       \   }
       \ }}
