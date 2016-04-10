@@ -214,3 +214,9 @@
 [submodule "vim/bundle/bundler"]
 	path = vim/bundle/default/bundler
 	url = https://github.com/tpope/vim-bundler.git
+[submodule "vim/bundle/nvim/dispatch-neovim"]
+	path = vim/bundle/neovim/dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim.git
+[submodule "vim/bundle/nvim/neoterm"]
+	path = vim/bundle/neovim/neoterm
+	url = https://github.com/kassio/neoterm.git
