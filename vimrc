@@ -4,8 +4,13 @@ set nocompatible
 " load plugins
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect('bundle/default/{}')
+
 if has('python')
   call pathogen#infect('bundle/python/{}')
+endif
+
+if has('nvim')
+  call pathogen#infect('bundle/neovim/{}')
 endif
 
 " what should be the defaults anyway
