@@ -71,25 +71,3 @@ set ttimeoutlen=100
 " mappings
 let mapleader=","
 let maplocalleader=",,"
-
-" appearance
-set number
-set numberwidth=5
-set cursorline
-
-set wrap
-set linebreak
-set ruler
-set colorcolumn=80
-
-set showcmd
-set showmode
-set ruler
-set visualbell
-
-" find & replace
-set incsearch
-set nohlsearch
-set ignorecase
-set smartcase
-set infercase
