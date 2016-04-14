@@ -220,3 +220,6 @@
 [submodule "vim/bundle/nvim/neoterm"]
 	path = vim/bundle/neovim/neoterm
 	url = https://github.com/kassio/neoterm.git
+[submodule "vim/bundle/default/neoyank"]
+	path = vim/bundle/default/neoyank
+	url = https://github.com/Shougo/neoyank.vim.git
