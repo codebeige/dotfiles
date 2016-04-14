@@ -11,6 +11,9 @@ nnoremap <leader>fq :<C-u>Unite -no-split -no-empty -start-insert -buffer-name=q
 nnoremap <leader>fl :<C-u>Unite -no-split -no-empty -start-insert -buffer-name=locations location_list<cr>
 nnoremap <leader>fm :<C-u>Unite -no-split -no-empty -start-insert -buffer-name=mappings  mapping<cr>
 
+nnoremap <leader>fg :<C-u>Unite -no-split -buffer-name=project grep/git:!<cr>
+nnoremap <leader>fp :<C-u>Unite -no-split -buffer-name=pattern grep:!<cr>
+
 nnoremap <leader>lb :<C-u>Unite -no-split -no-empty -buffer-name=buffers   buffer<cr>
 nnoremap <leader>lr :<C-u>Unite -no-split -no-empty -buffer-name=history   file_mru<cr>
 nnoremap <leader>lf :<C-u>Unite -no-split -no-empty -buffer-name=files     file<cr>
@@ -24,5 +27,9 @@ nnoremap <leader>ll :<C-u>Unite -no-split -no-empty -buffer-name=locations locat
 nnoremap <leader>lj :<C-u>Unite -no-split -no-empty -buffer-name=jumps     jump<cr>
 nnoremap <leader>lc :<C-u>Unite -no-split -no-empty -buffer-name=changes   change<cr>
 
-nnoremap <leader>fg :<C-u>Unite -no-split -buffer-name=project grep/git:!<cr>
-nnoremap <leader>fp :<C-u>Unite -no-split -buffer-name=pattern grep:!<cr>
+if executable('ag')
+  let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--follow --nocolor --nogroup --hidden'
+  let g:unite_source_grep_recursive_opt = ''
+endif
