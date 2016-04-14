@@ -11,4 +11,15 @@ let g:rails_projections = {
   \     "  #TODO: add scenarios",
   \     "end",
   \   ]
+  \ },
+  \ "spec/routing/*_spec.rb": {
+  \   "alternate": "config/routes.rb",
+  \   "related": "spec/rails_helper.rb",
+  \   "template": [
+  \     "require 'rails_helper'",
+  \     "",
+  \     "feature '{capitalize|blank}' do",
+  \     "  #TODO: add routing specs",
+  \     "end",
+  \   ]
   \ }}

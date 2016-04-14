@@ -109,6 +109,7 @@ let g:projectionist_heuristics = {
       \ },
       \ "spec/features/&spec/rails_helper.rb": {
       \   "spec/features/*_spec.rb": {
+      \     "type": "feature",
       \     "dispatch": "rspec spec/features/{}_spec.rb",
       \     "template": [
       \       "require 'rails_helper'",
@@ -117,6 +118,16 @@ let g:projectionist_heuristics = {
       \       "  #TODO: add scenarios",
       \       "end",
       \     ],
-      \     "type": "feature",
+      \   },
+      \   "spec/routing/*_spec.rb": {
+      \     "alternate": "config/routes.rb",
+      \     "dispatch": "rspec spec/routing/{}_spec.rb",
+      \     "template": [
+      \       "require 'rails_helper'",
+      \       "",
+      \       "feature '{capitalize|blank}' do",
+      \       "  #TODO: add routing specs",
+      \       "end",
+      \     ],
       \   }
       \ }}
