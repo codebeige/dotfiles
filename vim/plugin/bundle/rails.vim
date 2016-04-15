@@ -1,4 +1,14 @@
 let g:rails_projections = {
+  \ "spec/controllers/*_spec.rb": {
+  \   "related": "spec/rails_helper.rb",
+  \   "template": [
+  \     "require 'rails_helper'",
+  \     "",
+  \     "describe {camelcase|capitalize|colons} do",
+  \     "  #TODO: add examples",
+  \     "end",
+  \   ]
+  \ },
   \ "spec/features/*_spec.rb": {
   \   "related": ["spec/support/env.rb", "spec/rails_helper.rb"],
   \   "task": "spec:features",
@@ -18,7 +28,7 @@ let g:rails_projections = {
   \   "template": [
   \     "require 'rails_helper'",
   \     "",
-  \     "feature '{capitalize|blank}' do",
+  \     "describe '{capitalize|blank}' do",
   \     "  #TODO: add routing specs",
   \     "end",
   \   ]
