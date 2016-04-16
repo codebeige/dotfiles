@@ -108,6 +108,16 @@ let g:projectionist_heuristics = {
       \   }
       \ },
       \ "spec/features/&spec/rails_helper.rb": {
+      \   "spec/models/*_spec.rb": {
+      \     "related": "spec/rails_helper.rb",
+      \     "template": [
+      \       "require 'rails_helper'",
+      \       "",
+      \       "describe {camelcase|capitalize|colons} do",
+      \       "  #TODO: add examples",
+      \       "end",
+      \     ]
+      \   },
       \   "spec/controllers/*_spec.rb": {
       \     "related": "spec/rails_helper.rb",
       \     "template": [
