@@ -1,4 +1,14 @@
 let g:rails_projections = {
+  \ "spec/models/*_spec.rb": {
+  \   "related": "spec/rails_helper.rb",
+  \   "template": [
+  \     "require 'rails_helper'",
+  \     "",
+  \     "describe {camelcase|capitalize|colons} do",
+  \     "  #TODO: add examples",
+  \     "end",
+  \   ]
+  \ },
   \ "spec/controllers/*_spec.rb": {
   \   "related": "spec/rails_helper.rb",
   \   "template": [
