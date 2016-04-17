@@ -108,6 +108,17 @@ let g:projectionist_heuristics = {
       \   }
       \ },
       \ "spec/features/&spec/rails_helper.rb": {
+      \   "spec/features/*_spec.rb": {
+      \     "type": "feature",
+      \     "dispatch": "rspec spec/features/{}_spec.rb",
+      \     "template": [
+      \       "require 'rails_helper'",
+      \       "",
+      \       "feature '{capitalize|blank}' do",
+      \       "  #TODO: add scenarios",
+      \       "end",
+      \     ],
+      \   },
       \   "spec/models/*_spec.rb": {
       \     "related": "spec/rails_helper.rb",
       \     "template": [
@@ -128,16 +139,15 @@ let g:projectionist_heuristics = {
       \       "end",
       \     ]
       \   },
-      \   "spec/features/*_spec.rb": {
-      \     "type": "feature",
-      \     "dispatch": "rspec spec/features/{}_spec.rb",
+      \   "spec/views/*_spec.rb": {
+      \     "related": "spec/rails_helper.rb",
       \     "template": [
       \       "require 'rails_helper'",
       \       "",
-      \       "feature '{capitalize|blank}' do",
-      \       "  #TODO: add scenarios",
+      \       "describe '{}' do",
+      \       "  #TODO: add examples",
       \       "end",
-      \     ],
+      \     ]
       \   },
       \   "spec/routing/*_spec.rb": {
       \     "alternate": "config/routes.rb",
