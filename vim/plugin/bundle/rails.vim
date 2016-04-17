@@ -1,4 +1,14 @@
 let g:rails_projections = {
+  \ "spec/views/*_spec.rb": {
+  \   "related": "spec/rails_helper.rb",
+  \   "template": [
+  \     "require 'rails_helper'",
+  \     "",
+  \     "describe '{}' do",
+  \     "  #TODO: add examples",
+  \     "end",
+  \   ]
+  \ },
   \ "spec/models/*_spec.rb": {
   \   "related": "spec/rails_helper.rb",
   \   "template": [
