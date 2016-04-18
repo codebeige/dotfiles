@@ -10,3 +10,6 @@ highlight MatchParen term=reverse cterm=reverse gui=reverse
 highlight clojureError term=reverse cterm=reverse ctermfg=3 guifg=Black guibg=Yellow
 
 highlight SpecialKey ctermbg=none
+
+highlight NeomakeErrorSign cterm=bold ctermfg=1
+highlight NeomakeWarningSign cterm=bold ctermfg=242
