@@ -28,9 +28,6 @@
 [submodule "vim/bundle/ag"]
 	path = vim/bundle/default/ag
 	url = https://github.com/rking/ag.vim.git
-[submodule "vim/bundle/qargs"]
-	path = vim/bundle/default/qargs
-	url = https://github.com/nelstrom/vim-qargs.git
 [submodule "vim/bundle/indexedsearch"]
 	path = vim/bundle/default/indexedsearch
 	url = https://github.com/vim-scripts/IndexedSearch.git
