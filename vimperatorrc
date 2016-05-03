@@ -1,1 +1,10 @@
 set gui=none
+
+let mapleader=","
+let maplocalleader=",,"
+
+" smooth scrolling
+nmap j <down>
+nmap k <up>
+nmap h <left>
+nmap l <right>
