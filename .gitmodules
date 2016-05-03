@@ -220,3 +220,6 @@
 [submodule "vim/bundle/neomake"]
 	path = vim/bundle/default/neomake
 	url = https://github.com/benekastah/neomake.git
+[submodule "vim/bundle/vimperator"]
+	path = vim/bundle/default/vimperator
+	url = https://github.com/vimperator/vimperator.vim.git
