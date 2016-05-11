@@ -1,1 +1,1 @@
-set listchars=eol:¬,tab:▸\ ,space:·,extends:»,precedes:«
+silent! set listchars=eol:¬,tab:▸\ ,space:·,extends:»,precedes:«
