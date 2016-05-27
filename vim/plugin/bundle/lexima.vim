@@ -59,3 +59,12 @@ call lexima#add_rule({
   \ 'input_after': '<cr>endsnippet',
   \ 'except': '\C^snippet\s.\+\%#\n\%(\s*\n\)*endsnippet\>',
   \ })
+
+" lua
+call lexima#add_rule({
+  \ 'filetype': 'lua',
+  \ 'at': '\C\<function\>.*\%#$',
+  \ 'char': '<cr>',
+  \ 'input_after': '<cr>end',
+  \ 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1end'
+  \ })

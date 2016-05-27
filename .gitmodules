@@ -223,3 +223,6 @@
 [submodule "vim/bundle/vimperator"]
 	path = vim/bundle/default/vimperator
 	url = https://github.com/vimperator/vimperator.vim.git
+[submodule "vim/bundle/default/hilinktrace"]
+	path = vim/bundle/default/hilinks
+	url = https://github.com/gerw/vim-HiLinkTrace.git
