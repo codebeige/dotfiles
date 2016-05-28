@@ -226,3 +226,6 @@
 [submodule "vim/bundle/default/hilinktrace"]
 	path = vim/bundle/default/hilinks
 	url = https://github.com/gerw/vim-HiLinkTrace.git
+[submodule "oh-my-zsh-custom/themes/honukai"]
+	path = oh-my-zsh-custom/themes/honukai
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git

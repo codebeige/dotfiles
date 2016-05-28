@@ -1,0 +1,15 @@
+snippet f "function keyword" w
+function ${1:funcname funcbody}
+endsnippet
+
+snippet fn "function definition" w
+function ${1:name}(${2:params})
+  ${3:-- body}
+end
+endsnippet
+
+snippet lfn "local function definition" b
+local function ${1:name}(${2:params})
+  ${3:-- body}
+end
+endsnippet
