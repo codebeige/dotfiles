@@ -8,6 +8,7 @@
 *.draft
 .lvimrc
 .nrepl-*
+.cljs_rhino_repl/
 tags
 tags-ja
 !tags/
