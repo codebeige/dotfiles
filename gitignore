@@ -13,3 +13,4 @@ tags
 tags-ja
 !tags/
 *.orig
+.projections.json
