@@ -229,3 +229,6 @@
 [submodule "oh-my-zsh-custom/themes/honukai"]
 	path = oh-my-zsh-custom/themes/honukai
 	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh.git
+[submodule "vim/bundle/default/codi"]
+	path = vim/bundle/default/codi
+	url = https://github.com/metakirby5/codi.vim.git
