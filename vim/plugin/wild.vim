@@ -9,3 +9,5 @@ set wildignore+=.nrepl-history
 set wildignore+=*/tmp/*
 set wildignore+=**/*/tags
 set wildignore+=*/log/*
+set wildignore+=.cljs_rhino_repl
+set wildignore+=out/*,*/out
