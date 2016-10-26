@@ -232,3 +232,6 @@
 [submodule "vim/bundle/default/codi"]
 	path = vim/bundle/default/codi
 	url = https://github.com/metakirby5/codi.vim.git
+[submodule "vim/bundle/default/cider"]
+	path = vim/bundle/default/cider
+	url = https://github.com/clojure-vim/vim-cider.git
