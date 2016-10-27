@@ -22,7 +22,6 @@ augroup clojure-static
         \ }
 
   autocmd BufNewFile,BufReadPre build.boot
-        \ setlocal lispwords+=set-env!,task-options! |
         \ let b:clojure_syntax_keywords = {
         \   'clojureMacro': ['deftask', 'set-env!', 'task-options!']
         \ }
