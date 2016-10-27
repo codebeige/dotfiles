@@ -7,4 +7,6 @@ let g:sexp_mappings = {
   \ 'sexp_emit_tail_element':     '<C-e>l',
   \ 'sexp_capture_prev_element':  '<C-f>h',
   \ 'sexp_capture_next_element':  '<C-f>l',
+  \ 'sexp_move_to_prev_top_element': 'öö',
+  \ 'sexp_move_to_next_top_element': 'ää',
   \ }
