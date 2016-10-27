@@ -49,6 +49,10 @@ let g:projectionist_heuristics = {
       \       "  (:require [cljs.test :refer-macros [deftest testing is]]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
+      \   },
+      \   "lib/*.clj": {
+      \     "type": "source",
+      \     "template": "(ns {dot|hyphenate})"
       \   }
       \ },
       \ "config/site.yml": {
