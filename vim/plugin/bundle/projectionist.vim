@@ -8,8 +8,19 @@ let g:projectionist_heuristics = {
       \     "alternate": "test/{}_test.clj",
       \     "template": "(ns {dot|hyphenate})"
       \   },
-      \   "lib/*.clj": {
-      \     "type": "library",
+      \   "src/clj/*.clj": {
+      \     "type": "source",
+      \     "alternate": "test/clj/{}_test.clj",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
+      \   "src/*.cljs": {
+      \     "type": "source",
+      \     "alternate": "test/{}_test.cljs",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
+      \   "src/cljs/*.cljs": {
+      \     "type": "source",
+      \     "alternate": "test/cljs/{}_test.cljs",
       \     "template": "(ns {dot|hyphenate})"
       \   },
       \   "test/*_test.clj": {
@@ -17,14 +28,18 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/{}.clj",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer :all]",
+      \       "  (:require [clojure.test :refer [deftest testing is]]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
-      \   "src/*.cljs": {
-      \     "type": "source",
-      \     "alternate": "test/{}_test.cljs",
-      \     "template": "(ns {dot|hyphenate})"
+      \   "test/clj/*_test.clj": {
+      \     "type": "test",
+      \     "alternate": "src/clj/{}.clj",
+      \     "template": [
+      \       "(ns {dot|hyphenate}-test",
+      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
+      \     ]
       \   },
       \   "test/*_test.cljs": {
       \     "type": "test",
