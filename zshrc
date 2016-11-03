@@ -46,6 +46,7 @@ plugins=(
   powder
   rake
   ruby
+  tmux
   tmuxinator
   vi-mode
 )
