@@ -43,7 +43,6 @@ if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
         Dark)  change_profile "$match[1]Light$match[3]";;
         Light) change_profile "$match[1]Dark$match[3]" ;;
       esac
-      clear_scrollback
       reload_theme
     fi
   }
