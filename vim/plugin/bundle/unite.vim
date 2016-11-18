@@ -27,6 +27,20 @@ nnoremap <leader>ll :<C-u>Unite -no-split -no-empty -buffer-name=locations locat
 nnoremap <leader>lj :<C-u>Unite -no-split -no-empty -buffer-name=jumps     jump<cr>
 nnoremap <leader>lc :<C-u>Unite -no-split -no-empty -buffer-name=changes   change<cr>
 
+augroup Unite_Plugin
+  autocmd!
+  autocmd Filetype unite call s:init_buffer()
+augroup END
+
+function! s:init_buffer()
+  nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-x> unite#do_action('split')
+  inoremap <silent><buffer><expr> <C-x> unite#do_action('split')
+  nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+endfunction
+
 if executable('ag')
   let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
   let g:unite_source_grep_command = 'ag'
