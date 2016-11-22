@@ -1,5 +1,6 @@
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
 
 nnoremap <leader>fd :<C-u>Unite -no-split -no-empty -start-insert -buffer-name=paths     file_rec/async:!<cr>
 nnoremap <leader>ff :<C-u>Unite -no-split -no-empty -start-insert -buffer-name=files     file<cr>
