@@ -4,3 +4,4 @@ compdef _git gp!=git-push
 compdef _git grb=git-rebase
 compdef _git grbd=git-rebase
 compdef _git gsm=git-submodule
+compdef _git glsf=git-ls-files
