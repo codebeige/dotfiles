@@ -235,3 +235,6 @@
 [submodule "vim/bundle/default/cider"]
 	path = vim/bundle/default/cider
 	url = https://github.com/clojure-vim/vim-cider.git
+[submodule "vim/bundle/default/vitality"]
+	path = vim/bundle/default/vitality
+	url = https://github.com/sjl/vitality.vim.git
