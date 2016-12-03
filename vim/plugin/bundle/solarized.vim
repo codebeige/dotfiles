@@ -12,7 +12,7 @@ endfunction
 
 call s:updateBackground()
 
-augroup solarized_plugin
-  autocmd!
-  autocmd FocusGained * call s:updateBackground()
-augroup END
+" augroup solarized_plugin
+"   autocmd!
+"   autocmd FocusGained * call s:updateBackground()
+" augroup END
