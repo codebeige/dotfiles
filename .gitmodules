@@ -238,3 +238,6 @@
 [submodule "vim/bundle/default/vitality"]
 	path = vim/bundle/default/vitality
 	url = https://github.com/sjl/vitality.vim.git
+[submodule "vim/bundle/default/NrrwRgn"]
+	path = vim/bundle/default/NrrwRgn
+	url = https://github.com/chrisbra/NrrwRgn.git
