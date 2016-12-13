@@ -2,6 +2,7 @@
 	pager = less -R
 	excludesfile = ~/.gitignore
 	quotepath = false
+	autocrlf = input
 [color]
 	ui = auto
 [user]
