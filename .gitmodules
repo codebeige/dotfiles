@@ -241,3 +241,6 @@
 [submodule "vim/bundle/default/NrrwRgn"]
 	path = vim/bundle/default/NrrwRgn
 	url = https://github.com/chrisbra/NrrwRgn.git
+[submodule "vim/bundle/default/markdown-folding"]
+	path = vim/bundle/default/markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding.git
