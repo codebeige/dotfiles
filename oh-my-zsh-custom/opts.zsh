@@ -1,0 +1,1 @@
+setopt auto_cd complete_in_word no_beep no_correct rm_star_wait
