@@ -31,6 +31,10 @@ plugins=(
   brew
   brew-cask
   coffee
+  colored-man-pages
+  colorize
+  copydir
+  copyfile
   cp
   git
   git-custom
@@ -45,6 +49,7 @@ plugins=(
   tmux
   tmuxinator
   vi-mode
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
