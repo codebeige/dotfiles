@@ -40,8 +40,6 @@ plugins=(
   npm
   osx
   per-directory-history
-  pow
-  powder
   rake
   ruby
   tmux
