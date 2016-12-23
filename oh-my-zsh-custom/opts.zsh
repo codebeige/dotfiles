@@ -1,1 +1,3 @@
-setopt auto_cd complete_in_word no_beep no_correct rm_star_wait
+setopt auto_cd no_beep rm_star_wait
+setopt complete_in_word no_correct no_correct_all
+setopt function_argzero
