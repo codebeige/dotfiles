@@ -25,8 +25,6 @@ ZSH_THEME="codebeige"
 # Move customization out of original git repo
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
-BUNDLED_COMMANDS=spinach
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
@@ -52,23 +50,3 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-###############################################################################
-
-setopt nocorrectall correct nobeep rmstarwait
-export EDITOR='vim'
-
-export LANG='de_DE.UTF-8'
-export LC_ALL='de_DE.UTF-8'
-export TERM='xterm-256color'
-
-if which rbenv > /dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
-
-export NVM_DIR=~/.nvm
-if which brew > /dev/null 2>&1; then
-  if [[ -f $(brew --prefix nvm)/nvm.sh ]]; then
-    source $(brew --prefix nvm)/nvm.sh
-  fi
-fi
