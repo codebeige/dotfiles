@@ -1,3 +1,3 @@
 setopt auto_cd no_beep rm_star_wait
 setopt complete_in_word correct no_correct_all
-setopt function_argzero
+setopt function_argzero local_options
