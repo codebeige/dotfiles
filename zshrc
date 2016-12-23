@@ -23,7 +23,7 @@ ZSH_THEME="codebeige"
 # COMPLETION_WAITING_DOTS="true"
 
 # Move customization out of original git repo
-ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
