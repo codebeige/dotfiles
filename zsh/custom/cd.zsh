@@ -1,3 +1,7 @@
-cdpath=($HOME $HOME/src $HOME/src/*(N) $HOME/lab $HOME/lib)
+cdpath=(~ ~/src ~/lab ~/lib ~/Dropbox/Projects)
 
-hash -d dots=$HOME/dotfiles
+hash -d dots=~/dotfiles
+hash -d src=~/src
+hash -d lab=~/lab
+hash -d lib=~/lib
+hash -d projects=~/Dropbox/Projects/
