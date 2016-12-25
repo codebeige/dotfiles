@@ -3,3 +3,4 @@ setopt complete_in_word correct no_correct_all
 setopt function_argzero local_options
 setopt auto_cd cdable_vars
 setopt extended_glob
+setopt no_clobber hist_allow_clobber
