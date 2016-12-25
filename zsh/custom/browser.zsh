@@ -1,4 +1,4 @@
-alias firefox='open -a firefox '
+alias firefox='open -a firefox'
 alias ff=firefox
 
 export BROWSER=firefox
