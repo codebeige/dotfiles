@@ -244,3 +244,6 @@
 [submodule "vim/bundle/default/markdown-folding"]
 	path = vim/bundle/default/markdown-folding
 	url = https://github.com/nelstrom/vim-markdown-folding.git
+[submodule "vim/bundle/default/slamhound"]
+	path = vim/bundle/default/slamhound
+	url = https://github.com/guns/vim-slamhound.git
