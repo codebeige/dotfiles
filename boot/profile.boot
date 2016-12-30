@@ -29,3 +29,21 @@
   []
   (comp (dev-env)
         (repl)))
+
+(deftask lint-env
+  "Set up environment for linting."
+  []
+  (set-env! :dependencies #(conj % '[tolitius/boot-check "RELEASE"]))
+  (require '[tolitius.boot-check :as check])
+  identity)
+
+(deftask lint
+  "Perform static analysis checks on source code. All available linters will
+  run in succession unless specified otherwise.
+
+  Available linters: yagni, eastwood, kibit, bikeshed"
+  [c check-with NAME #{str} "Set of applied linters."]
+  (apply comp
+         (lint-env)
+         (map #((->> % (str "with-") (symbol "tolitius.boot-check") resolve))
+              (or (seq check-with) #{"yagni" "eastwood" "kibit" "bikeshed"}))))
