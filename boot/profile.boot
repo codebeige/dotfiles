@@ -1,5 +1,5 @@
 (deftask cider
-  "Inject cider middleware"
+  "Inject cider middleware."
   []
   (require 'boot.repl)
   (swap! @(resolve 'boot.repl/*default-dependencies*)
@@ -11,7 +11,7 @@
   identity)
 
 (deftask slamhound
-  "Add Slamhound dependency"
+  "Add Slamhound dependency."
   []
   (require 'boot.repl)
   (swap! @(resolve 'boot.repl/*default-dependencies*)
@@ -19,12 +19,13 @@
   identity)
 
 (deftask dev-env
-  "Inject development tools"
+  "Inject development tools."
   []
   (comp (cider)
         (slamhound)))
 
 (deftask dev-repl
-  "Start REPL in development mode" []
+  "Start REPL in development mode."
+  []
   (comp (dev-env)
         (repl)))
