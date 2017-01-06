@@ -14,3 +14,9 @@ if which brew > /dev/null 2>&1; then
     source $(brew --prefix nvm)/nvm.sh
   fi
 fi
+
+
+if [ -d /usr/local/opt/android-sdk ]; then
+  export ANDROID_HOME=/usr/local/opt/android-sdk
+  path+=($ANDROID_HOME/tools $ANDROID_HOME/platform-tools)
+fi
