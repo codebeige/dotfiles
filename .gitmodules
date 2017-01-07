@@ -25,9 +25,6 @@
 [submodule "vim/bundle/eunuch"]
 	path = vim/bundle/default/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "vim/bundle/ag"]
-	path = vim/bundle/default/ag
-	url = https://github.com/rking/ag.vim.git
 [submodule "vim/bundle/indexedsearch"]
 	path = vim/bundle/default/indexedsearch
 	url = https://github.com/vim-scripts/IndexedSearch.git
