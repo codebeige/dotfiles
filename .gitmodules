@@ -244,3 +244,6 @@
 [submodule "vim/bundle/default/slamhound"]
 	path = vim/bundle/default/slamhound
 	url = https://github.com/guns/vim-slamhound.git
+[submodule "vim/bundle/default/ack"]
+	path = vim/bundle/default/ack
+	url = https://github.com/mileszs/ack.vim.git
