@@ -247,3 +247,9 @@
 [submodule "vim/bundle/default/ack"]
 	path = vim/bundle/default/ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/asyncrun"]
+	path = vim/bundle/default/asyncrun
+	url = https://github.com/skywind3000/asyncrun.vim.git
+[submodule "vim/bundle/grepper"]
+	path = vim/bundle/default/grepper
+	url = https://github.com/mhinz/vim-grepper.git
