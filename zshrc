@@ -45,6 +45,7 @@ plugins=(
   osx
   per-directory-history
   rake
+  react-native
   ruby
   tmux
   tmuxinator
