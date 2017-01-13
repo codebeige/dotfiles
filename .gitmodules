@@ -124,9 +124,6 @@
 [submodule "vim/bundle/node"]
 	path = vim/bundle/default/node
 	url = https://github.com/moll/vim-node.git
-[submodule "vim/bundle/javascript-syntax"]
-	path = vim/bundle/default/javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "vim/bundle/unite"]
 	path = vim/bundle/default/unite
 	url = https://github.com/Shougo/unite.vim.git
@@ -253,3 +250,9 @@
 [submodule "vim/bundle/default/ale"]
 	path = vim/bundle/default/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "vim/bundle/default/javascript"]
+	path = vim/bundle/default/javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/default/jsx"]
+	path = vim/bundle/default/jsx
+	url = https://github.com/mxw/vim-jsx.git
