@@ -256,3 +256,6 @@
 [submodule "vim/bundle/default/jsx"]
 	path = vim/bundle/default/jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim/bundle/default/css3-syntax"]
+	path = vim/bundle/default/css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
