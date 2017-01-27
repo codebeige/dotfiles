@@ -28,8 +28,6 @@ ZSH_CUSTOM=$HOME/.zsh/custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-  brew
-  brew-cask
   coffee
   colored-man-pages
   colorize
