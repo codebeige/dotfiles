@@ -23,6 +23,16 @@ let g:projectionist_heuristics = {
       \     "alternate": "test/cljs/{}_test.cljs",
       \     "template": "(ns {dot|hyphenate})"
       \   },
+      \   "src/*.cljc": {
+      \     "type": "source",
+      \     "alternate": "test/{}_test.cljc",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
+      \   "src/cljc/*.cljc": {
+      \     "type": "source",
+      \     "alternate": "test/cljc/{}_test.cljc",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
       \   "test/*_test.clj": {
       \     "type": "test",
       \     "alternate": "src/{}.clj",
@@ -47,6 +57,33 @@ let g:projectionist_heuristics = {
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
       \       "  (:require [cljs.test :refer-macros [deftest testing is]]",
+      \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
+      \     ]
+      \   },
+      \   "test/cljs/*_test.cljs": {
+      \     "type": "test",
+      \     "alternate": "src/cljs/{}.cljs",
+      \     "template": [
+      \       "(ns {dot|hyphenate}-test",
+      \       "  (:require [cljs.test :refer-macros [deftest testing is]]",
+      \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
+      \     ]
+      \   },
+      \   "test/*_test.cljc": {
+      \     "type": "test",
+      \     "alternate": "src/{}.cljc",
+      \     "template": [
+      \       "(ns {dot|hyphenate}-test",
+      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
+      \     ]
+      \   },
+      \   "test/cljc/*_test.cljc": {
+      \     "type": "test",
+      \     "alternate": "src/cljc/{}.cljc",
+      \     "template": [
+      \       "(ns {dot|hyphenate}-test",
+      \       "  (:require [clojure.test :refer [deftest testing is]]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
