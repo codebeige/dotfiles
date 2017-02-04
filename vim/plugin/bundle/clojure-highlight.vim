@@ -1,4 +1,4 @@
-augroup clojure_highlight
+augroup ClojureHighlightPlugin
   autocmd!
-  autocmd BufNewFile,BufRead,BufWrite *.clj[cx]\\\{,1\} ClojureHighlightReferences
+  autocmd User FireplaceEvalPost ClojureHighlightReferences
 augroup END
