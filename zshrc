@@ -40,9 +40,11 @@ plugins=(
   lein
   node
   npm
+  nvm
   osx
   per-directory-history
   rake
+  rbenv
   react-native
   ruby
   tmux
@@ -52,3 +54,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export EDITOR='vim'
+export LANG='de_DE.UTF-8'
+export LC_ALL='de_DE.UTF-8'
+export TERM='xterm-256color'
