@@ -1,1 +1,0 @@
-export HOMEBREW_NO_EMOJI=1
