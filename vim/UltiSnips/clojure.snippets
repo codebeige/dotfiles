@@ -1,0 +1,19 @@
+snippet dt "deftest" b
+(deftest ${1:name}$0)
+endsnippet
+
+snippet t "testing" b
+(testing "${1:context}"$0)
+endsnippet
+
+snippet i "is" b
+(is (${1:= ${2:expected} ${3:actual}})${4: message})
+endsnippet
+
+snippet = "=" b
+(= ${1:expected} ${2:actual})
+endsnippet
+
+snippet a "are" b
+(are [${1:expected actual}] (${2:= ${3:$1}})$0)
+endsnippet
