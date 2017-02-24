@@ -265,3 +265,6 @@
 [submodule "vim/bundle/default/pipe"]
 	path = vim/bundle/default/pipe
 	url = https://github.com/krisajenkins/vim-pipe.git
+[submodule "vim/bundle/default/dbext"]
+	path = vim/bundle/default/dbext
+	url = https://github.com/vim-scripts/dbext.vim.git
