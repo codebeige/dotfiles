@@ -268,3 +268,30 @@
 [submodule "vim/bundle/default/dbext"]
 	path = vim/bundle/default/dbext
 	url = https://github.com/vim-scripts/dbext.vim.git
+[submodule "vim/bundle/default/textobj-uri"]
+	path = vim/bundle/default/textobj-uri
+	url = https://github.com/jceb/vim-textobj-uri.git
+[submodule "vim/bundle/default/textobj-css"]
+	path = vim/bundle/default/textobj-css
+	url = https://github.com/jasonlong/vim-textobj-css.git
+[submodule "vim/bundle/default/textobj-underscore"]
+	path = vim/bundle/default/textobj-underscore
+	url = https://github.com/lucapette/vim-textobj-underscore.git
+[submodule "vim/bundle/default/textobj-entire"]
+	path = vim/bundle/default/textobj-entire
+	url = https://github.com/kana/vim-textobj-entire.git
+[submodule "vim/bundle/default/textobj-fold"]
+	path = vim/bundle/default/textobj-fold
+	url = https://github.com/kana/vim-textobj-fold.git
+[submodule "vim/bundle/default/textobj-indent"]
+	path = vim/bundle/default/textobj-indent
+	url = https://github.com/kana/vim-textobj-indent.git
+[submodule "vim/bundle/default/textobj-comment"]
+	path = vim/bundle/default/textobj-comment
+	url = https://github.com/glts/vim-textobj-comment.git
+[submodule "vim/bundle/default/textobj-space"]
+	path = vim/bundle/default/textobj-space
+	url = https://github.com/saihoooooooo/vim-textobj-space.git
+[submodule "vim/bundle/default/textobj-datetime"]
+	path = vim/bundle/default/textobj-datetime
+	url = https://github.com/kana/vim-textobj-datetime.git
