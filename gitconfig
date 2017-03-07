@@ -7,7 +7,8 @@
 	ui = auto
 [user]
 	name = Tibor Claassen
-	email = tibor@gmah.net
+	email = tc@codebeige.net
+	signingkey = 6C1ACA17178C42BC
 [alias]
 	st = status
 	co = checkout
@@ -46,3 +47,5 @@
 	keepBackup = false
 [difftool]
 	prompt = false
+[commit]
+	gpgsign = true
