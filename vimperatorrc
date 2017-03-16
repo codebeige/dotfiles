@@ -3,6 +3,9 @@ set gui=none
 let mapleader=","
 let maplocalleader=",,"
 
+imap <C-c> <Esc>
+imap jk <Esc>
+
 " smooth scrolling
 nmap j <down>
 nmap k <up>
