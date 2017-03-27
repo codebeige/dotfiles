@@ -10,29 +10,34 @@
 	email = tc@codebeige.net
 	signingkey = 6C1ACA17178C42BC
 [alias]
-	st = status
-	co = checkout
+	aa = add --all
+	amend = commit --amend
+	br = branch
 	ci = commit
 	cia = commit --amend
-	br = branch
-	sb = show-branch
+	clear = reset --hard
+	co = checkout
 	cp = cherry-pick
-	staged = diff --cached
+	dc = diff --cached
+	dt = difftool
+	fix = commit --fixup
+	mt = mergetool
 	rb = rebase
+	rba = rebase --abort
 	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbia = rebase --interactive --autosquash
 	rbs = rebase --skip
 	rl = reflog
+	rp = remote prune
 	rs = remote show
 	rt = remote
 	ru = remote update
-	rp = remote prune
+	sb = show-branch
 	sm = submodule
-	clear = reset --hard
-	dc = diff --cached
-	amend = commit --amend
-	aa = add --all
-	dt = difftool
-	mt = mergetool
+	squ = commit --squash
+	st = status
+	staged = diff --cached
 [push]
 	default = simple
 [merge]

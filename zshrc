@@ -34,6 +34,7 @@ plugins=(
   copydir
   copyfile
   cp
+  docker
   git
   git-custom
   git-flow
