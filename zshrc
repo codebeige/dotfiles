@@ -28,6 +28,7 @@ ZSH_CUSTOM=$HOME/.zsh/custom
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
+  vi-mode
   coffee
   colored-man-pages
   colorize
@@ -50,7 +51,6 @@ plugins=(
   ruby
   tmux
   tmuxinator
-  vi-mode
   web-search
 )
 
