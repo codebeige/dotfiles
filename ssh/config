@@ -7,3 +7,8 @@ Host gmah.net
   HostName circinus.uberspace.de
   User gmah
   ForwardAgent yes
+
+Host briareos
+  HostName 188.68.41.247
+  User tc
+  ForwardAgent yes
