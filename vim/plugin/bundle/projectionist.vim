@@ -38,7 +38,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/{}.clj",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "  (:require [clojure.test :refer :all]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
@@ -47,7 +47,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/clj/{}.clj",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "  (:require [clojure.test :refer :all]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
@@ -56,7 +56,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/{}.cljs",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [cljs.test :refer-macros [deftest testing is]]",
+      \       "  (:require [cljs.test :refer-macros :as t]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
@@ -65,7 +65,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/cljs/{}.cljs",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [cljs.test :refer-macros [deftest testing is]]",
+      \       "  (:require [cljs.test :refer-macros :as t]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
@@ -74,7 +74,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/{}.cljc",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "  (:require [clojure.test :as t]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
@@ -83,7 +83,7 @@ let g:projectionist_heuristics = {
       \     "alternate": "src/cljc/{}.cljc",
       \     "template": [
       \       "(ns {dot|hyphenate}-test",
-      \       "  (:require [clojure.test :refer [deftest testing is]]",
+      \       "  (:require [clojure.test :as t]",
       \       "            [{dot|hyphenate} :as {basename|hyphenate}]))"
       \     ]
       \   },
