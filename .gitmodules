@@ -298,3 +298,6 @@
 [submodule "vim/bundle/default/tortoise-typing"]
 	path = vim/bundle/default/tortoise-typing
 	url = https://github.com/thanthese/Tortoise-Typing.git
+[submodule "vim/bundle/default/qf"]
+	path = vim/bundle/default/qf
+	url = https://github.com/romainl/vim-qf.git
