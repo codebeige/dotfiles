@@ -182,7 +182,7 @@
 	path = vim/bundle/default/visual-split
 	url = https://github.com/wellle/visual-split.vim.git
 [submodule "vim/plugin/vitality"]
-	path = vim/plugin/vitality
+	path = vim/bundle/vitality
 	url = https://github.com/sjl/vitality.vim.git
 [submodule "vim/bundle/tmux"]
 	path = vim/bundle/default/tmux
