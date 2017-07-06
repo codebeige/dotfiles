@@ -8,6 +8,10 @@ let g:projectionist_heuristics = {
       \     "alternate": "test/{}_test.clj",
       \     "template": "(ns {dot|hyphenate})"
       \   },
+      \   "dev/*.clj": {
+      \     "type": "source",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
       \   "src/clj/*.clj": {
       \     "type": "source",
       \     "alternate": "test/clj/{}_test.clj",
@@ -16,6 +20,10 @@ let g:projectionist_heuristics = {
       \   "src/*.cljs": {
       \     "type": "source",
       \     "alternate": "test/{}_test.cljs",
+      \     "template": "(ns {dot|hyphenate})"
+      \   },
+      \   "dev/*.cljs": {
+      \     "type": "source",
       \     "template": "(ns {dot|hyphenate})"
       \   },
       \   "src/cljs/*.cljs": {
