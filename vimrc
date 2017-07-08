@@ -64,7 +64,6 @@ map ° ~
 nnoremap gü g]
 
 inoremap <c-l> <c-@>
-inoremap jk <esc>
 
 set timeout
 set ttimeout
