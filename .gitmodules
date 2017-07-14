@@ -176,7 +176,7 @@
 	path = vim/bundle/default/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule "vim/bundle/salve"]
-	path = vim/bundle/default/salve
+	path = vim/bundle/disabled/salve
 	url = https://github.com/tpope/vim-salve.git
 [submodule "vim/bundle/visual-split"]
 	path = vim/bundle/default/visual-split
