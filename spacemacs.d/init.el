@@ -52,6 +52,7 @@ values."
      ;; version-control
      (osx :variables osx-use-option-as-meta nil)
      clojure
+     vinegar
 
      ;; ----------------------------------------------------------------
      ;; Custom configuration layers from path
