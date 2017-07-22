@@ -54,7 +54,9 @@ values."
             shell-default-height 40
             shell-default-position 'bottom)
      shell-scripts
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     spell-checking-enable-auto-dictionary t)
      sql
      syntax-checking
      version-control
