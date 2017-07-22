@@ -62,3 +62,7 @@ export EDITOR='vim'
 export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
 export TERM='xterm-256color'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
