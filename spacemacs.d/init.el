@@ -318,7 +318,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq exec-path-from-shell-check-startup-files nil))
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
