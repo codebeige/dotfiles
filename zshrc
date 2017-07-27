@@ -37,6 +37,7 @@ plugins=(
   cp
   docker
   docker-compose
+  docker-compose-custom
   git
   git-custom
   git-flow
