@@ -36,6 +36,7 @@ plugins=(
   copyfile
   cp
   docker
+  docker-compose
   git
   git-custom
   git-flow
