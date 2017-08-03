@@ -54,3 +54,5 @@
 	prompt = false
 [commit]
 	gpgsign = true
+[include]
+  path = ~/.gitenv
