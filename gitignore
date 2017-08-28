@@ -17,3 +17,4 @@ tags-ja
 .envrc
 profile.boot
 .#*
+.dir-locals.el
