@@ -349,7 +349,8 @@ you should place your code here."
                 web-mode-indent-style 2)
 
   (spacemacs/toggle-evil-cleverparens-on)
-  (add-hook 'prog-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 
   (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
   (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
