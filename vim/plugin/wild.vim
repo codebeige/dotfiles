@@ -11,3 +11,4 @@ set wildignore+=**/*/tags
 set wildignore+=*/log/*
 set wildignore+=.cljs_rhino_repl
 set wildignore+=out/*,*/out
+set wildignore+=**/*/node_modules
