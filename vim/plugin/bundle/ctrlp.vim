@@ -1,3 +1,7 @@
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
