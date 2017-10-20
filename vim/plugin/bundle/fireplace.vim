@@ -10,4 +10,11 @@ augroup FireplacePlugin
   autocmd BufNewFile,BufRead *.boot
         \ let b:fireplace_ns='boot.user'|
         \ nnoremap <buffer> <localleader>r :silent! %Eval<cr>
+
+  autocmd BufNewFile,BufRead *.cljs
+        \ command! -buffer -bar Brepl
+        \ Piggieback (adzerk.boot-cljs-repl/repl-env)
+  autocmd BufNewFile,BufRead *.cljs
+        \ nnoremap <silent><buffer> <localleader>c :Brepl<cr>|
+        \ nnoremap <silent><buffer> <localleader>C :Piggieback!<cr>
 augroup END
