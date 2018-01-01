@@ -72,6 +72,7 @@ values."
      ;; ----------------------------------------------------------------
      ;; Private configuration layers from path
      ;; ----------------------------------------------------------------
+     clojure-config
      emacs-mac
      escape-or-quit
      evil-capslock)
@@ -335,6 +336,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (require 'helm-bookmark)
+
   (setq neo-theme 'nerd
         magit-repository-directories '("~/src/" "~/lab/"))
 
@@ -351,11 +353,9 @@ you should place your code here."
                 web-mode-indent-style 2)
 
   (spacemacs/toggle-evil-cleverparens-on)
-  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-  (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
   (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
-  (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 
   (add-to-list 'auto-mode-alist '("\\.envrc$" . sh-mode)))
 
