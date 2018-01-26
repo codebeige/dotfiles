@@ -8,3 +8,5 @@ function _update_tmux_environment {
 if [[ -n "$TMUX" ]]; then
   add-zsh-hook preexec _update_tmux_environment
 fi
+
+alias ts!='tmux new-session -s $PWD:t'
