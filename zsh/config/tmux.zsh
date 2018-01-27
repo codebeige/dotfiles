@@ -10,3 +10,4 @@ if [[ -n "$TMUX" ]]; then
 fi
 
 alias ts!='tmux new-session -s $PWD:t'
+alias mux=tmuxinator
