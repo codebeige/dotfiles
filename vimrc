@@ -24,6 +24,9 @@ if has('mouse_xterm')
   set ttymouse=xterm2
 endif
 
+" language
+language en_US.UTF-8
+
 " sensible defaults
 set backspace=indent,eol,start
 set mouse=a
