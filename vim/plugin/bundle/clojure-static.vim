@@ -28,15 +28,15 @@ augroup clojure-static
         \   'clojureMacro': ['defui', 'defcard']
         \ }
 
-  autocmd BufNewFile,BufReadPre */features/*.clj
-        \ setlocal lispwords+=Given,When,Then,And,But,Before,After |
+  autocmd BufNewFile,BufReadPre */step_definitions/*.clj
         \ let b:clojure_syntax_keywords = {
         \   'clojureMacro':
         \     ['Given', 'When', 'Then', 'And', 'But', 'Before', 'After']
         \ }
+  autocmd BufNewFile,BufRead */step_definitions/*.clj
+        \ setlocal lispwords+=Given,When,Then,And,But,Before,After
 
   " reload syntax on new files as events are triggered too late
-  autocmd BufNewFile * if exists('b:clojure_syntax_keywords')
-  autocmd BufNewFile *   syntax on
-  autocmd BufNewFile * endif
+  autocmd BufNewFile *
+        \ if exists('b:clojure_syntax_keywords') | syntax on | endif
 augroup END
