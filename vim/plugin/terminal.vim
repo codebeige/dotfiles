@@ -1,5 +1,6 @@
 if has('nvim')
   tnoremap <C-w><C-c> <C-\><C-n>
+  tnoremap <Esc> <C-\><C-n>
 
   tnoremap <C-w>h <C-\><C-n><C-w>h
   tnoremap <C-w>j <C-\><C-n><C-w>j
