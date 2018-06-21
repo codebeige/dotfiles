@@ -9,6 +9,6 @@ Host gmah.net
   ForwardAgent yes
 
 Host briareos
-  HostName 188.68.41.247
+  HostName briareos.gmah.net
   User tc
   ForwardAgent yes
