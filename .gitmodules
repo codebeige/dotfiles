@@ -301,3 +301,6 @@
 [submodule "vim/bundle/default/salve"]
 	path = vim/bundle/default/salve
 	url = https://github.com/tpope/vim-salve.git
+[submodule "vim/bundle/default/nginx"]
+	path = vim/bundle/default/nginx
+	url = https://github.com/fatih/vim-nginx.git
