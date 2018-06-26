@@ -1,6 +1,8 @@
 cdpath=(~ ~/src ~/lab ~/lib ~/Dropbox/Projects)
 
 hash -d dots=~/dotfiles
+alias dots='nocorrect dots'
+
 hash -d src=~/src
 hash -d lab=~/lab
 hash -d lib=~/lib
