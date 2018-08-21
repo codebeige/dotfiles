@@ -166,9 +166,6 @@
 [submodule "vim/bundle/rainbow"]
 	path = vim/bundle/default/rainbow
 	url = https://github.com/luochen1990/rainbow.git
-[submodule "vim/bundle/fireplace"]
-	path = vim/bundle/default/fireplace
-	url = https://github.com/tpope/vim-fireplace.git
 [submodule "vim/bundle/clojure-highlight"]
 	path = vim/bundle/default/clojure-highlight
 	url = https://github.com/guns/vim-clojure-highlight.git
@@ -181,8 +178,8 @@
 [submodule "vim/bundle/visual-split"]
 	path = vim/bundle/default/visual-split
 	url = https://github.com/wellle/visual-split.vim.git
-[submodule "vim/plugin/vitality"]
-	path = vim/bundle/vitality
+[submodule "vim/bundle/default/vitality"]
+	path = vim/bundle/default/vitality
 	url = https://github.com/sjl/vitality.vim.git
 [submodule "vim/bundle/tmux"]
 	path = vim/bundle/default/tmux
@@ -304,3 +301,6 @@
 [submodule "vim/bundle/default/nginx"]
 	path = vim/bundle/default/nginx
 	url = https://github.com/fatih/vim-nginx.git
+[submodule "vim/bundle/default/vimpire"]
+	path = vim/bundle/default/vimpire
+	url = https://github.com/kotarak/vimpire.git
