@@ -1,17 +1,16 @@
-if has('nvim')
-  nnoremap <silent> <leader>ta :Ttoggle<cr>
-  nnoremap <leader>tm :Tmap
-  nnoremap <silent> <leader>tn :Tnew<cr>
-  nnoremap <silent> <leader>to :Topen<cr>
-  nnoremap <silent> <leader>tc :Tclose<cr>
-  nnoremap <silent> <leader>tl :call neoterm#clear()<cr>
-  nnoremap <silent> <leader>tx :call neoterm#kill()<cr>
+let g:neoterm_default_mod = "belowright vertical"
 
-  noremap <silent> <leader>te :TREPLSend<cr>
-  nnoremap <silent> <leader>tE :TREPLSendFile<cr>
+nnoremap <silent> <leader>ta :Ttoggle<cr>
+nnoremap <silent> <leader>tA :TtoggleAll<cr>
+nnoremap <silent> <leader>tn :Tnew<cr>
+nnoremap <silent> <leader>to :Topen<cr>
+nnoremap <silent> <leader>tä :Tnext<cr>
+nnoremap <silent> <leader>tö :Tprevious<cr>
+nnoremap <silent> <leader>tc :Tclose<cr>
+nnoremap <silent> <leader>tl :Tclear<cr>
+nnoremap <silent> <leader>tk :Tkill<cr>
+nnoremap <silent> <leader>tm :Tmap<space>
 
-  nnoremap <silent> <leader>tr :call neoterm#test#rerun()<cr>
-  nnoremap <silent> <localleader>ta :call neoterm#test#run('all')<cr>
-  nnoremap <silent> <localleader>tr :call neoterm#test#run('file')<cr>
-  nnoremap <silent> <localleader>tR :call neoterm#test#run('current')<cr>
-endif
+nmap gx  <Plug>(neoterm-repl-send)
+xmap gx  <Plug>(neoterm-repl-send)
+nmap gxx <Plug>(neoterm-repl-send-line)

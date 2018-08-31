@@ -203,7 +203,7 @@
 	path = vim/bundle/neovim/dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim.git
 [submodule "vim/bundle/nvim/neoterm"]
-	path = vim/bundle/neovim/neoterm
+	path = vim/bundle/default/neoterm
 	url = https://github.com/kassio/neoterm.git
 [submodule "vim/bundle/default/neoyank"]
 	path = vim/bundle/default/neoyank
