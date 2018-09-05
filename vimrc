@@ -5,7 +5,7 @@ set nocompatible
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect('bundle/default/{}')
 
-if has('python')
+if has('python') || has('python3')
   call pathogen#infect('bundle/python/{}')
 endif
 
