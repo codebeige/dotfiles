@@ -7,8 +7,8 @@ noremap <leader>sl :call UltiSnips#ListSnippets()<cr>
 
 augroup plugin_ultisnips
   autocmd!
-  autocmd BufNewFile,BufReadPost *_spec{.js}\\\{,1\}.coffee UltiSnipsAddFiletypes mocha.coffee
-  autocmd BufNewFile,BufReadPost *_spec.rb UltiSnipsAddFiletypes rspec.ruby
-  autocmd BufNewFile,BufReadPost *.liquid.haml UltiSnipsAddFiletypes liquid.haml
-  autocmd BufNewFile,BufReadPost *.cljs UltiSnipsAddFiletypes clojurescript.clojure
+  autocmd BufNewFile,BufReadPost *_spec{.js}\\\{,1\}.coffee silent! UltiSnipsAddFiletypes mocha.coffee
+  autocmd BufNewFile,BufReadPost *_spec.rb silent! UltiSnipsAddFiletypes rspec.ruby
+  autocmd BufNewFile,BufReadPost *.liquid.haml silent! UltiSnipsAddFiletypes liquid.haml
+  autocmd BufNewFile,BufReadPost *.cljs silent! UltiSnipsAddFiletypes clojurescript.clojure
 augroup END
