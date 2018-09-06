@@ -39,7 +39,7 @@ set history=1000
 
 " misc
 set autoread
-set sessionoptions-=options
+set sessionoptions+=localoptions
 
 " macros
 runtime macros/matchit.vim
