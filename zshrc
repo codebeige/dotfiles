@@ -61,7 +61,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export EDITOR='vim'
+export EDITOR='nvim -e'
+export VISUAL='nvim'
 export LANG='de_DE.UTF-8'
 export LC_ALL='de_DE.UTF-8'
 export TERM='xterm-256color'
