@@ -52,7 +52,5 @@
 	keepBackup = false
 [difftool]
 	prompt = false
-[commit]
-	gpgsign = true
 [include]
   path = ~/.gitenv
