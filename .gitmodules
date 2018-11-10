@@ -304,3 +304,6 @@
 [submodule "vim/bundle/default/vimpire"]
 	path = vim/bundle/default/vimpire
 	url = https://github.com/kotarak/vimpire.git
+[submodule "base16-shell"]
+	path = config/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git
