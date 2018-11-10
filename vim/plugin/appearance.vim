@@ -1,3 +1,5 @@
+set termguicolors
+
 set number
 set numberwidth=5
 set cursorline
