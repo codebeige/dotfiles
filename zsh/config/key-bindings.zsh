@@ -6,6 +6,8 @@ bindkey -M vicmd j vi-down-line-or-history
 
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
+bindkey '^K' up-line-or-search
+bindkey '^J' down-line-or-search
 bindkey ' ' magic-space
 bindkey '^[[Z' reverse-menu-complete
 
