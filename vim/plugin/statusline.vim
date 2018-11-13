@@ -46,8 +46,11 @@ function! GitStatus()
   return l:status
 endfunction
 
+set laststatus=2
+set noshowmode
+
 set statusline=%{ModeStatus()}\ %<
-set statusline+=%(%h%q%w\ %)%.40f\ %y
+set statusline+=%(%h%q%w\ %)%f\ %y
 set statusline+=%=%m
 set statusline+=%{GitStatus()}
 set statusline+=\ %.(%l:%c\ (%L/%p%%)%)
