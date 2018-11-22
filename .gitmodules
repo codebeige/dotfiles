@@ -310,3 +310,6 @@
 [submodule "vim/plugin/bundle/base16"]
 	path = vim/bundle/default/base16
 	url = https://github.com/chriskempson/base16-vim.git
+[submodule "vim/bundle/default/qfenter"]
+	path = vim/bundle/default/qfenter
+	url = https://github.com/yssl/QFEnter.git
