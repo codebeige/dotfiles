@@ -1,5 +1,4 @@
-export EDITOR='nvim -e'
-export VISUAL='nvim'
+export EDITOR='nvim'
 
 alias vim=nvim
 alias vi=nvim
