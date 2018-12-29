@@ -62,6 +62,9 @@ set shiftround
 map ö [
 map ä ]
 
+noremap <c-ö> <esc>
+noremap! <c-ö> <esc>
+
 map ° ~
 
 nnoremap gü g]
