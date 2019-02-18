@@ -39,6 +39,7 @@ plugins=(
   docker
   docker-compose
   docker-compose-custom
+  fzf-git
   git
   git-custom
   git-flow
@@ -57,6 +58,10 @@ plugins=(
   web-search
 )
 
+# Configure plugins
+export PER_DIRECTORY_HISTORY_TOGGLE='^G^R'
+
+# Init
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

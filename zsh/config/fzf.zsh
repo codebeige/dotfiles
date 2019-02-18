@@ -13,4 +13,4 @@ fi
 # Key bindings
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-bindkey '^x' fzf-cd-widget
+bindkey '^v' fzf-cd-widget
