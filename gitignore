@@ -19,3 +19,4 @@ profile.boot
 .#*
 .dir-locals.el
 Session.vim
+.tmuxinator.yml
