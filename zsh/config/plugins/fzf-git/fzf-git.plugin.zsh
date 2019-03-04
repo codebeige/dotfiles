@@ -30,7 +30,7 @@ fzf-git-branch() {
   fzf-down --ansi --multi --tac --preview-window right:70% \
     --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
   sed 's/^..//' | cut -d' ' -f1 |
-  sed -E 's#^remotes/\w+/##'
+  sed -E 's#^remotes/([^/]+/)?##'
 }
 
 fzf-git-tag() {
