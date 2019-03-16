@@ -1,6 +1,20 @@
 # Config
 # ------
-export FZF_DEFAULT_OPTS='--height=40% --layout=reverse --border --multi'
+fzf_default_bindings=(
+  ctrl-a:select-all
+  ctrl-d:deselect-all
+  ctrl-o:toggle-all
+)
+
+fzf_default_opts=(
+  --height=40%
+  --layout=reverse
+  --border
+  --multi
+  --bind=${(j:,:)fzf_default_bindings}
+)
+
+export FZF_DEFAULT_OPTS=$fzf_default_opts[*]
 
 if (( $+commands[rg] )); then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
