@@ -9,6 +9,6 @@ endif
 
 augroup fzf_autoload
   autocmd!
-  autocmd CmdUndefined FZF packadd fzf
-  autocmd FuncUndefined fzf#* packadd fzf
+  autocmd FuncUndefined fzf#run,fzf#wrap,fzf#shellescape call fzf#Init()
+  autocmd FuncUndefined fzf#vim#* packadd fzf
 augroup END

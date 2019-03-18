@@ -313,3 +313,6 @@
 [submodule "vim/bundle/default/qfenter"]
 	path = vim/bundle/default/qfenter
 	url = https://github.com/yssl/QFEnter.git
+[submodule "nvim/pack/bundle/opt/fzf"]
+	path = nvim/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf.vim.git
