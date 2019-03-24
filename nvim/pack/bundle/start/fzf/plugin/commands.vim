@@ -38,7 +38,7 @@ command! -bang -nargs=*                       Lines     call fzf#vim#lines(<q-ar
 command! -bang -nargs=+ -complete=dir         Locate    call fzf#vim#locate(<q-args>, <bang>0)
 command! -bang -bar                           Marks     call fzf#vim#marks(<bang>0)
 command! -bang -bar                           Maps      call fzf#vim#maps("n", <bang>0)
-command! -bang -nargs=*                       Rg        call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=*                       Rg        call fzf#Rg(<bang>0, <f-args>)
 command! -bang -bar                           Snippets  call fzf#vim#snippets(<bang>0)
 command! -bang -nargs=*                       Tags      call fzf#vim#tags(<q-args>, <bang>0)
 command! -bang -bar                           Windows   call fzf#vim#windows(<bang>0)

@@ -26,9 +26,10 @@ nmap <LocalLeader>fl :<C-U>BLines<CR>
 nmap <LocalLeader>ft :<C-U>BTags<CR>
 nmap <LocalLeader>fv :<C-U>BCommits<CR> " versions
 
-nmap <Leader>/ :<C-U>Rg<CR>
 " regex
 nmap <Leader>fr :<C-U>Rg<Space>
+nmap <Leader>/ :<C-U>Rg<CR>
+nmap <Leader>* :<C-U>Rg --fixed-strings --word-regexp <C-R><C-W><CR>
 
 nmap <Leader>f/ :<C-U>History/<CR>
 nmap <Leader>f: :<C-U>History:<CR>
