@@ -33,3 +33,14 @@ nmap <Leader>* :<C-U>Rg --fixed-strings --word-regexp <C-R><C-W><CR>
 
 nmap <Leader>f/ :<C-U>History/<CR>
 nmap <Leader>f: :<C-U>History:<CR>
+
+nmap <Leader><Tab> <Plug>(fzf-maps-n)
+xmap <Leader><Tab> <Plug>(fzf-maps-x)
+omap <Leader><Tab> <Plug>(fzf-maps-o)
+imap <C-F><Tab>    <Plug>(fzf-maps-i)
+
+imap <C-F><C-K> <Plug>(fzf-complete-word)
+imap <C-F><C-F> <Plug>(fzf-complete-path)
+imap <C-F><C-J> <Plug>(fzf-complete-file-ag)
+imap <C-F><C-L> <Plug>(fzf-complete-line)
+
