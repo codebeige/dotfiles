@@ -331,3 +331,6 @@
 [submodule "nvim/pack/bundle/start/vinegar"]
 	path = nvim/pack/bundle/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "nvim/pack/bundle/start/unimpaired"]
+	path = nvim/pack/bundle/start/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
