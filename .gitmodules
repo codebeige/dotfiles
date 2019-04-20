@@ -334,3 +334,6 @@
 [submodule "nvim/pack/bundle/start/unimpaired"]
 	path = nvim/pack/bundle/start/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "nvim/pack/bundle/start/surround"]
+	path = nvim/pack/bundle/start/surround
+	url = https://github.com/tpope/vim-surround.git
