@@ -1,5 +1,7 @@
 language en_US.UTF-8
 
+set mouse=a
+
 let g:mapleader = ','
 let g:maplocalleader = ',,'
 
