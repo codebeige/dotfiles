@@ -343,3 +343,6 @@
 [submodule "nvim/pack/bundle/start/ale"]
 	path = nvim/pack/bundle/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "nvim/pack/bundle/start/local-vimrc"]
+	path = nvim/pack/bundle/start/local-vimrc
+	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
