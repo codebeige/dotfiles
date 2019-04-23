@@ -349,3 +349,6 @@
 [submodule "nvim/pack/bundle/start/base16"]
 	path = nvim/pack/bundle/start/base16
 	url = https://github.com/chriskempson/base16-vim.git
+[submodule "nvim/pack/bundle/start/commmentary"]
+	path = nvim/pack/bundle/start/commmentary
+	url = https://github.com/tpope/vim-commentary.git
