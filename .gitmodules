@@ -352,3 +352,6 @@
 [submodule "nvim/pack/bundle/start/commmentary"]
 	path = nvim/pack/bundle/start/commmentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "nvim/pack/bundle/start/clojure-static"]
+	path = nvim/pack/bundle/start/clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
