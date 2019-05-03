@@ -355,3 +355,6 @@
 [submodule "nvim/pack/bundle/start/clojure-static"]
 	path = nvim/pack/bundle/start/clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
+[submodule "nvim/pack/bundle/start/endwise"]
+	path = nvim/pack/bundle/start/endwise
+	url = https://github.com/tpope/vim-endwise.git
