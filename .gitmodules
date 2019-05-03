@@ -364,3 +364,6 @@
 [submodule "nvim/pack/bundle/start/delete-trailing-whitespace"]
 	path = nvim/pack/bundle/start/delete-trailing-whitespace
 	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
+[submodule "nvim/pack/bundle/start/easy-align"]
+	path = nvim/pack/bundle/start/easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
