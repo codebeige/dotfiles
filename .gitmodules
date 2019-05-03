@@ -370,3 +370,9 @@
 [submodule "nvim/pack/bundle/start/repeat"]
 	path = nvim/pack/bundle/start/repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "nvim/pack/bundle/opt/sexp"]
+	path = nvim/pack/bundle/opt/sexp
+	url = https://github.com/guns/vim-sexp.git
+[submodule "nvim/pack/bundle/opt/sexp-mappings-for-regular-people"]
+	path = nvim/pack/bundle/opt/sexp-mappings-for-regular-people
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
