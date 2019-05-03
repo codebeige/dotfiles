@@ -358,3 +358,9 @@
 [submodule "nvim/pack/bundle/start/endwise"]
 	path = nvim/pack/bundle/start/endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "nvim/pack/bundle/start/show-trailing-whitespace"]
+	path = nvim/pack/bundle/start/show-trailing-whitespace
+	url = https://github.com/vim-scripts/ShowTrailingWhitespace.git
+[submodule "nvim/pack/bundle/start/delete-trailing-whitespace"]
+	path = nvim/pack/bundle/start/delete-trailing-whitespace
+	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
