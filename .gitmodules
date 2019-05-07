@@ -379,3 +379,6 @@
 [submodule "nvim/pack/bundle/opt/rainbow"]
 	path = nvim/pack/bundle/opt/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "config/base16-fzf"]
+	path = config/base16-fzf
+	url = https://github.com/nicodebo/base16-fzf.git
