@@ -4,26 +4,26 @@ endif
 let g:loaded_sexp_mappings = 1
 
 let g:sexp_mappings = {
-      \ 'sexp_move_to_prev_element_head': '',
-      \ 'sexp_move_to_next_element_head': '',
-      \ 'sexp_move_to_prev_element_tail': '',
-      \ 'sexp_move_to_next_element_tail': '',
-      \ 'sexp_flow_to_prev_close':        '',
-      \ 'sexp_flow_to_next_open':         '',
-      \ 'sexp_flow_to_prev_open':         '',
-      \ 'sexp_flow_to_next_close':        '',
-      \ 'sexp_flow_to_prev_leaf_head':    '',
-      \ 'sexp_flow_to_next_leaf_head':    '',
-      \ 'sexp_flow_to_prev_leaf_tail':    '',
-      \ 'sexp_flow_to_next_leaf_tail':    '',
-      \ 'sexp_swap_list_backward':        '',
-      \ 'sexp_swap_list_forward':         '',
-      \ 'sexp_swap_element_backward':     '',
-      \ 'sexp_swap_element_forward':      '',
+      \ 'sexp_capture_next_element':      '',
+      \ 'sexp_capture_prev_element':      '',
       \ 'sexp_emit_head_element':         '',
       \ 'sexp_emit_tail_element':         '',
-      \ 'sexp_capture_prev_element':      '',
-      \ 'sexp_capture_next_element':      '',
+      \ 'sexp_flow_to_next_close':        '',
+      \ 'sexp_flow_to_next_leaf_head':    '',
+      \ 'sexp_flow_to_next_leaf_tail':    '',
+      \ 'sexp_flow_to_next_open':         '',
+      \ 'sexp_flow_to_prev_close':        '',
+      \ 'sexp_flow_to_prev_leaf_head':    '',
+      \ 'sexp_flow_to_prev_leaf_tail':    '',
+      \ 'sexp_flow_to_prev_open':         '',
+      \ 'sexp_move_to_next_element_head': '',
+      \ 'sexp_move_to_next_element_tail': '',
+      \ 'sexp_move_to_prev_element_head': '',
+      \ 'sexp_move_to_prev_element_tail': '',
+      \ 'sexp_swap_element_backward':     '',
+      \ 'sexp_swap_element_forward':      '',
+      \ 'sexp_swap_list_backward':        '',
+      \ 'sexp_swap_list_forward':         '',
       \ }
 
 function! s:setup() abort
@@ -72,23 +72,23 @@ function! s:setup() abort
   nmap <silent><buffer> <C-k> <Plug>(sexp_flow_to_prev_open)
   xmap <silent><buffer> <C-k> <Plug>(sexp_flow_to_prev_open)
 
-  nmap <silent><buffer> <C-h> <Plug>(sexp_flow_to_prev_leaf_head)
-  xmap <silent><buffer> <C-h> <Plug>(sexp_flow_to_prev_leaf_head)
-
-  nmap <silent><buffer> <C-l> <Plug>(sexp_flow_to_next_leaf_head)
-  xmap <silent><buffer> <C-l> <Plug>(sexp_flow_to_next_leaf_head)
-
   nmap <silent><buffer> g<C-j> <Plug>(sexp_flow_to_next_close)
   xmap <silent><buffer> g<C-j> <Plug>(sexp_flow_to_next_close)
 
   nmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
   xmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
 
-  nmap <silent><buffer> g<C-h> <Plug>(sexp_flow_to_prev_leaf_tail)
-  xmap <silent><buffer> g<C-h> <Plug>(sexp_flow_to_prev_leaf_tail)
+  nmap <silent><buffer> <C-w> <Plug>(sexp_flow_to_next_leaf_head)
+  xmap <silent><buffer> <C-w> <Plug>(sexp_flow_to_next_leaf_head)
 
-  nmap <silent><buffer> g<C-l> <Plug>(sexp_flow_to_next_leaf_tail)
-  xmap <silent><buffer> g<C-l> <Plug>(sexp_flow_to_next_leaf_tail)
+  nmap <silent><buffer> <C-b> <Plug>(sexp_flow_to_prev_leaf_head)
+  xmap <silent><buffer> <C-b> <Plug>(sexp_flow_to_prev_leaf_head)
+
+  nmap <silent><buffer> <C-e> <Plug>(sexp_flow_to_next_leaf_tail)
+  xmap <silent><buffer> <C-e> <Plug>(sexp_flow_to_next_leaf_tail)
+
+  nmap <silent><buffer> g<C-e> <Plug>(sexp_flow_to_prev_leaf_tail)
+  xmap <silent><buffer> g<C-e> <Plug>(sexp_flow_to_prev_leaf_tail)
 endfunction
 
 augroup sexp_mappings
