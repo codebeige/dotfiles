@@ -1,3 +1,4 @@
+alias gc-='git checkout -'
 alias gcfx='git commit --fixup'
 alias gcp='git commit -vp'
 alias gcsq='git commit --squash'
