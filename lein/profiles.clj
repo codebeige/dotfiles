@@ -1,9 +1,9 @@
 {:user {:dependencies
-        [[com.cemerick/piggieback "0.2.1"]
-         [org.clojure/tools.nrepl "0.2.10"]]
+        [[cider/piggieback "0.4.0"]
+         [com.cemerick/piggieback "0.2.1"]]
 
         :plugins
-        [[cider/cider-nrepl "0.14.0"]]
+        [[cider/cider-nrepl "0.21.1"]]
 
         :repl-options
-        {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
+        {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}}}
