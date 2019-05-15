@@ -12,9 +12,11 @@ packadd fzf
 function! s:Init() abort
   let l:fzf_dir = fnamemodify(resolve(exepath('fzf')), ':p:h:h')
   execute 'source ' . fnameescape(l:fzf_dir) . '/plugin/fzf.vim'
+  autocmd! fzf_autoload
 endfunction
 
 augroup fzf_autoload
   autocmd!
+  autocmd CmdUndefined FZF call s:Init()
   autocmd FuncUndefined fzf#run,fzf#wrap,fzf#shellescape call s:Init()
 augroup END
