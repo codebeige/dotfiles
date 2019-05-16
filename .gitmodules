@@ -385,3 +385,6 @@
 [submodule "nvim/pack/bundle/opt/fireplace"]
 	path = nvim/pack/bundle/opt/fireplace
 	url = https://github.com/tpope/vim-fireplace.git
+[submodule "nvim/pack/bundle/opt/stylus"]
+	path = nvim/pack/bundle/opt/stylus
+	url = https://github.com/iloginow/vim-stylus.git
