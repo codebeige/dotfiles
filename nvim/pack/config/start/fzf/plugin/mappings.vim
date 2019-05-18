@@ -1,4 +1,4 @@
-" git
+"git
 nmap <Leader>fg :<C-U>GFiles<CR>
 " directory
 nmap <Leader>fd :<C-U>Files<CR>
@@ -27,9 +27,10 @@ nmap <LocalLeader>ft :<C-U>BTags<CR>
 nmap <LocalLeader>fv :<C-U>BCommits<CR> " versions
 
 " regex
-nmap <Leader>fr :<C-U>Rg<Space>
-nmap <Leader>/ :<C-U>Rg<CR>
+nmap <Leader>fr :<C-U>Rg<CR>
 nmap <Leader>* :<C-U>Rg --fixed-strings --word-regexp <C-R><C-W><CR>
+nmap <Leader># <Leader>*
+nmap <Leader>/ :<C-U>Rg<Space>
 
 nmap <Leader>f/ :<C-U>History/<CR>
 nmap <Leader>f: :<C-U>History:<CR>
@@ -43,4 +44,3 @@ imap <C-F><C-K> <Plug>(fzf-complete-word)
 imap <C-F><C-F> <Plug>(fzf-complete-path)
 imap <C-F><C-J> <Plug>(fzf-complete-file-ag)
 imap <C-F><C-L> <Plug>(fzf-complete-line)
-
