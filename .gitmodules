@@ -388,3 +388,6 @@
 [submodule "nvim/pack/bundle/opt/stylus"]
 	path = nvim/pack/bundle/opt/stylus
 	url = https://github.com/iloginow/vim-stylus.git
+[submodule "nvim/pack/bundle/start/neoterm"]
+	path = nvim/pack/bundle/start/neoterm
+	url = https://github.com/kassio/neoterm.git
