@@ -78,17 +78,17 @@ function! s:setup() abort
   nmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
   xmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
 
-  nmap <silent><buffer> <C-w> <Plug>(sexp_flow_to_next_leaf_head)
-  xmap <silent><buffer> <C-w> <Plug>(sexp_flow_to_next_leaf_head)
+  nmap <silent><buffer> <C-n> <Plug>(sexp_flow_to_next_leaf_head)
+  xmap <silent><buffer> <C-n> <Plug>(sexp_flow_to_next_leaf_head)
 
-  nmap <silent><buffer> <C-b> <Plug>(sexp_flow_to_prev_leaf_head)
-  xmap <silent><buffer> <C-b> <Plug>(sexp_flow_to_prev_leaf_head)
+  nmap <silent><buffer> <C-p> <Plug>(sexp_flow_to_prev_leaf_head)
+  xmap <silent><buffer> <C-p> <Plug>(sexp_flow_to_prev_leaf_head)
 
-  nmap <silent><buffer> <C-e> <Plug>(sexp_flow_to_next_leaf_tail)
-  xmap <silent><buffer> <C-e> <Plug>(sexp_flow_to_next_leaf_tail)
+  nmap <silent><buffer> g<C-n> <Plug>(sexp_flow_to_next_leaf_tail)
+  xmap <silent><buffer> g<C-n> <Plug>(sexp_flow_to_next_leaf_tail)
 
-  nmap <silent><buffer> g<C-e> <Plug>(sexp_flow_to_prev_leaf_tail)
-  xmap <silent><buffer> g<C-e> <Plug>(sexp_flow_to_prev_leaf_tail)
+  nmap <silent><buffer> g<C-p> <Plug>(sexp_flow_to_prev_leaf_tail)
+  xmap <silent><buffer> g<C-p> <Plug>(sexp_flow_to_prev_leaf_tail)
 endfunction
 
 augroup sexp_mappings
