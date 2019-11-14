@@ -2,6 +2,7 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+  IPQoS throughput
 
 Host gmah.net
   HostName circinus.uberspace.de
