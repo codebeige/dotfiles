@@ -388,3 +388,6 @@
 [submodule "nvim/pack/bundle/start/neoterm"]
 	path = nvim/pack/bundle/start/neoterm
 	url = https://github.com/kassio/neoterm.git
+[submodule "nvim/pack/bundle/start/lexima"]
+	path = nvim/pack/bundle/start/lexima
+	url = https://github.com/cohama/lexima.vim.git
