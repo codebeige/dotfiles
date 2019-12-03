@@ -21,3 +21,4 @@ profile.boot
 Session.vim
 .tmuxinator.yml
 .netrwhist
+/tmp/
