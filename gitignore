@@ -6,6 +6,7 @@
 .s??
 *.pyc
 *.draft
+.vimrc
 .lvimrc
 .nrepl-*
 .cljs_rhino_repl/
