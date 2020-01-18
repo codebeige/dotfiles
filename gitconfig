@@ -50,7 +50,7 @@
 	prompt = false
 	keepBackup = false
 [mergetool "nvim"]
-  cmd = nvim -c 'Gvdiff :2 | Gvdiff :1 | Gvdiff :3' -c 'wincmd J' \"$MERGED\"
+  cmd = nvim -c 'Gdiffsplit!' \"$MERGED\"
 	prompt = false
 	keepBackup = false
 [difftool]
