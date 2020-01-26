@@ -29,7 +29,12 @@ function s:wrap_go_to_file_mappings()
   nmap <buffer><silent> <C-W>gf    :<C-U>call fireplace#poker#update_classpath()<CR><Plug>FireplaceTabeditFile
 endfunction
 
+function s:set_up_K()
+  nnoremap <buffer> K :Eval (clojure.repl/doc <C-R><C-W>)<CR>
+endfunction
+
 function fireplace#poker#activate()
   call s:set_up_classpath()
   call s:wrap_go_to_file_mappings()
+  call s:set_up_K()
 endfunction
