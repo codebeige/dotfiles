@@ -34,7 +34,10 @@ function s:set_up_K()
 endfunction
 
 function fireplace#poker#activate()
-  call s:set_up_classpath()
-  call s:wrap_go_to_file_mappings()
-  call s:set_up_K()
+  try
+    call s:set_up_classpath()
+    call s:wrap_go_to_file_mappings()
+    call s:set_up_K()
+  catch /^Fireplace:/
+  endtry
 endfunction
