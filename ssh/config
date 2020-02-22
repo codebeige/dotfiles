@@ -4,6 +4,11 @@ Host *
   IdentityFile ~/.ssh/id_rsa
   IPQoS throughput
 
+Host codebeige.net
+  HostName barnard.uberspace.de
+  User cdbg
+  ForwardAgent yes
+
 Host gmah.net
   HostName circinus.uberspace.de
   User gmah
