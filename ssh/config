@@ -10,11 +10,16 @@ Host codebeige.net
   ForwardAgent yes
 
 Host gmah.net
-  HostName circinus.uberspace.de
-  User gmah
+  HostName giacobini.uberspace.de
+  User gmah7
   ForwardAgent yes
 
 Host briareos
   HostName briareos.gmah.net
   User tc
+  ForwardAgent yes
+
+Host gmah.old
+  HostName circinus.uberspace.de
+  User gmah
   ForwardAgent yes
