@@ -19,7 +19,12 @@ Host briareos
   User tc
   ForwardAgent yes
 
-Host gmah.old
+Host gmah
   HostName circinus.uberspace.de
   User gmah
+  ForwardAgent yes
+
+Host b33n.net
+  HostName arend.uberspace.de
+  User b33n
   ForwardAgent yes
