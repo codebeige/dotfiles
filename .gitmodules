@@ -397,3 +397,6 @@
 [submodule "nvim/pack/bundle/start/limelight"]
 	path = nvim/pack/bundle/start/limelight
 	url = https://github.com/junegunn/limelight.vim.git
+[submodule "nvim/pack/bundle/start/peekaboo"]
+	path = nvim/pack/bundle/start/peekaboo
+	url = https://github.com/junegunn/vim-peekaboo.git
