@@ -57,3 +57,5 @@
 	prompt = false
 [include]
   path = ~/.gitenv
+[pull]
+	rebase = true
