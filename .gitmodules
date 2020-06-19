@@ -391,3 +391,9 @@
 [submodule "nvim/pack/bundle/start/lexima"]
 	path = nvim/pack/bundle/start/lexima
 	url = https://github.com/cohama/lexima.vim.git
+[submodule "nvim/pack/bundle/start/goyo"]
+	path = nvim/pack/bundle/start/goyo
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "nvim/pack/bundle/start/limelight"]
+	path = nvim/pack/bundle/start/limelight
+	url = https://github.com/junegunn/limelight.vim.git

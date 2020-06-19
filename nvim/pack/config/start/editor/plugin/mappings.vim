@@ -1,4 +1,4 @@
-nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<Bar>diffupdate<Bar>Limelight!<CR><C-L>
 inoremap <silent> <C-L> <Esc>
 inoremap <C-U> <C-G>u<C-U>
 
