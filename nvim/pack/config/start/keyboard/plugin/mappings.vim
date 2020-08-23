@@ -3,20 +3,13 @@
 " remember: <c-6> behaves like <c-^>
 " remember: <c-2> behaves like <c-@>
 
-nmap ö [
-xmap ö [
-omap ö [
+map ö [
+map Ö {
+map Ä }
 
-nmap ä ]
-xmap ä ]
-omap ä ]
-
-nmap Ö {
-xmap Ö {
-omap Ö {
-
-nmap Ä }
-xmap Ä }
-omap Ä }
+map öö [[
+map ää ]]
+map öä []
+map äö ][
 
 map ° ~
