@@ -4,6 +4,7 @@
 " remember: <c-2> behaves like <c-@>
 
 map ö [
+map ä ]
 map Ö {
 map Ä }
 
