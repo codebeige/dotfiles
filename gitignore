@@ -23,3 +23,4 @@ Session.vim
 .tmuxinator.yml
 .netrwhist
 /tmp/
+/.cpcache/
