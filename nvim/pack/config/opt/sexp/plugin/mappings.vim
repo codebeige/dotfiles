@@ -27,13 +27,6 @@ let g:sexp_mappings = {
       \ }
 
 function! s:setup() abort
-  nmap <silent><buffer> Ö <Plug>(sexp_move_to_prev_bracket)
-  xmap <silent><buffer> Ö <Plug>(sexp_move_to_prev_bracket)
-  omap <silent><buffer> Ö <Plug>(sexp_move_to_prev_bracket)
-  nmap <silent><buffer> Ä <Plug>(sexp_move_to_next_bracket)
-  xmap <silent><buffer> Ä <Plug>(sexp_move_to_next_bracket)
-  omap <silent><buffer> Ä <Plug>(sexp_move_to_next_bracket)
-
   nmap <silent><buffer> öö <Plug>(sexp_move_to_prev_top_element)
   xmap <silent><buffer> öö <Plug>(sexp_move_to_prev_top_element)
   omap <silent><buffer> öö <Plug>(sexp_move_to_prev_top_element)
