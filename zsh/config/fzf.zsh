@@ -22,6 +22,10 @@ if (( $+commands[rg] )); then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 fi
 
+if (( $+commands[tree] )); then
+  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+fi
+
 # Auto-completion
 # ---------------
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
@@ -29,4 +33,4 @@ fi
 # Key bindings
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-bindkey '^v' fzf-cd-widget
+bindkey '^o' fzf-cd-widget
