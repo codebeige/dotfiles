@@ -400,3 +400,6 @@
 [submodule "nvim/pack/bundle/start/peekaboo"]
 	path = nvim/pack/bundle/start/peekaboo
 	url = https://github.com/junegunn/vim-peekaboo.git
+[submodule "nvim/pack/bundle/start/dadbot"]
+	path = nvim/pack/bundle/start/dadbot
+	url = https://github.com/tpope/vim-dadbod.git
