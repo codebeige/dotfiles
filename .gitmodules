@@ -403,3 +403,6 @@
 [submodule "nvim/pack/bundle/start/dadbot"]
 	path = nvim/pack/bundle/start/dadbot
 	url = https://github.com/tpope/vim-dadbod.git
+[submodule "nvim/pack/bundle/start/nginx"]
+	path = nvim/pack/bundle/start/nginx
+	url = https://github.com/chr4/nginx.vim.git
