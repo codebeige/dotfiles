@@ -15,7 +15,7 @@ Host gmah.net
   ForwardAgent yes
 
 Host briareos
-  HostName briareos.gmah.net
+  HostName briareos.codebeige.net
   User tc
   ForwardAgent yes
 
