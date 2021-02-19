@@ -1,1 +1,1 @@
-set completeopt=menuone,preview
+set completeopt=longest,menuone,preview
