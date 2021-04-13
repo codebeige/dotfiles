@@ -409,3 +409,6 @@
 [submodule "nvim/pack/bundle/start/conjure"]
 	path = nvim/pack/bundle/start/conjure
 	url = https://github.com/Olical/conjure.git
+[submodule "nvim/pack/bundle/start/coc"]
+	path = nvim/pack/bundle/start/coc
+	url = https://github.com/neoclide/coc.nvim.git
