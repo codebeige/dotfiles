@@ -406,3 +406,6 @@
 [submodule "nvim/pack/bundle/start/nginx"]
 	path = nvim/pack/bundle/start/nginx
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "nvim/pack/bundle/start/conjure"]
+	path = nvim/pack/bundle/start/conjure
+	url = https://github.com/Olical/conjure.git
