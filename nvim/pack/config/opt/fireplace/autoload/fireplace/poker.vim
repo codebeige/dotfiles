@@ -11,13 +11,6 @@ function fireplace#poker#update_classpath()
   return ''
 endfunction
 
-function s:set_up_classpath()
-  let platform = fireplace#platform()
-  if platform.HasOp('classpath')
-     call platform.Message({'op': 'classpath'}, function('s:set_local_path'))
-  endif
-endfunction
-
 function s:wrap_go_to_file_mappings()
   cmap <buffer><expr> <Plug><FireplacePokerUpdateClasspath> fireplace#poker#update_classpath()
   cmap <buffer> <C-R><C-F> <Plug><FireplacePokerUpdateClasspath><Plug><cfile>
@@ -35,7 +28,6 @@ endfunction
 
 function fireplace#poker#activate()
   try
-    call s:set_up_classpath()
     call s:wrap_go_to_file_mappings()
     call s:set_up_K()
   catch /^Fireplace:/
