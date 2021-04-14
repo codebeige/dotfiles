@@ -1,12 +1,16 @@
 {
   "coc.preferences.useQuickfixForLocations": true,
+  "diagnostic.warningSign": "--",
   "languageserver": {
     "clojure-lsp": {
+      "additionalSchemes": ["jar", "zipfile"],
       "command": "clojure-lsp",
       "filetypes": ["clojure"],
+      "initializationOptions": {"keep-require-at-start?": false},
       "rootPatterns": ["deps.edn", "project.clj", "shadow-cljs.edn", "build.boot"],
-      "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose"
     }
-  }
+  },
+  "suggest.autoTrigger": "none",
+  "suggest.removeDuplicateItems": true
 }
