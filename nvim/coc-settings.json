@@ -1,0 +1,12 @@
+{
+  "coc.preferences.useQuickfixForLocations": true,
+  "languageserver": {
+    "clojure-lsp": {
+      "command": "clojure-lsp",
+      "filetypes": ["clojure"],
+      "rootPatterns": ["deps.edn", "project.clj", "shadow-cljs.edn", "build.boot"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose"
+    }
+  }
+}
