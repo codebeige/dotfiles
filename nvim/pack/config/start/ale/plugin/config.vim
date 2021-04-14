@@ -1,1 +1,1 @@
-let g:ale_linters = { 'clojure': ['joker'] }
+" let g:ale_linters = { 'clojure': ['joker'] }
