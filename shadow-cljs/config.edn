@@ -1,2 +1,2 @@
 {:dependencies
- [[cider/cider-nrepl "0.25.9"]]}
+ [[cider/cider-nrepl "0.25.11"]]}
