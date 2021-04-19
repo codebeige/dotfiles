@@ -19,9 +19,6 @@
 [submodule "nvim/pack/bundle/start/dispatch"]
 	path = nvim/pack/bundle/start/dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule "nvim/pack/bundle/start/qf"]
-	path = nvim/pack/bundle/start/qf
-	url = https://github.com/romainl/vim-qf.git
 [submodule "nvim/pack/bundle/start/vinegar"]
 	path = nvim/pack/bundle/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
@@ -73,9 +70,6 @@
 [submodule "config/base16-fzf"]
 	path = config/base16-fzf
 	url = https://github.com/nicodebo/base16-fzf.git
-[submodule "nvim/pack/bundle/opt/fireplace"]
-	path = nvim/pack/bundle/opt/fireplace
-	url = https://github.com/tpope/vim-fireplace.git
 [submodule "nvim/pack/bundle/opt/stylus"]
 	path = nvim/pack/bundle/opt/stylus
 	url = https://github.com/iloginow/vim-stylus.git
@@ -100,9 +94,3 @@
 [submodule "nvim/pack/bundle/start/nginx"]
 	path = nvim/pack/bundle/start/nginx
 	url = https://github.com/chr4/nginx.vim.git
-[submodule "nvim/pack/bundle/start/conjure"]
-	path = nvim/pack/bundle/start/conjure
-	url = https://github.com/Olical/conjure.git
-[submodule "nvim/pack/bundle/start/coc"]
-	path = nvim/pack/bundle/start/coc
-	url = https://github.com/neoclide/coc.nvim.git
