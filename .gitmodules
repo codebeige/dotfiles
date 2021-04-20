@@ -97,3 +97,6 @@
 [submodule "nvim/pack/bundle/start/iced"]
 	path = nvim/pack/bundle/start/iced
 	url = https://github.com/liquidz/vim-iced.git
+[submodule "nvim/pack/bundle/start/qf"]
+	path = nvim/pack/bundle/start/qf
+	url = https://github.com/romainl/vim-qf.git
