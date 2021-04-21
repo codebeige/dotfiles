@@ -31,9 +31,6 @@
 [submodule "nvim/pack/bundle/start/fugitive"]
 	path = nvim/pack/bundle/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "nvim/pack/bundle/start/ale"]
-	path = nvim/pack/bundle/start/ale
-	url = https://github.com/w0rp/ale.git
 [submodule "nvim/pack/bundle/start/local-vimrc"]
 	path = nvim/pack/bundle/start/local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc.git
@@ -100,3 +97,6 @@
 [submodule "nvim/pack/bundle/start/qf"]
 	path = nvim/pack/bundle/start/qf
 	url = https://github.com/romainl/vim-qf.git
+[submodule "nvim/pack/bundle/start/lspconfig"]
+	path = nvim/pack/bundle/start/lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
