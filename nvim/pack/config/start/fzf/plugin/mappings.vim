@@ -1,46 +1,46 @@
 "git
-nmap <Leader>fg :<C-U>GFiles<CR>
+nmap <leader>fg <cmd>GFiles<cr>
 " directory
-nmap <Leader>fd :<C-U>Files<CR>
+nmap <leader>fd <cmd>Files<cr>
 " files
-nmap <Leader>ff :<C-U>History<CR>
+nmap <leader>ff <cmd>History<cr>
 " index
-nmap <Leader>fi :<C-U>Locate<Space>
+nmap <leader>fi <cmd>Locate<space>
 " edits
-nmap <Leader>fe :<C-U>GFiles?<CR>
+nmap <leader>fe <cmd>GFiles?<cr>
 " versions
-nmap <Leader>fv :<C-U>Commits<CR>
+nmap <leader>fv <cmd>Commits<cr>
 " keys
-nmap <Leader>fk :<C-U>Maps<CR>
+nmap <leader>fk <cmd>Maps<cr>
 
-nmap <Leader>fb :<C-U>Buffers<CR>
-nmap <Leader>fc :<C-U>Commands<CR>
-nmap <Leader>fh :<C-U>silent! helptags ALL<CR>:Helptags<CR>
-nmap <Leader>fl :<C-U>Lines<CR>
-nmap <Leader>fm :<C-U>Marks<CR>
-nmap <Leader>fs :<C-U>Snippets<CR>
-nmap <Leader>ft :<C-U>Tags<CR>
-nmap <Leader>fw :<C-U>Windows<CR>
+nmap <leader>fb <cmd>Buffers<cr>
+nmap <leader>fc <cmd>Commands<cr>
+nmap <leader>fh <cmd>silent! helptags ALL<cr>:Helptags<cr>
+nmap <leader>fl <cmd>Lines<cr>
+nmap <leader>fm <cmd>Marks<cr>
+nmap <leader>fs <cmd>Snippets<cr>
+nmap <leader>ft <cmd>Tags<cr>
+nmap <leader>fw <cmd>Windows<cr>
 
-nmap <LocalLeader>fl :<C-U>BLines<CR>
-nmap <LocalLeader>ft :<C-U>BTags<CR>
-nmap <LocalLeader>fv :<C-U>BCommits<CR> " versions
+nmap <localleader>fl <cmd>BLines<cr>
+nmap <localleader>ft <cmd>BTags<cr>
+nmap <localleader>fv <cmd>BCommits<cr> " versions
 
 " regex
-nmap <Leader>fr :<C-U>Rg<CR>
-nmap <Leader>* :<C-U>Rg --fixed-strings --word-regexp <C-R><C-W><CR>
-nmap <Leader># <Leader>*
-nmap <Leader>/ :<C-U>Rg<Space>
+nmap <leader>fr <cmd>Rg<cr>
+nmap <leader>* <cmd>Rg --fixed-strings --word-regexp <c-r><c-w><cr>
+nmap <leader># <leader>*
+nmap <leader>/ <cmd>Rg<space>
 
-nmap <Leader>f/ :<C-U>History/<CR>
-nmap <Leader>f: :<C-U>History:<CR>
+nmap <leader>f/ <cmd>History/<cr>
+nmap <leader>f: <cmd>History:<cr>
 
-nmap <Leader><Tab> <Plug>(fzf-maps-n)
-xmap <Leader><Tab> <Plug>(fzf-maps-x)
-omap <Leader><Tab> <Plug>(fzf-maps-o)
-imap <C-F><Tab>    <Plug>(fzf-maps-i)
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+imap <c-f><tab>    <plug>(fzf-maps-i)
 
-imap <C-F><C-K> <Plug>(fzf-complete-word)
-imap <C-F><C-F> <Plug>(fzf-complete-path)
-imap <C-F><C-J> <Plug>(fzf-complete-file-ag)
-imap <C-F><C-L> <Plug>(fzf-complete-line)
+imap <c-f><c-k> <plug>(fzf-complete-word)
+imap <c-f><c-f> <plug>(fzf-complete-path)
+imap <c-f><c-j> <plug>(fzf-complete-file-ag)
+imap <c-f><c-l> <plug>(fzf-complete-line)
