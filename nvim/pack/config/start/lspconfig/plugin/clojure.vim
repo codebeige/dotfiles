@@ -1,6 +1,7 @@
 lua << EOF
 require'lspconfig'.clojure_lsp.setup{
   on_attach = function(client, bufnr)
+
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap=true, silent=true })
@@ -19,7 +20,7 @@ require'lspconfig'.clojure_lsp.setup{
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>xx', '<Cmd>lua vim.lsp.buf.code_action()<CR>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<Leader>xx', '<Cmd>lua vim.lsp.buf.range_code_action()<CR>', {})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>xr', '<Cmd>lua vim.lsp.buf.rename()<CR>', {})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>xc', '<Cmd>lua require("lspconfig.clojure").cycle_coll()<CR>', {})
+    require'lspconfig.clojure'.buf_set_keymap_repeat(bufnr, 'n', '<Leader>xc', '<Cmd>lua require"lspconfig.clojure".cycle_coll()<CR>', {})
 
     -- formatting
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>gq', '<Cmd>lua vim.lsp.buf.formatting()<CR>', {})
