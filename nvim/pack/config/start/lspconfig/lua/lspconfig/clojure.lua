@@ -8,7 +8,7 @@ function M.buf_set_keymap_repeat(bufnr, mode, lhs, rhs, opts)
     string.format(
       '%s<Cmd>silent! call repeat#set("%s")<CR>',
       rhs,
-      string.gsub(lhs, '<', [[\<]])
+      lhs:gsub('<', [[\<]])
     ),
     opts
   )
@@ -23,9 +23,17 @@ local function default_params()
   }
 end
 
+local function cursor_on_opening()
+  local column = vim.api.nvim_win_get_cursor(0)[2] + 1
+  local line = vim.api.nvim_get_current_line():sub(column)
+  return line:find('^[([{]') or line:find('^#{')
+end
+
 function M.cycle_coll()
   local winview = vim.fn.winsaveview()
-  vim.cmd('normal vaf%v')
+  if not cursor_on_opening() then
+    vim.cmd('keepjumps normal (')
+  end
   vim.lsp.buf.execute_command{
     command = "cycle-coll",
     arguments = default_params()
