@@ -32,8 +32,10 @@ local git_cmd = [[
 ]]
 
 function M.git_update(buffer)
+  local succ, dir = pcall(cwd)
+  if not succ then return end
   vim.fn.jobstart(git_cmd, {
-    cwd = cwd(),
+    cwd = dir,
     on_stdout = function(_, data, name)
       local head = data[1]
       if head ~= "" then
