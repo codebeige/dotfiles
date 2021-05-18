@@ -13,7 +13,7 @@ function M.buffer_status()
 end
 
 function M.git_head()
-  local head = vim.b.git_head
+  local head = vim.fn["fugitive#head"]()
   if head == nil or head == "" then
     return ""
   end
