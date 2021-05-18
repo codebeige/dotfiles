@@ -2,7 +2,8 @@ lua << EOF
 require"lspconfig".clojure_lsp.setup{
   on_attach = function(client, bufnr)
 
-    print("Clojure LSP client attached")
+    -- print("Clojure LSP client attached")
+    vim.api.nvim_buf_set_var(bufnr, "lsp_info", "clojure")
     -- vim.api.nvim_buf_set_option(bufnr, "completefunc", "v:lua.vim.lsp.omnifunc")
 
     local clojure = require"lspconfig.clojure"
