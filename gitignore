@@ -24,4 +24,4 @@ Session.vim
 .netrwhist
 /tmp/
 /.cpcache/
-/.lsp/
+/.lsp
