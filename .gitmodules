@@ -100,3 +100,6 @@
 [submodule "nvim/pack/bundle/start/lspconfig"]
 	path = nvim/pack/bundle/start/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim/pack/bundle/start/mru"]
+	path = nvim/pack/bundle/start/mru
+	url = https://github.com/yegappan/mru.git
