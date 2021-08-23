@@ -1,0 +1,4 @@
+{:linters
+ {:clojure-lsp/unused-public-var
+  {:exclude-when-defined-by #{cljs.test/deftest
+                              clojure.test/deftest}}}}
