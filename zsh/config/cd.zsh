@@ -1,4 +1,4 @@
-cdpath=(~ ~/src ~/lab ~/lib ~/Dropbox/Projects)
+cdpath=(~ ~/src ~/src/pitch-app/projects ~/lab ~/lib ~/Dropbox/Projects)
 
 hash -d dots=~/dotfiles
 alias dots='nocorrect dots'
@@ -7,6 +7,7 @@ hash -d src=~/src
 hash -d lab=~/lab
 hash -d lib=~/lib
 hash -d projects=~/Dropbox/Projects/
+hash -d pitch=~/src/pitch-app/
 
 mcd() {
   mkdir -p $1 && cd $_
