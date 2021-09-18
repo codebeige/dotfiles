@@ -25,3 +25,5 @@ Session.vim
 /tmp/
 /.cpcache/
 /.lsp
+.cache/
+.clj-kondo/
