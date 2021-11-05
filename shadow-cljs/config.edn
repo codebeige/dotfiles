@@ -1,4 +1,4 @@
 {:dependencies
- [[cider/cider-nrepl "0.26.0"]
+ [[cider/cider-nrepl "0.27.2"]
   [com.github.liquidz/iced-nrepl "1.2.8"]
-  [refactor-nrepl/refactor-nrepl "2.5.1"]]}
+  [refactor-nrepl/refactor-nrepl "3.0.0"]]}
