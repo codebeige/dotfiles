@@ -48,7 +48,7 @@ plugins=(
   lein
   node
   npm
-  osx
+  macos
   per-directory-history
   rake
   rbenv
