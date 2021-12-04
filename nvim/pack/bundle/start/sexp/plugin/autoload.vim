@@ -1,4 +1,4 @@
-let g:sexp_filetypes = 'clojure,scheme,lisp,timl'
+let g:sexp_filetypes = 'clojure,scheme,lisp,timl,fennel'
 
 augroup sexp_autoload
 	autocmd!

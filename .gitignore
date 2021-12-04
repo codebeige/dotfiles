@@ -4,3 +4,4 @@ vim/.netrwhist
 emacs.d/*
 !emacs.d/init.el
 !emacs.d/config
+/nvim/lua/
