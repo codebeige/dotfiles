@@ -21,18 +21,19 @@ local function gh_install (user, repo)
     fn.system({'git', 'clone', '--depth', '1', gh_url(user, repo), dir})
     ex('packadd ' .. repo)
     ex('helptags ' .. dir .. 'doc')
+    vim.g['pristine_env?'] = true
     prf('Successfully installed %s at %s', repo, dir)
   end
 end
 
 local function init ()
-  -- gh_install('wbthomason', 'packer.nvim')
+  gh_install('wbthomason', 'packer.nvim')
   gh_install('Olical', 'aniseed')
-  vim.g['aniseed#env'] = true
 end
 
 if pcall(init) then
- ex('redraw!')
+  if vim.g['pristine_env?'] then ex('redraw') end
+  vim.g['aniseed#env'] = true
 else
- print('Error: unable to install. Are you connected to the internet?')
+  print('Error: unable to install. Are you connected to the internet?')
 end

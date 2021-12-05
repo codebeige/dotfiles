@@ -8,3 +8,5 @@
 
 (core.merge! nvim.g {:mapleader ","
                      :maplocalleader ",,"})
+
+(require :config.packer)
