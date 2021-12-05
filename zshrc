@@ -44,7 +44,6 @@ plugins=(
   git-custom
   git-flow
   git-flow-avh
-  iced
   lein
   node
   npm

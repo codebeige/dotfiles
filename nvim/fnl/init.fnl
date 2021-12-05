@@ -4,9 +4,11 @@
 
 (nvim.ex.language "en_US.UTF-8")
 
-(core.merge! nvim.o {:mouse "a"})
+(core.assoc nvim.o
+            :mouse "a")
 
-(core.merge! nvim.g {:mapleader ","
-                     :maplocalleader ",,"})
+(core.assoc nvim.g
+            :mapleader ","
+            :maplocalleader ",,")
 
-(require :config.packer)
+(require :plugins)
