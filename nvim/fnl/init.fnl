@@ -1,14 +1,12 @@
 (module init
-  {autoload {core aniseed.core
-             nvim aniseed.nvim}})
+  {autoload {nvim aniseed.nvim
+             util config.util}})
 
 (nvim.ex.language "en_US.UTF-8")
 
-(core.assoc nvim.o
-            :mouse "a")
+(util.set-opts :o {:mouse "a"})
 
-(core.assoc nvim.g
-            :mapleader ","
-            :maplocalleader ",,")
+(util.set-opts :g {:mapleader ","
+                   :maplocalleader ",,"})
 
 (require :plugins)

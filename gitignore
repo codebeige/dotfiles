@@ -27,3 +27,5 @@ Session.vim
 /.lsp
 .cache/
 .clj-kondo/
+.lnvim.fnl
+.lnvim.lua

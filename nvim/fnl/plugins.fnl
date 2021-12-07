@@ -5,4 +5,5 @@
 
 (packer.use {:Olical/aniseed true
              :Olical/conjure true
+             :Olical/nvim-local-fennel true
              :wbthomason/packer.nvim true})
