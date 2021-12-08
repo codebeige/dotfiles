@@ -1,4 +1,4 @@
-(module config.util
+(module lib.util
   {autoload {core aniseed.core
              str aniseed.string
              nvim aniseed.nvim}})

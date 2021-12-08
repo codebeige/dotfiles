@@ -1,6 +1,6 @@
 (module init
   {autoload {nvim aniseed.nvim
-             util config.util}})
+             util lib.util}})
 
 (nvim.ex.language "en_US.UTF-8")
 

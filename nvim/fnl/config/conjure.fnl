@@ -1,5 +1,5 @@
 (module config.conjure
-  {autoload {util config.util}})
+  {autoload {util lib.util}})
 
 (util.set-opts :g:conjure#
 
