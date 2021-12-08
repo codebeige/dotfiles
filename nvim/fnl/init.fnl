@@ -4,6 +4,11 @@
 
 (nvim.ex.language "en_US.UTF-8")
 
-(util.set-opts :o {:mouse "a"})
+(util.set-opts :o {:colorcolumn "80"
+                   :cursorline true
+                   :mouse "a"
+                   :number true
+                   :termguicolors true
+                   :visualbell true})
 
 (require :plugins)
