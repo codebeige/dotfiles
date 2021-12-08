@@ -6,7 +6,4 @@
 
 (util.set-opts :o {:mouse "a"})
 
-(util.set-opts :g {:mapleader ","
-                   :maplocalleader ",,"})
-
 (require :plugins)

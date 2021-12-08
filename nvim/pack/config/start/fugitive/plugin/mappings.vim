@@ -24,8 +24,3 @@ nnoremap <Leader>gl :Git pull<CR>
 nnoremap <Leader>gL :Git pull --force<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gP :Git push --force<CR>
-
-augroup fugitive_config
-  autocmd!
-  autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup END

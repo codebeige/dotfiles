@@ -27,6 +27,8 @@ local function gh_install (user, repo)
 end
 
 local function init ()
+  vim.g.mapleader = ','
+  vim.g.maplocalleader = ',,'
   gh_install('wbthomason', 'packer.nvim')
   gh_install('Olical', 'aniseed')
 end
