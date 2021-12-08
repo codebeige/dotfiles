@@ -11,4 +11,5 @@
                    :termguicolors true
                    :visualbell true})
 
+(require :mappings)
 (require :plugins)
