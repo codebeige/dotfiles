@@ -6,11 +6,16 @@
 
 (util.set-opts :o {:colorcolumn "80"
                    :cursorline true
+                   :expandtab true
                    :ignorecase true
                    :inccommand "split"
+                   :listchars "tab:→ ,nbsp:•,extends:»,precedes:«"
                    :mouse "a"
                    :number true
+                   :shiftround true
+                   :shiftwidth 0
                    :smartcase true
+                   :tabstop 2
                    :termguicolors true
                    :visualbell true})
 
@@ -19,4 +24,5 @@
                      :grepformat "%f:%l:%c:%m"}))
 
 (require :mappings)
+(require :colors)
 (require :plugins)
