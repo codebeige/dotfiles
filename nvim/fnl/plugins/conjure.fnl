@@ -1,4 +1,4 @@
-(module config.conjure
+(module plugins.conjure
   {autoload {util lib.util}})
 
 (util.set-opts :g:conjure#

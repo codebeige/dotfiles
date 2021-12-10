@@ -1,4 +1,4 @@
-(module mappings
+(module config.mappings
   {autoload {util lib.util}})
 
 ; <c-ü> behaves like <c-]>

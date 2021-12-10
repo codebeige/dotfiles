@@ -35,7 +35,10 @@ end
 
 if pcall(init) then
   if vim.g['pristine_env?'] then ex('redraw') end
-  vim.g['aniseed#env'] = true
+  vim.g['aniseed#env'] = {
+    compile = true,
+    module = 'config.init'
+  }
 else
   print('Error: unable to install. Are you connected to the internet?')
 end

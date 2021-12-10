@@ -1,4 +1,4 @@
-(module colors
+(module config.colors
   {autoload {nvim aniseed.nvim}
    require-macros [lib.macros]})
 

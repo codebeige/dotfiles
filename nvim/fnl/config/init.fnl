@@ -1,6 +1,10 @@
-(module init
+(module config.init
   {autoload {nvim aniseed.nvim
-             util lib.util}})
+             plugins lib.plugins
+             util lib.util}
+   require [config.colors
+            config.mappings
+            plugins.init]})
 
 (nvim.ex.language "en_US.UTF-8")
 
@@ -22,7 +26,3 @@
 (when (nvim.fn.executable "rg")
   (util.set-opts :o {:grepprg "rg --vimgrep --no-heading --smart-case"
                      :grepformat "%f:%l:%c:%m"}))
-
-(require :mappings)
-(require :colors)
-(require :plugins)

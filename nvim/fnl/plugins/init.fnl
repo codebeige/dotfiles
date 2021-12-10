@@ -1,7 +1,7 @@
-(module plugins
+(module plugins.init
   {autoload {conjure config.conjure
              packer lib.packer}
-   require {conjure config.conjure}})
+   require [plugins.conjure]})
 
 (packer.use {:Olical/aniseed true
              :Olical/conjure true
