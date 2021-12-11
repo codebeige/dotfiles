@@ -16,3 +16,9 @@
 
 (defn noremap! [mode from to opts]
   (noremap mode from to (core.assoc opts :silent true)))
+
+(defn bmap [bufnr mode from to opts]
+  (nvim.buf_set_keymap bufnr mode from to (core.merge {:noremap true} opts)))
+
+(defn bmap! [bufnr mode from to opts]
+  (bmap bufnr mode from to (core.assoc opts :silent true)))

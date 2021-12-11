@@ -2,8 +2,7 @@
   {autoload {nvim aniseed.nvim
              plugins lib.plugins
              util lib.util}
-   require [config.colors
-            config.mappings
+   require [config.mappings
             plugins.init]})
 
 (nvim.ex.language "en_US.UTF-8")
@@ -16,8 +15,10 @@
                    :listchars "tab:→ ,nbsp:•,extends:»,precedes:«"
                    :mouse "a"
                    :number true
+                   :numberwidth 4
                    :shiftround true
                    :shiftwidth 0
+                   :signcolumn "yes:1"
                    :smartcase true
                    :tabstop 2
                    :termguicolors true
