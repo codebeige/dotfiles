@@ -4,15 +4,15 @@
    require-macros [lib.macros]})
 
 (def- normal-mappings
-  {"<C-]>"       "<Cmd>lua vim.lsp.buf.definition()<CR>"
-   "K"           "<Cmd>lua vim.lsp.buf.hover()<CR>"
-   "]d"          "<Cmd>lua vim.diagnostic.goto_next()<CR>"
-   "[d"          "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
-   "gq"          "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
-   "<Leader>dd"  "<Cmd>lua vim.diagnostic.setloclist()<CR>"
-   "<Leader>dl"  "<Cmd>lua vim.diagnostic.open_float()<CR>"
-   "<Leader>dr"  "<Cmd>lua vim.lsp.buf.rename()<CR>"
-   "<Leader>ds"  "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
+  {"<C-]>"      "<Cmd>lua vim.lsp.buf.definition()<CR>"
+   "K"          "<Cmd>lua vim.lsp.buf.hover()<CR>"
+   "]d"         "<Cmd>lua vim.diagnostic.goto_next()<CR>"
+   "[d"         "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
+   "gq"         "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
+   "<Leader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
+   "<Leader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
+   "<Leader>dr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
+   "<Leader>ds" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
    "<Leader>df" "<Cmd>lua vim.lsp.buf.formatting()<CR>"})
 
 (def- normal-mappings-remap
