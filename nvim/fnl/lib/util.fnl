@@ -8,14 +8,11 @@
     (let [[scope prefix*] (str.split prefix ":")]
       (core.assoc-in nvim [scope (str.join "" [prefix* k])] v))))
 
-(defn map [from to]
-  (nvim.set_keymap "" from to {}))
+(defn map [mode from to opts]
+  (nvim.set_keymap mode from to (core.merge {:noremap true} opts)))
 
-(defn noremap [mode from to opts]
-  (nvim.set_keymap mode from to (core.assoc opts :noremap true)))
-
-(defn noremap! [mode from to opts]
-  (noremap mode from to (core.assoc opts :silent true)))
+(defn map! [mode from to opts]
+  (map mode from to (core.assoc opts :silent true)))
 
 (defn bmap [bufnr mode from to opts]
   (nvim.buf_set_keymap bufnr mode from to (core.merge {:noremap true} opts)))

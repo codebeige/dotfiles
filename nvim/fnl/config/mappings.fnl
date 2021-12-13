@@ -6,20 +6,27 @@
 ; <c-6> behaves like <c-^>
 ; <c-2> behaves like <c-@>
 
-(util.map "ö" "[")
-(util.map "ä" "]")
-(util.map "Ö" "{")
-(util.map "Ä" "}")
+(def- keymap {"ö"  "["
+              "ä"  "]"
+              "Ö"  "{"
+              "Ä"  "}"
+              "öö" "[["
+              "ää" "]]"
+              "öä" "[]"
+              "äö" "]["
+              "°"  "~"})
 
-(util.map "öö" "[[")
-(util.map "ää" "]]")
-(util.map "öä" "[]")
-(util.map "äö" "][")
+(def- normal-mappings {"<C-L>"      ":nohlsearch<Bar>diffupdate<CR><C-L>"
+                       "<Leader>bb" ":checktime<CR>"})
 
-(util.map "°" "~")
+(def- insert-mappings {"<C-L>" "<Esc>"
+                       "<C-U>" "<C-G>u<C-U>"})
 
-(util.noremap! :n "<C-L>" ":nohlsearch<Bar>diffupdate<CR><C-L>")
-(util.noremap! :i "<C-L>" "<Esc>")
-(util.noremap! :i "<C-U>" "<C-G>u<C-U>")
+(each [from to (pairs keymap)]
+  (util.map "" from to {:noremap false}))
 
-(util.noremap :n "<Leader>bb" ":checktime<CR>")
+(each [from to (pairs normal-mappings)]
+  (util.map :n from to))
+
+(each [from to (pairs insert-mappings)]
+  (util.map :i from to))
