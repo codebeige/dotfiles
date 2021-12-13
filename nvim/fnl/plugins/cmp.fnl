@@ -5,6 +5,7 @@
 (def- mapping {})
 
 (cmp.setup {:mapping mapping
-            :sources [{:name "buffer"}
+            :sources [{:name "nvim_lsp"}
                       {:name "conjure"}
-                      {:name "nvim_lsp"}]})
+                      {:name "buffer" :keyword_length 5}
+                      {:name "path"}]})
