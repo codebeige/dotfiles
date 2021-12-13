@@ -3,7 +3,7 @@
    require [lib.lsp]
    require-macros [lib.macros]})
 
-(def- keymap
+(def- normal-mappings
   {"<C-]>"       "<Cmd>lua vim.lsp.buf.definition()<CR>"
    "K"           "<Cmd>lua vim.lsp.buf.hover()<CR>"
    "]d"          "<Cmd>lua vim.diagnostic.goto_next()<CR>"
@@ -15,17 +15,17 @@
    "<Leader>ds"  "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
    "<Leader>df" "<Cmd>lua vim.lsp.buf.formatting()<CR>"})
 
-(def- keymap-remap
+(def- normal-mappings-remap
   {"gqq" "gqaF"})
 
-(def- visual-keymap
+(def- visual-mappings
   {"<Leader>df" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
 
 (defn on-attach [client bufnr]
-  (each [from to (pairs keymap)]
+  (each [from to (pairs normal-mappings)]
     (util.bmap bufnr :n from to))
-  (each [from to (pairs keymap-remap)]
+  (each [from to (pairs normal-mappings-remap)]
     (util.bmap bufnr :n from to {:noremap false}))
-  (each [from to (pairs visual-keymap)]
+  (each [from to (pairs visual-mappings)]
     (util.bmap bufnr :v from to))
   (print "Clojure LSP ready."))
