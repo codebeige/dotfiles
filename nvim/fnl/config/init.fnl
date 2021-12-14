@@ -8,6 +8,7 @@
 (nvim.ex.language "en_US.UTF-8")
 
 (util.set-opts :o {:colorcolumn "80"
+                   :completeopt "menu,menuone,noselect"
                    :cursorline true
                    :expandtab true
                    :ignorecase true
