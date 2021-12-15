@@ -1,6 +1,23 @@
 (module plugins.cmp
   {autoload {cmp cmp
-             nvim aniseed.nvim}})
+             core aniseed.core
+             lspkind lspkind
+             nvim aniseed.nvim}
+   require-macros [lib.macros]})
+
+(def- labels {:buffer   "b"
+              :cmdline  "q"
+              :conjure  "c"
+              :nvim_lsp "l"
+              :path     "p"})
+
+(defn- menu-label [entry]
+  (core.get labels (core.get-in entry [:source :name]) "?"))
+
+(defn- format [entry item]
+  (-> item
+      (core.assoc :menu (string.format "[%s]" (menu-label entry)))
+      (core.update :kind string.lower)))
 
 (def- mapping
   {:<C-Space> (cmp.mapping (cmp.mapping.complete) [:i :c])
@@ -16,6 +33,8 @@
    :<C-d> (cmp.mapping (cmp.mapping.scroll_docs -4)  [:i :c])})
 
 (cmp.setup {:experimental {:ghost_text true}
+            :formatting {:fields [:abbr :kind :menu]
+                         :format format}
             :mapping mapping
             :sources [{:name "conjure"}
                       {:name "nvim_lsp"}
@@ -25,3 +44,11 @@
 (cmp.setup.cmdline {"/" {:sources [{:name "buffer"}]}})
 (cmp.setup.cmdline {":" {:sources [{:name "path"}
                                    {:name "cmdline"}]}})
+
+(defn update-colorscheme []
+  (nvim.ex.highlight :link :CmpItemMenu :SpecialChar))
+
+(update-colorscheme)
+
+(augroup :config_lspconfig
+  (autocmd :ColorScheme "*" update-colorscheme))
