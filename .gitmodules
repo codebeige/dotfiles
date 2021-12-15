@@ -7,9 +7,6 @@
 [submodule "base16-shell"]
 	path = config/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
-[submodule "nvim/pack/bundle/opt/fzf"]
-	path = nvim/pack/bundle/opt/fzf
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule "nvim/pack/bundle/start/projectionist"]
 	path = nvim/pack/bundle/start/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
