@@ -9,11 +9,14 @@
    "]d"         "<Cmd>lua vim.diagnostic.goto_next()<CR>"
    "[d"         "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
    "gq"         "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
+   "<Leader>gq" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
    "<Leader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
    "<Leader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
    "<Leader>dr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
    "<Leader>ds" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
-   "<Leader>df" "<Cmd>lua vim.lsp.buf.formatting()<CR>"})
+   "<leader>dx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<leader>df" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
+   "<leader>dq" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"})
 
 (def- normal-mappings-remap
   {"gqq" "gqaF"})

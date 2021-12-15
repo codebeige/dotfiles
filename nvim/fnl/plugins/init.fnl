@@ -14,7 +14,8 @@
                                            :hrsh7th/cmp-nvim-lsp
                                            :hrsh7th/cmp-path]}
              :neovim/nvim-lspconfig {:config #(require :plugins.lspconfig)
-                                     :requires [:hrsh7th/nvim-cmp]}
+                                     :requires [:hrsh7th/nvim-cmp
+                                                :nvim-telescope/telescope.nvim]}
              :nvim-telescope/telescope.nvim {:config #(require :plugins.telescope)
                                              :requires [:nvim-lua/plenary.nvim]}
              :nvim-treesitter/nvim-treesitter {:config #(require :plugins.treesitter)
