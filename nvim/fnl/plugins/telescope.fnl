@@ -1,7 +1,9 @@
 (module plugins.telescope
   {autoload {actions telescope.actions
+             core aniseed.core
              nvim aniseed.nvim
              telescope telescope
+             themes telescope.themes
              util lib.util}
    require-macros [lib.macros]})
 
@@ -11,10 +13,12 @@
    "<C-Q>" (+ actions.smart_send_to_qflist actions.open_qflist)
    "<M-Q>" false})
 
+(def- theme (themes.get_ivy))
+
 (telescope.setup
-  {:defaults {:mappings {:i mappings
-                         :n mappings}
-              :theme :ivy}
+  {:defaults (core.merge theme
+                         {:mappings {:i mappings
+                                     :n mappings}})
    :extensions {:fzf {:case_mode :smart_case
                       :fuzzy true
                       :override_file_sorter true
@@ -25,7 +29,8 @@
 (def- prefix "<Leader>f")
 
 (def- mappings
-  {:b "buffers()"
+  {:/ "current_buffer_fuzzy_find()"
+   :b "buffers()"
    :f "find_files()"
    :g "live_grep()"
    :h "help_tags()"
