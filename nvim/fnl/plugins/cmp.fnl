@@ -1,7 +1,6 @@
 (module plugins.cmp
   {autoload {cmp cmp
              core aniseed.core
-             lspkind lspkind
              nvim aniseed.nvim}
    require-macros [lib.macros]})
 

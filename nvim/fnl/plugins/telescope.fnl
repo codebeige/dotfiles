@@ -2,18 +2,19 @@
   {autoload {actions telescope.actions
              nvim aniseed.nvim
              telescope telescope
-             util lib.util}})
+             util lib.util}
+   require-macros [lib.macros]})
 
-(def mappings
-  {"<C-a>" actions.toggle_all
-   "<C-h>" actions.which_key
-   "<C-q>" (+ actions.smart_send_to_qflist actions.open_qflist)
-   "<C-l>" (+ actions.smart_send_to_loclist actions.open_loclist)
-   "<M-q>" false})
+(def- mappings
+  {"<C-A>" actions.toggle_all
+   "<C-H>" actions.which_key
+   "<C-Q>" (+ actions.smart_send_to_qflist actions.open_qflist)
+   "<M-Q>" false})
 
 (telescope.setup
   {:defaults {:mappings {:i mappings
-                         :n mappings}}
+                         :n mappings}
+              :theme :ivy}
    :extensions {:fzf {:case_mode :smart_case
                       :fuzzy true
                       :override_file_sorter true
@@ -34,3 +35,9 @@
   (util.map :n
             (.. prefix k)
             (string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)))
+
+(defn init-prompt []
+  (util.set-opts :b {:lexima_disabled true}))
+
+(augroup :plugins_telescope
+  (autocmd :FileType "TelescopePrompt" init-prompt))
