@@ -12,7 +12,14 @@
    "<M-q>" false})
 
 (telescope.setup
-  {:defaults {:mappings {:i mappings :n mappings}}})
+  {:defaults {:mappings {:i mappings
+                         :n mappings}}
+   :extensions {:fzf {:case_mode :smart_case
+                      :fuzzy true
+                      :override_file_sorter true
+                      :override_generic_sorter true}}})
+
+(telescope.load_extension :fzf)
 
 (def- prefix "<Leader>f")
 
