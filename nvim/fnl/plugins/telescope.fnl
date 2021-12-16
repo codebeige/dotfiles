@@ -29,7 +29,8 @@
 (def- prefix "<Leader>f")
 
 (def- mappings
-  {:/ "current_buffer_fuzzy_find()"
+  {:! "command_history() "
+   :/ "current_buffer_fuzzy_find()"
    :b "buffers()"
    :f "find_files()"
    :g "live_grep()"
