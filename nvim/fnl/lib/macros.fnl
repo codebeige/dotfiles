@@ -5,13 +5,13 @@
      (do ,...)
      (nvim.ex.augroup :END)))
 
-(fn cmd->viml [f]
+(fn fn->viml [f]
   `(.. "lua require('" *module-name* "')['" ,(tostring f) "']()"))
 
 (fn autocmd [...]
   (let [arg [...]
         l (length arg )]
-    (tset arg l (cmd->viml (. arg l)))
+    (tset arg l (fn->viml (. arg l)))
     `(nvim.ex.autocmd ,(unpack arg))))
 
 (fn with-restore-view [...]
@@ -30,5 +30,6 @@
 
 {:augroup augroup
  :autocmd autocmd
+ :fn->viml fn->viml
  :with-restore-view with-restore-view
  :set-operatorfunc set-operatorfunc}

@@ -1,6 +1,6 @@
 (module plugins.telescope
   {autoload {actions telescope.actions
-             core aniseed.core
+             a aniseed.core
              nvim aniseed.nvim
              telescope telescope
              themes telescope.themes
@@ -8,17 +8,17 @@
    require-macros [lib.macros]})
 
 (def- mappings
-  {"<C-A>" actions.toggle_all
-   "<C-H>" actions.which_key
-   "<C-Q>" (+ actions.smart_send_to_qflist actions.open_qflist)
-   "<M-Q>" false})
+  {:<C-A> actions.toggle_all
+   :<C-H> actions.which_key
+   :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
+   :<M-Q> false})
 
 (def- theme (themes.get_ivy))
 
 (telescope.setup
-  {:defaults (core.merge theme
-                         {:mappings {:i mappings
-                                     :n mappings}})
+  {:defaults (a.merge theme
+                      {:mappings {:i mappings
+                                  :n mappings}})
    :extensions {:fzf {:case_mode :smart_case
                       :fuzzy true
                       :override_file_sorter true
