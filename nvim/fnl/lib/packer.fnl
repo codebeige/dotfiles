@@ -1,5 +1,5 @@
 (module lib.packer
-  {autoload {core aniseed.core
+  {autoload {a aniseed.core
              env aniseed.env
              nvim aniseed.nvim
              packer packer}})
@@ -9,6 +9,6 @@
     (fn [use]
       (each [name opts (pairs config)]
         (when opts
-          (let [opts* (if (core.table? opts) opts {})]
-            (use (core.assoc opts* 1 name)))))
+          (let [opts* (if (a.table? opts) opts {})]
+            (use (a.assoc opts* 1 name)))))
       (when nvim.g.pristine_env? (packer.sync)))))
