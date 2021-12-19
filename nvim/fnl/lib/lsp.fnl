@@ -1,5 +1,6 @@
 (module lib.lsp
-  {autoload {nvim aniseed.nvim}
+  {autoload {a aniseed.core
+             nvim aniseed.nvim}
    require-macros [lib.macros]})
 
 (defn- format-range []

@@ -1,7 +1,17 @@
 (module lsp.clojure
-  {autoload {util lib.util}
-   require [lib.lsp]
+  {autoload {ts-utils nvim-treesitter.ts_utils
+             util lib.util}
    require-macros [lib.macros]})
+
+(defn list-at-cursor []
+  (let [n (ts-utils.get_node_at_cursor)]
+    (if (= 0 (n:named_child_count)) (n:parent) n)))
+
+(defn cycle-collection []
+  (let [n (list-at-cursor)]
+    (vim.lsp.buf.execute_command
+      {:command "cycle-coll"
+       :arguments [(vim.uri_from_bufnr) (pick-values 2 (n:start))]})))
 
 (def- normal-mappings
   {"<C-]>"      "<Cmd>lua vim.lsp.buf.definition()<CR>"
@@ -14,12 +24,13 @@
    "<Leader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
    "<Leader>dr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
    "<Leader>ds" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
-   "<leader>dx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
-   "<leader>df" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
-   "<leader>dq" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"})
+   "<Leader>dx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<Leader>df" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
+   "<Leader>dq" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"})
 
 (def- normal-mappings-remap
-  {"gqq" "gqaF"})
+  {"gqq" "gqaF"
+   "<Leader>dc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection))})
 
 (def- visual-mappings
   {"<Leader>df" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
