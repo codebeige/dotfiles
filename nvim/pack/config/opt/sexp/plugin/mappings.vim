@@ -60,16 +60,16 @@ function! s:setup() abort
   xmap <silent><buffer> <LocalLeader>eÄ <Plug>(sexp_curly_tail_wrap_element)
 
   nmap <silent><buffer> <C-j> <Plug>(sexp_flow_to_next_open)
-  xmap <silent><buffer> <C-j> <Plug>(sexp_flow_to_next_open)
+  " xmap <silent><buffer> <C-j> <Plug>(sexp_flow_to_next_open)
 
   nmap <silent><buffer> <C-k> <Plug>(sexp_flow_to_prev_open)
-  xmap <silent><buffer> <C-k> <Plug>(sexp_flow_to_prev_open)
+  " xmap <silent><buffer> <C-k> <Plug>(sexp_flow_to_prev_open)
 
   nmap <silent><buffer> g<C-j> <Plug>(sexp_flow_to_next_close)
-  xmap <silent><buffer> g<C-j> <Plug>(sexp_flow_to_next_close)
+  " xmap <silent><buffer> g<C-j> <Plug>(sexp_flow_to_next_close)
 
   nmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
-  xmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
+  " xmap <silent><buffer> g<C-k> <Plug>(sexp_flow_to_prev_close)
 
   nmap <silent><buffer> <C-n> <Plug>(sexp_flow_to_next_leaf_head)
   xmap <silent><buffer> <C-n> <Plug>(sexp_flow_to_next_leaf_head)

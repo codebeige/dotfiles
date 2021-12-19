@@ -1,5 +1,6 @@
 (module lib.lsp
-  {autoload {nvim aniseed.nvim}
+  {autoload {a aniseed.core
+             nvim aniseed.nvim}
    require-macros [lib.macros]})
 
 (defn- format-range []
@@ -11,3 +12,7 @@
 
 (defn format-move []
   (set-operatorfunc format-range))
+
+(defn cmd-args []
+  (let [[line column] (nvim.win_get_cursor 0)]
+    [(vim.uri_from_bufnr) (a.dec line) column]))
