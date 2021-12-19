@@ -1,12 +1,17 @@
 (module lsp.clojure
-  {autoload {lsp lib.lsp
+  {autoload {ts-utils nvim-treesitter.ts_utils
              util lib.util}
    require-macros [lib.macros]})
 
+(defn list-at-cursor []
+  (let [n (ts-utils.get_node_at_cursor)]
+    (if (= 0 (n:named_child_count)) (n:parent) n)))
+
 (defn cycle-collection []
-  (vim.lsp.buf.execute_command
-    {:command "cycle-coll"
-     :arguments (lsp.cmd-args)}))
+  (let [n (list-at-cursor)]
+    (vim.lsp.buf.execute_command
+      {:command "cycle-coll"
+       :arguments [(vim.uri_from_bufnr) (pick-values 2 (n:start))]})))
 
 (def- normal-mappings
   {"<C-]>"      "<Cmd>lua vim.lsp.buf.definition()<CR>"
