@@ -55,5 +55,5 @@
 
 (update-colorscheme)
 
-(augroup :config_lspconfig
+(augroup :config_cmp
   (autocmd :ColorScheme "*" update-colorscheme))

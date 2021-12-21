@@ -11,7 +11,8 @@
   {:<C-A> actions.toggle_all
    :<C-H> actions.which_key
    :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
-   :<M-Q> false})
+   :<C-L> (+ actions.smart_send_to_loclist actions.open_loclist)
+   :<M-q> false})
 
 (def- theme (themes.get_ivy))
 

@@ -16,27 +16,37 @@
   (let [n (list-at-cursor)]
     (code-action :cycle-coll (pick-values 2 (n:start)))))
 
+(defn cycle-privacy []
+  (code-action :cycle-privacy))
+
 (def- normal-mappings
   {"<C-]>"      "<Cmd>lua vim.lsp.buf.definition()<CR>"
    "K"          "<Cmd>lua vim.lsp.buf.hover()<CR>"
    "]d"         "<Cmd>lua vim.diagnostic.goto_next()<CR>"
    "[d"         "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
    "gq"         "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
-   "<Leader>gq" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
-   "<Leader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
-   "<Leader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
-   "<Leader>ds" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
-   "<Leader>df" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
-   "<Leader>dq" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
-   "<Leader>xx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
-   "<Leader>xr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
-   "<Leader>xc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection))})
+
+   "<LocalLeader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
+   "<LocalLeader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
+   "<LocalLeader>dh" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
+
+   "<LocalLeader>fr" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
+   "<LocalLeader>fd" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
+   "<LocalLeader>fx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<LocalLeader>fs" "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
+   "<Leader>fs"      "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>"
+
+   "<LocalLeader>#"  "<Cmd>lua vim.lsp.buf.document_highlight()<CR>"
+
+   "<LocalLeader>x=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
+   "<LocalLeader>xr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
+   "<LocalLeader>xc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection))})
 
 (def- normal-mappings-remap
   {"gqq" "gqaF"})
 
 (def- visual-mappings
-  {"<Leader>df" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
+  {"gq" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
 
 (defn on-attach [client bufnr]
   (each [from to (pairs normal-mappings)]

@@ -16,7 +16,10 @@
 
 (defn update-colorscheme []
   (nvim.ex.highlight :clear :DiagnosticError)
-  (nvim.ex.highlight :link :DiagnosticError :ErrorMsg))
+  (nvim.ex.highlight :link :DiagnosticError :ErrorMsg)
+  (nvim.ex.highlight :link :LspReferenceText :Visual)
+  (nvim.ex.highlight :link :LspReferenceRead :LspReferenceText)
+  (nvim.ex.highlight :link :LspReferenceWrite :LspReferenceText))
 
 (augroup :config_lspconfig
   (autocmd :ColorScheme "*" update-colorscheme))
