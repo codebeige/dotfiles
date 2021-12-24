@@ -10,12 +10,6 @@
 [submodule "nvim/pack/bundle/start/projectionist"]
 	path = nvim/pack/bundle/start/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
-[submodule "nvim/pack/bundle/start/dispatch-neovim"]
-	path = nvim/pack/bundle/start/dispatch-neovim
-	url = https://github.com/radenling/vim-dispatch-neovim.git
-[submodule "nvim/pack/bundle/start/dispatch"]
-	path = nvim/pack/bundle/start/dispatch
-	url = https://github.com/tpope/vim-dispatch.git
 [submodule "nvim/pack/bundle/start/vinegar"]
 	path = nvim/pack/bundle/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git

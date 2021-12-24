@@ -3,7 +3,8 @@
              packer lib.packer}
    require [plugins.conjure]})
 
-(packer.use {:Olical/aniseed true
+(packer.use {:clojure-vim/vim-jack-in {:requires :radenling/vim-dispatch-neovim}
+             :Olical/aniseed true
              :Olical/conjure true
              :Olical/nvim-local-fennel true
              :PaterJason/cmp-conjure {:requires :Olical/conjure}
@@ -24,7 +25,8 @@
              :nvim-telescope/telescope.nvim {:config #(require :plugins.telescope)
                                              :requires [:nvim-lua/plenary.nvim
                                                         :nvim-telescope/telescope-fzf-native.nvim]}
-             :nvim-treesitter/playground {:requires [:nvim-treesitter/nvim-treesitter]}
+             :nvim-treesitter/playground {:requires :nvim-treesitter/nvim-treesitter}
              :nvim-treesitter/nvim-treesitter {:config #(require :plugins.treesitter)
                                                :run ":TSUpdate"}
+             :radenling/vim-dispatch-neovim {:requires :tpope/vim-dispatch}
              :wbthomason/packer.nvim true})
