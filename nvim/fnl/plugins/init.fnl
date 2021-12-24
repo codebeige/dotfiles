@@ -3,7 +3,9 @@
              packer lib.packer}
    require [plugins.conjure]})
 
-(packer.use {:clojure-vim/vim-jack-in {:requires :radenling/vim-dispatch-neovim}
+(packer.use {:clojure-vim/vim-jack-in {:cmd ["Boot" "Clj" "Lein"]
+                                       :opt true
+                                       :requires :radenling/vim-dispatch-neovim}
              :Olical/aniseed true
              :Olical/conjure true
              :Olical/nvim-local-fennel true
@@ -28,5 +30,7 @@
              :nvim-treesitter/playground {:requires :nvim-treesitter/nvim-treesitter}
              :nvim-treesitter/nvim-treesitter {:config #(require :plugins.treesitter)
                                                :run ":TSUpdate"}
-             :radenling/vim-dispatch-neovim {:requires :tpope/vim-dispatch}
+             :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
+                                             :opt true
+                                             :requires :tpope/vim-dispatch}
              :wbthomason/packer.nvim true})
