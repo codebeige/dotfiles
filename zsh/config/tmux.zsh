@@ -11,3 +11,5 @@ fi
 
 alias ts!='tmux new-session -s $PWD:t'
 alias mux=tmuxinator
+
+alias tx='tmux -CC new-session -A -s $PWD:t'
