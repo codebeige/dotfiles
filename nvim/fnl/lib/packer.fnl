@@ -4,11 +4,15 @@
              nvim aniseed.nvim
              packer packer}})
 
+(defn plugin [location config]
+  (match config
+    true location
+    false (a.assoc {:disable true} 1 location)
+    {} (if (next config) (a.assoc config 1 location) location)
+    _ (error (string.format "Invalid plugin configuration: %s"
+                            (vim.inspect config)))))
+
 (defn use [config]
   (packer.startup
     (fn [use]
-      (each [name opts (pairs config)]
-        (when opts
-          (let [opts* (if (a.table? opts) opts {})]
-            (use (a.assoc opts* 1 name)))))
-      (when nvim.g.pristine_env? (packer.sync)))))
+      (each [k v (pairs config)] (use (plugin k v))))))

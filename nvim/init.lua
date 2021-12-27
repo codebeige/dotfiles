@@ -14,6 +14,8 @@ local function gh_url (user, repo)
   return string.format('https://github.com/%s/%s', user, repo)
 end
 
+local pristine_env = false
+
 local function gh_install (user, repo)
   local dir = install_dir(repo)
   if fn.empty(fn.glob(dir)) > 0 then
@@ -21,7 +23,7 @@ local function gh_install (user, repo)
     fn.system({'git', 'clone', '--depth', '1', gh_url(user, repo), dir})
     ex('packadd ' .. repo)
     ex('helptags ' .. dir .. 'doc')
-    vim.g['pristine_env?'] = true
+    pristine_env = true
     prf('Successfully installed %s at %s', repo, dir)
   end
 end
@@ -34,7 +36,7 @@ local function init ()
 end
 
 if pcall(init) then
-  if vim.g['pristine_env?'] then ex('redraw') end
+  if pristine_env then ex('redraw') end
   vim.g['aniseed#env'] = {
     compile = true,
     module = 'config.init'
