@@ -35,26 +35,25 @@
    :<Tab>     cmp.config.disable
    :<S-Tab>   cmp.config.disable})
 
-(cmp.setup {:experimental {:ghost_text true}
-            :formatting {:fields [:abbr :kind :menu]
-                         :format format}
-            :mapping mapping
-            :snippet {:expand (fn [{: body}] (luasnip.lsp_expand body))}
-            :sources [{:name "luasnip"}
-                      {:name "buffer"}
-                      {:name "nvim_lsp"}
-                      {:name "conjure"}
-                      {:name "path"}]})
-
-(cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
-
-(cmp.setup.cmdline :: {:sources [{:name "cmdline"}
-                                 {:name "path"}]})
-
 (defn update-colorscheme []
   (nvim.ex.highlight :link :CmpItemMenu :SpecialChar))
 
-(update-colorscheme)
+(defn setup []
+  (cmp.setup {:experimental {:ghost_text true}
+              :formatting {:fields [:abbr :kind :menu]
+                           :format format}
+              :mapping mapping
+              :snippet {:expand (fn [{: body}] (luasnip.lsp_expand body))}
+              :sources [{:name "luasnip"}
+                        {:name "buffer"}
+                        {:name "nvim_lsp"}
+                        {:name "conjure"}
+                        {:name "path"}]})
 
-(augroup :config_cmp
-  (autocmd :ColorScheme "*" update-colorscheme))
+  (cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
+
+  (cmp.setup.cmdline :: {:sources [{:name "cmdline"}
+                                   {:name "path"}]})
+
+  (augroup :config_cmp
+    (autocmd :ColorScheme "*" update-colorscheme)))
