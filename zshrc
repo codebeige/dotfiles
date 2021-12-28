@@ -65,7 +65,5 @@ export PER_DIRECTORY_HISTORY_TOGGLE='^G^R'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export TERM='xterm-256color'
 export LANG='en_US.UTF-8'
 export LC_ALL=$LANG
