@@ -26,7 +26,7 @@
     (let [name (.. :DiagnosticSign s)]
       (vim.fn.sign_define name {:text (.. " " t) :texthl name :numhl name})))
 
-  (augroup :config_lspconfig
+  (augroup :plugins_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
 
   (lsp.clojure_lsp.setup {:capabilities capabilities

@@ -2,7 +2,8 @@
   {autoload {nvim aniseed.nvim
              plugins lib.plugins
              util lib.util}
-   require [config.mappings
+   require [config.highlight
+            config.mappings
             plugins.init]})
 
 (nvim.ex.language "en_US.UTF-8")
