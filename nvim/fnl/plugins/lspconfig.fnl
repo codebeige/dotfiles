@@ -5,11 +5,6 @@
              nvim aniseed.nvim}
    require-macros [lib.macros]})
 
-(def- signs {:Error "!"
-             :Warn  "*"
-             :Info  "~"
-             :Hint  "?"})
-
 (defn update-colorscheme []
   (nvim.ex.highlight :link :LspReferenceText :Visual)
   (nvim.ex.highlight :link :LspReferenceRead :LspReferenceText)
@@ -20,10 +15,6 @@
     (vim.lsp.protocol.make_client_capabilities)))
 
 (defn setup []
-  (each [s t (pairs signs)]
-    (let [name (.. :DiagnosticSign s)]
-      (vim.fn.sign_define name {:text (.. " " t) :texthl name :numhl name})))
-
   (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
 

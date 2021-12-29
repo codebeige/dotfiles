@@ -1,9 +1,9 @@
 (fn augroup [name ...]
-  `(do
-     (nvim.ex.augroup ,name)
-     (nvim.ex.autocmd_)
+  `(let [nvim# (require :aniseed.nvim)]
+     (nvim#.ex.augroup ,name)
+     (nvim#.ex.autocmd_)
      (do ,...)
-     (nvim.ex.augroup :END)))
+     (nvim#.ex.augroup :END)))
 
 (fn fn->viml [f]
   `(.. "lua require('" *module-name* "')['" ,(tostring f) "']()"))
@@ -12,7 +12,8 @@
   (let [arg [...]
         l (length arg )]
     (tset arg l (fn->viml (. arg l)))
-    `(nvim.ex.autocmd ,(unpack arg))))
+    `(let [nvim# (require :aniseed.nvim)]
+       (nvim#.ex.autocmd ,(unpack arg)))))
 
 (fn with-restore-view [...]
   `(let [view# (vim.fn.winsaveview)]
@@ -20,13 +21,12 @@
      (vim.fn.winrestview view#)))
 
 (fn set-operatorfunc [f]
-  `(do
+  `(let [nvim# (require :aniseed.nvim)]
      (tset _G
            :_lib_macros_operatorfunc
            (fn []
              (tset _G :_lib_macros_operatorfunc nil)
-             (,f)))
-     (nvim.set_option :operatorfunc "v:lua._lib_macros_operatorfunc")))
+     (nvim#.set_option :operatorfunc "v:lua._lib_macros_operatorfunc")))))
 
 {:augroup augroup
  :autocmd autocmd

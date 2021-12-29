@@ -1,7 +1,6 @@
 (module plugins.telescope
   {autoload {actions telescope.actions
              a aniseed.core
-             nvim aniseed.nvim
              telescope telescope
              themes telescope.themes
              util lib.util}

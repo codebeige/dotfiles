@@ -2,7 +2,8 @@
   {autoload {nvim aniseed.nvim
              plugins lib.plugins
              util lib.util}
-   require [config.highlight
+   require [config.diagnostic
+            config.highlight
             config.mappings
             plugins.init]})
 
@@ -24,6 +25,7 @@
                    :smartcase true
                    :tabstop 2
                    :termguicolors true
+                   :updatetime 250
                    :visualbell true})
 
 (when (nvim.fn.executable "rg")
