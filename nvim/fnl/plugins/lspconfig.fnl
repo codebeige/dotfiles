@@ -11,8 +11,6 @@
              :Hint  "?"})
 
 (defn update-colorscheme []
-  (nvim.ex.highlight :clear :DiagnosticError)
-  (nvim.ex.highlight :link :DiagnosticError :ErrorMsg)
   (nvim.ex.highlight :link :LspReferenceText :Visual)
   (nvim.ex.highlight :link :LspReferenceRead :LspReferenceText)
   (nvim.ex.highlight :link :LspReferenceWrite :LspReferenceText))
@@ -26,7 +24,7 @@
     (let [name (.. :DiagnosticSign s)]
       (vim.fn.sign_define name {:text (.. " " t) :texthl name :numhl name})))
 
-  (augroup :plugins_lspconfig
+  (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
 
   (lsp.clojure_lsp.setup {:capabilities capabilities
