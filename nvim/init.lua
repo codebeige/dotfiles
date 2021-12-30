@@ -31,6 +31,7 @@ end
 local function init ()
   vim.g.mapleader = ' '
   vim.g.maplocalleader = 's'
+
   gh_install('wbthomason', 'packer.nvim')
   gh_install('Olical', 'aniseed')
 end
