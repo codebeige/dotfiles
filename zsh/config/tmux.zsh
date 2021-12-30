@@ -13,5 +13,5 @@ alias ts!='tmux new-session -s $PWD:t'
 alias mux=tmuxinator
 
 function tx() {
-  tmux -CC new-session -A -s ${1:-$PWD:t}
+  tmux -CC new-session -A -s "${1-$PWD:t}"
 }
