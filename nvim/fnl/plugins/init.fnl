@@ -17,8 +17,7 @@
              :clojure-vim/vim-jack-in {:cmd ["Boot" "Clj" "Lein"]
                                        :opt true
                                        :requires :radenling/vim-dispatch-neovim}
-             :Olical/conjure true
-             :Olical/nvim-local-fennel true
+             :folke/which-key.nvim {:config (config :which-key)}
              :hrsh7th/nvim-cmp {:config (config :cmp)
                                 :requires [(packer.plugin :PaterJason/cmp-conjure
                                                           {:requires :Olical/conjure})
@@ -40,6 +39,8 @@
              :nvim-treesitter/playground {:requires :nvim-treesitter/nvim-treesitter}
              :nvim-treesitter/nvim-treesitter {:config (config :treesitter)
                                                :run ":TSUpdate"}
+             :Olical/conjure true
+             :Olical/nvim-local-fennel true
              :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
                                              :opt true
                                              :requires :tpope/vim-dispatch}})
