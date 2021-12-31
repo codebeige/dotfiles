@@ -1,5 +1,6 @@
 local fn = vim.fn
 local ex = vim.api.nvim_command
+local kmap = vim.api.nvim_set_keymap
 
 local function prf (s, ...)
   local arg = {...}
@@ -29,15 +30,16 @@ local function gh_install (user, repo)
 end
 
 local function init ()
-  vim.g.mapleader = ' '
-  vim.g.maplocalleader = 's'
-
   gh_install('wbthomason', 'packer.nvim')
   gh_install('Olical', 'aniseed')
+  if pristine_env then ex('redraw') end
 end
 
 if pcall(init) then
-  if pristine_env then ex('redraw') end
+  vim.g.mapleader = ' '
+  kmap('', '<Leader>', '', {noremap = true})
+  vim.g.maplocalleader = 's'
+  kmap('', '<Localleader>', '', {noremap = true})
   vim.g['aniseed#env'] = {
     compile = true,
     module = 'config.init'

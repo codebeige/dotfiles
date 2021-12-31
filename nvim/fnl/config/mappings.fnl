@@ -16,8 +16,9 @@
               "äö" "]["
               "°"  "~"})
 
-(def- normal-mappings {"<C-L>"      ":nohlsearch<Bar>diffupdate<Bar>lua vim.lsp.buf.clear_references()<CR><C-L>"
-                       "<Leader>bb" ":checktime<CR>"})
+(def- normal-mappings {"<C-L>"      "<Cmd>lua vim.lsp.buf.clear_references()<CR><C-L>"
+                       "<CR>"       ":"
+                       "<Leader>bb" "<Cmd>checktime<CR>"})
 
 (def- insert-mappings {"<C-L>" "<Esc>"
                        "<C-U>" "<C-G>u<C-U>"})

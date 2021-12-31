@@ -10,7 +10,7 @@
   {:<C-A> actions.toggle_all
    :<C-H> actions.which_key
    :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
-   :<C-L> (+ actions.smart_send_to_loclist actions.open_loclist)
+   :<C-L> actions.close
    :<M-q> false})
 
 (def- theme (themes.get_ivy))
