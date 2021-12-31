@@ -3,7 +3,7 @@
              treesitter nvim-treesitter.configs
              util lib.util}})
 
-(defn setup []
+(defn config []
   (treesitter.setup {:ensure_installed "maintained"
                      :highlight {:enable true}
                      :incremental_selection {:enable true

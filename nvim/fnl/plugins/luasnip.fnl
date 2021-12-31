@@ -9,7 +9,7 @@
 (defn- cmd->viml [cmd]
   (string.format "<Cmd>lua require('luasnip').%s<CR>" cmd))
 
-(defn setup []
+(defn config []
   (each [k cmd (pairs mappings)]
     (util.map :i k (cmd->viml cmd))
     (util.map :s k (cmd->viml cmd))))

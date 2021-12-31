@@ -1,10 +1,13 @@
 (module plugins.init
   {autoload {conjure config.conjure
-             packer lib.packer}
-   require [plugins.conjure]})
+             packer lib.packer
+             sexp plugins.sexp}})
+
+(defn- setup [name]
+  (string.format "require('plugins.%s').setup()" name))
 
 (defn- config [name]
-  (string.format "require('plugins.%s').setup()" name))
+  (string.format "require('plugins.%s').config()" name))
 
 (def- telescope-deps
   [:nvim-lua/plenary.nvim
@@ -18,6 +21,9 @@
                                        :opt true
                                        :requires :radenling/vim-dispatch-neovim}
              :folke/which-key.nvim {:config (config :which-key)}
+             :guns/vim-sexp {:ft sexp.filetypes
+                             :setup (setup :sexp)
+                             :requires :tpope/vim-repeat}
              :hrsh7th/nvim-cmp {:config (config :cmp)
                                 :requires [(packer.plugin :PaterJason/cmp-conjure
                                                           {:requires :Olical/conjure})
@@ -39,7 +45,7 @@
              :nvim-treesitter/playground {:requires :nvim-treesitter/nvim-treesitter}
              :nvim-treesitter/nvim-treesitter {:config (config :treesitter)
                                                :run ":TSUpdate"}
-             :Olical/conjure true
+             :Olical/conjure {:setup (setup :conjure)}
              :Olical/nvim-local-fennel true
              :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
                                              :opt true

@@ -29,7 +29,7 @@
 (defn init-prompt []
   (util.set-opts :b {:lexima_disabled true}))
 
-(defn setup []
+(defn config []
   (telescope.setup
     {:defaults (a.merge theme
                         {:mappings {:i telescope-mappings

@@ -14,7 +14,7 @@
   (cmp-lsp.update_capabilities
     (vim.lsp.protocol.make_client_capabilities)))
 
-(defn setup []
+(defn config []
   (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
 

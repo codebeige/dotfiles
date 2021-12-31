@@ -12,7 +12,7 @@
     (set focused-win-id (tonumber vim.g.actual_curwin)))
   (lualine.statusline (= focused-win-id (vim.fn.win_getid))))
 
-(defn setup []
+(defn config []
   (lualine.setup {:options {:icons_enabled false
                             :theme "everforest"}})
 

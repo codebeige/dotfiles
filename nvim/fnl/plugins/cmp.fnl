@@ -38,7 +38,7 @@
 (defn update-colorscheme []
   (nvim.ex.highlight :link :CmpItemMenu :SpecialChar))
 
-(defn setup []
+(defn config []
   (cmp.setup {:experimental {:ghost_text true}
               :formatting {:fields [:abbr :kind :menu]
                            :format format}
