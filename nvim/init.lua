@@ -36,10 +36,8 @@ local function init ()
 end
 
 if pcall(init) then
-  vim.g.mapleader = ' '
   kmap('', '<Leader>', '', {noremap = true})
-  vim.g.maplocalleader = 's'
-  kmap('', '<Localleader>', '', {noremap = true})
+  vim.g.mapleader = ' '
   vim.g['aniseed#env'] = {
     compile = true,
     module = 'config.init'

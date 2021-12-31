@@ -26,21 +26,21 @@
    "[d"         "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
    "gq"         "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
 
-   "<LocalLeader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
-   "<LocalLeader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
-   "<LocalLeader>dh" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
+   "<Leader>dd" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
+   "<Leader>dl" "<Cmd>lua vim.diagnostic.open_float()<CR>"
+   "<Leader>dh" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
 
-   "<LocalLeader>fr" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
-   "<LocalLeader>fd" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
-   "<LocalLeader>fx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
-   "<LocalLeader>fs" "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
+   "<Leader>fr" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
+   "<Leader>fd" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
+   "<Leader>fx" "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<Leader>fs" "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
    "<Leader>fs"      "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>"
 
-   "<LocalLeader>#"  "<Cmd>lua vim.lsp.buf.document_highlight()<CR>"
+   "<Leader>#"  "<Cmd>lua vim.lsp.buf.document_highlight()<CR>"
 
-   "<LocalLeader>x=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
-   "<LocalLeader>xr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
-   "<LocalLeader>xc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection))})
+   "<Leader>x=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
+   "<Leader>xr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
+   "<Leader>xc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection))})
 
 (def- normal-mappings-remap
   {"gqq" "gqaF"})
