@@ -17,9 +17,9 @@
               "äö" "]["
               "°"  "~"})
 
-(which-key.register
-  {:° ["~" "Switch case"]}
-  {:mode ""})
+; (which-key.register
+;   {:° ["~" "Switch case"]}
+;   {:mode ""})
 
 (def- normal-mappings {"<C-L>"      "<Cmd>nohlsearch<Bar>diffupdate<Bar>lua vim.lsp.buf.clear_references()<CR><C-L>"
                        "<CR>"       ":"
