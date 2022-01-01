@@ -25,9 +25,8 @@
                    :smartcase true
                    :tabstop 2
                    :termguicolors true
-                   :timeoutlen 250
+                   :timeoutlen 500
                    :undofile true
-                   :updatetime 250
                    :visualbell true})
 
 (when (nvim.fn.executable "rg")

@@ -1,5 +1,6 @@
 (module config.mappings
-  {autoload {util lib.util}})
+  {autoload {util lib.util
+             which-key which-key}})
 
 ; <c-ü> behaves like <c-]>
 ; <c-ä> behaves like <esc>
@@ -16,6 +17,10 @@
               "äö" "]["
               "°"  "~"})
 
+(which-key.register
+  {:° ["~" "Switch case"]}
+  {:mode ""})
+
 (def- normal-mappings {"<C-L>"      "<Cmd>nohlsearch<Bar>diffupdate<Bar>lua vim.lsp.buf.clear_references()<CR><C-L>"
                        "<CR>"       ":"
                        "<Leader>bb" "<Cmd>checktime<CR>"})
@@ -23,11 +28,11 @@
 (def- insert-mappings {"<C-L>" "<Esc>"
                        "<C-U>" "<C-G>u<C-U>"})
 
-(each [from to (pairs keymap)]
-  (util.map "" from to {:noremap false}))
+; (each [from to (pairs keymap)]
+;   (util.map "" from to {:noremap false}))
 
-(each [from to (pairs normal-mappings)]
-  (util.map :n from to))
+; (each [from to (pairs normal-mappings)]
+;   (util.map :n from to))
 
-(each [from to (pairs insert-mappings)]
-  (util.map :i from to))
+; (each [from to (pairs insert-mappings)]
+;   (util.map :i from to))

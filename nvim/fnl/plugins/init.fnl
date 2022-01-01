@@ -9,10 +9,6 @@
 (defn- config [name]
   (string.format "require('plugins.%s').config()" name))
 
-(def- telescope-deps
-  [:nvim-lua/plenary.nvim
-   (packer.plugin :nvim-telescope/telescope-fzf-native.nvim {:run "make"})])
-
 (packer.use {; ----------------------------------------------------------------
              :Olical/aniseed true
              :wbthomason/packer.nvim true
@@ -22,12 +18,11 @@
                                        :requires :radenling/vim-dispatch-neovim}
              :folke/which-key.nvim {:config (config :which-key)}
              :guns/vim-sexp {:ft sexp.filetypes
-                             :setup (setup :sexp)
-                             :requires :tpope/vim-repeat}
+                             :requires [:folke/which-key.nvim
+                                        :tpope/vim-repeat]
+                             :setup (setup :sexp)}
              :hrsh7th/nvim-cmp {:config (config :cmp)
-                                :requires [(packer.plugin :PaterJason/cmp-conjure
-                                                          {:requires :Olical/conjure})
-                                           :hrsh7th/cmp-buffer
+                                :requires [:hrsh7th/cmp-buffer
                                            :hrsh7th/cmp-cmdline
                                            :hrsh7th/cmp-nvim-lsp
                                            :hrsh7th/cmp-path
@@ -37,16 +32,21 @@
              :L3MON4D3/LuaSnip {:config (config :luasnip)}
              :neovim/nvim-lspconfig {:config (config :lspconfig)
                                      :requires [:hrsh7th/nvim-cmp
-                                                (packer.plugin :nvim-telescope/telescope.nvim
-                                                               {:requires telescope-deps})]}
+                                                :nvim-telescope/telescope.nvim]}
              :nvim-lualine/lualine.nvim {:config (config :lualine)}
              :nvim-telescope/telescope.nvim {:config (config :telescope)
-                                             :requires telescope-deps}
-             :nvim-treesitter/playground {:requires :nvim-treesitter/nvim-treesitter}
+                                             :requires [:nvim-lua/plenary.nvim
+                                                        :nvim-telescope/telescope-fzf-native.nvim]}
+             :nvim-telescope/telescope-fzf-native.nvim {:run "make"}
              :nvim-treesitter/nvim-treesitter {:config (config :treesitter)
                                                :run ":TSUpdate"}
+             :nvim-treesitter/playground {:cmd ["TSHighlightCapturesUnderCursor"
+                                                "TSPlaygroundToggle"]
+                                          :requires :nvim-treesitter/nvim-treesitter}
              :Olical/conjure {:setup (setup :conjure)}
              :Olical/nvim-local-fennel true
+             :PaterJason/cmp-conjure {:requires :Olical/conjure}
              :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
                                              :opt true
-                                             :requires :tpope/vim-dispatch}})
+                                             :requires :tpope/vim-dispatch}
+             :tpope/vim-repeat {:opt true}})

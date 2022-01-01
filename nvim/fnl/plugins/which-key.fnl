@@ -5,5 +5,4 @@
 (defn config []
   (util.map "n" "<Leader><Leader>" "<Esc>")
   (util.map "n" "<Leader><C-L>" "<Esc>")
-  (which-key.setup {:icons {:breadcrumb "∑"
-                            :separator "→"}}))
+  (which-key.setup {:icons {:breadcrumb "∑" :separator "→"}}))

@@ -12,7 +12,7 @@
   (let [name (.. :DiagnosticSign s)]
     (vim.fn.sign_define name {:text (.. " " t) :texthl name :numhl name})))
 
-(defn- update-highlights []
+(defn update-highlights []
   (highlight.make-italic :DiagnosticError)
   (highlight.make-italic :DiagnosticWarn)
   (highlight.make-italic :DiagnosticInfo)
