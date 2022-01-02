@@ -3,6 +3,5 @@
              which-key which-key}})
 
 (defn config []
-  ; (util.map "n" "<Leader><Leader>" "<Esc>")
-  ; (util.map "n" "<Leader><C-L>" "<Esc>")
+  (util.set-opts :o {:timeoutlen 300})
   (which-key.setup {:icons {:breadcrumb "∑" :separator "→"}}))

@@ -49,5 +49,6 @@
              :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
                                              :opt true
                                              :requires :tpope/vim-dispatch}
-             :terrortylor/nvim-comment {:config (config :comment)}
+             :tpope/vim-commentary {:config (config :comment)
+                                    :requires :folke/which-key.nvim}
              :tpope/vim-repeat {:opt true}})
