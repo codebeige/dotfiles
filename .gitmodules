@@ -13,9 +13,6 @@
 [submodule "nvim/pack/bundle/start/vinegar"]
 	path = nvim/pack/bundle/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "nvim/pack/bundle/start/surround"]
-	path = nvim/pack/bundle/start/surround
-	url = https://github.com/tpope/vim-surround.git
 [submodule "nvim/pack/bundle/start/fugitive"]
 	path = nvim/pack/bundle/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
