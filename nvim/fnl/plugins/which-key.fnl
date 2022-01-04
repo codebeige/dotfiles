@@ -7,4 +7,4 @@
   (which-key.setup {:icons {:breadcrumb "∑" :separator "→"}
                     :plugins {:presets false}
                     :show_help false
-                    :triggers ["<Leader>" "<LocalLeader>" "g"]}))
+                    :triggers ["<Leader>" "<LocalLeader>"]}))
