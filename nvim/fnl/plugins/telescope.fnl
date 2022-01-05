@@ -11,6 +11,8 @@
    :<C-H> actions.which_key
    :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
    :<C-L> actions.close
+   :<C-J> actions.cycle_history_next
+   :<C-K> actions.cycle_history_prev
    :<M-q> false})
 
 (def- theme (themes.get_ivy))
@@ -18,7 +20,7 @@
 (def- prefix "<Leader>f")
 
 (def- mappings
-  {:! "command_history() "
+  {:! "command_history()"
    :/ "current_buffer_fuzzy_find()"
    :b "buffers()"
    :f "find_files()"

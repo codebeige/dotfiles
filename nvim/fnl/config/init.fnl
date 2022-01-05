@@ -1,6 +1,5 @@
 (module config.init
   {autoload {nvim aniseed.nvim
-             plugins lib.plugins
              util lib.util}
    require [config.diagnostic
             config.highlight

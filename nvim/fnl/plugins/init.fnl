@@ -49,9 +49,6 @@
              :radenling/vim-dispatch-neovim {:cmd ["Dispatch" "Focus" "Make" "Start"]
                                              :opt true
                                              :requires :tpope/vim-dispatch}
-             :tpope/vim-commentary {:keys ["gc" "cgc" ["x" "gc"]]}
+             :tpope/vim-commentary true
              :tpope/vim-repeat {:opt true}
-             :tpope/vim-surround {:keys ["cs" "cS" "ds" "ys" "yS"
-                                         ["x" "S"] ["x" "gS"]
-                                         ["i" "<C-S>"] ["i" "<C-G>"]]
-                                  :setup (setup :surround)}})
+             :tpope/vim-surround {:setup (setup :surround)}})
