@@ -51,4 +51,6 @@
                                              :requires :tpope/vim-dispatch}
              :tpope/vim-commentary true
              :tpope/vim-repeat {:opt true}
+              :tpope/vim-sexp-mappings-for-regular-people {:requires :guns/vim-sexp
+                                                            :config (config :sexp-mappings)}
              :tpope/vim-surround {:setup (setup :surround)}})

@@ -11,22 +11,18 @@
 (def keymaps-xo
   {:a {:e ["<Plug>(sexp_outer_element)" "outer element"]
        :f ["<Plug>(sexp_outer_list)" "outer form"]
-       :r ["<Plug>(sexp_outer_top_list)" "outer root form"]}
-   :i {:e ["<Plug>(sexp_inner_element)" "inner element"]
-       :f ["<Plug>(sexp_inner_list)" "inner form"]
-       :r ["<Plug>(sexp_inner_top_list)" "inner root form"]}})
+       :F ["<Plug>(sexp_outer_top_list)" "outer root form"]}
+  :i {:e ["<Plug>(sexp_inner_elemen)" "inner element"]
+      :f ["<Plug>(sexp_inner_list)" "inner form"]
+      :F ["<Plug>(sexp_inner_top_list)" "inner root form"]}})
 
 (def keymaps-nxo
-  {"ä" {:name "next"
-        :b ["<Plug>(sexp_move_to_next_bracket)" "next bracket"]
-        :e ["<Plug>(sexp_select_next_element)" "select next element"]
-        :h ["<Plug>(sexp_move_to_next_element_head)" "next element head"]
-        :l ["<Plug>(sexp_move_to_next_element_tail)" "next element tail"]}
-   "ö" {:name "previous"
+{"[" {:name "previous"
         :b ["<Plug>(sexp_move_to_prev_bracket)" "previous bracket"]
-        :e ["<Plug>(sexp_select_prev_element)" "select previous element"]
-        :h ["<Plug>(sexp_move_to_prev_element_head)" "previous element head"]
-        :l ["<Plug>(sexp_move_to_prev_element_tail)" "previous element tail"]}})
+        :e ["<Plug>(sexp_select_prev_element)" "select previous element"]}
+   "]" {:name "next"
+        :b ["<Plug>(sexp_move_to_next_bracket)" "next bracket"]
+        :e ["<Plug>(sexp_select_next_element)" "select next element"]}})
 
 (def prefix "<LocalLeader>")
 
@@ -34,16 +30,6 @@
   {:= {:name "indent"
        :r ["<Plug>(sexp_indent_top)" "indentet root form"]
        :f ["<Plug>(sexp_indent)" "indent form"]}
-   :i {:name "insert"
-       :h ["<Plug>(sexp_insert_at_list_head)" "insert at form head"]
-       :l ["<Plug>(sexp_insert_at_list_tail)" "insert at form tail"]}
-   :s {:name "swap"
-       :e {:name "element"
-           "ö" ["<Plug>(sexp_swap_element_backward)" "swap element backward"]
-           "ä" ["<Plug>(sexp_swap_element_forward)" "swap element forward"]}
-       :f {:name "form"
-           "ö" ["<Plug>(sexp_swap_list_backward)" "swap form backward"]
-           "ä" ["<Plug>(sexp_swap_list_forward)" "swap form forward"]}}
    :w {:name "wrap"
        :e {:name "element"
            "(" ["<Plug>(sexp_round_head_wrap_element)" "wrap element round head"]
@@ -66,18 +52,13 @@
        :x ["<Plug>(sexp_convolute)" "convolute surrounding forms"]}})
 
 (def keymaps-nx
-  {:b {:name "barf/slurp"
-       :h ["<Pulg>(sexp_capture_prev_element)" "capture previous element"]
-       :j ["<Pulg>(sexp_emit_head_element)" "emit head element"]
-       :k ["<Pulg>(sexp_emit_tail_element)" "emit tail element"]
-       :l ["<Plug>(sexp_capture_next_element)" "capture next element"]}
-   "ä" {:name "next"
+  {"]" {:name "next"
         :h ["<Plug>(sexp_flow_to_next_leaf_head)" "next leaf head"]
         :j ["<Plug>(sexp_flow_to_next_close)" "next closing bracket"]
         :k ["<Plug>(sexp_flow_to_next_close)" "next opening bracket"]
         :l ["<Plug>(sexp_flow_to_next_leaf_tail)" "next leaf tail"]
         :r ["<Plug>(sexp_move_to_next_top_element)" "next root"]}
-   "ö" {:name "previous"
+   "]" {:name "previous"
         :h ["<Plug>(sexp_flow_to_prev_leaf_head)" "previous leaf head"]
         :j ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
         :k ["<Plug>(sexp_flow_to_prev_close)" "previous opening bracket"]
