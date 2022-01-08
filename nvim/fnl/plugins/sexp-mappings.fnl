@@ -1,5 +1,4 @@
-(module plugins.sexp-mappings
-  {autoload {which-key which-key}})
+(module plugins.sexp-mappings)
 
 (def deep-merge (partial vim.tbl_deep_extend "keep"))
 
@@ -25,9 +24,5 @@
        :f  "swap form forward"}})
 
 (defn config []
-  ; (each [mode keymap (pairs {:n (deep-merge keymap-nxo keymap-n)
-  ;                            :x keymap-nxo
-  ;                            :o keymap-nxo})]
-  ;   (which-key.register keymap-nxo {:mode mode}))
   )
 

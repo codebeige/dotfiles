@@ -16,10 +16,8 @@
              :clojure-vim/vim-jack-in {:cmd ["Boot" "Clj" "Lein"]
                                        :opt true
                                        :requires :radenling/vim-dispatch-neovim}
-             :folke/which-key.nvim {:config (config :which-key)}
              :guns/vim-sexp {:ft sexp.filetypes
-                             :requires [:folke/which-key.nvim
-                                        :tpope/vim-repeat]
+                             :requires [:tpope/vim-repeat]
                              :setup (setup :sexp)}
              :hrsh7th/nvim-cmp {:config (config :cmp)
                                 :requires [:hrsh7th/cmp-buffer
@@ -51,6 +49,6 @@
                                              :requires :tpope/vim-dispatch}
              :tpope/vim-commentary true
              :tpope/vim-repeat {:opt true}
-              :tpope/vim-sexp-mappings-for-regular-people {:requires :guns/vim-sexp
-                                                            :config (config :sexp-mappings)}
+             :tpope/vim-sexp-mappings-for-regular-people {:requires :guns/vim-sexp
+                                                          :config (config :sexp-mappings)}
              :tpope/vim-surround {:setup (setup :surround)}})

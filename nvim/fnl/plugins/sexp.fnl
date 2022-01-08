@@ -1,7 +1,6 @@
 (module plugins.sexp
   {autoload {str aniseed.string
-             util lib.util
-             which-key which-key}
+             util lib.util}
    require-macros [lib.macros]})
 
 (def filetypes [:clojure :fennel :scheme :lisp :timl])
@@ -74,16 +73,5 @@
        "{" ["<Plug>(sexp_curly_head_wrap_element)" "wrap selection curly head"]
        "}" ["<Plug>(sexp_curly_tail_wrap_element)" "wrap selection curly tail"]}})
 
-(defn init [args]
-  (each [mode keymap (pairs {:n keymaps-nxo
-                             :x (deep-merge keymaps-xo keymaps-nxo)
-                             :o (deep-merge keymaps-xo keymaps-nxo)})]
-    (which-key.register keymap {:buffer 0 :mode mode :noremap false}))
-
-  (each [mode keymap (pairs {:n (deep-merge keymaps-n keymaps-nx)
-                             :x (deep-merge keymaps-nx keymaps-x)})]
-    (which-key.register keymap {:buffer 0 :mode mode :prefix prefix :noremap false})))
-
 (defn setup []
-  (util.set-opts :g:sexp_ {:filetypes ""})
-  (augroup :plugins_sexp (autocmd :FileType (str.join "," filetypes) init)))
+  (util.set-opts :g:sexp_ {:filetypes (str.join "," filetypes)}))

@@ -1,6 +1,5 @@
 (module config.mappings
-  {autoload {util lib.util
-             which-key which-key}
+  {autoload {util lib.util}
    require-macros [lib.macros]})
 
 ; <c-ü> behaves like <c-]>
