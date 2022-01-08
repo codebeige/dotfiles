@@ -2,7 +2,6 @@
   {autoload {actions telescope.actions
              a aniseed.core
              telescope telescope
-             themes telescope.themes
              util lib.util}
    require-macros [lib.macros]})
 
@@ -14,8 +13,6 @@
    :<C-J> actions.cycle_history_next
    :<C-K> actions.cycle_history_prev
    :<M-q> false})
-
-(def- theme (themes.get_ivy))
 
 (def- prefix "<Leader>f")
 
@@ -33,9 +30,8 @@
 
 (defn config []
   (telescope.setup
-    {:defaults (a.merge theme
-                        {:mappings {:i telescope-mappings
-                                    :n telescope-mappings}})
+    {:defaults {:mappings {:i telescope-mappings
+                           :n telescope-mappings}}
      :extensions {:fzf {:case_mode :smart_case
                         :fuzzy true
                         :override_file_sorter true
