@@ -48,7 +48,7 @@
    :sexp_curly_tail_wrap_element   "<LocalLeader>se}"
    :sexp_insert_at_list_head       "<I"
    :sexp_insert_at_list_tail       ">I"
-   :sexp_splice_list               "<LocalLeader>sfd"
+   :sexp_splice_list               "dsf"
    :sexp_convolute                 "<LocalLeader>sfx"
    :sexp_raise_list                "<LocalLeader>sfo"
    :sexp_raise_element             "<LocalLeader>seo"

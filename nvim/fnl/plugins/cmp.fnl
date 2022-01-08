@@ -39,7 +39,8 @@
   (nvim.ex.highlight :link :CmpItemMenu :SpecialChar))
 
 (defn config []
-  (cmp.setup {:experimental {:ghost_text true}
+  (cmp.setup {:experimental {:ghost_text true
+                             :native_menu false}
               :formatting {:fields [:abbr :kind :menu]
                            :format format}
               :mapping mapping
@@ -50,7 +51,7 @@
                         {:name "conjure"}
                         {:name "path"}]})
 
-  (cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
+  ; (cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
 
   (cmp.setup.cmdline :: {:sources [{:name "cmdline"}
                                    {:name "path"}]})
