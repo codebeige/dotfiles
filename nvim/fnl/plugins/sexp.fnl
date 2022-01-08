@@ -62,5 +62,5 @@
    :sexp_capture_next_element      ">)"})
 
 (defn setup []
-    (util.set-opts :g:sexp_ {:enable_insert_mode_mappings false
-                             :filetypes (str.join "," filetypes)}))
+  (util.set-opts :g:sexp_ {:enable_insert_mode_mappings false
+                           :filetypes (str.join "," filetypes)}))
