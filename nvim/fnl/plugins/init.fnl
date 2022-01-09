@@ -38,9 +38,10 @@
     ; -------------------------------------------------------------------------
     (use :tpope/vim-commentary)
     (use :tpope/vim-surround {:setup (setup :surround)})
+    (use :tpope/vim-unimpaired)
     (use :Olical/nvim-local-fennel)
     ; -------------------------------------------------------------------------
     (use :guns/vim-sexp {:ft sexp.filetypes
-                         :requires :tpope/vim-repeat
+                         :requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
     (use :Olical/conjure {:setup (setup :conjure)})))

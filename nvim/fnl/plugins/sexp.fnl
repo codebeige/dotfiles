@@ -30,8 +30,8 @@
    :sexp_flow_to_next_leaf_tail    "<LocalLeader>se"
    :sexp_move_to_prev_top_element  "[["
    :sexp_move_to_next_top_element  "]]"
-   :sexp_select_prev_element       "[e"
-   :sexp_select_next_element       "]e"
+   :sexp_select_prev_element       "[g"
+   :sexp_select_next_element       "]g"
    :sexp_indent                    "=="
    :sexp_indent_top                "=-"
    :sexp_round_head_wrap_list      "<LocalLeader>sf("
@@ -63,4 +63,5 @@
 
 (defn setup []
   (util.set-opts :g:sexp_ {:enable_insert_mode_mappings false
-                           :filetypes (str.join "," filetypes)}))
+                           :filetypes (str.join "," filetypes)
+                           :mappings mappings}))
