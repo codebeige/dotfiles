@@ -39,4 +39,8 @@
 (defn on-attach [client bufnr]
   (each [lhs rhs (pairs keymap-n)] (util.bmap! bufnr :n lhs rhs))
   (each [lhs rhs (pairs keymap-v)] (util.bmap! bufnr :v lhs rhs))
+  (augroup (string.format "lib_lsp_%d" bufnr)
+    (nvim.ex.autocmd :CursorHold  "<buffer>" "lua vim.lsp.buf.document_highlight()")
+    (nvim.ex.autocmd :CursorHoldI "<buffer>" "lua vim.lsp.buf.document_highlight()")
+    (nvim.ex.autocmd :CursorMoved "<buffer>" "lua vim.lsp.buf.clear_references()"))
   (print (string.format "LSP ready. [%s]" (. client :name))))

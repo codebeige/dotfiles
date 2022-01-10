@@ -1,8 +1,7 @@
 (module lsp.clojure
   {autoload {lsp lib.lsp
              ts-utils nvim-treesitter.ts_utils
-             util lib.util}
-   require-macros [lib.macros]})
+             util lib.util}})
 
 (defn list-at-cursor []
   (let [n (ts-utils.get_node_at_cursor)]
