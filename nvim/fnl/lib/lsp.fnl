@@ -1,6 +1,6 @@
 (module lib.lsp
-  {autoload {a aniseed.core
-             nvim aniseed.nvim}
+  {autoload {nvim aniseed.nvim
+             util lib.util}
    require-macros [lib.macros]})
 
 (defn- format-range []
@@ -12,3 +12,31 @@
 
 (defn format-move []
   (set-operatorfunc format-range))
+
+(def keymap-n
+  {"<C-]>"            "<Cmd>lua vim.lsp.buf.definition()<CR>"
+   "<LocalLeader>lhf" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
+   "K"                "<Cmd>lua vim.lsp.buf.hover()<CR>"
+
+   "<LocalLeader>ldl" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
+   "<LocalLeader>ldo" "<Cmd>lua vim.diagnostic.open_float()<CR>"
+   "[d"               "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
+   "]d"               "<Cmd>lua vim.diagnostic.goto_next()<CR>"
+
+   "<LocalLeader>lx=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
+   "<LocalLeader>lxr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
+   "gq"               "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
+
+   "<LocalLeader>fr"  "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
+   "<LocalLeader>fd"  "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
+   "<LocalLeader>fx"  "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<LocalLeader>fb"  "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
+   "<LocalLeader>fp"  "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>"})
+
+(def keymap-v
+  {"gq" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
+
+(defn on-attach [client bufnr]
+  (each [lhs rhs (pairs keymap-n)] (util.bmap! bufnr :n lhs rhs))
+  (each [lhs rhs (pairs keymap-v)] (util.bmap! bufnr :v lhs rhs))
+  (print (string.format "LSP ready. [%s]" (. client :name))))
