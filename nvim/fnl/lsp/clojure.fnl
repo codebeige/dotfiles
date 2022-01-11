@@ -1,7 +1,10 @@
 (module lsp.clojure
-  {autoload {lsp lib.lsp
+  {autoload {a aniseed.core
+             lsp lib.lsp
+             lspconfig lspconfig
              ts-utils nvim-treesitter.ts_utils
-             util lib.util}})
+             util lib.util}
+   require-macros [lib.macros]})
 
 (defn list-at-cursor []
   (let [n (ts-utils.get_node_at_cursor)]
@@ -23,3 +26,6 @@
   (util.bmap! bufnr :n "gqq" "gqaF" {:noremap false})
   (util.bmap! bufnr :n "<Leader>lxc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)))
   (lsp.on-attach client bufnr))
+
+(defn setup [opts]
+  (lspconfig.clojure_lsp.setup (a.assoc opts :on_attach on-attach)))

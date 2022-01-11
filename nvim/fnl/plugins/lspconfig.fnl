@@ -17,6 +17,4 @@
 (defn config []
   (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
-
-  (lsp.clojure_lsp.setup {:capabilities capabilities
-                          :on_attach clojure.on-attach}))
+  (clojure.setup {:capabilities capabilities}))
