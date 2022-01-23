@@ -30,10 +30,12 @@
                                        :hrsh7th/cmp-path
                                        :PaterJason/cmp-conjure
                                        :saadparwaiz1/cmp_luasnip]})
-    (use :nvim-telescope/telescope.nvim {:after :telescope-fzf-native.nvim
+    (use :nvim-telescope/telescope.nvim {:after [:telescope-fzf-native.nvim
+                                                 :telescope-ui-select.nvim]
                                          :config (config :telescope)
                                          :requires [:nvim-lua/plenary.nvim]})
     (use :nvim-telescope/telescope-fzf-native.nvim {:run "make"})
+    (use :nvim-telescope/telescope-ui-select.nvim)
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
     ; -------------------------------------------------------------------------
     (use :tpope/vim-commentary)

@@ -2,6 +2,7 @@
   {autoload {actions telescope.actions
              a aniseed.core
              telescope telescope
+             themes telescope.themes
              util lib.util}
    require-macros [lib.macros]})
 
@@ -35,9 +36,11 @@
      :extensions {:fzf {:case_mode :smart_case
                         :fuzzy true
                         :override_file_sorter true
-                        :override_generic_sorter true}}})
+                        :override_generic_sorter true}
+                  :ui-select (themes.get_cursor)}})
 
   (telescope.load_extension :fzf)
+  (telescope.load_extension :ui-select)
 
   (each [k cmd (pairs mappings)]
     (util.map :n

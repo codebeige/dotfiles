@@ -25,16 +25,18 @@
 
    "<LocalLeader>lx=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
    "<LocalLeader>lxr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
+   "<LocalLeader>lxa" "<Cmd>lua vim.lsp.buf.code_action()<CR>"
    "gq"               "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
 
    "<LocalLeader>fr"  "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
    "<LocalLeader>fd"  "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
-   "<LocalLeader>fx"  "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>"
+   "<LocalLeader>fx"  "<Cmd>lua require('telescope.builtin').lsp_code_actions(require('telescope.themes').get_cursor({}))<CR>"
    "<LocalLeader>fb"  "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
    "<LocalLeader>fp"  "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>"})
 
 (def keymap-v
-  {"gq" "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"})
+  {"gq"               "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"
+   "<LocalLeader>lxa" "<Cmd>lua vim.lsp.buf.range_code_action()<CR><Esc>"})
 
 (defn on-attach [client bufnr]
   (each [lhs rhs (pairs keymap-n)] (util.bmap! bufnr :n lhs rhs))
