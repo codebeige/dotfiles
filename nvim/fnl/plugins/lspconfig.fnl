@@ -1,8 +1,9 @@
 (module plugins.lspconfig
   {autoload {clojure lsp.clojure
              cmp-lsp cmp_nvim_lsp
-             lsp lspconfig
-             nvim aniseed.nvim}
+             lsp lib.lsp
+             nvim aniseed.nvim
+             vscode lsp.vscode}
    require-macros [lib.macros]})
 
 (defn update-colorscheme []
@@ -17,4 +18,7 @@
 (defn config []
   (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
-  (clojure.setup {:capabilities capabilities}))
+  (let [opts {:capabilities capabilities
+              :on_attach lsp.on-attach}]
+    (clojure.setup opts)
+    (vscode.setup opts)))
