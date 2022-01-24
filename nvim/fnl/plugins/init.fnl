@@ -37,6 +37,7 @@
     (use :nvim-telescope/telescope-fzf-native.nvim {:run "make"})
     (use :nvim-telescope/telescope-ui-select.nvim)
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
+    (use :folke/which-key.nvim {:config (config :which-key)})
     ; -------------------------------------------------------------------------
     (use :tpope/vim-commentary)
     (use :tpope/vim-surround {:setup (setup :surround)})
