@@ -24,7 +24,7 @@
 
 (defn on-attach [client bufnr]
   (util.bmap! bufnr :n "gqq" "gqaF" {:noremap false})
-  (util.bmap! bufnr :n "<Leader>lxc" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)))
+  (util.bmap! bufnr :n "<LocalLeader>la" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)))
   (lsp.on-attach client bufnr))
 
 (defn setup [opts]
