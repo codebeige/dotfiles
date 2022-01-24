@@ -24,7 +24,8 @@
    :f "find_files()"
    :g "live_grep()"
    :h "help_tags()"
-   :k "keymaps()"})
+   :k "keymaps()"
+   :o "oldfiles()"})
 
 (defn init-prompt []
   (util.set-opts :b {:lexima_disabled true}))
@@ -42,6 +43,7 @@
   (telescope.load_extension :fzf)
   (telescope.load_extension :ui-select)
 
+  (util.map :n "<Leader>f<CR>" ":Telescope ")
   (each [k cmd (pairs mappings)]
     (util.map :n
               (.. prefix k)
