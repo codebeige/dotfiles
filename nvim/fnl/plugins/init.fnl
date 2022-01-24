@@ -46,4 +46,6 @@
     (use :guns/vim-sexp {:ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
-    (use :Olical/conjure {:setup (setup :conjure)})))
+    (use :Olical/conjure {:setup (setup :conjure)})
+    ; -------------------------------------------------------------------------
+    (use :liuchengxu/graphviz.vim)))
