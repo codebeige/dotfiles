@@ -4,4 +4,6 @@
 
 (defn config []
   (util.set-opts :o {:timeoutlen 500})
-  (which-key.setup))
+  (which-key.setup {:icons {:breadcrumb "»"
+                            :group "+"
+                            :separator "→"}}))
