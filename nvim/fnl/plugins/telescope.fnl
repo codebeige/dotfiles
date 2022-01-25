@@ -3,7 +3,8 @@
              a aniseed.core
              telescope telescope
              themes telescope.themes
-             util lib.util}
+             util lib.util
+             which-key which-key}
    require-macros [lib.macros]})
 
 (def- telescope-mappings
@@ -15,17 +16,10 @@
    :<C-K> actions.cycle_history_prev
    :<M-q> false})
 
-(def- prefix "<Leader>f")
-
-(def- mappings
-  {:! "command_history()"
-   :/ "current_buffer_fuzzy_find()"
-   :b "buffers()"
-   :f "find_files()"
-   :g "live_grep()"
-   :h "help_tags()"
-   :k "keymaps()"
-   :o "oldfiles()"})
+(defn- map [cmd label opts]
+  (a.merge [(string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)
+            label]
+           opts))
 
 (defn init-prompt []
   (util.set-opts :b {:lexima_disabled true}))
@@ -43,11 +37,18 @@
   (telescope.load_extension :fzf)
   (telescope.load_extension :ui-select)
 
-  (util.map :n "<Leader>f<CR>" ":Telescope ")
-  (each [k cmd (pairs mappings)]
-    (util.map :n
-              (.. prefix k)
-              (string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)))
+  (which-key.register
+    {:name "find"
+     :!     (map "command_history()" "Command history")
+     :/     (map "current_buffer_fuzzy_find()" "Search in buffer")
+     :b     (map "buffers()" "Buffers")
+     :f     (map "find_files()" "Files")
+     :g     (map "live_grep()" "Search in project")
+     :h     (map "help_tags()" "Help tags")
+     :k     (map "keymaps()" "Keymaps")
+     :o     (map "oldfiles()" "Oldfiles")
+     "<CR>" (map ":Telescope " "Enter find command..." {:silent false})}
+    {:prefix "<Leader>f"})
 
   (augroup :plugins_telescope
     (autocmd :FileType "TelescopePrompt" init-prompt)))

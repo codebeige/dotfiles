@@ -31,7 +31,8 @@
                                        :PaterJason/cmp-conjure
                                        :saadparwaiz1/cmp_luasnip]})
     (use :nvim-telescope/telescope.nvim {:after [:telescope-fzf-native.nvim
-                                                 :telescope-ui-select.nvim]
+                                                 :telescope-ui-select.nvim
+                                                 :which-key.nvim]
                                          :config (config :telescope)
                                          :requires [:nvim-lua/plenary.nvim]})
     (use :nvim-telescope/telescope-fzf-native.nvim {:run "make"})
