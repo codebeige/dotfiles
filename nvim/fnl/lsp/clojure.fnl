@@ -3,7 +3,8 @@
              lsp lib.lsp
              lspconfig lspconfig
              ts-utils nvim-treesitter.ts_utils
-             util lib.util}
+             util lib.util
+             which-key which-key}
    require-macros [lib.macros]})
 
 (defn list-at-cursor []
@@ -23,8 +24,10 @@
   (code-action :cycle-privacy))
 
 (defn on-attach [client bufnr]
-  (util.bmap! bufnr :n "gqq" "gqaF" {:noremap false})
-  (util.bmap! bufnr :n "<LocalLeader>la" (string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)))
+  (which-key.register
+    {:gqq (a.merge ["gqaF" "Format root form"] {:noremap false})
+     "<LocalLeader>la" (a.merge [(string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)) "Cycle collection"])}
+    {:buffer bufnr})
   (lsp.on-attach client bufnr))
 
 (defn setup [opts]

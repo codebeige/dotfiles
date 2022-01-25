@@ -1,6 +1,8 @@
 (module lib.lsp
-  {autoload {nvim aniseed.nvim
-             util lib.util}
+  {autoload {a aniseed.core
+             nvim aniseed.nvim
+             util lib.util
+             which-key which-key}
    require-macros [lib.macros]})
 
 (defn- format-range []
@@ -13,36 +15,36 @@
 (defn format-move []
   (set-operatorfunc format-range))
 
-(def keymap-n
-  {"<C-]>"           "<Cmd>lua vim.lsp.buf.definition()<CR>"
-   "<LocalLeader>lh" "<Cmd>lua vim.lsp.buf.signature_help()<CR>"
-   "K"               "<Cmd>lua vim.lsp.buf.hover()<CR>"
-
-   "<LocalLeader>ll" "<Cmd>lua vim.diagnostic.setloclist()<CR>"
-   "<LocalLeader>lo" "<Cmd>lua vim.diagnostic.open_float()<CR>"
-   "[d"              "<Cmd>lua vim.diagnostic.goto_prev()<CR>"
-   "]d"              "<Cmd>lua vim.diagnostic.goto_next()<CR>"
-
-   "<LocalLeader>l=" "<Cmd>lua vim.lsp.buf.formatting()<CR>"
-   "<LocalLeader>lr" "<Cmd>lua vim.lsp.buf.rename()<CR>"
-   "<LocalLeader>lx" "<Cmd>lua vim.lsp.buf.code_action()<CR>"
-   "gq"              "<Cmd>lua require('lib.lsp')['format-move']()<CR>g@"
-
-   "<LocalLeader>l*" "<Cmd>lua require('telescope.builtin').lsp_references()<CR>"
-   "<LocalLeader>ld" "<Cmd>lua require('telescope.builtin').diagnostics()<CR>"
-   "<LocalLeader>ls" "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>"
-   "<LocalLeader>lw" "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>"})
-
-(def keymap-v
-  {"gq"              "<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>"
-   "<LocalLeader>lx" "<Cmd>lua vim.lsp.buf.range_code_action()<CR><Esc>"})
-
 (defn on-attach [client bufnr]
-  (each [lhs rhs (pairs keymap-n)] (util.bmap! bufnr :n lhs rhs))
-  (each [lhs rhs (pairs keymap-v)] (util.bmap! bufnr :v lhs rhs))
+
+  (which-key.register
+    {"<C-]>" ["<Cmd>lua vim.lsp.buf.definition()<CR>" "Jump to definition"]
+     :K ["<Cmd>lua vim.lsp.buf.hover()<CR>" "Show documentation"]
+     "[d" ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]
+     "]d" ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]
+     :gq ["<Cmd>lua require('lib.lsp')['format-move']()<CR>g@" "Format lines motion"]
+     :gq (a.merge ["<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>" "Format selection"] {:mode "v"})}
+    {:buffer bufnr})
+
+  (which-key.register
+    {:name "language server"
+     :h ["<Cmd>lua vim.lsp.buf.signature_help()<CR>" "Signature help"]
+     :l ["<Cmd>lua vim.diagnostic.setloclist()<CR>" "List diagnostics"]
+     :o ["<Cmd>lua vim.diagnostic.open_float()<CR>" "Open diagnostics"]
+     := ["<Cmd>lua vim.lsp.buf.formatting()<CR>" "Format buffer"]
+     :r ["<Cmd>lua vim.lsp.buf.rename()<CR>" "Rename..."]
+     :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]
+     :x (a.merge ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."] {:mode "v"})
+     :* ["<Cmd>lua require('telescope.builtin').lsp_references()<CR>" "Find references"]
+     :d ["<Cmd>lua require('telescope.builtin').diagnostics()<CR>" "Browse diagnostics"]
+     :s ["<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>" "Document symbols"]
+     :w ["<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>" "Workspace symbols"]}
+    {:prefix "<LocalLeader>l" :buffer bufnr})
+
   (if client.resolved_capabilities.document_highlight
     (augroup (string.format "lib_lsp_%d" bufnr)
       (nvim.ex.autocmd :CursorHold  "<buffer>" "lua vim.lsp.buf.document_highlight()")
       (nvim.ex.autocmd :CursorHoldI "<buffer>" "lua vim.lsp.buf.document_highlight()")
       (nvim.ex.autocmd :CursorMoved "<buffer>" "lua vim.lsp.buf.clear_references()")))
+
   (print (string.format "LSP ready. [%s]" (. client :name))))
