@@ -16,30 +16,34 @@
   (set-operatorfunc format-range))
 
 (defn on-attach [client bufnr]
-
   (which-key.register
     {"<C-]>" ["<Cmd>lua vim.lsp.buf.definition()<CR>" "Jump to definition"]
      :K ["<Cmd>lua vim.lsp.buf.hover()<CR>" "Show documentation"]
-     "[d" ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]
-     "]d" ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]
+     "[" {:name "previous"
+          :d ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]}
+     "]" {:name "next"
+          :d ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]}
      :gq ["<Cmd>lua require('lib.lsp')['format-move']()<CR>g@" "Format lines motion"]
      :gq (a.merge ["<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>" "Format selection"] {:mode "v"})}
     {:buffer bufnr})
 
   (which-key.register
-    {:name "language server"
-     :h ["<Cmd>lua vim.lsp.buf.signature_help()<CR>" "Signature help"]
-     :l ["<Cmd>lua vim.diagnostic.setloclist()<CR>" "List diagnostics"]
-     :o ["<Cmd>lua vim.diagnostic.open_float()<CR>" "Open diagnostics"]
-     := ["<Cmd>lua vim.lsp.buf.formatting()<CR>" "Format buffer"]
-     :r ["<Cmd>lua vim.lsp.buf.rename()<CR>" "Rename..."]
-     :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]
-     :x (a.merge ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."] {:mode "v"})
-     :* ["<Cmd>lua require('telescope.builtin').lsp_references()<CR>" "Find references"]
-     :d ["<Cmd>lua require('telescope.builtin').diagnostics()<CR>" "Browse diagnostics"]
-     :s ["<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>" "Document symbols"]
-     :w ["<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>" "Workspace symbols"]}
-    {:prefix "<LocalLeader>l" :buffer bufnr})
+    {:b {:name "buffer"
+         := ["<Cmd>lua vim.lsp.buf.formatting()<CR>" "Format buffer"]
+         :d ["<Cmd>lua vim.diagnostic.setloclist()<CR>" "List diagnostics"]}
+     :f {:name "find"
+         :d ["<Cmd>lua require('telescope.builtin').diagnostics()<CR>" "Diagnostics"]
+         :r ["<Cmd>lua require('telescope.builtin').lsp_references()<CR>" "References"]
+         :s ["<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>" "Document symbols"]
+         :S ["<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>" "Workspace symbols"]}
+     :v {:name "view"
+         :d ["<Cmd>lua vim.diagnostic.open_float()<CR>" "View diagnostics"]
+         :h ["<Cmd>lua vim.lsp.buf.signature_help()<CR>" "Signature help"]}
+     :x {:name "transform"
+         :r ["<Cmd>lua vim.lsp.buf.rename()<CR>" "Rename symbol..."]
+         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]
+         :x (a.merge ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."] {:mode "v"})}}
+    {:prefix "<LocalLeader>" :buffer bufnr})
 
   (if client.resolved_capabilities.document_highlight
     (augroup (string.format "lib_lsp_%d" bufnr)
