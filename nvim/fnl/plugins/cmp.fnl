@@ -51,7 +51,7 @@
                         {:name "conjure"}
                         {:name "path"}]})
 
-  ; (cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
+  (cmp.setup.cmdline :/ {:sources [{:name "buffer"}]})
 
   (cmp.setup.cmdline :: {:sources [{:name "cmdline"}
                                    {:name "path"}]})

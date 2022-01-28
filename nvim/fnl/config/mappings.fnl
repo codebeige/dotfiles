@@ -1,38 +1,18 @@
 (module config.mappings
-  {autoload {util lib.util}
-   require-macros [lib.macros]})
+  {autoload {which-key which-key}})
 
-; <c-ü> behaves like <c-]>
-; <c-ä> behaves like <esc>
-; <c-6> behaves like <c-^>
-; <c-2> behaves like <c-@>
+(which-key.register
+  {"<CR>" [":" "Enter command..."]}
+  {:silent false})
 
-; (def- keymap
-;   {"ö"  "["
-;    "ä"  "]"
-;    "öö" "[["
-;    "ää" "]]"
-;    "öä" "[]"
-;    "äö" "]["
-;    "Ö"  "{"
-;    "Ä"  "}"
-;    "ß"  "/"
-;    "°"  "~"})
+(which-key.register
+  {:b {:name "buffer"
+       :r ["<Cmd>checktime %<CR>" "Refresh buffer"]
+       :R ["<Cmd>checktime<CR>" "Refresh all buffers"]
+       :w ["<Cmd>write<CR>" "Write buffer"]
+       :u ["<Cmd>update<CR>" "Update buffer"]}}
+  {:prefix "<Leader>"})
 
-; (each [from to (pairs keymap)]
-;   (util.map "" from to {:noremap false}))
-
-; -----------------------------------------------------------------------------
-
-(def- normal-mappings {"<C-L>"      "<Cmd>nohlsearch<Bar>diffupdate<Bar>lua vim.lsp.buf.clear_references()<CR><C-L>"
-                       "<CR>"       ":"
-                       "<Leader>bb" "<Cmd>checktime<CR>"})
-
-(def- insert-mappings {"<C-L>" "<Esc>"
-                       "<C-U>" "<C-G>u<C-U>"})
-
-(each [from to (pairs normal-mappings)]
-  (util.map :n from to))
-
-(each [from to (pairs insert-mappings)]
-  (util.map :i from to))
+(which-key.register
+  {"<C-L>" "Esc"}
+  {:mode "i"})

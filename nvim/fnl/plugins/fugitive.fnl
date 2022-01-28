@@ -1,5 +1,6 @@
 (module plugins.fugitive
-  {autoload {str aniseed.string
+  {autoload {a aniseed.core
+             str aniseed.string
              which-key which-key}
    require-macros [lib.macros]})
 
@@ -18,7 +19,7 @@
 
   (which-key.register
     {:name "git"
-     "<CR>" [":Git " "Enter git command..."]
+     "<CR>" (a.merge [":Git " "Enter git command..."] {:silent false})
      :g [(cmd "Git") "Git status"]
      :b [":Git blame<CR>" "Git blame"]
      :F [(cmd fetch-all) "Git fetch all"]
