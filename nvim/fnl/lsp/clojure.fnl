@@ -1,6 +1,6 @@
 (module lsp.clojure
   {autoload {a aniseed.core
-             lsp lib.lsp
+             lsp lsp.shared
              lspconfig lspconfig
              ts-utils nvim-treesitter.ts_utils
              util lib.util

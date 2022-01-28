@@ -1,4 +1,4 @@
-(module lib.lsp
+(module lsp.shared
   {autoload {a aniseed.core
              nvim aniseed.nvim
              util lib.util

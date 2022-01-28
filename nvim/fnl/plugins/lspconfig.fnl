@@ -1,7 +1,7 @@
 (module plugins.lspconfig
   {autoload {clojure lsp.clojure
              cmp-lsp cmp_nvim_lsp
-             lsp lib.lsp
+             lsp lsp.shared
              nvim aniseed.nvim
              vscode lsp.vscode}
    require-macros [lib.macros]})
