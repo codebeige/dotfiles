@@ -6,3 +6,4 @@
       (table.insert t* v))
     t*))
 
+(def deep-merge (partial vim.tbl_deep_extend "keep"))

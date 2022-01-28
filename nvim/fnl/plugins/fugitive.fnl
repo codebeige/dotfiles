@@ -32,7 +32,7 @@
          "Git push upstream"]
      :r [(cmd "Gread") "Read from index"]
      :w [(cmd "Gwrite") "Write to index"]
-     :- [(cmd "Git add --all --update --quiet"
+     :- [(cmd "Git add --all"
               (string.format
                 "Git commit --no-verify --no-gpg-sign --message '%s'"
                 "--wip-- [skip ci]"))

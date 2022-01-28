@@ -46,7 +46,8 @@
     (use :tpope/vim-unimpaired)
     (use :Olical/nvim-local-fennel)
     ; -------------------------------------------------------------------------
-    (use :guns/vim-sexp {:ft sexp.filetypes
+    (use :guns/vim-sexp {:after [:which-key.nvim]
+                         :ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
     (use :Olical/conjure {:after [:which-key.nvim]
