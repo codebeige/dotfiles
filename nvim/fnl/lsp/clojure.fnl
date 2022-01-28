@@ -26,7 +26,7 @@
 (defn on-attach [client bufnr]
   (which-key.register
     {:gqq (a.merge ["gqaF" "Format root form"] {:noremap false})
-     "<LocalLeader>la" (a.merge [(string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)) "Cycle collection"])}
+     "<LocalLeader>xc" (a.merge [(string.format "<Cmd>%s<CR>" (fn->viml cycle-collection)) "Cycle collection"])}
     {:buffer bufnr})
   (lsp.on-attach client bufnr))
 
