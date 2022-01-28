@@ -47,8 +47,20 @@
      :h     (map "help_tags()" "Help tags")
      :k     (map "keymaps()" "Keymaps")
      :o     (map "oldfiles()" "Oldfiles")
+     :t     (map "builtin" "Telescope pickers")
      "<CR>" (map ":Telescope " "Enter find command..." {:silent false})}
     {:prefix "<Leader>f"})
+
+  (which-key.register
+    {:name "git"
+     :f {:name "find"
+         :b     (map "git_branches()" "Branches")
+         :c     (map "git_commits()" "Commits")
+         :f     (map "git_files()" "Git files")
+         :h     (map "git_bcommits()" "Buffer history")
+         :i     (map "git_status()" "Git status")
+         :s     (map "git_stash()" "Git stash")}}
+    {:prefix "<Leader>g"})
 
   (augroup :plugins_telescope
     (autocmd :FileType "TelescopePrompt" init-prompt)))
