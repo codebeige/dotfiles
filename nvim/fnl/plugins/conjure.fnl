@@ -16,28 +16,29 @@
 
 (defn register-keymap []
   (which-key.register {:l {:name "log"
-                           :s "Open log in horizontal split"
-                           :v "Open log in vertical split"
-                           :t "Open log in new tab"
                            :e "Open log in current buffer"
+                           :g "Toggle log"
+                           :l "Jump to last result"
                            :q "Close log"
                            :r "Clear log"
                            :R "Reset log"
-                           :l "Jump to last result"}
+                           :s "Open log in horizontal split"
+                           :t "Open log in new tab"
+                           :v "Open log in vertical split"}
                        :E "Evaluate motion"
                        :e {:name "eval"
-                           :e "Evaluate current form"
-                           :r "Evaluate root form"
-                           :w "Evaluate word"
                            :! "Replace form with result"
-                           :m "Evaluate form at mark"
-                           :f "Evaluate file from disk"
                            :b "Evaluate buffer"
-                           :d "Look up documentation"
                            :c {:name "comment"
                                :e "Evaluate current form to comment"
                                :r "Evaluate root form to comment"
-                               :w "Evaluate word to comment"}}
+                               :w "Evaluate word to comment"}
+                           :d "Look up documentation"
+                           :e "Evaluate current form"
+                           :f "Evaluate file from disk"
+                           :m "Evaluate form at mark"
+                           :r "Evaluate root form"
+                           :w "Evaluate word"}
                        :gd "Jump to definition"}
                       {:prefix prefix
                        :buffer (nvim.get_current_buf)})
@@ -60,21 +61,21 @@
                        :s {:name "session"
                            :c "Clone current session"
                            :f "Create fresh session"
-                           :q "Close current session"
-                           :Q "Close all sessions"
                            :l "List sessions"
                            :n "Next session"
                            :p "Previous session"
+                           :q "Close current session"
+                           :Q "Close all sessions"
                            :s "Select session..."}
                        :t {:name "test"
                            :a "Run all tests"
+                           :c "Run test at cursor"
                            :n "Run tests in namespace"
-                           :N "Run tests in alternate namespace"
-                           :c "Run test at cursor"}
+                           :N "Run tests in alternate namespace"}
                        :r {:name "refresh"
-                           :r "Refresh all changed namespaces"
                            :a "Refresh all namespaces"
-                           :c "Clear namespace refresh cache"}}
+                           :c "Clear namespace refresh cache"
+                           :r "Refresh all changed namespaces"}}
                       {:prefix prefix
                        :buffer (nvim.get_current_buf)}))
 
