@@ -16,7 +16,9 @@
        :x ["<Cmd>exit<CR>" "Exit buffer"]
        :X ["<Cmd>xqall" "Exit all buffers"]}
    :c {:name "quickfix list"
-       :s (a.merge [":<C-U>cdo s/" "Substitute all quickfix items..."] {:silent false})}}
+       :s (a.merge [":<C-U>cdo s/" "Substitute each quickfix entry..."] {:silent false})}}
+   :l {:name "location list"
+       :s (a.merge [":<C-U>ldo s/" "Substitute each location entry..."] {:silent false})}}
   {:prefix "<Leader>"})
 
 (which-key.register
