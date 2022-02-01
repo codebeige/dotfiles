@@ -40,11 +40,12 @@
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
     (use :folke/which-key.nvim {:config (config :which-key)})
     ; -------------------------------------------------------------------------
+    (use :Olical/nvim-local-fennel)
     (use :tpope/vim-commentary)
     (use :tpope/vim-fugitive {:config (config :fugitive)})
     (use :tpope/vim-surround {:setup (setup :surround)})
     (use :tpope/vim-unimpaired)
-    (use :Olical/nvim-local-fennel)
+    (use :windwp/nvim-autopairs {:config (config :autopairs)})
     ; -------------------------------------------------------------------------
     (use :guns/vim-sexp {:after [:which-key.nvim]
                          :ft sexp.filetypes

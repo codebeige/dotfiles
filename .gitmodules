@@ -40,9 +40,6 @@
 [submodule "nvim/pack/bundle/opt/stylus"]
 	path = nvim/pack/bundle/opt/stylus
 	url = https://github.com/iloginow/vim-stylus.git
-[submodule "nvim/pack/bundle/start/lexima"]
-	path = nvim/pack/bundle/start/lexima
-	url = https://github.com/cohama/lexima.vim.git
 [submodule "nvim/pack/bundle/start/dadbot"]
 	path = nvim/pack/bundle/start/dadbot
 	url = https://github.com/tpope/vim-dadbod.git
