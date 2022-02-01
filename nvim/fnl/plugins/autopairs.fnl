@@ -2,4 +2,4 @@
   {autoload {autopairs nvim-autopairs}})
 
 (defn config []
-  (autopairs.setup {}))
+  (autopairs.setup {:check_ts true}))
