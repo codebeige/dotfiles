@@ -38,10 +38,8 @@
        :s ["<Plug>(sexp_inner_string)" "inner string"]}})
 
 (def- keymaps-nxo
-  {"[" {:name "previous"
-        "[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
-   "]" {:name "next"
-        "]" ["<Plug>(sexp_move_to_next_top_element)" "next root"]}
+  {"[" {"[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
+   "]" {"]" ["<Plug>(sexp_move_to_next_top_element)" "next root"]}
    "(" ["<Plug>(sexp_move_to_prev_bracket)" "previous bracket"]
    ")" ["<Plug>(sexp_move_to_next_bracket)" "next bracket"]
    :B  ["<Plug>(sexp_move_to_prev_element_head)" "previous element head"]
@@ -58,13 +56,11 @@
        :s ["<Plug>(sexp_convolute)" "convolute surrounding forms"]}})
 
 (def- keymaps-leader-nx
-  {"[" {:name "previous"
-        "(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
+  {"[" {"(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
         ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
         :h  ["<Plug>(sexp_flow_to_prev_leaf_head)" "previous leaf head"]
         :l  ["<Plug>(sexp_flow_to_prev_leaf_tail)" "previous leaf tail"]}
-   "]" {:name "next"
-          "(" ["<Plug>(sexp_flow_to_next_open)" "next opening bracket"]
+   "]" {"(" ["<Plug>(sexp_flow_to_next_open)" "next opening bracket"]
         ")" ["<Plug>(sexp_flow_to_next_close)" "next closing bracket"]
         :h  ["<Plug>(sexp_flow_to_next_leaf_head)" "next leaf head"]
         :l  ["<Plug>(sexp_flow_to_next_leaf_tail)" "next leaf tail"]}
@@ -85,10 +81,8 @@
            "}" ["<Plug>(sexp_curly_tail_wrap_list)" "wrap form curly tail"]}}})
 
 (def- keymaps-leader-nxo
-  {"[" {:name "previous"
-        :e ["<Plug>(sexp_select_prev_element)" "select previous element"]}
-   "]" {:name "next"
-        :e ["<Plug>(sexp_select_next_element)" "select next element"]}})
+  {"[" {:e ["<Plug>(sexp_select_prev_element)" "select previous element"]}
+   "]" {:e ["<Plug>(sexp_select_next_element)" "select next element"]}})
 
 (def- insert-mode-mappings
   {"(" "<Plug>(sexp_insert_opening_round)"
