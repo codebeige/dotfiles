@@ -44,14 +44,15 @@
     (use :tpope/vim-commentary)
     (use :tpope/vim-fugitive {:config (config :fugitive)})
     (use :tpope/vim-surround {:setup (setup :surround)})
-    (use :tpope/vim-unimpaired)
+    (use :tpope/vim-unimpaired {:after :which-key.nvim
+                                :config (config :unimpaired)})
     (use :windwp/nvim-autopairs {:config (config :autopairs)})
     ; -------------------------------------------------------------------------
-    (use :guns/vim-sexp {:after [:which-key.nvim]
+    (use :guns/vim-sexp {:after :which-key.nvim
                          :ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
-    (use :Olical/conjure {:after [:which-key.nvim]
+    (use :Olical/conjure {:after :which-key.nvim
                           :config (config :conjure)
                           :setup (setup :conjure)})
     ; -------------------------------------------------------------------------
