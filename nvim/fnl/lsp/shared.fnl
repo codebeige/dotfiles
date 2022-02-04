@@ -19,13 +19,14 @@
   (which-key.register
     {"<C-]>" ["<Cmd>lua vim.lsp.buf.definition()<CR>" "Jump to definition"]
      :K ["<Cmd>lua vim.lsp.buf.hover()<CR>" "Show documentation"]
-     "[" {:name "previous"
-          :d ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]}
-     "]" {:name "next"
-          :d ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]}
-     :gq ["<Cmd>lua require('lib.lsp')['format-move']()<CR>g@" "Format lines motion"]
-     :gq (a.merge ["<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>" "Format selection"] {:mode "v"})}
+     "[" {:d ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]}
+     "]" {:d ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]}
+     :gq ["<Cmd>lua require('lib.lsp')['format-move']()<CR>g@" "Format lines motion"]}
     {:buffer bufnr})
+
+  (which-key.register
+    {:gq ["<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>" "Format selection"]}
+    {:buffer bufnr :mode "v"})
 
   (which-key.register
     {:b {:name "buffer"
@@ -41,9 +42,13 @@
          :h ["<Cmd>lua vim.lsp.buf.signature_help()<CR>" "Signature help"]}
      :x {:name "transform"
          :r ["<Cmd>lua vim.lsp.buf.rename()<CR>" "Rename symbol..."]
-         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]
-         :x (a.merge ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."] {:mode "v"})}}
+         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]}}
     {:prefix "<LocalLeader>" :buffer bufnr})
+
+  (which-key.register
+    {:x {:name "transform"
+         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]}}
+    {:prefix "<LocalLeader>" :buffer bufnr :mode "v"})
 
   (if client.resolved_capabilities.document_highlight
     (augroup (string.format "lib_lsp_%d" bufnr)
