@@ -1,5 +1,11 @@
 (module plugins.autopairs
-  {autoload {autopairs nvim-autopairs}})
+  {autoload {a aniseed.core
+             autopairs nvim-autopairs
+             sexp plugins.sexp}})
+
+(def- disabled-filetypes
+  (a.concat ["TelescopePrompt"] sexp.filetypes))
 
 (defn config []
-  (autopairs.setup {:check_ts true}))
+  (autopairs.setup {:check_ts true
+                    :disable_filetype disabled-filetypes}))

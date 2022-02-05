@@ -8,7 +8,7 @@
 
 (def filetypes [:clojure :fennel :scheme :lisp :timl])
 
-(def keymaps-n
+(def- keymaps-n
   {:= {:name "indent"
        := ["<Plug>(sexp_indent)" "indent form"]
        :- ["<Plug>(sexp_indent_top)" "indent root form"]}
@@ -25,7 +25,7 @@
        :f  ["<Plug>(sexp_swap_list_forward)" "swap form forward"]
        :I  ["<Plug>(sexp_insert_at_list_tail)" "insert at form tail"]}})
 
-(def keymaps-xo
+(def- keymaps-xo
   {:a {:name "around"
        :e ["<Plug>(sexp_outer_element)" "around element"]
        :f ["<Plug>(sexp_outer_list)" "a form"]
@@ -37,7 +37,7 @@
        :F ["<Plug>(sexp_inner_top_list)" "inner root form"]
        :s ["<Plug>(sexp_inner_string)" "inner string"]}})
 
-(def keymaps-nxo
+(def- keymaps-nxo
   {"[" {:name "previous"
         "[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
    "]" {:name "next"
@@ -49,7 +49,7 @@
    :gE ["<Plug>(sexp_move_to_prev_element_tail)" "previous element tail"]
    :E  ["<Plug>(sexp_move_to_next_element_tail)" "next element tail"]})
 
-(def keymaps-leader-n
+(def- keymaps-leader-n
   {:x {:name "transform"
        :d ["<Plug>(sexp_splice_list)" "splice form"]
        :o {:name "raise"
@@ -57,7 +57,7 @@
            :f ["<Plug>(sexp_raise_list)" "raise form"]}
        :s ["<Plug>(sexp_convolute)" "convolute surrounding forms"]}})
 
-(def keymaps-leader-nx
+(def- keymaps-leader-nx
   {"[" {:name "previous"
         "(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
         ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
@@ -84,31 +84,44 @@
            "{" ["<Plug>(sexp_curly_head_wrap_list)" "wrap form curly head"]
            "}" ["<Plug>(sexp_curly_tail_wrap_list)" "wrap form curly tail"]}}})
 
-(def keymaps-leader-nxo
+(def- keymaps-leader-nxo
   {"[" {:name "previous"
         :e ["<Plug>(sexp_select_prev_element)" "select previous element"]}
    "]" {:name "next"
         :e ["<Plug>(sexp_select_next_element)" "select next element"]}})
 
-(defn register-keymaps [args]
-  (each [mode keymap (pairs {:n (lib.deep-merge keymaps-n
-                                                keymaps-nxo)
-                             :x (lib.deep-merge keymaps-xo
-                                                keymaps-nxo)
-                             :o (lib.deep-merge keymaps-xo
-                                                keymaps-nxo)})]
-    (which-key.register keymap {:buffer (nvim.get_current_buf)
-                                :mode mode}))
+(def- insert-mode-mappings
+  {"(" "<Plug>(sexp_insert_opening_round)"
+   "[" "<Plug>(sexp_insert_opening_square)"
+   "{" "<Plug>(sexp_insert_opening_curly)"
+   ")" "<Plug>(sexp_insert_closing_round)"
+   "]" "<Plug>(sexp_insert_closing_square)"
+   "}" "<Plug>(sexp_insert_closing_curly)"
+   "\"" "<Plug>(sexp_insert_double_quote)"
+   "<BS>" "<Plug>(sexp_insert_backspace)"})
 
-  (each [mode keymap (pairs {:n (lib.deep-merge keymaps-leader-n
-                                                keymaps-leader-nx
-                                                keymaps-leader-nxo)
-                             :x (lib.deep-merge keymaps-leader-nx
-                                                keymaps-leader-nxo)
-                             :o keymaps-leader-nxo})]
-    (which-key.register keymap {:buffer (nvim.get_current_buf)
-                                :mode mode
-                                :prefix "<LocalLeader>"})))
+(defn register-keymaps [args]
+  (let [bufnr (nvim.get_current_buf)]
+    (each [mode keymap (pairs {:n (lib.deep-merge keymaps-n
+                                                  keymaps-nxo)
+                               :x (lib.deep-merge keymaps-xo
+                                                  keymaps-nxo)
+                               :o (lib.deep-merge keymaps-xo
+                                                  keymaps-nxo)})]
+      (which-key.register keymap {:buffer bufnr :mode mode}))
+
+    (each [mode keymap (pairs {:n (lib.deep-merge keymaps-leader-n
+                                                  keymaps-leader-nx
+                                                  keymaps-leader-nxo)
+                               :x (lib.deep-merge keymaps-leader-nx
+                                                  keymaps-leader-nxo)
+                               :o keymaps-leader-nxo})]
+      (which-key.register keymap {:buffer bufnr
+                                  :mode mode
+                                  :prefix "<LocalLeader>"}))
+
+    (each [lhs rhs (pairs insert-mode-mappings)]
+      (util.bmap! bufnr "i" lhs rhs {:noremap false}))))
 
 (defn setup []
   (util.set-opts :g:sexp_ {:filetypes ""})
