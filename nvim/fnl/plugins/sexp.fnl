@@ -57,11 +57,13 @@
 
 (def- keymaps-leader-nx
   {"[" {"(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
-        ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
+            ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
+        :e ["<Plug>(sexp_select_prev_element)" "select previous element"]
         :h  ["<Plug>(sexp_flow_to_prev_leaf_head)" "previous leaf head"]
         :l  ["<Plug>(sexp_flow_to_prev_leaf_tail)" "previous leaf tail"]}
    "]" {"(" ["<Plug>(sexp_flow_to_next_open)" "next opening bracket"]
         ")" ["<Plug>(sexp_flow_to_next_close)" "next closing bracket"]
+        :e ["<Plug>(sexp_select_next_element)" "select next element"]
         :h  ["<Plug>(sexp_flow_to_next_leaf_head)" "next leaf head"]
         :l  ["<Plug>(sexp_flow_to_next_leaf_tail)" "next leaf tail"]}
    :w {:name "wrap"
@@ -79,10 +81,6 @@
            "]" ["<Plug>(sexp_square_tail_wrap_list)" "wrap form square tail"]
            "{" ["<Plug>(sexp_curly_head_wrap_list)" "wrap form curly head"]
            "}" ["<Plug>(sexp_curly_tail_wrap_list)" "wrap form curly tail"]}}})
-
-(def- keymaps-leader-nxo
-  {"[" {:e ["<Plug>(sexp_select_prev_element)" "select previous element"]}
-   "]" {:e ["<Plug>(sexp_select_next_element)" "select next element"]}})
 
 (def- insert-mode-mappings
   {"(" "<Plug>(sexp_insert_opening_round)"
@@ -105,11 +103,8 @@
       (which-key.register keymap {:buffer bufnr :mode mode}))
 
     (each [mode keymap (pairs {:n (lib.deep-merge keymaps-leader-n
-                                                  keymaps-leader-nx
-                                                  keymaps-leader-nxo)
-                               :x (lib.deep-merge keymaps-leader-nx
-                                                  keymaps-leader-nxo)
-                               :o keymaps-leader-nxo})]
+                                                  keymaps-leader-nx)
+                               :x keymaps-leader-nx})]
       (which-key.register keymap {:buffer bufnr
                                   :mode mode
                                   :prefix "<LocalLeader>"}))
