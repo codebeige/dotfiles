@@ -1,7 +1,13 @@
 (module plugins.unimpaired
-  {autoload {which-key which-key}})
+  {autoload {nvim aniseed.nvim
+             which-key which-key}})
+
+(def- ignored-mappings
+  ["<s" "<s<Esc>" ">s" ">s<Esc>"])
 
 (defn config []
+  (each [_ lhs (ipairs ignored-mappings)]
+    (nvim.del_keymap :n lhs))
   (which-key.register
     {"[" {"<C-L>" ["<Plug>(unimpaired-lpfile)" "Jump to previous file in location list"]
           "<C-Q>" ["<Plug>(unimpaired-cpfile)" "Previous file in quickfix list"]
