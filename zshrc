@@ -33,8 +33,8 @@ plugins=(
   coffee
   colored-man-pages
   colorize
-  copydir
   copyfile
+  copypath
   cp
   docker
   docker-compose
