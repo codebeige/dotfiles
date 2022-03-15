@@ -1,3 +1,3 @@
 {:dependencies
- [[cider/cider-nrepl "0.27.2"]
-  [refactor-nrepl/refactor-nrepl "3.1.0"]]}
+ [[cider/cider-nrepl "0.28.3"]
+  [refactor-nrepl/refactor-nrepl "3.5.1"]]}

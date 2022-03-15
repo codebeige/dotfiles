@@ -23,7 +23,7 @@ Session.vim
 .tmuxinator.yml
 .netrwhist
 /tmp/
-/.cpcache/
+.cpcache/
 /.lsp
 .cache/
 .clj-kondo/
