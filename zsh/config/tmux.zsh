@@ -15,3 +15,10 @@ alias mux=tmuxinator
 function tx() {
   tmux -CC new-session -A -s "${1-$PWD:t}"
 }
+
+TPM_ROOT="${TMUX_PLUGIN_MANAGER_PATH:=$HOME/.config/tmux/plugins/}tpm"
+if [[ ! -d $TPM_ROOT ]]; then
+  git clone https://github.com/tmux-plugins/tpm $TPM_ROOT
+  $TPM_ROOT/bin/install_plugins
+fi
+export TMUX_PLUGIN_MANAGER_PATH
