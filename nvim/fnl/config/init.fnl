@@ -24,6 +24,7 @@
                    :smartcase true
                    :tabstop 2
                    :termguicolors true
+                   :title true
                    :undofile true
                    :updatetime 500
                    :visualbell true})
