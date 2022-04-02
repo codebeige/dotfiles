@@ -42,6 +42,7 @@
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
     (use :tpope/vim-commentary)
+    (use :tpope/vim-eunuch)
     (use :tpope/vim-fugitive {:config (config :fugitive)})
     (use :tpope/vim-surround {:setup (setup :surround)})
     (use :tpope/vim-unimpaired {:after :which-key.nvim
