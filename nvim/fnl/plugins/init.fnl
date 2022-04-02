@@ -41,6 +41,7 @@
     (use :folke/which-key.nvim {:config (config :which-key)})
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
+    (use :chriskempson/base16-vim {:config (config :base16)})
     (use :tpope/vim-commentary)
     (use :tpope/vim-eunuch)
     (use :tpope/vim-fugitive {:config (config :fugitive)})

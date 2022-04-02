@@ -2,7 +2,7 @@
   {autoload {highlight lib.highlight}
    require-macros [lib.macros]})
 
-(defn- update-highlights []
+(defn update-highlights []
   (highlight.make-italic :Comment))
 
 (augroup :config_highlight

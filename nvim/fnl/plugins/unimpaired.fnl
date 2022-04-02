@@ -7,7 +7,7 @@
 
 (defn config []
   (each [_ lhs (ipairs ignored-mappings)]
-    (nvim.del_keymap :n lhs))
+    (pcall nvim.del_keymap :n lhs))
   (which-key.register
     {"[" {"<C-L>" ["<Plug>(unimpaired-lpfile)" "Jump to previous file in location list"]
           "<C-Q>" ["<Plug>(unimpaired-cpfile)" "Previous file in quickfix list"]

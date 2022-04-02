@@ -1,22 +1,20 @@
 # Config
 # ------
-function _fzf_default_opts_with_colors() {
-  local fzf_default_bindings=(
+function () {
+  local bindings=(
     ctrl-a:select-all
     ctrl-d:deselect-all
     ctrl-o:toggle-all
   )
-  local fzf_default_opts=(
-    $(cat $HOME/.base16_fzf_colors 2>/dev/null)
+  local opts=(
     --height=40%
     --layout=reverse
     --border
     --multi
-    --bind=${(j:,:)fzf_default_bindings}
+    --bind=${(j:,:)bindings}
   )
-  export FZF_DEFAULT_OPTS=$fzf_default_opts[*]
+  export FZF_DEFAULT_OPTS=$opts[*]
 }
-_fzf_default_opts_with_colors
 
 if (( $+commands[rg] )); then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'

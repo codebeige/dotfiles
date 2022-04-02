@@ -4,18 +4,12 @@
 [submodule "vim/bundle/default/salve"]
 	path = vim/bundle/default/salve
 	url = https://github.com/tpope/vim-salve.git
-[submodule "base16-shell"]
-	path = config/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule "nvim/pack/bundle/start/projectionist"]
 	path = nvim/pack/bundle/start/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
 [submodule "nvim/pack/bundle/start/vinegar"]
 	path = nvim/pack/bundle/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
-[submodule "nvim/pack/bundle/start/base16"]
-	path = nvim/pack/bundle/start/base16
-	url = https://github.com/chriskempson/base16-vim.git
 [submodule "nvim/pack/bundle/start/clojure-static"]
 	path = nvim/pack/bundle/start/clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
@@ -34,9 +28,6 @@
 [submodule "nvim/pack/bundle/opt/rainbow"]
 	path = nvim/pack/bundle/opt/rainbow
 	url = https://github.com/luochen1990/rainbow.git
-[submodule "config/base16-fzf"]
-	path = config/base16-fzf
-	url = https://github.com/nicodebo/base16-fzf.git
 [submodule "nvim/pack/bundle/opt/stylus"]
 	path = nvim/pack/bundle/opt/stylus
 	url = https://github.com/iloginow/vim-stylus.git
