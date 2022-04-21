@@ -4,7 +4,7 @@
              util lib.util}})
 
 (defn config []
-  (treesitter.setup {:ensure_installed "maintained"
+  (treesitter.setup {:ensure_installed :all
                      :highlight {:enable true}
                      :incremental_selection {:enable true
                                              :keymaps {:init_selection "gnn"
