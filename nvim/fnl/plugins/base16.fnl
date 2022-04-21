@@ -1,5 +1,6 @@
 (module plugins.base16
   {autoload {a aniseed.core
+             fwatch fwatch
              str aniseed.string
              nvim aniseed.nvim}})
 
@@ -11,9 +12,11 @@
     name (-> name str.trim (string.gsub "-256$" ""))
     _ :base16-tomorrow-night-eighties))
 
-(defn- update []
+(defn update []
   (let [name (current)]
-    (when (not= name vim.g.colors_name) (nvim.ex.colorscheme name))))
+    (when (not= name vim.g.colors_name)
+      (nvim.ex.colorscheme name))))
 
 (defn config []
-  (update))
+  (update)
+  (fwatch.watch colorscheme-file {:on_event (vim.schedule_wrap update)}))
