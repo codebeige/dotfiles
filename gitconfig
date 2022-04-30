@@ -46,7 +46,6 @@
 	user = codebeige
 [diff]
 	tool = vimdiff
-	external = difft
 [mergetool]
 	prompt = false
 	keepBackup = false
