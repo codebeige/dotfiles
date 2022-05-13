@@ -36,11 +36,15 @@
    :<S-Tab>   cmp.config.disable})
 
 (defn update-colorscheme []
-  (nvim.ex.highlight :link :CmpItemMenu :SpecialChar))
+  (nvim.ex.highlight! :link :CmpItemAbbr :Pmenu)
+  (nvim.ex.highlight! :link :CmpItemAbbrDeprecated :Pmenu)
+  (nvim.ex.highlight! :link :CmpItemAbbrMatch :Pmenu)
+  (nvim.ex.highlight! :link :CmpItemAbbrMatchFuzzy :Pmenu)
+  (nvim.ex.highlight! :link :CmpItemKind :Comment)
+  (nvim.ex.highlight! :link :CmpItemMenu :NonText))
 
 (defn config []
-  (cmp.setup {:experimental {:ghost_text true
-                             :native_menu false}
+  (cmp.setup {:experimental {:ghost_text true}
               :formatting {:fields [:abbr :kind :menu]
                            :format format}
               :mapping mapping
@@ -56,5 +60,6 @@
   (cmp.setup.cmdline :: {:sources [{:name "cmdline"}
                                    {:name "path"}]})
 
+  (update-colorscheme)
   (augroup :config_cmp
     (autocmd :ColorScheme "*" update-colorscheme)))
