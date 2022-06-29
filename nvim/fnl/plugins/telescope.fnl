@@ -39,7 +39,9 @@
 
   (which-key.register
     {:name "find"
+     "<CR>" (a.merge [":<C-U>Telescope " "Enter find command..."] {:silent false})
      :!     (map "command_history()" "Command history")
+     :*     (map "grep_string({word_match = '-w'})" "Find word")
      :/     (map "current_buffer_fuzzy_find()" "Search in buffer")
      :b     (map "buffers()" "Buffers")
      :f     (map "find_files()" "Files")
@@ -47,8 +49,10 @@
      :h     (map "help_tags()" "Help tags")
      :k     (map "keymaps()" "Keymaps")
      :o     (map "oldfiles()" "Oldfiles")
-     :t     (map "builtin" "Telescope pickers")
-     "<CR>" (map ":Telescope " "Enter find command..." {:silent false})}
+     :q     (map "quickfix()" "Quickfix List")
+     :r     (map "resume()" "Resume previous")
+     :t     ["<Cmd>Telescope<CR>" "Telescope pickers"]
+     :z     (map "grep_string({search = '', only_sort_text = true, prompt_title = 'Fuzzy Search'})" "Fuzzy text search")}
     {:prefix "<Leader>f"})
 
   (which-key.register
