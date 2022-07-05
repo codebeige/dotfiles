@@ -43,6 +43,7 @@
     (use :Olical/nvim-local-fennel)
     (use :chriskempson/base16-vim {:config (config :base16)
                                    :requires :rktjmp/fwatch.nvim})
+    (use :radenling/vim-dispatch-neovim {:requires [:tpope/vim-dispatch]})
     (use :tpope/vim-commentary)
     (use :tpope/vim-eunuch)
     (use :tpope/vim-fugitive {:config (config :fugitive)})
@@ -51,6 +52,8 @@
                                 :config (config :unimpaired)})
     (use :windwp/nvim-autopairs {:config (config :autopairs)})
     ; -------------------------------------------------------------------------
+    (use :clojure-vim/vim-jack-in {:after [:tpope/vim-dispatch
+                                           :radenling/vim-dispatch-neovim]})
     (use :guns/vim-sexp {:after :which-key.nvim
                          :ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
