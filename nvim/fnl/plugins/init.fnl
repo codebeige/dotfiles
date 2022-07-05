@@ -41,8 +41,8 @@
     (use :folke/which-key.nvim {:config (config :which-key)})
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
-    (use :chriskempson/base16-vim {:config (config :base16)
-                                   :requires :rktjmp/fwatch.nvim})
+    (use :base16-project/base16-vim {:config (config :base16)
+                                     :requires :rktjmp/fwatch.nvim})
     (use :radenling/vim-dispatch-neovim {:requires [:tpope/vim-dispatch]})
     (use :tpope/vim-commentary)
     (use :tpope/vim-eunuch)
