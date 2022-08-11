@@ -52,8 +52,8 @@
                                 :config (config :unimpaired)})
     (use :windwp/nvim-autopairs {:config (config :autopairs)})
     ; -------------------------------------------------------------------------
-    (use :clojure-vim/vim-jack-in {:after [:tpope/vim-dispatch
-                                           :radenling/vim-dispatch-neovim]})
+    (use :clojure-vim/vim-jack-in {:after [:vim-dispatch
+                                           :vim-dispatch-neovim]})
     (use :guns/vim-sexp {:after :which-key.nvim
                          :ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
@@ -62,4 +62,7 @@
                           :config (config :conjure)
                           :setup (setup :conjure)})
     ; -------------------------------------------------------------------------
-    (use :liuchengxu/graphviz.vim)))
+    (use :liuchengxu/graphviz.vim)
+    (use :pwntester/octo.nvim {:config (config :octo)
+                               :requires [:kyazdani42/nvim-web-devicons
+                                          :nvim-telescope/telescope.nvim]})))
