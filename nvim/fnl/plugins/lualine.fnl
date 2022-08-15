@@ -1,7 +1,8 @@
 (module plugins.lualine
   {autoload {lualine lualine
              nvim aniseed.nvim
-             util lib.util}})
+             util lib.util}
+   require [lualine.themes.base16-vim]})
 
 (def- fugitive-commit-name-regex
   (vim.regex "\\v^fugitive:%(//)=.{-}\\zs%(//|::)%(\\x{8}|[1-3])"))
@@ -31,7 +32,7 @@
 (defn config []
   (lualine.setup {:inactive_sections {:lualine_c [fugitive-commit-name :filename]}
                   :options {:icons_enabled false
-                            :theme "everforest"}
+                            :theme "base16-auto"}
                   :sections {:lualine_c [fugitive-commit-name :filename]}})
 
   (util.set-opts :o {:showmode false

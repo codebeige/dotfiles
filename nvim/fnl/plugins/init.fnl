@@ -42,8 +42,8 @@
     (use :kyazdani42/nvim-web-devicons)
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
-    (use :base16-project/base16-vim {:config (config :base16)
-                                     :requires :rktjmp/fwatch.nvim})
+    (use :RRethy/nvim-base16 {:config (config :base16)
+                              :requires :rktjmp/fwatch.nvim})
     (use :radenling/vim-dispatch-neovim {:requires [:tpope/vim-dispatch]})
     (use :tpope/vim-commentary)
     (use :tpope/vim-eunuch)
