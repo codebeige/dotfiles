@@ -7,9 +7,9 @@
    require-macros [lib.macros]})
 
 (defn update-colorscheme []
-  (nvim.ex.highlight :link :LspReferenceText :Visual)
-  (nvim.ex.highlight :link :LspReferenceRead :LspReferenceText)
-  (nvim.ex.highlight :link :LspReferenceWrite :LspReferenceText))
+  (nvim.ex.highlight! :link :LspReferenceText :Visual)
+  (nvim.ex.highlight! :link :LspReferenceRead :LspReferenceText)
+  (nvim.ex.highlight! :link :LspReferenceWrite :LspReferenceText))
 
 (def- capabilities
   (cmp-lsp.update_capabilities
@@ -18,6 +18,7 @@
 (defn config []
   (augroup :config_lspconfig
     (autocmd :ColorScheme "*" update-colorscheme))
+  (update-colorscheme)
   (let [opts {:capabilities capabilities
               :on_attach lsp.on-attach}]
     (clojure.setup opts)
