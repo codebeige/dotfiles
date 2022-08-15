@@ -39,6 +39,7 @@
     (use :nvim-telescope/telescope-ui-select.nvim)
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
     (use :folke/which-key.nvim {:config (config :which-key)})
+    (use :kyazdani42/nvim-web-devicons)
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
     (use :base16-project/base16-vim {:config (config :base16)
@@ -63,6 +64,6 @@
                           :setup (setup :conjure)})
     ; -------------------------------------------------------------------------
     (use :liuchengxu/graphviz.vim)
-    (use :pwntester/octo.nvim {:config (config :octo)
-                               :requires [:kyazdani42/nvim-web-devicons
-                                          :nvim-telescope/telescope.nvim]})))
+    (use :pwntester/octo.nvim {:after [:nvim-web-devicons
+                                       :telescope.nvim]
+                               :config (config :octo)})))
