@@ -1,8 +1,7 @@
 (module plugins.lualine
   {autoload {lualine lualine
              nvim aniseed.nvim
-             util lib.util}
-   require [lualine.themes.base16-vim]})
+             util lib.util}})
 
 (def- fugitive-commit-name-regex
   (vim.regex "\\v^fugitive:%(//)=.{-}\\zs%(//|::)%(\\x{8}|[1-3])"))
