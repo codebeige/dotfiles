@@ -30,12 +30,12 @@
        :e ["<Plug>(sexp_outer_element)" "around element"]
        :f ["<Plug>(sexp_outer_list)" "a form"]
        :F ["<Plug>(sexp_outer_top_list)" "a root form"]
-       :s ["<Plug>(sexp_outer_string)" "a string"]}
+       :s ["a\"" "around string"]}
    :i {:name "inside"
        :e ["<Plug>(sexp_inner_element)" "inner element"]
        :f ["<Plug>(sexp_inner_list)" "inner form"]
        :F ["<Plug>(sexp_inner_top_list)" "inner root form"]
-       :s ["<Plug>(sexp_inner_string)" "inner string"]}})
+       :s ["i\"" "inner string"]}})
 
 (def- keymaps-nxo
   {"[" {"[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
