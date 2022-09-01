@@ -4,7 +4,11 @@
              sexp plugins.sexp}})
 
 (def- disabled-filetypes
-  (a.concat ["TelescopePrompt"] sexp.filetypes))
+  (a.concat ["" ; disable when filetype is unknown (e.g., during setup)
+             "TelescopePrompt"
+             "cmp_menu"
+             "spectre_panel"]
+            sexp.filetypes))
 
 (defn config []
   (autopairs.setup {:check_ts true
