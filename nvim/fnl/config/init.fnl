@@ -29,6 +29,9 @@
                    :updatetime 500
                    :visualbell true})
 
+(set vim.g.did_load_filetypes 0)
+(set vim.g.do_filetype_lua 1)
+
 (when (nvim.fn.executable "rg")
   (util.set-opts :o {:grepprg "rg --vimgrep --no-heading --smart-case"
                      :grepformat "%f:%l:%c:%m"}))
