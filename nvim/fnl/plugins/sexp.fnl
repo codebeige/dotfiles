@@ -2,7 +2,6 @@
   {autoload {lib lib.core
              nvim aniseed.nvim
              str aniseed.string
-             util lib.util
              which-key which-key}
    require-macros [lib.macros]})
 
@@ -110,9 +109,9 @@
                                   :prefix "<LocalLeader>"}))
 
     (each [lhs rhs (pairs insert-mode-mappings)]
-      (util.bmap! bufnr "i" lhs rhs {:noremap false}))))
+      (vim.keymap.set :i lhs rhs {:buffer true :remap true :silent true}))))
 
 (defn setup []
-  (util.set-opts :g:sexp_ {:filetypes ""})
+  (set vim.g.sexp_filetypes "")
   (augroup :plugins_sexp
     (autocmd :FileType (str.join "," filetypes) register-keymaps)))

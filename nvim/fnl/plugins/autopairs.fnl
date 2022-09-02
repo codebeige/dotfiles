@@ -5,9 +5,7 @@
 
 (def- disabled-filetypes
   (a.concat ["" ; disable when filetype is unknown (e.g., during setup)
-             "TelescopePrompt"
-             "cmp_menu"
-             "spectre_panel"]
+             "TelescopePrompt"]
             sexp.filetypes))
 
 (defn config []
