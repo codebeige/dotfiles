@@ -50,7 +50,7 @@
          :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]}}
     {:prefix "<LocalLeader>" :buffer bufnr :mode "v"})
 
-  (if client.resolved_capabilities.document_highlight
+  (if client.server_capabilities.documentHighlightProvider
     (augroup (string.format "lib_lsp_%d" bufnr)
       (nvim.ex.autocmd :CursorHold  "<buffer>" "lua vim.lsp.buf.document_highlight()")
       (nvim.ex.autocmd :CursorHoldI "<buffer>" "lua vim.lsp.buf.document_highlight()")
