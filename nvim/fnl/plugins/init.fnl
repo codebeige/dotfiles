@@ -14,6 +14,7 @@
     ; =========================================================================
     (use :Olical/aniseed)
     (use :wbthomason/packer.nvim)
+    (use :folke/which-key.nvim {:config (config :which-key)})
     ; =========================================================================
     (use :nvim-treesitter/nvim-treesitter {:config (config :treesitter)
                                            :run ":TSUpdate"})
@@ -31,14 +32,12 @@
                                        :PaterJason/cmp-conjure
                                        :saadparwaiz1/cmp_luasnip]})
     (use :nvim-telescope/telescope.nvim {:after [:telescope-fzf-native.nvim
-                                                 :telescope-ui-select.nvim
-                                                 :which-key.nvim]
+                                                 :telescope-ui-select.nvim]
                                          :config (config :telescope)
                                          :requires [:nvim-lua/plenary.nvim]})
     (use :nvim-telescope/telescope-fzf-native.nvim {:run "make"})
     (use :nvim-telescope/telescope-ui-select.nvim)
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
-    (use :folke/which-key.nvim {:config (config :which-key)})
     (use :kyazdani42/nvim-web-devicons)
     ; -------------------------------------------------------------------------
     (use :Olical/nvim-local-fennel)
@@ -49,18 +48,15 @@
     (use :tpope/vim-eunuch)
     (use :tpope/vim-fugitive {:config (config :fugitive)})
     (use :tpope/vim-surround {:setup (setup :surround)})
-    (use :tpope/vim-unimpaired {:after :which-key.nvim
-                                :config (config :unimpaired)})
+    (use :tpope/vim-unimpaired {:config (config :unimpaired)})
     (use :windwp/nvim-autopairs {:config (config :autopairs)})
     ; -------------------------------------------------------------------------
     (use :clojure-vim/vim-jack-in {:after [:vim-dispatch
                                            :vim-dispatch-neovim]})
-    (use :guns/vim-sexp {:after :which-key.nvim
-                         :ft sexp.filetypes
+    (use :guns/vim-sexp {:ft sexp.filetypes
                          :requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
-    (use :Olical/conjure {:after :which-key.nvim
-                          :config (config :conjure)
+    (use :Olical/conjure {:config (config :conjure)
                           :setup (setup :conjure)})
     ; -------------------------------------------------------------------------
     (use :liuchengxu/graphviz.vim)

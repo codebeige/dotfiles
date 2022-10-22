@@ -32,6 +32,7 @@ end
 local function init ()
   gh_install('wbthomason', 'packer.nvim')
   gh_install('Olical', 'aniseed')
+  gh_install('folke', 'which-key.nvim')
   if pristine_env then ex('redraw') end
 end
 
