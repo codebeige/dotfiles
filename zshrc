@@ -29,8 +29,8 @@ ZSH_CUSTOM=$HOME/.zsh/config
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
   vi-mode
+  asdf-direnv
   base16-kitty
-  coffee
   colored-man-pages
   colorize
   copyfile
