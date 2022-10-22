@@ -12,8 +12,7 @@
   (nvim.ex.highlight! :link :LspReferenceWrite :LspReferenceText))
 
 (def- capabilities
-  (cmp-lsp.update_capabilities
-    (vim.lsp.protocol.make_client_capabilities)))
+  (cmp-lsp.default_capabilities))
 
 (defn config []
   (augroup :config_lspconfig
