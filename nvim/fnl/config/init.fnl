@@ -29,6 +29,7 @@
                    :updatetime 500
                    :visualbell true})
 
+(set vim.g.python3_host_prog "/usr/local/opt/python/libexec/bin/python")
 (set vim.g.loaded_perl_provider 0)
 (set vim.g.did_load_filetypes 0)
 (set vim.g.do_filetype_lua 1)
