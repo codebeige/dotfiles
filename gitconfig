@@ -8,6 +8,7 @@
 [user]
 	name = Tibor Claassen
 	email = tc@codebeige.net
+	signingkey = ~/.ssh/id_ed25519
 [alias]
 	aa = add --all
 	amend = commit --amend
@@ -61,3 +62,9 @@
 	rebase = true
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
