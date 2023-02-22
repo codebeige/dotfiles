@@ -30,7 +30,7 @@
 
   (which-key.register
     {:b {:name "buffer"
-         := ["<Cmd>lua vim.lsp.buf.formatting()<CR>" "Format buffer"]
+         := ["<Cmd>lua vim.lsp.buf.format{async=true}<CR>" "Format buffer"]
          :d ["<Cmd>lua vim.diagnostic.setloclist()<CR>" "List diagnostics"]}
      :f {:name "find"
          :d ["<Cmd>lua require('telescope.builtin').diagnostics()<CR>" "Diagnostics"]
