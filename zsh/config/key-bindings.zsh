@@ -1,5 +1,4 @@
-bindkey -M viins '^ä' vi-cmd-mode
-bindkey -M viins '^_' insert-last-word
+bindkey -M viins '^[' vi-cmd-mode
 
 bindkey -M vicmd k vi-up-line-or-history
 bindkey -M vicmd j vi-down-line-or-history
@@ -16,4 +15,3 @@ bindkey '^?' backward-delete-char
 bindkey "^[[3~" delete-char
 bindkey "^[3;5~" delete-char
 bindkey "\e[3~" delete-char
-
