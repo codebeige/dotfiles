@@ -40,6 +40,7 @@
 	staged = diff --cached
 [push]
 	default = simple
+	autoSetupRemote = true
 [merge]
 	tool = nvim
 	conflictstyle = diff3
