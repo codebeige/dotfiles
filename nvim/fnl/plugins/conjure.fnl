@@ -102,7 +102,7 @@
                       {:prefix prefix
                        :buffer (nvim.get_current_buf)}))
 
-(defn register-keymap-hy-scheme []
+(defn register-keymap-scheme []
   (which-key.register {:c {:name "connection"
                            :s "Start REPL"
                            :S "Stop REPL"}}
