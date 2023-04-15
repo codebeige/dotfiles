@@ -2,6 +2,7 @@
   {autoload {nvim aniseed.nvim
              util lib.util}
    require [config.diagnostic
+            config.fennel
             config.highlight
             config.mappings
             plugins.init]})
