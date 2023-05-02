@@ -1,6 +1,7 @@
 (module config.init
   {autoload {nvim aniseed.nvim
-             util lib.util}
+             util lib.util
+             scratch codebeige.scratch}
    require [config.diagnostic
             config.fennel
             config.highlight
@@ -39,3 +40,5 @@
 (when (nvim.fn.executable "rg")
   (util.set-opts :o {:grepprg "rg --vimgrep --no-heading --smart-case"
                      :grepformat "%f:%l:%c:%m"}))
+
+(scratch.init)
