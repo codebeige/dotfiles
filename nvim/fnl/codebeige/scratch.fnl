@@ -13,6 +13,9 @@
     (vim.api.nvim_buf_set_var :scratch_buffer_name name)
     (vim.api.nvim_buf_set_option :filetype filetype)))
 
+(defn delete-buffer [buffer]
+  (vim.api.nvim_buf_delete buffer {:force true}))
+
 (defn new-window [buffer {: count : mods}]
   (vim.cmd.split {: mods})
   (when (< 0 count)
@@ -21,38 +24,39 @@
       (vim.api.nvim_win_set_height 0 count)))
   (vim.api.nvim_win_set_buf 0 buffer))
 
-(defn toggle-window [buffer {: count : mods}]
-  (case (vim.fn.win_findbuf buffer)
-    [] (new-window buffer )))
+(defn close-windows [windows]
+  (each [_ w (ipairs windows)]
+    (vim.api.nvim_win_close w true)))
 
-
-(defn- infer-filetype [name]
-  (or (vim.filetype.match {:filename name})
-      (vim.api.nvim_buf_get_option 0 :filetype)))
+(defn toggle-window [name {: count : filetype : mods : purge?}]
+  (let [buffer (find-buffer name)
+        windows (vim.fn.win_findbuf buffer)]
+    (when (and buffer purge?)
+      (delete-buffer buffer))
+    (if (vim.tbl_isempty windows)
+      (let [buffer (or (if (not purge?) buffer)
+                       (create-buffer name filetype))]
+        (new-window buffer {: count : mods}))
+      (when (not purge?)
+        (close-windows windows)))))
 
 (defn init []
   (vim.api.nvim_create_user_command
     :Scratch
-    (fn [{: count :fargs [name filetype & more] :smods mods}]
+    (fn [{: bang : count :fargs [name filetype & more] :smods mods}]
       (assert (vim.tbl_isempty more) "Too many arguments for command: Scratch")
-      (let [name (or name "scratch")
-            buffer (or (find-buffer name)
-                       (create-buffer name (or filetype
-                                               (infer-filetype name)
-                                               "text")))]
-        (case (vim.fn.win_findbuf buffer)
-          [nil] (new-window buffer {: count : mods})
-          windows (each [_ w (ipairs windows)]
-                    (vim.api.nvim_win_close w true)))))
+      (let [name (or name "scratch")]
+        (toggle-window name
+                       {: count
+                        :filetype (or filetype
+                                      (vim.filetype.match {:filename name})
+                                      (vim.api.nvim_buf_get_option 0 :filetype)
+                                      "text")
+                        : mods
+                        :purge? bang})))
     {:bang true
      :count 0
      :nargs :*}))
 
 (comment
   (init))
-
-; :Scratch -> toggle [scratch] with current filetype
-; :Scratch! -> toggle & wipe buffer
-; :Scratch foo -> toggle scratch window with [foo]
-; :Scratch foo.clj -> toggle [foo.clj] with filetype clojure
-; :belowright 20Scratch -> split with mods
