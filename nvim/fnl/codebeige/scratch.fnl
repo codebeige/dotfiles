@@ -22,7 +22,15 @@
     (if (. mods :vertical)
       (vim.api.nvim_win_set_width 0 count)
       (vim.api.nvim_win_set_height 0 count)))
-  (vim.api.nvim_win_set_buf 0 buffer))
+  (vim.api.nvim_win_set_buf 0 buffer)
+  (case (pcall vim.api.nvim_buf_get_var buffer :scratch_buffer_view)
+    (true view) (vim.fn.winrestview view)))
+
+(defn save-layout [buffer window]
+  (vim.api.nvim_buf_set_var
+    buffer
+    :scratch_buffer_view
+    (vim.api.nvim_win_call window vim.fn.winsaveview)))
 
 (defn close-windows [windows]
   (each [_ w (ipairs windows)]
@@ -30,14 +38,15 @@
 
 (defn toggle-window [name {: count : filetype : mods : purge?}]
   (let [buffer (find-buffer name)
-        windows (vim.fn.win_findbuf buffer)]
+        [window &as windows] (vim.fn.win_findbuf buffer)]
     (when (and buffer purge?)
       (delete-buffer buffer))
-    (if (vim.tbl_isempty windows)
+    (if (not window)
       (let [buffer (or (if (not purge?) buffer)
                        (create-buffer name filetype))]
         (new-window buffer {: count : mods}))
       (when (not purge?)
+        (save-layout buffer window)
         (close-windows windows)))))
 
 (defn init []
@@ -57,6 +66,3 @@
     {:bang true
      :count 0
      :nargs :*}))
-
-(comment
-  (init))
