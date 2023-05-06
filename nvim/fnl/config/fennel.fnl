@@ -13,6 +13,7 @@
                                   :group group
                                   :once true
                                   :pattern "fennel"}))
+  (vim.cmd.digraph :fn 955)
   true)
 
 (defonce- loaded? (init))
