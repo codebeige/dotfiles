@@ -22,7 +22,7 @@
                                             "TSPlaygroundToggle"]})
     (use :neovim/nvim-lspconfig {:after [:nvim-cmp :telescope.nvim]
                                  :config (config :lspconfig)})
-    (use :L3MON4D3/LuaSnip {:config (config :luasnip)})
+    (use :L3MON4D3/LuaSnip)
     (use :hrsh7th/nvim-cmp {:after [:LuaSnip :nvim-treesitter]
                             :config (config :cmp)
                             :requires [:hrsh7th/cmp-buffer
