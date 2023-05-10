@@ -59,6 +59,9 @@
     (use :Olical/conjure {:config (config :conjure)
                           :setup (setup :conjure)})
     ; -------------------------------------------------------------------------
+    (use :junegunn/vim-easy-align {:as :easy-align
+                                   :requires [:tpope/vim-repeat]
+                                   :config (config :easy-align)})
     (use :liuchengxu/graphviz.vim)
     (use :pwntester/octo.nvim {:after [:nvim-web-devicons
                                        :telescope.nvim]
