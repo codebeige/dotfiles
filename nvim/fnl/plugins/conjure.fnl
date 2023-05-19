@@ -3,8 +3,7 @@
              nvim aniseed.nvim
              str aniseed.string
              util lib.util
-             which-key which-key}
-   require-macros [lib.macros]})
+             which-key which-key}})
 
 (def prefix "<LocalLeader>")
 
@@ -110,10 +109,30 @@
                        :buffer (nvim.get_current_buf)}))
 
 (defn config []
-  (augroup :plugins_conjure_debug
-    (autocmd :FileType (str.join "," (a.get vim.g "conjure#filetypes")) register-keymap)
-    (autocmd :FileType "clojure" register-keymap-clojure)
-    (autocmd :FileType "fennel" register-keymap-fennel)
-    (autocmd :FileType "lisp,janet" register-keymap-lisp-janet)
-    (autocmd :FileType "hy,racket" register-keymap-hy-racket)
-    (autocmd :FileType "scheme" register-keymap-scheme)))
+  (let [g (vim.api.nvim_create_augroup *module-name* {:clear true})]
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern (str.join "," (a.get vim.g "conjure#filetypes"))
+       :callback register-keymap
+       :group g})
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern "clojure" :callback register-keymap-clojure :group g})
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern "fennel" :callback register-keymap-fennel :group g})
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern ["janet" "lisp"] :callback register-keymap-lisp-janet :group g})
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern ["hy" "racket"] :callback register-keymap-hy-racket :group g})
+    (vim.api.nvim_create_autocmd
+      :FileType
+      {:pattern "scheme" :callback register-keymap-scheme :group g})
+    (vim.api.nvim_create_autocmd
+      :BufEnter
+      {:pattern "conjure-log-*"
+       :callback (fn [{: buf}]
+                   (vim.diagnostic.disable buf))
+       :group g})))
