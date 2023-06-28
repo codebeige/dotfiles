@@ -2,7 +2,9 @@
   {autoload {loader lualine.utils.loader}})
 
 (defn- theme-name []
-  (string.gsub vim.g.colors_name "^base16%-" ""))
+  (case vim.g.colors_name
+    nil "auto"
+    theme (string.gsub vim.g.colors_name "^base16%-" "")))
 
 (defn- make-theme []
   (let [bg       (.. :# vim.g.base16_gui01)
