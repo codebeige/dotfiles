@@ -56,4 +56,9 @@
       (nvim.ex.autocmd :CursorHoldI "<buffer>" "lua vim.lsp.buf.document_highlight()")
       (nvim.ex.autocmd :CursorMoved "<buffer>" "lua vim.lsp.buf.clear_references()")))
 
+  (let [g (vim.api.nvim_create_augroup :lsp-on-attach {:clear true})]
+    (vim.api.nvim_create_autocmd :BufWritePre {:buffer 0
+                                               :callback #(vim.lsp.buf.format {:async false})
+                                               :group g}))
+
   (print (string.format "LSP ready. [%s]" (. client :name))))
