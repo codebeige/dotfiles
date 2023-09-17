@@ -13,7 +13,6 @@
 (util.set-opts :o {:colorcolumn "80"
                    :completeopt "menu,menuone,noselect"
                    :cursorline true
-                   :digraph true
                    :diffopt (.. "vertical," vim.o.diffopt)
                    :expandtab true
                    :ignorecase true
