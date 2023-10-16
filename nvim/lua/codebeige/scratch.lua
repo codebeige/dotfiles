@@ -1,15 +1,4 @@
-local _2afile_2a = "/Users/tc/.config/nvim/fnl/codebeige/scratch.fnl"
-local _2amodule_name_2a = "codebeige.scratch"
-local _2amodule_2a
-do
-  package.loaded[_2amodule_name_2a] = {}
-  _2amodule_2a = package.loaded[_2amodule_name_2a]
-end
-local _2amodule_locals_2a
-do
-  _2amodule_2a["aniseed/locals"] = {}
-  _2amodule_locals_2a = (_2amodule_2a)["aniseed/locals"]
-end
+-- [nfnl] Compiled from fnl/codebeige/scratch.fnl by https://github.com/Olical/nfnl, do not edit.
 local function find_buffer(name)
   local buffer = nil
   for _, b in ipairs(vim.api.nvim_list_bufs()) do
@@ -22,7 +11,6 @@ local function find_buffer(name)
   end
   return buffer
 end
-_2amodule_2a["find-buffer"] = find_buffer
 local function create_buffer(name, filetype)
   local _4_ = vim.api.nvim_create_buf(true, true)
   vim.api.nvim_buf_set_name(_4_, ("[" .. name .. "]"))
@@ -30,11 +18,9 @@ local function create_buffer(name, filetype)
   vim.api.nvim_buf_set_option(_4_, "filetype", filetype)
   return _4_
 end
-_2amodule_2a["create-buffer"] = create_buffer
 local function delete_buffer(buffer)
   return vim.api.nvim_buf_delete(buffer, {force = true})
 end
-_2amodule_2a["delete-buffer"] = delete_buffer
 local function new_window(buffer, _5_)
   local _arg_6_ = _5_
   local count = _arg_6_["count"]
@@ -57,18 +43,15 @@ local function new_window(buffer, _5_)
     return nil
   end
 end
-_2amodule_2a["new-window"] = new_window
 local function save_layout(buffer, window)
   return vim.api.nvim_buf_set_var(buffer, "scratch_buffer_view", vim.api.nvim_win_call(window, vim.fn.winsaveview))
 end
-_2amodule_2a["save-layout"] = save_layout
 local function close_windows(windows)
   for _, w in ipairs(windows) do
     vim.api.nvim_win_close(w, true)
   end
   return nil
 end
-_2amodule_2a["close-windows"] = close_windows
 local function toggle_window(name, _12_)
   local _arg_13_ = _12_
   local count = _arg_13_["count"]
@@ -103,7 +86,6 @@ local function toggle_window(name, _12_)
     end
   end
 end
-_2amodule_2a["toggle-window"] = toggle_window
 local function init()
   local function _22_(_19_)
     local _arg_20_ = _19_
@@ -120,5 +102,4 @@ local function init()
   end
   return vim.api.nvim_create_user_command("Scratch", _22_, {bang = true, count = 0, nargs = "*"})
 end
-_2amodule_2a["init"] = init
-return _2amodule_2a
+return {init = init}
