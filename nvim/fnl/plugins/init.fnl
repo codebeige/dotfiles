@@ -13,6 +13,7 @@
   (fn [use]
     ; =========================================================================
     (use :Olical/aniseed)
+    (use :Olical/nfnl)
     (use :wbthomason/packer.nvim)
     (use :folke/which-key.nvim {:config (config :which-key)})
     ; =========================================================================
