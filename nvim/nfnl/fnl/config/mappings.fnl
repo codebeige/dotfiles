@@ -1,6 +1,5 @@
-(module config.mappings
-  {autoload {a aniseed.core
-             which-key which-key}})
+(local which-key (require :which-key))
+(local nfnl (require :nfnl.core))
 
 (which-key.register
   {"<CR>" [":" "Enter command..."]
@@ -23,8 +22,8 @@
    :silent false})
 
 (which-key.register
-  {"<CR>" (a.merge [":" "Enter command..."] {:silent false})
-   :s (a.merge [":s/" "Substitute in selection..."] {:silent false})}
+  {"<CR>" (nfnl.merge [":" "Enter command..."] {:silent false})
+   :s (nfnl.merge [":s/" "Substitute in selection..."] {:silent false})}
   {:prefix "<Leader>"
    :mode "x"})
 

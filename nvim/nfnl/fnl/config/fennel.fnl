@@ -1,6 +1,6 @@
-(module config.fennel)
+(var loaded? false)
 
-(defn update-syntax []
+(fn update-syntax []
   (let [patterns vim.g.fennel_fuzzy_indent_patterns]
     (table.insert patterns "^with-")
     (table.insert patterns "^doto$")
@@ -8,7 +8,7 @@
     (table.insert patterns "^faccumulate$")
     (set vim.g.fennel_fuzzy_indent_patterns patterns)))
 
-(defn- init []
+(fn init []
   (let [group (vim.api.nvim_create_augroup :config.fennel {:clear true})]
     (vim.api.nvim_create_autocmd :FileType
                                  {:callback update-syntax
@@ -18,4 +18,4 @@
   (vim.cmd.digraph :fn 955)
   true)
 
-(defonce- loaded? (init))
+(set loaded? (init))

@@ -1,14 +1,14 @@
-(module config.init
-  {autoload {nvim aniseed.nvim
-             util lib.util
-             scratch codebeige.scratch}
-   require [config.diagnostic
-            config.fennel
-            config.highlight
-            config.mappings
-            plugins.init]})
+(local {: autoload} (require :nfnl.module))
+(local util (autoload :lib.util))
+(local scratch (autoload :codebeige.scratch))
 
-(nvim.ex.language "en_US.UTF-8")
+(require :config.diagnostic)
+(require :config.fennel)
+(require :config.highlight)
+(require :config.mappings)
+(require :plugins.init)
+
+(vim.cmd.language "en_US.UTF-8")
 
 (util.set-opts :o {:colorcolumn "80"
                    :completeopt "menu,menuone,noselect"
@@ -37,7 +37,7 @@
 (set vim.g.did_load_filetypes 0)
 (set vim.g.do_filetype_lua 1)
 
-(when (nvim.fn.executable "rg")
+(when (vim.fn.executable "rg")
   (util.set-opts :o {:grepprg "rg --vimgrep --no-heading --smart-case"
                      :grepformat "%f:%l:%c:%m"}))
 
