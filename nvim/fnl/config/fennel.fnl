@@ -4,6 +4,8 @@
   (let [patterns vim.g.fennel_fuzzy_indent_patterns]
     (table.insert patterns "^with-")
     (table.insert patterns "^doto$")
+    (table.insert patterns "^fcollect$")
+    (table.insert patterns "^faccumulate$")
     (set vim.g.fennel_fuzzy_indent_patterns patterns)))
 
 (defn- init []
