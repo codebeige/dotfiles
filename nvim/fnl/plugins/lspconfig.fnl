@@ -1,6 +1,7 @@
 (module plugins.lspconfig
   {autoload {clojure lsp.clojure
              cmp-lsp cmp_nvim_lsp
+             fennel lsp.fennel
              lsp lsp.shared
              nvim aniseed.nvim
              vscode lsp.vscode}
@@ -21,4 +22,5 @@
   (let [opts {:capabilities capabilities
               :on_attach lsp.on-attach}]
     (clojure.setup opts)
-    (vscode.setup opts)))
+    (vscode.setup opts)
+    (fennel.setup opts)))
