@@ -4,3 +4,5 @@
 
 (defsnippet "lipsum"
   (s.t "Lorem ipsum dolor sic amet"))
+
+(print :SNIPPETS)

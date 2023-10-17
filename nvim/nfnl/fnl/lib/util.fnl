@@ -1,6 +1,6 @@
 (local {: autoload} (require :nfnl.module))
-(local nfnl (require :nfnl.core))
-(local str (require :nfnl.string))
+(local nfnl (autoload :nfnl.core))
+(local str (autoload :nfnl.string))
 
 (fn set-opts [prefix opts]
   (each [k v (pairs opts)]

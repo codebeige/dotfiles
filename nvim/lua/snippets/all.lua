@@ -5,4 +5,5 @@ local function _1_(...)
   return s.defsnippet("all", ...)
 end
 defsnippet = _1_
-return defsnippet("lipsum", s.t("Lorem ipsum dolor sic amet"))
+defsnippet("lipsum", s.t("Lorem ipsum dolor sic amet"))
+return print("SNIPPETS")

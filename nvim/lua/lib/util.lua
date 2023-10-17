@@ -1,8 +1,8 @@
 -- [nfnl] Compiled from fnl/lib/util.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
-local nfnl = require("nfnl.core")
-local str = require("nfnl.string")
+local nfnl = autoload("nfnl.core")
+local str = autoload("nfnl.string")
 local function set_opts(prefix, opts)
   for k, v in pairs(opts) do
     local _let_2_ = str.split(prefix, ":")
