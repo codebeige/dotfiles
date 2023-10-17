@@ -1,14 +1,14 @@
 (module plugins.cmp
   {autoload {a aniseed.core
              cmp cmp
-             luasnip luasnip
+             snippy snippy
              nvim aniseed.nvim}
    require-macros [lib.macros]})
 
 (def- labels {:buffer   "b"
               :cmdline  "q"
               :conjure  "c"
-              :luasnip  "s"
+              :snippy  "s"
               :nvim_lsp "l"
               :path     "p"})
 
@@ -32,8 +32,8 @@
   (if (cmp.visible)
       (cmp.select_next_item)
 
-      (luasnip.expand_or_jumpable)
-      (luasnip.expand_or_jump)
+      (snippy.can_expand_or_advance)
+      (snippy.expand_or_advance)
 
       (completable?)
       (cmp.complete)
@@ -44,8 +44,8 @@
   (if (cmp.visible)
       (cmp.select_prev_item)
 
-      (luasnip.jumpable -1)
-      (luasnip.jump -1)
+      (snippy.can_jump -1)
+      (snippy.previous)
 
       (f)))
 
@@ -59,8 +59,8 @@
    :<C-D>     (cmp.mapping (cmp.mapping.scroll_docs 5) [:i :c])
    :<C-U>     (cmp.mapping (cmp.mapping.scroll_docs -5)  [:i :c])
    :<Tab>     (cmp.mapping smart-next [:i :s])
-   :<S-Tab>   (cmp.mapping smart-prev [:i :s])})
-
+   :<S-Tab>   (cmp.mapping smart-prev [:i :s])
+   })
 (defn update-colorscheme []
   (nvim.ex.highlight! :link :CmpItemAbbr :Pmenu)
   (nvim.ex.highlight! :link :CmpItemAbbrDeprecated :Pmenu)
@@ -74,8 +74,8 @@
               :formatting {:fields [:abbr :kind :menu]
                            :format format}
               :mapping mapping
-              :snippet {:expand (fn [{: body}] (luasnip.lsp_expand body))}
-              :sources [{:name "luasnip"}
+              :snippet {:expand (fn [{: body}] (snippy.expand_snippet body))}
+              :sources [{:name "snippy"}
                         {:name "buffer"}
                         {:name "nvim_lsp"}
                         {:name "conjure"}

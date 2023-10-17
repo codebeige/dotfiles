@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/Users/tc/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   aniseed = {
     loaded = true,
     path = "/Users/tc/.local/share/nvim/site/pack/packer/start/aniseed",
@@ -115,10 +110,10 @@ _G.packer_plugins = {
     path = "/Users/tc/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  cmp_luasnip = {
+  ["cmp-snippy"] = {
     loaded = true,
-    path = "/Users/tc/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    path = "/Users/tc/.local/share/nvim/site/pack/packer/start/cmp-snippy",
+    url = "https://github.com/dcampos/cmp-snippy"
   },
   conjure = {
     config = { "require('plugins.conjure').config()" },
@@ -181,6 +176,11 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/tc/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-snippy"] = {
+    loaded = true,
+    path = "/Users/tc/.local/share/nvim/site/pack/packer/start/nvim-snippy",
+    url = "https://github.com/dcampos/nvim-snippy"
   },
   ["nvim-treesitter"] = {
     after = { "nvim-cmp" },
@@ -313,10 +313,6 @@ time([[Setup for conjure]], false)
 time([[packadd for conjure]], true)
 vim.cmd [[packadd conjure]]
 time([[packadd for conjure]], false)
--- Setup for: vim-sexp
-time([[Setup for vim-sexp]], true)
-require('plugins.sexp').setup()
-time([[Setup for vim-sexp]], false)
 -- Setup for: vim-surround
 time([[Setup for vim-surround]], true)
 require('plugins.surround').setup()
@@ -324,18 +320,22 @@ time([[Setup for vim-surround]], false)
 time([[packadd for vim-surround]], true)
 vim.cmd [[packadd vim-surround]]
 time([[packadd for vim-surround]], false)
+-- Setup for: vim-sexp
+time([[Setup for vim-sexp]], true)
+require('plugins.sexp').setup()
+time([[Setup for vim-sexp]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.lualine').config()
+time([[Config for lualine.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require('plugins.which-key').config()
+time([[Config for which-key.nvim]], false)
 -- Config for: conjure
 time([[Config for conjure]], true)
 require('plugins.conjure').config()
 time([[Config for conjure]], false)
--- Config for: vim-unimpaired
-time([[Config for vim-unimpaired]], true)
-require('plugins.unimpaired').config()
-time([[Config for vim-unimpaired]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require('plugins.autopairs').config()
-time([[Config for nvim-autopairs]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('plugins.treesitter').config()
@@ -344,10 +344,14 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for easy-align]], true)
 require('plugins.easy-align').config()
 time([[Config for easy-align]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require('plugins.which-key').config()
-time([[Config for which-key.nvim]], false)
+-- Config for: vim-unimpaired
+time([[Config for vim-unimpaired]], true)
+require('plugins.unimpaired').config()
+time([[Config for vim-unimpaired]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require('plugins.autopairs').config()
+time([[Config for nvim-autopairs]], false)
 -- Config for: base16-vim
 time([[Config for base16-vim]], true)
 require('plugins.base16').config()
@@ -356,15 +360,16 @@ time([[Config for base16-vim]], false)
 time([[Config for vim-fugitive]], true)
 require('plugins.fugitive').config()
 time([[Config for vim-fugitive]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.lualine').config()
-time([[Config for lualine.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd telescope-ui-select.nvim ]]
-vim.cmd [[ packadd nvim-web-devicons ]]
+vim.cmd [[ packadd nvim-cmp ]]
+
+-- Config for: nvim-cmp
+require('plugins.cmp').config()
+
 vim.cmd [[ packadd telescope-fzf-native.nvim ]]
+vim.cmd [[ packadd nvim-web-devicons ]]
+vim.cmd [[ packadd telescope-ui-select.nvim ]]
 vim.cmd [[ packadd telescope.nvim ]]
 
 -- Config for: telescope.nvim
@@ -375,20 +380,14 @@ vim.cmd [[ packadd octo.nvim ]]
 -- Config for: octo.nvim
 require('plugins.octo').config()
 
-vim.cmd [[ packadd vim-dispatch ]]
-vim.cmd [[ packadd vim-dispatch-neovim ]]
-vim.cmd [[ packadd vim-jack-in ]]
-vim.cmd [[ packadd LuaSnip ]]
-vim.cmd [[ packadd nvim-cmp ]]
-
--- Config for: nvim-cmp
-require('plugins.cmp').config()
-
 vim.cmd [[ packadd nvim-lspconfig ]]
 
 -- Config for: nvim-lspconfig
 require('plugins.lspconfig').config()
 
+vim.cmd [[ packadd vim-dispatch-neovim ]]
+vim.cmd [[ packadd vim-dispatch ]]
+vim.cmd [[ packadd vim-jack-in ]]
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
@@ -413,11 +412,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType timl ++once lua require("packer.load")({'vim-sexp'}, { ft = "timl" }, _G.packer_plugins)]]
 vim.cmd [[au FileType clojure ++once lua require("packer.load")({'vim-sexp'}, { ft = "clojure" }, _G.packer_plugins)]]
 vim.cmd [[au FileType fennel ++once lua require("packer.load")({'vim-sexp'}, { ft = "fennel" }, _G.packer_plugins)]]
-vim.cmd [[au FileType scheme ++once lua require("packer.load")({'vim-sexp'}, { ft = "scheme" }, _G.packer_plugins)]]
+vim.cmd [[au FileType timl ++once lua require("packer.load")({'vim-sexp'}, { ft = "timl" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lisp ++once lua require("packer.load")({'vim-sexp'}, { ft = "lisp" }, _G.packer_plugins)]]
+vim.cmd [[au FileType scheme ++once lua require("packer.load")({'vim-sexp'}, { ft = "scheme" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
