@@ -1,0 +1,4 @@
+/nvim/lua/
+/nvim/nfnl/lua/
+/nvim/pack/
+packer_compiled.lua

@@ -1,11 +1,11 @@
-(module config.highlight
-  {autoload {highlight lib.highlight}
-   require-macros [lib.macros]})
+(local highlight (require :lib.highlight))
 
-(defn update-highlights []
+(fn update-highlights []
   (highlight.make-italic :Comment))
 
-(augroup :config_highlight
-  (autocmd :ColorScheme "*" update-highlights))
+(let [g (vim.api.nvim_create_augroup :config_highlight {:clear true})]
+  (vim.api.nvim_create_autocmd :ColorScheme {:group g
+                                             :pattern "*"
+                                             :callback update-highlights}))
 
 (update-highlights)

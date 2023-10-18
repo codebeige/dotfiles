@@ -1,13 +1,10 @@
-(module plugins.sexp
-  {autoload {lib lib.core
-             nvim aniseed.nvim
-             str aniseed.string
-             which-key which-key}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local lib (autoload :lib.core))
+(local which-key (autoload :which-key))
 
-(def filetypes [:clojure :fennel :scheme :lisp :timl])
+(local filetypes [:clojure :fennel :scheme :lisp :timl])
 
-(def- keymaps-n
+(local keymaps-n
   {:= {:name "indent"
        := ["<Plug>(sexp_indent)" "indent form"]
        :- ["<Plug>(sexp_indent_top)" "indent root form"]}
@@ -24,7 +21,7 @@
        :f  ["<Plug>(sexp_swap_list_forward)" "swap form forward"]
        :I  ["<Plug>(sexp_insert_at_list_tail)" "insert at form tail"]}})
 
-(def- keymaps-xo
+(local keymaps-xo
   {:a {:name "around"
        :e ["<Plug>(sexp_outer_element)" "around element"]
        :f ["<Plug>(sexp_outer_list)" "a form"]
@@ -36,7 +33,7 @@
        :F ["<Plug>(sexp_inner_top_list)" "inner root form"]
        :s ["i\"" "inner string"]}})
 
-(def- keymaps-nxo
+(local keymaps-nxo
   {"[" {"[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
    "]" {"]" ["<Plug>(sexp_move_to_next_top_element)" "next root"]}
    "(" ["<Plug>(sexp_move_to_prev_bracket)" "previous bracket"]
@@ -46,7 +43,7 @@
    :gE ["<Plug>(sexp_move_to_prev_element_tail)" "previous element tail"]
    :E  ["<Plug>(sexp_move_to_next_element_tail)" "next element tail"]})
 
-(def- keymaps-leader-n
+(local keymaps-leader-n
   {:x {:name "transform"
        :d ["<Plug>(sexp_splice_list)" "splice form"]
        :o {:name "raise"
@@ -54,7 +51,7 @@
            :f ["<Plug>(sexp_raise_list)" "raise form"]}
        :s ["<Plug>(sexp_convolute)" "convolute surrounding forms"]}})
 
-(def- keymaps-leader-nx
+(local keymaps-leader-nx
   {"[" {"(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
             ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
         :e ["<Plug>(sexp_select_prev_element)" "select previous element"]
@@ -81,7 +78,7 @@
            "{" ["<Plug>(sexp_curly_head_wrap_list)" "wrap form curly head"]
            "}" ["<Plug>(sexp_curly_tail_wrap_list)" "wrap form curly tail"]}}})
 
-(def- insert-mode-mappings
+(local insert-mode-mappings
   {"(" "<Plug>(sexp_insert_opening_round)"
    "[" "<Plug>(sexp_insert_opening_square)"
    "{" "<Plug>(sexp_insert_opening_curly)"
@@ -91,8 +88,8 @@
    "\"" "<Plug>(sexp_insert_double_quote)"
    "<BS>" "<Plug>(sexp_insert_backspace)"})
 
-(defn register-keymaps [args]
-  (let [bufnr (nvim.get_current_buf)]
+(fn register-keymaps [args]
+  (let [bufnr (vim.api.nvim_get_current_buf)]
     (each [mode keymap (pairs {:n (lib.deep-merge keymaps-n
                                                   keymaps-nxo)
                                :x (lib.deep-merge keymaps-xo
@@ -111,7 +108,12 @@
     (each [lhs rhs (pairs insert-mode-mappings)]
       (vim.keymap.set :i lhs rhs {:buffer true :remap true :silent true}))))
 
-(defn setup []
+(fn setup []
   (set vim.g.sexp_filetypes "")
-  (augroup :plugins_sexp
-    (autocmd :FileType (str.join "," filetypes) register-keymaps)))
+  (let [g (vim.api.nvim_create_augroup :plugins_sexp {:clear true})]
+    (vim.api.nvim_create_autocmd :FileType {:callback register-keymaps
+                                            :group g
+                                            :pattern filetypes})))
+
+{: filetypes
+ : setup}

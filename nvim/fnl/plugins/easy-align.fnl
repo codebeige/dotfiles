@@ -1,11 +1,11 @@
-(module plugins.easy-align
-  {autoload {which-key which-key}})
+(local {: autoload} (require :nfnl.module))
+(local which-key (autoload :which-key))
 
-(def- motion-maps
+(local motion-maps
   {:ga ["<Plug>(EasyAlign)" "align"]
    :gA ["<Plug>(LiveEasyAlign)" "align with preview"]})
 
-(defn config []
+(fn config []
   (which-key.register motion-maps)
   (which-key.register motion-maps {:mode :x})
   (which-key.register
@@ -37,3 +37,5 @@
     {:mode :x
      :noremap false
      :prefix "<Leader>a"}))
+
+{: config}

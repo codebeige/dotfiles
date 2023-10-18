@@ -1,25 +1,26 @@
-(module plugins.fugitive
-  {autoload {a aniseed.core
-             str aniseed.string
-             which-key which-key}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local nfnl (autoload :nfnl.core))
+(local str (autoload :nfnl.string))
+(local which-key (autoload :which-key))
 
-(defn delete-on-close []
+(fn delete-on-close []
   (set vim.bo.bufhidden :delete))
 
-(defn- cmd [...]
+(fn cmd [...]
   (string.format "<Cmd>%s<CR>" (str.join "<bar>" [...])))
 
-(def fetch-all "Git fetch --all --prune --prune-tags --jobs=10 --quiet")
-(def push-all "Git push --tags --delete --quiet")
+(local fetch-all "Git fetch --all --prune --prune-tags --jobs=10 --quiet")
+(local push-all "Git push --tags --delete --quiet")
 
-(defn config []
-  (augroup :plugins_fugitive
-    (autocmd :BufReadPost "fugitive://*" delete-on-close))
+(fn config []
+  (let [g (vim.api.nvim_create_augroup :plugins_fugitive {:clear true})]
+    (vim.api.nvim_create_autocmd :BufReadPost {:callback delete-on-close
+                                               :group g
+                                               :pattern "fugitive://*"}))
 
   (which-key.register
     {:name "git"
-     "<CR>" (a.merge [":Git " "Enter git command..."] {:silent false})
+     "<CR>" (nfnl.merge [":Git " "Enter git command..."] {:silent false})
      :g [(cmd "Git") "Git status"]
      :b [":Git blame<CR>" "Git blame"]
      :F [(cmd fetch-all) "Git fetch all"]
@@ -40,3 +41,5 @@
      :u [(cmd "Git reset HEAD~1") "Undo last commit"]
      :U [(cmd "Git reset --hard HEAD~1") "Discard last commit"]}
     {:prefix "<Leader>g"}))
+
+{: config}

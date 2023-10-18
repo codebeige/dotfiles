@@ -1,19 +1,18 @@
-(module plugins.conjure
-  {autoload {a aniseed.core
-             nvim aniseed.nvim
-             str aniseed.string
-             util lib.util
-             which-key which-key}})
+(local {: autoload} (require :nfnl.module))
+(local nfnl (autoload :nfnl.core))
+(local str (autoload :nfnl.string))
+(local util (autoload :lib.util))
+(local which-key (autoload :which-key))
 
-(def prefix "<LocalLeader>")
+(local prefix "<LocalLeader>")
 
-(defn setup []
+(fn setup []
   (util.set-opts :g:conjure#
                  {:eval#gsubs {:do-comment ["^%(comment[%s%c]" "(do "]}
                   :mapping#doc_word "ed"
                   :mapping#prefix prefix}))
 
-(defn register-keymap []
+(fn register-keymap []
   (which-key.register {:l {:name "log"
                            :e "Open log in current buffer"
                            :g "Toggle log"
@@ -40,13 +39,13 @@
                            :w "Evaluate word"}
                        :gd "Jump to definition"}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)})
+                       :buffer (vim.api.nvim_get_current_buf)})
   (which-key.register {:E "Evaluate selection"}
                       {:prefix prefix
                        :mode :v
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn register-keymap-clojure []
+(fn register-keymap-clojure []
   (which-key.register {:c {:name "connection"
                            :d "Disconnect from nREPL server"
                            :f "Connect via nREPL port file"}
@@ -76,43 +75,43 @@
                            :c "Clear namespace refresh cache"
                            :r "Refresh all changed namespaces"}}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn register-keymap-fennel []
+(fn register-keymap-fennel []
   (which-key.register {:c {:name "connection"
                            :s "Start REPL"
                            :S "Stop REPL"}
                        :eF "Reload current file"}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn register-keymap-lisp-janet []
+(fn register-keymap-lisp-janet []
   (which-key.register {:c {:name "connection"
                            :c "Connect to REPL"
                            :d "Disconnect from REPL"}}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn register-keymap-hy-racket []
+(fn register-keymap-hy-racket []
   (which-key.register {:c {:name "connection"
                            :s "Start REPL"
                            :S "Stop REPL"}
                        :ei "Interrupt evaluation"}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn register-keymap-scheme []
+(fn register-keymap-scheme []
   (which-key.register {:c {:name "connection"
                            :s "Start REPL"
                            :S "Stop REPL"}}
                       {:prefix prefix
-                       :buffer (nvim.get_current_buf)}))
+                       :buffer (vim.api.nvim_get_current_buf)}))
 
-(defn config []
-  (let [g (vim.api.nvim_create_augroup *module-name* {:clear true})]
+(fn config []
+  (let [g (vim.api.nvim_create_augroup :plugins_conjure_config {:clear true})]
     (vim.api.nvim_create_autocmd
       :FileType
-      {:pattern (str.join "," (a.get vim.g "conjure#filetypes"))
+      {:pattern (str.join "," (nfnl.get vim.g "conjure#filetypes"))
        :callback register-keymap
        :group g})
     (vim.api.nvim_create_autocmd
@@ -136,3 +135,6 @@
        :callback (fn [{: buf}]
                    (vim.diagnostic.disable buf))
        :group g})))
+
+{: config
+ : setup}

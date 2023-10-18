@@ -1,26 +1,28 @@
-(module lsp.shared
-  {autoload {a aniseed.core
-             nvim aniseed.nvim
-             util lib.util
-             which-key which-key}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local util (autoload :lib.util))
+(local which-key (autoload :which-key))
+(local telescope (autoload :telescope.builtin))
 
-(defn- format-range []
-  (with-restore-view
-    (vim.lsp.buf.range_formatting
-      {}
-      (nvim.buf_get_mark 0 "[")
-      (nvim.buf_get_mark 0 "]"))))
+(fn format-range []
+  (let [view (vim.fn.winsaveview)]
+    (pcall #(vim.lsp.buf.range_formatting
+              {}
+              (vim.api.nvim_buf_get_mark 0 "[")
+              (vim.api.nvim_buf_get_mark 0 "]")))
+    (vim.fn.restview view)))
 
-(defn format-move []
-  (set-operatorfunc format-range))
+(fn format-move []
+  (set vim.g.__operatorfunc (fn []
+                              (pcall format-range)
+                              (set vim.g.__operatorfunc nil)))
+  (set vim.o.operatorfunc :v:lua.__operatorfunc))
 
-(defn on-attach [client bufnr]
+(fn on-attach [client bufnr]
   (which-key.register
-    {"<C-]>" ["<Cmd>lua vim.lsp.buf.definition()<CR>" "Jump to definition"]
-     :K ["<Cmd>lua vim.lsp.buf.hover()<CR>" "Show documentation"]
-     "[" {:d ["<Cmd>lua vim.diagnostic.goto_prev()<CR>" "Previous diagnostic"]}
-     "]" {:d ["<Cmd>lua vim.diagnostic.goto_next()<CR>" "Next diagnostic"]}}
+    {"<C-]>" [#(vim.lsp.buf.definition) "Jump to definition"]
+     :K [#(vim.lsp.buf.hover) "Show documentation"]
+     "[" {:d [#(vim.diagnostic.goto_prev) "Previous diagnostic"]}
+     "]" {:d [#(vim.diagnostic.goto_next) "Next diagnostic"]}}
     {:buffer bufnr})
 
   (which-key.register
@@ -31,32 +33,37 @@
   (which-key.register
     {:b {:name "buffer"
          := ["<Cmd>lua vim.lsp.buf.format{async=true}<CR>" "Format buffer"]
-         :d ["<Cmd>lua vim.diagnostic.setloclist()<CR>" "List diagnostics"]}
+         :d [#(vim.diagnostic.setloclist) "List diagnostics"]}
      :f {:name "find"
-         :d ["<Cmd>lua require('telescope.builtin').diagnostics()<CR>" "Diagnostics"]
-         :r ["<Cmd>lua require('telescope.builtin').lsp_references()<CR>" "References"]
-         :s ["<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>" "Document symbols"]
-         :S ["<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>" "Workspace symbols"]}
+         :d [#(telescope.diagnostics) "Diagnostics"]
+         :r [#(telescope.lsp_references) "References"]
+         :s [#(telescope.lsp_document_symbols) "Document symbols"]
+         :S [#(telescope.lsp_workspace_symbols) "Workspace symbols"]}
      :v {:name "view"
-         :d ["<Cmd>lua vim.diagnostic.open_float()<CR>" "View diagnostics"]
-         :h ["<Cmd>lua vim.lsp.buf.signature_help()<CR>" "Signature help"]}
+         :d [#(vim.diagnostic.open_float) "View diagnostics"]
+         :h [#(vim.lsp.buf.signature_help) "Signature help"]}
      :q {:name "format"
          :q ["<Cmd>lua require('lsp.shared')['format-move']()<CR>g@" "Format lines motion"]}
      :x {:name "transform"
-         :r ["<Cmd>lua vim.lsp.buf.rename()<CR>" "Rename symbol..."]
-         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]}}
+         :r [#(vim.lsp.buf.rename) "Rename symbol..."]
+         :x [#(vim.lsp.buf.code_action) "Code action..."]}}
     {:prefix "<LocalLeader>" :buffer bufnr})
 
   (which-key.register
     {:x {:name "transform"
-         :x ["<Cmd>lua vim.lsp.buf.code_action()<CR>" "Code action..."]}}
+         :x [#(vim.lsp.buf.code_action) "Code action..."]}}
     {:prefix "<LocalLeader>" :buffer bufnr :mode "v"})
 
   (if client.server_capabilities.documentHighlightProvider
-    (augroup (string.format "lib_lsp_%d" bufnr)
-      (nvim.ex.autocmd :CursorHold  "<buffer>" "lua vim.lsp.buf.document_highlight()")
-      (nvim.ex.autocmd :CursorHoldI "<buffer>" "lua vim.lsp.buf.document_highlight()")
-      (nvim.ex.autocmd :CursorMoved "<buffer>" "lua vim.lsp.buf.clear_references()")))
+    (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" bufnr))]
+      (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
+                                   {:buffer true
+                                    :callback #(vim.lsp.buf.document_highlight)
+                                    :group g})
+      (vim.api.nvim_create_autocmd :CursorMoved
+                                   {:buffer true
+                                    :callback #(vim.lsp.buf.clear_references)
+                                    :group g})))
 
   (let [g (vim.api.nvim_create_augroup :lsp-on-attach {:clear true})]
     (vim.api.nvim_create_autocmd :BufWritePre {:buffer 0
@@ -64,3 +71,6 @@
                                                :group g}))
 
   (print (string.format "LSP ready. [%s]" (. client :name))))
+
+{: format-move
+ : on-attach}

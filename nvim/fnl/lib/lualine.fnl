@@ -1,12 +1,12 @@
-(module lib.lualine
-  {autoload {loader lualine.utils.loader}})
+(local {: autoload} (require :nfnl.module))
+(local loader (autoload :lualine.utils.loader))
 
-(defn- theme-name []
+(fn theme-name []
   (case vim.g.colors_name
     nil "auto"
     theme (string.gsub vim.g.colors_name "^base16%-" "")))
 
-(defn- make-theme []
+(fn make-theme []
   (let [bg       (.. :# vim.g.base16_gui01)
         alt_bg   (.. :# vim.g.base16_gui02)
         dark_fg  (.. :# vim.g.base16_gui03)
@@ -34,7 +34,9 @@
                 :b {:fg dark_fg :bg bg}
                 :c {:fg dark_fg :bg bg}}}))
 
-(defn get-theme []
+(fn get-theme []
   (case (pcall loader.load_theme (theme-name))
     (true theme) theme
     _ (make-theme)))
+
+{: get-theme}

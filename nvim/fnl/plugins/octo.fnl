@@ -1,6 +1,7 @@
+(local {: autoload} (require :nfnl.module))
+(local octo (autoload :octo))
 
-(module plugins.octo
-  {autoload {octo octo}})
-
-(defn config []
+(fn config []
   (octo.setup))
+
+{: config}

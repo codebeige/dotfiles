@@ -1,9 +1,7 @@
-(module plugins.treesitter
-  {autoload {nvim aniseed.nvim
-             treesitter nvim-treesitter.configs
-             util lib.util}})
+(local {: autoload} (require :nfnl.module))
+(local treesitter (autoload :nvim-treesitter.configs))
 
-(defn config []
+(fn config []
   (treesitter.setup {:ensure_installed [:bash
                                         :clojure
                                         :comment
@@ -17,7 +15,6 @@
                                         :gitcommit
                                         :gitignore
                                         :graphql
-                                        :help
                                         :html
                                         :java
                                         :javascript
@@ -54,6 +51,8 @@
 
                      :indent {:enable true}})
 
-  (util.set-opts :o {:foldmethod "expr"
-                     :foldexpr "nvim_treesitter#foldexpr()"
-                     :foldenable false}))
+  (set vim.o.foldmethod :expr)
+  (set vim.o.foldexpr "nvim_treesitter#foldexpr()")
+  (set vim.o.foldenable false))
+
+{: config}

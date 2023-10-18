@@ -1,22 +1,20 @@
-(module codebeige.scratch)
-
-(defn find-buffer [name]
+(fn find-buffer [name]
   (var buffer nil)
   (each [_ b (ipairs (vim.api.nvim_list_bufs)) &until buffer]
     (match (pcall vim.api.nvim_buf_get_var b :scratch_buffer_name)
       (true name) (set buffer b)))
   buffer)
 
-(defn create-buffer [name filetype]
+(fn create-buffer [name filetype]
   (doto (vim.api.nvim_create_buf true true)
     (vim.api.nvim_buf_set_name (.. "[" name "]"))
     (vim.api.nvim_buf_set_var :scratch_buffer_name name)
     (vim.api.nvim_buf_set_option :filetype filetype)))
 
-(defn delete-buffer [buffer]
+(fn delete-buffer [buffer]
   (vim.api.nvim_buf_delete buffer {:force true}))
 
-(defn new-window [buffer {: count : mods}]
+(fn new-window [buffer {: count : mods}]
   (vim.cmd.split {: mods})
   (when (< 0 count)
     (if (. mods :vertical)
@@ -26,17 +24,17 @@
   (case (pcall vim.api.nvim_buf_get_var buffer :scratch_buffer_view)
     (true view) (vim.fn.winrestview view)))
 
-(defn save-layout [buffer window]
+(fn save-layout [buffer window]
   (vim.api.nvim_buf_set_var
     buffer
     :scratch_buffer_view
     (vim.api.nvim_win_call window vim.fn.winsaveview)))
 
-(defn close-windows [windows]
+(fn close-windows [windows]
   (each [_ w (ipairs windows)]
     (vim.api.nvim_win_close w true)))
 
-(defn toggle-window [name {: count : filetype : mods : purge?}]
+(fn toggle-window [name {: count : filetype : mods : purge?}]
   (let [buffer (find-buffer name)
         [window &as windows] (vim.fn.win_findbuf buffer)]
     (when (and buffer purge?)
@@ -49,7 +47,7 @@
         (save-layout buffer window)
         (close-windows windows)))))
 
-(defn init []
+(fn init []
   (vim.api.nvim_create_user_command
     :Scratch
     (fn [{: bang : count :fargs [name filetype & more] :smods mods}]
@@ -66,3 +64,5 @@
     {:bang true
      :count 0
      :nargs :*}))
+
+{: init}

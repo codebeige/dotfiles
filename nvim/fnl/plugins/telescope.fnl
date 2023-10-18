@@ -1,13 +1,11 @@
-(module plugins.telescope
-  {autoload {actions telescope.actions
-             a aniseed.core
-             telescope telescope
-             themes telescope.themes
-             util lib.util
-             which-key which-key}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local actions (autoload :telescope.actions))
+(local nfnl (autoload :nfnl.core))
+(local telescope (autoload :telescope))
+(local themes (autoload :telescope.themes))
+(local which-key (autoload :which-key))
 
-(def- telescope-mappings
+(local telescope-mappings
   {:<C-A> actions.toggle_all
    :<C-H> actions.which_key
    :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
@@ -16,15 +14,15 @@
    :<C-K> actions.cycle_history_prev
    :<M-q> false})
 
-(defn- map [cmd label opts]
-  (a.merge [(string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)
-            label]
-           opts))
+(fn map [cmd label opts]
+  (nfnl.merge [(string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)
+               label]
+              opts))
 
-(defn init-prompt []
-  (util.set-opts :b {:lexima_disabled true}))
+(fn init-prompt []
+  (set vim.b.lexima_disabled true))
 
-(defn config []
+(fn config []
   (telescope.setup
     {:defaults {:mappings {:i telescope-mappings
                            :n telescope-mappings}}
@@ -39,7 +37,7 @@
 
   (which-key.register
     {:name "find"
-     "<CR>" (a.merge [":<C-U>Telescope " "Enter find command..."] {:silent false})
+     "<CR>" (nfnl.merge [":<C-U>Telescope " "Enter find command..."] {:silent false})
      :!     (map "command_history()" "Command history")
      :*     (map "grep_string({word_match = '-w'})" "Find word")
      :/     (map "current_buffer_fuzzy_find()" "Search in buffer")
@@ -66,5 +64,9 @@
          :s     (map "git_stash()" "Git stash")}}
     {:prefix "<Leader>g"})
 
-  (augroup :plugins_telescope
-    (autocmd :FileType "TelescopePrompt" init-prompt)))
+  (let [g (vim.api.nvim_create_augroup :plugins_telescope {:clear true})]
+    (vim.api.nvim_create_autocmd :FileType {:callback init-prompt
+                                            :group g
+                                            :pattern :TelescopePrompt})))
+
+{: config}

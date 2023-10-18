@@ -1,25 +1,25 @@
-(module config.diagnostic
-  {autoload {highlight lib.highlight
-             nvim aniseed.nvim}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local highlight (autoload :lib.highlight))
 
-(def- signs {:Error "!"
-             :Warn  "*"
-             :Info  "~"
-             :Hint  "?"})
+(local signs {:Error "!"
+              :Warn  "*"
+              :Info  "~"
+              :Hint  "?"})
 
 (each [s t (pairs signs)]
   (let [name (.. :DiagnosticSign s)]
     (vim.fn.sign_define name {:text (.. " " t) :texthl name :numhl name})))
 
-(defn update-highlights []
+(fn update-highlights []
   (highlight.make-italic :DiagnosticError)
   (highlight.make-italic :DiagnosticWarn)
   (highlight.make-italic :DiagnosticInfo)
   (highlight.make-italic :DiagnosticHint))
 
-(augroup :config_diagnostic
-  (autocmd :ColorScheme "*" update-highlights))
+(let [g (vim.api.nvim_create_augroup :config_diagnostic {:clear true})]
+  (vim.api.nvim_create_autocmd :ColorScheme {:group g
+                                             :pattern "*"
+                                             :callback update-highlights}))
 
 (update-highlights)
 

@@ -1,24 +1,25 @@
-(module plugins.lspconfig
-  {autoload {clojure lsp.clojure
-             cmp-lsp cmp_nvim_lsp
-             lsp lsp.shared
-             nvim aniseed.nvim
-             vscode lsp.vscode}
-   require-macros [lib.macros]})
+(local {: autoload} (require :nfnl.module))
+(local clojure (autoload :lsp.clojure))
+(local cmp-lsp (autoload :cmp_nvim_lsp))
+(local vscode (autoload :lsp.vscode))
+(local {: on_attach} (autoload :lsp.shared))
 
-(defn update-colorscheme []
-  (nvim.ex.highlight! :link :LspReferenceText :Visual)
-  (nvim.ex.highlight! :link :LspReferenceRead :LspReferenceText)
-  (nvim.ex.highlight! :link :LspReferenceWrite :LspReferenceText))
-
-(def- capabilities
+(local capabilities
   (cmp-lsp.default_capabilities))
 
-(defn config []
-  (augroup :config_lspconfig
-    (autocmd :ColorScheme "*" update-colorscheme))
+(fn update-colorscheme []
+  (vim.api.nvim_set_hl 0 :LspReferenceText {:link :Visual})
+  (vim.api.nvim_set_hl 0 :LspReferenceRead {:link :LspReferenceText})
+  (vim.api.nvim_set_hl 0 :LspReferenceWrite {:link :LspReferenceText}))
+
+(fn config []
+  (let [g (vim.api.nvim_create_augroup :config_lspconfig {:clear true})]
+    (vim.api.nvim_create_autocmd :ColorScheme {:callback update-colorscheme
+                                               :group g
+                                               :pattern "*"}))
   (update-colorscheme)
-  (let [opts {:capabilities capabilities
-              :on_attach lsp.on-attach}]
+  (let [opts {: capabilities : on_attach}]
     (clojure.setup opts)
     (vscode.setup opts)))
+
+{: config}

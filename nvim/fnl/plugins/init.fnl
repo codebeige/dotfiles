@@ -1,19 +1,19 @@
-(module plugins.init
-  {autoload {conjure config.conjure
-             packer lib.packer
-             sexp plugins.sexp}})
+(local packer (require :packer))
 
-(defn- setup [name]
+(fn use [location opts]
+  (packer.use (doto (or opts []) (table.insert 1 location))))
+
+(fn setup [name]
   (string.format "require('plugins.%s').setup()" name))
 
-(defn- config [name]
+(fn config [name]
   (string.format "require('plugins.%s').config()" name))
 
 (packer.startup
-  (fn [use]
+  (fn []
     ; =========================================================================
-    (use :Olical/aniseed)
     (use :wbthomason/packer.nvim)
+    (use :Olical/nfnl)
     (use :folke/which-key.nvim {:config (config :which-key)})
     ; =========================================================================
     (use :nvim-treesitter/nvim-treesitter {:config (config :treesitter)
@@ -22,15 +22,15 @@
                                             "TSPlaygroundToggle"]})
     (use :neovim/nvim-lspconfig {:after [:nvim-cmp :telescope.nvim]
                                  :config (config :lspconfig)})
-    (use :L3MON4D3/LuaSnip)
-    (use :hrsh7th/nvim-cmp {:after [:LuaSnip :nvim-treesitter]
+    (use :dcampos/nvim-snippy)
+    (use :hrsh7th/nvim-cmp {:after [:nvim-treesitter]
                             :config (config :cmp)
                             :requires [:hrsh7th/cmp-buffer
                                        :hrsh7th/cmp-cmdline
                                        :hrsh7th/cmp-nvim-lsp
                                        :hrsh7th/cmp-path
                                        :PaterJason/cmp-conjure
-                                       :saadparwaiz1/cmp_luasnip]})
+                                       :dcampos/cmp-snippy]})
     (use :nvim-telescope/telescope.nvim {:after [:telescope-fzf-native.nvim
                                                  :telescope-ui-select.nvim]
                                          :config (config :telescope)
@@ -40,7 +40,6 @@
     (use :nvim-lualine/lualine.nvim {:config (config :lualine)})
     (use :kyazdani42/nvim-web-devicons)
     ; -------------------------------------------------------------------------
-    (use :Olical/nvim-local-fennel)
     (use :base16-project/base16-vim {:config (config :base16)
                                      :requires :rktjmp/fwatch.nvim})
     (use :radenling/vim-dispatch-neovim {:requires [:tpope/vim-dispatch]})
@@ -53,8 +52,7 @@
     ; -------------------------------------------------------------------------
     (use :clojure-vim/vim-jack-in {:after [:vim-dispatch
                                            :vim-dispatch-neovim]})
-    (use :guns/vim-sexp {:ft sexp.filetypes
-                         :requires [:tpope/vim-repeat]
+    (use :guns/vim-sexp {:requires [:tpope/vim-repeat]
                          :setup (setup :sexp)})
     (use :Olical/conjure {:config (config :conjure)
                           :setup (setup :conjure)})

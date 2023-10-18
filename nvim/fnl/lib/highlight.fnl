@@ -1,23 +1,10 @@
-(module lib.highlight
-  {autoload {nvim aniseed.nvim
-             util aniseed.nvim.util}})
+(fn get-hl [name]
+  (case (vim.api.nvim_get_hl 0 {:name name})
+    {: link} (get-hl link)
+    hl hl))
 
-(defn- get-hl [name]
-  (let [(_ _ hl) (-> (partial nvim.ex.silent :highlight name)
-                     util.with-out-str
-                     (string.find "xxx (.*)\n"))]
-    (match (string.find hl "links to (%a+)")
-      nil hl
-      (_ _ n) (get-hl n))))
+(fn make-italic [name]
+  (let [hl (get-hl name)]
+    (vim.api.nvim_set_hl 0 name (collect [k v (pairs hl) &into {:italic true}] k v))))
 
-(defn- conj-val [vals v]
-  (if (string.find vals v) vals (.. vals "," v)))
-
-(defn- conj-hl [hl k v]
-  (let [prefix (.. k "=")]
-    (match (string.gsub hl (.. prefix "(%a+)") #(.. prefix (conj-val $ v)) 1)
-      (hl* 1) hl*
-      (hl* 0) (.. hl* " " prefix v))))
-
-(defn make-italic [name]
-  (nvim.ex.highlight name (-> name get-hl (conj-hl :gui :italic))))
+{: make-italic}

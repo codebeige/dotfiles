@@ -1,22 +1,24 @@
-(module plugins.base16
-  {autoload {a aniseed.core
-             fwatch fwatch
-             str aniseed.string
-             nvim aniseed.nvim}})
+(local {: autoload} (require :nfnl.module))
+(local fwatch (autoload :fwatch))
+(local nfnl (autoload :nfnl.core))
+(local str (autoload :nfnl.string))
 
-(def- colorscheme-file
-  (a.str (os.getenv :HOME) "/.colortheme"))
+(local colorscheme-file
+  (nfnl.str (os.getenv :HOME) "/.colortheme"))
 
-(defn- current []
-  (match (a.slurp colorscheme-file true)
+(fn current []
+  (match (nfnl.slurp colorscheme-file true)
     name (-> name str.trim (string.gsub "-256$" ""))
     _ :base16-tomorrow-night-eighties))
 
-(defn update []
+(fn update []
   (let [name (current)]
     (when (not= name vim.g.colors_name)
-      (nvim.ex.colorscheme name))))
+      (vim.cmd.colorscheme name))))
 
-(defn config []
+(fn config []
   (update)
   (fwatch.watch colorscheme-file {:on_event (vim.schedule_wrap update)}))
+
+{: update
+ : config}

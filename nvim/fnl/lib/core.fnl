@@ -1,9 +1,10 @@
-(module lib.core)
-
-(defn conj [t ...]
+(fn conj [t ...]
   (let [t* (or t [])]
     (each [_ v (ipairs [...])]
       (table.insert t* v))
     t*))
 
-(def deep-merge (partial vim.tbl_deep_extend "keep"))
+(local deep-merge (partial vim.tbl_deep_extend "keep"))
+
+{: conj
+ : deep-merge}

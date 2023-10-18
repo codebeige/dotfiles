@@ -1,44 +1,53 @@
-(module config.init
-  {autoload {nvim aniseed.nvim
-             util lib.util
-             scratch codebeige.scratch}
-   require [config.diagnostic
-            config.fennel
-            config.highlight
-            config.mappings
-            plugins.init]})
+(vim.cmd.language "en_US.UTF-8")
 
-(nvim.ex.language "en_US.UTF-8")
+(set vim.g.mapleader " ")
+(set vim.g.maplocalleader ",")
 
-(util.set-opts :o {:colorcolumn "80"
-                   :completeopt "menu,menuone,noselect"
-                   :cursorline true
-                   :diffopt (.. "vertical," vim.o.diffopt)
-                   :expandtab true
-                   :ignorecase true
-                   :inccommand "split"
-                   :listchars "tab:→ ,nbsp:•,extends:»,precedes:«"
-                   :mouse "a"
-                   :number true
-                   :numberwidth 4
-                   :shiftround true
-                   :shiftwidth 0
-                   :signcolumn "yes:1"
-                   :smartcase true
-                   :tabstop 2
-                   :termguicolors true
-                   :title true
-                   :undofile true
-                   :updatetime 500
-                   :visualbell true})
+(set vim.o.colorcolumn "80")
+(set vim.o.completeopt "menu,menuone,noselect")
+(set vim.o.cursorline true)
+(set vim.o.diffopt (.. "vertical," vim.o.diffopt))
+(set vim.o.expandtab true)
+(set vim.o.ignorecase true)
+(set vim.o.inccommand "split")
+(set vim.o.listchars "tab:→ ,nbsp:•,extends:»,precedes:«")
+(set vim.o.mouse "a")
+(set vim.o.number true)
+(set vim.o.numberwidth 4)
+(set vim.o.shiftround true)
+(set vim.o.shiftwidth 0)
+(set vim.o.signcolumn "yes:1")
+(set vim.o.smartcase true)
+(set vim.o.tabstop 2)
+(set vim.o.termguicolors true)
+(set vim.o.title true)
+(set vim.o.undofile true)
+(set vim.o.updatetime 500)
+(set vim.o.visualbell true)
 
 (set vim.g.python3_host_prog "/usr/local/opt/python/libexec/bin/python")
 (set vim.g.loaded_perl_provider 0)
-(set vim.g.did_load_filetypes 0)
-(set vim.g.do_filetype_lua 1)
 
-(when (nvim.fn.executable "rg")
-  (util.set-opts :o {:grepprg "rg --vimgrep --no-heading --smart-case"
-                     :grepformat "%f:%l:%c:%m"}))
+(when (vim.fn.executable "rg")
+  (set vim.o.grepprg "rg --vimgrep --no-heading --smart-case")
+  (set vim.o.grepformat "%f:%l:%c:%m"))
 
-(scratch.init)
+(require :plugins)
+
+(require :config.highlight)
+(require :config.diagnostic)
+(require :config.fennel)
+
+(var loaded false)
+
+(local {: autoload} (require :nfnl.module))
+(local scratch (autoload :codebeige.scratch))
+
+(fn init []
+  (when (not loaded?)
+    (scratch.init))
+  (set loaded? true))
+
+(init)
+
+{: init}

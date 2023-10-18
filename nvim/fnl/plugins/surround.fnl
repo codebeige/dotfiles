@@ -1,5 +1,4 @@
-(module plugins.surround
-  {autoload {util lib.util}})
+(fn setup []
+  (set vim.g.surround_no_insert_mappings true))
 
-(defn setup []
-  (util.set-opts :g:surround_ {:no_insert_mappings true}))
+{: setup}
