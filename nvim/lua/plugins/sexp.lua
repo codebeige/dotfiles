@@ -23,9 +23,9 @@ local function register_keymaps(args)
   end
   return nil
 end
-local function setup()
+local function init()
   vim.g.sexp_filetypes = ""
   local g = vim.api.nvim_create_augroup("plugins_sexp", {clear = true})
   return vim.api.nvim_create_autocmd("FileType", {callback = register_keymaps, group = g, pattern = filetypes})
 end
-return {filetypes = filetypes, setup = setup}
+return {"guns/vim-sexp", ft = filetypes, init = init}

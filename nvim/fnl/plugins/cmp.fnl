@@ -47,18 +47,6 @@
 
       (f)))
 
-(local mapping
-  {:<C-Space> (cmp.mapping toggle-cmp [:i :c])
-   :<C-N>     (cmp.mapping (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Insert}) [:i :c])
-   :<C-P>     (cmp.mapping (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Insert}) [:i :c])
-   :<CR>      (cmp.mapping (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert :select false}) [:i :c])
-   :<C-Y>     (cmp.mapping (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert :select true}) [:i :c])
-   :<C-E>     (cmp.mapping (cmp.mapping.abort) [:i :c])
-   :<C-D>     (cmp.mapping (cmp.mapping.scroll_docs 5) [:i :c])
-   :<C-U>     (cmp.mapping (cmp.mapping.scroll_docs -5)  [:i :c])
-   :<Tab>     (cmp.mapping smart-next [:i :s])
-   :<S-Tab>   (cmp.mapping smart-prev [:i :s])})
-
 (fn update-colorscheme []
   (vim.api.nvim_set_hl 0 :CmpItemAbbr {:link :Pmenu})
   (vim.api.nvim_set_hl 0 :CmpItemAbbrDeprecated {:link :Pmenu})
@@ -71,7 +59,16 @@
   (cmp.setup {:experimental {:ghost_text true}
               :formatting {:fields [:abbr :kind :menu]
                            :format format}
-              :mapping mapping
+              :mapping {:<C-Space> (cmp.mapping toggle-cmp [:i :c])
+                        :<C-N>     (cmp.mapping (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Insert}) [:i :c])
+                        :<C-P>     (cmp.mapping (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Insert}) [:i :c])
+                        :<CR>      (cmp.mapping (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert :select false}) [:i :c])
+                        :<C-Y>     (cmp.mapping (cmp.mapping.confirm {:behavior cmp.ConfirmBehavior.Insert :select true}) [:i :c])
+                        :<C-E>     (cmp.mapping (cmp.mapping.abort) [:i :c])
+                        :<C-D>     (cmp.mapping (cmp.mapping.scroll_docs 5) [:i :c])
+                        :<C-U>     (cmp.mapping (cmp.mapping.scroll_docs -5)  [:i :c])
+                        :<Tab>     (cmp.mapping smart-next [:i :s])
+                        :<S-Tab>   (cmp.mapping smart-prev [:i :s])}
               :snippet {:expand (fn [{: body}] (snippy.expand_snippet body))}
               :sources [{:name "snippy"}
                         {:name "buffer"}
@@ -90,4 +87,12 @@
                                                :pattern "*"}))
   (update-colorscheme))
 
-{: config}
+{1 :hrsh7th/nvim-cmp
+ : config
+ :dependencies [:Olical/conjure
+                :PaterJason/cmp-conjure
+                :dcampos/cmp-snippy
+                :hrsh7th/cmp-buffer
+                :hrsh7th/cmp-cmdline
+                :hrsh7th/cmp-nvim-lsp
+                :hrsh7th/cmp-path]}

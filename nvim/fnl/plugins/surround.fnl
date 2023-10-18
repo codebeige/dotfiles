@@ -1,4 +1,5 @@
-(fn setup []
+(fn init []
   (set vim.g.surround_no_insert_mappings true))
 
-{: setup}
+{1 :tpope/vim-surround
+ : init}

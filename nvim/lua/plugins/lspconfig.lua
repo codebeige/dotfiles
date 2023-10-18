@@ -22,4 +22,4 @@ local function config()
   clojure.setup(opts)
   return vscode.setup(opts)
 end
-return {config = config}
+return {"neovim/nvim-lspconfig", config = config, dependencies = {"hrsh7th/cmp-nvim-lsp"}}

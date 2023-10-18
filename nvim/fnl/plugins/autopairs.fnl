@@ -1,15 +1,14 @@
 (local {: autoload} (require :nfnl.module))
-(local nfnl (autoload :nfnl.core))
 (local autopairs (autoload :nvim-autopairs))
-(local sexp (autoload :plugins.sexp))
 
 (local disabled-filetypes
-  (nfnl.concat ["" ; disable when filetype is unknown (e.g., during setup)
-                "TelescopePrompt"]
-               sexp.filetypes))
+  ["" ; disable when filetype is unknown (e.g., during setup)
+   :TelescopePrompt
+   :clojure :fennel :scheme :lisp :timl])
 
 (fn config []
   (autopairs.setup {:check_ts true
                     :disable_filetype disabled-filetypes}))
 
-{: config}
+{1 :windwp/nvim-autopairs
+ : config}

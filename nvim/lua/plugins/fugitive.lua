@@ -20,4 +20,4 @@ local function config()
   end
   return which_key.register({name = "git", ["<CR>"] = nfnl.merge({":Git ", "Enter git command..."}, {silent = false}), g = {cmd("Git"), "Git status"}, b = {":Git blame<CR>", "Git blame"}, F = {cmd(fetch_all), "Git fetch all"}, l = {cmd("Git pull"), "Git pull"}, L = {cmd(fetch_all, "Git reset --hard HEAD", "Git merge @{u}"), "Git pull with reset"}, p = {cmd(push_all), "Git push"}, P = {cmd(str.join(" ", {fetch_all, "--force"})), "Git force push"}, s = {cmd(str.join(" ", {push_all, "--set-upstream", "origin", "HEAD"})), "Git push upstream"}, r = {cmd("Gread"), "Read from index"}, w = {cmd("Gwrite"), "Write to index"}, ["-"] = {cmd("Git add --all", string.format("Git commit --no-verify --no-gpg-sign --message '%s'", "--wip-- [skip ci]")), "Create WIP commit"}, u = {cmd("Git reset HEAD~1"), "Undo last commit"}, U = {cmd("Git reset --hard HEAD~1"), "Discard last commit"}}, {prefix = "<Leader>g"})
 end
-return {config = config}
+return {"tpope/vim-fugitive", config = config}

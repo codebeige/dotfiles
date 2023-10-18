@@ -55,4 +55,6 @@
   (set vim.o.foldexpr "nvim_treesitter#foldexpr()")
   (set vim.o.foldenable false))
 
-{: config}
+{1 :nvim-treesitter/nvim-treesitter
+ :build ::TSUpdate
+ :config true}

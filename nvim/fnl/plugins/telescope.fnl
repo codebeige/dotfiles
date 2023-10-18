@@ -5,15 +5,6 @@
 (local themes (autoload :telescope.themes))
 (local which-key (autoload :which-key))
 
-(local telescope-mappings
-  {:<C-A> actions.toggle_all
-   :<C-H> actions.which_key
-   :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
-   :<C-L> actions.close
-   :<C-J> actions.cycle_history_next
-   :<C-K> actions.cycle_history_prev
-   :<M-q> false})
-
 (fn map [cmd label opts]
   (nfnl.merge [(string.format "<Cmd>lua require('telescope.builtin').%s<CR>" cmd)
                label]
@@ -23,14 +14,21 @@
   (set vim.b.lexima_disabled true))
 
 (fn config []
-  (telescope.setup
-    {:defaults {:mappings {:i telescope-mappings
-                           :n telescope-mappings}}
-     :extensions {:fzf {:case_mode :smart_case
-                        :fuzzy true
-                        :override_file_sorter true
-                        :override_generic_sorter true}
-                  :ui-select (themes.get_cursor)}})
+  (let [telescope-mappings {:<C-A> actions.toggle_all
+                            :<C-H> actions.which_key
+                            :<C-Q> (+ actions.smart_send_to_qflist actions.open_qflist)
+                            :<C-L> actions.close
+                            :<C-J> actions.cycle_history_next
+                            :<C-K> actions.cycle_history_prev
+                            :<M-q> false}]
+    (telescope.setup
+      {:defaults {:mappings {:i telescope-mappings
+                             :n telescope-mappings}}
+       :extensions {:fzf {:case_mode :smart_case
+                          :fuzzy true
+                          :override_file_sorter true
+                          :override_generic_sorter true}
+                    :ui-select (themes.get_cursor)}}))
 
   (telescope.load_extension :fzf)
   (telescope.load_extension :ui-select)
@@ -69,4 +67,9 @@
                                             :group g
                                             :pattern :TelescopePrompt})))
 
-{: config}
+{1 :nvim-telescope/telescope.nvim
+ : config
+ :dependencies [:nvim-lua/plenary.nvim
+                :nvim-telescope/telescope-ui-select.nvim
+                {1 :nvim-telescope/telescope-fzf-native.nvim :build :make}]
+ :version "*"}

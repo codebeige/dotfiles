@@ -9,4 +9,4 @@ local function config()
   vim.o.foldenable = false
   return nil
 end
-return {config = config}
+return {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = true}

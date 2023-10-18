@@ -22,4 +22,6 @@
     (clojure.setup opts)
     (vscode.setup opts)))
 
-{: config}
+{1 :neovim/nvim-lspconfig
+ : config
+ :dependencies [:hrsh7th/cmp-nvim-lsp]}

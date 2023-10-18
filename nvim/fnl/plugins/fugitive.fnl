@@ -42,4 +42,5 @@
      :U [(cmd "Git reset --hard HEAD~1") "Discard last commit"]}
     {:prefix "<Leader>g"}))
 
-{: config}
+{1 :tpope/vim-fugitive
+ : config}

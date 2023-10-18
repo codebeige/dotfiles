@@ -41,7 +41,6 @@ local function smart_prev(f)
     return f()
   end
 end
-local mapping = {["<C-Space>"] = cmp.mapping(toggle_cmp, {"i", "c"}), ["<C-N>"] = cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {"i", "c"}), ["<C-P>"] = cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {"i", "c"}), ["<CR>"] = cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = false}), {"i", "c"}), ["<C-Y>"] = cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true}), {"i", "c"}), ["<C-E>"] = cmp.mapping(cmp.mapping.abort(), {"i", "c"}), ["<C-D>"] = cmp.mapping(cmp.mapping.scroll_docs(5), {"i", "c"}), ["<C-U>"] = cmp.mapping(cmp.mapping.scroll_docs(-5), {"i", "c"}), ["<Tab>"] = cmp.mapping(smart_next, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(smart_prev, {"i", "s"})}
 local function update_colorscheme()
   vim.api.nvim_set_hl(0, "CmpItemAbbr", {link = "Pmenu"})
   vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", {link = "Pmenu"})
@@ -56,7 +55,7 @@ local function config()
     local body = _arg_6_["body"]
     return snippy.expand_snippet(body)
   end
-  cmp.setup({experimental = {ghost_text = true}, formatting = {fields = {"abbr", "kind", "menu"}, format = format}, mapping = mapping, snippet = {expand = _7_}, sources = {{name = "snippy"}, {name = "buffer"}, {name = "nvim_lsp"}, {name = "conjure"}, {name = "path"}}})
+  cmp.setup({experimental = {ghost_text = true}, formatting = {fields = {"abbr", "kind", "menu"}, format = format}, mapping = {["<C-Space>"] = cmp.mapping(toggle_cmp, {"i", "c"}), ["<C-N>"] = cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {"i", "c"}), ["<C-P>"] = cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {"i", "c"}), ["<CR>"] = cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = false}), {"i", "c"}), ["<C-Y>"] = cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Insert, select = true}), {"i", "c"}), ["<C-E>"] = cmp.mapping(cmp.mapping.abort(), {"i", "c"}), ["<C-D>"] = cmp.mapping(cmp.mapping.scroll_docs(5), {"i", "c"}), ["<C-U>"] = cmp.mapping(cmp.mapping.scroll_docs(-5), {"i", "c"}), ["<Tab>"] = cmp.mapping(smart_next, {"i", "s"}), ["<S-Tab>"] = cmp.mapping(smart_prev, {"i", "s"})}, snippet = {expand = _7_}, sources = {{name = "snippy"}, {name = "buffer"}, {name = "nvim_lsp"}, {name = "conjure"}, {name = "path"}}})
   cmp.setup.cmdline("/", {sources = {{name = "buffer"}}})
   cmp.setup.cmdline(":", {sources = {{name = "cmdline"}, {name = "path"}}})
   do
@@ -65,4 +64,4 @@ local function config()
   end
   return update_colorscheme()
 end
-return {config = config}
+return {"hrsh7th/nvim-cmp", config = config, dependencies = {"Olical/conjure", "PaterJason/cmp-conjure", "dcampos/cmp-snippy", "hrsh7th/cmp-buffer", "hrsh7th/cmp-cmdline", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-path"}}

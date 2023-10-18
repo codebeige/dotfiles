@@ -20,5 +20,6 @@
   (update)
   (fwatch.watch colorscheme-file {:on_event (vim.schedule_wrap update)}))
 
-{: update
- : config}
+{1 :base16-project/base16-vim
+ : config
+ :priority 1000}

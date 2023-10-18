@@ -1,16 +1,14 @@
 (local {: autoload} (require :nfnl.module))
 (local nfnl (autoload :nfnl.core))
 (local str (autoload :nfnl.string))
-(local util (autoload :lib.util))
 (local which-key (autoload :which-key))
 
 (local prefix "<LocalLeader>")
 
-(fn setup []
-  (util.set-opts :g:conjure#
-                 {:eval#gsubs {:do-comment ["^%(comment[%s%c]" "(do "]}
-                  :mapping#doc_word "ed"
-                  :mapping#prefix prefix}))
+(fn init []
+  (set vim.g.conjure#eval#gsubs {:do-comment ["^%(comment[%s%c]" "(do "]})
+  (set vim.g.conjure#mapping#doc_word "ed")
+  (set vim.g.conjure#eval#mapping#prefix prefix))
 
 (fn register-keymap []
   (which-key.register {:l {:name "log"
@@ -136,5 +134,8 @@
                    (vim.diagnostic.disable buf))
        :group g})))
 
-{: config
- : setup}
+{1 :Olical/conjure
+ : config
+ :dependencies [:Olical/nfnl
+                :folke/which-key.nvim]
+ : init}

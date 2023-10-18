@@ -108,12 +108,13 @@
     (each [lhs rhs (pairs insert-mode-mappings)]
       (vim.keymap.set :i lhs rhs {:buffer true :remap true :silent true}))))
 
-(fn setup []
+(fn init []
   (set vim.g.sexp_filetypes "")
   (let [g (vim.api.nvim_create_augroup :plugins_sexp {:clear true})]
     (vim.api.nvim_create_autocmd :FileType {:callback register-keymaps
                                             :group g
                                             :pattern filetypes})))
 
-{: filetypes
- : setup}
+{1 :guns/vim-sexp
+ :ft filetypes
+ : init}

@@ -10,4 +10,4 @@ local function config()
   which_key.register({[","] = {"gaip*,", "align on commas"}, ["."] = {"gaip.", "align on leading dot"}, ["/"] = {"gaip*<C-R>", "align on regex..."}, [":"] = {"gaip*:", "align on colons"}, ["<Space>"] = {"gaip ", "align on first space"}, ["="] = {"gaip*=", "align on equal signs"}, t = {"gaip*|", "align table"}}, {prefix = "<Leader>a", noremap = false})
   return which_key.register({["<CR>"] = {"<Plug>(EasyAlign)", "align ..."}, [","] = {"ga*,", "align on commas"}, ["."] = {"ga.", "align on leading dot"}, ["/"] = {"ga*<C-R>", "align on regex..."}, [":"] = {"ga*:", "align on colons"}, ["<Space>"] = {"ga ", "align on first space"}, ["="] = {"ga*=", "align on equal signs"}, p = {"<Plug>(LiveEasyAlign)", "align with preview ..."}, t = {"ga*|", "align table"}}, {mode = "x", prefix = "<Leader>a", noremap = false})
 end
-return {config = config}
+return {"junegunn/vim-easy-align", config = config, dependencies = {"tpope/vim-repeat"}}

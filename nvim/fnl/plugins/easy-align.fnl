@@ -38,4 +38,6 @@
      :noremap false
      :prefix "<Leader>a"}))
 
-{: config}
+{1 :junegunn/vim-easy-align
+ : config
+ :dependencies [:tpope/vim-repeat]}

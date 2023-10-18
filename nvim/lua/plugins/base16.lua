@@ -29,4 +29,4 @@ local function config()
   update()
   return fwatch.watch(colorscheme_file, {on_event = vim.schedule_wrap(update)})
 end
-return {update = update, config = config}
+return {"base16-project/base16-vim", config = config, priority = 1000}

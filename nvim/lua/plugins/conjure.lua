@@ -3,11 +3,13 @@ local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local nfnl = autoload("nfnl.core")
 local str = autoload("nfnl.string")
-local util = autoload("lib.util")
 local which_key = autoload("which-key")
 local prefix = "<LocalLeader>"
-local function setup()
-  return util["set-opts"]("g:conjure#", {["eval#gsubs"] = {["do-comment"] = {"^%(comment[%s%c]", "(do "}}, ["mapping#doc_word"] = "ed", ["mapping#prefix"] = prefix})
+local function init()
+  vim.g["conjure#eval#gsubs"] = {["do-comment"] = {"^%(comment[%s%c]", "(do "}}
+  vim.g["conjure#mapping#doc_word"] = "ed"
+  vim.g["conjure#eval#mapping#prefix"] = prefix
+  return nil
 end
 local function register_keymap()
   which_key.register({l = {name = "log", e = "Open log in current buffer", g = "Toggle log", l = "Jump to last result", q = "Close log", r = "Clear log", R = "Reset log", s = "Open log in horizontal split", t = "Open log in new tab", v = "Open log in vertical split"}, E = "Evaluate motion", e = {name = "eval", ["!"] = "Replace form with result", b = "Evaluate buffer", c = {name = "comment", e = "Evaluate current form to comment", r = "Evaluate root form to comment", w = "Evaluate word to comment"}, d = "Look up documentation", e = "Evaluate current form", f = "Evaluate file from disk", m = "Evaluate form at mark", r = "Evaluate root form", w = "Evaluate word"}, gd = "Jump to definition"}, {prefix = prefix, buffer = vim.api.nvim_get_current_buf()})
@@ -43,4 +45,4 @@ local function config()
   end
   return vim.api.nvim_create_autocmd("BufEnter", {pattern = "conjure-log-*", callback = _4_, group = g})
 end
-return {config = config, setup = setup}
+return {"Olical/conjure", config = config, dependencies = {"Olical/nfnl", "folke/which-key.nvim"}, init = init}

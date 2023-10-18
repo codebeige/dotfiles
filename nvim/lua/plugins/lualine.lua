@@ -31,16 +31,9 @@ end
 local function fugitive_commit_name()
   return fugitive_commit_name_2a(nvim.buf_get_name(0))
 end
-local focused_win_id = 0
-local function statusline()
-  if (vim.fn.mode() ~= "c") then
-    focused_win_id = tonumber(vim.g.actual_curwin)
-  else
-  end
-  return lualine.statusline((focused_win_id == vim.fn.win_getid()))
-end
 local function config()
   lualine.setup({inactive_sections = {lualine_c = {fugitive_commit_name, "filename"}}, options = {theme = get_theme, icons_enabled = false}, sections = {lualine_c = {fugitive_commit_name, "filename"}}})
-  return util["set-opts"]("o", {statusline = "%{%v:lua.require'plugins.lualine'.statusline()%}", showmode = false})
+  vim.o.showmode = false
+  return nil
 end
-return {config = config, ["fugitive-commit-name"] = fugitive_commit_name, statusline = statusline}
+return {"nvim-lualine/lualine.nvim", config = config, dependencies = {"base16-project/base16-vim"}}

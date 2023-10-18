@@ -20,24 +20,14 @@
 (fn fugitive-commit-name []
   (fugitive-commit-name* (nvim.buf_get_name 0)))
 
-; Keep current window always focused in cmdline mode.
-; Prevents cmp to steal focus on cmdline completion
-(var focused-win-id 0)
-
-(fn statusline []
-  (when (~= (vim.fn.mode) "c")
-    (set focused-win-id (tonumber vim.g.actual_curwin)))
-  (lualine.statusline (= focused-win-id (vim.fn.win_getid))))
-
 (fn config []
   (lualine.setup {:inactive_sections {:lualine_c [fugitive-commit-name :filename]}
                   :options {:icons_enabled false
                             :theme get-theme}
                   :sections {:lualine_c [fugitive-commit-name :filename]}})
 
-  (util.set-opts :o {:showmode false
-                     :statusline "%{%v:lua.require'plugins.lualine'.statusline()%}"}))
+  (set vim.o.showmode false))
 
-{: config
- : fugitive-commit-name
- : statusline}
+{1 :nvim-lualine/lualine.nvim
+ : config
+ :dependencies [:base16-project/base16-vim]}
