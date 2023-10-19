@@ -1,6 +1,7 @@
 (local {: autoload} (require :nfnl.module))
 (local clojure (autoload :lsp.clojure))
 (local cmp-lsp (autoload :cmp_nvim_lsp))
+(local fennel (autoload :lsp.fennel))
 (local vscode (autoload :lsp.vscode))
 (local {: on_attach} (autoload :lsp.shared))
 
@@ -19,6 +20,7 @@
                                                :pattern "*"}))
   (update-colorscheme)
   (let [opts {: capabilities : on_attach}]
+    (fennel.setup opts)
     (clojure.setup opts)
     (vscode.setup opts)))
 

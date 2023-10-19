@@ -3,6 +3,7 @@ local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local clojure = autoload("lsp.clojure")
 local cmp_lsp = autoload("cmp_nvim_lsp")
+local fennel = autoload("lsp.fennel")
 local vscode = autoload("lsp.vscode")
 local _local_2_ = autoload("lsp.shared")
 local on_attach = _local_2_["on_attach"]
@@ -19,6 +20,7 @@ local function config()
   end
   update_colorscheme()
   local opts = {capabilities = capabilities, on_attach = on_attach}
+  fennel.setup(opts)
   clojure.setup(opts)
   return vscode.setup(opts)
 end

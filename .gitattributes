@@ -1,0 +1,2 @@
+nvim/lua/**/*.lua linguist-generated
+nvim/lazy-lock.json linguist-generated

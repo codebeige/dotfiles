@@ -1,2 +1,2 @@
-/nvim/lua/
-/nvim/nfnl/lua/
+nvim/lua/**/*.lua
+nvim/lazy-lock.json

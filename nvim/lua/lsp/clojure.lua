@@ -39,6 +39,10 @@ local function on_attach(client, bufnr)
   return lsp["on-attach"](client, bufnr)
 end
 local function setup(opts)
-  return lspconfig.clojure_lsp.setup(nfnl.assoc(opts, "on_attach", on_attach))
+  if (1 == vim.fn.executable("clojure-lsp")) then
+    return lspconfig.clojure_lsp.setup(nfnl.assoc(opts, "on_attach", on_attach))
+  else
+    return print("LSP: clojure-lsp not found")
+  end
 end
 return {["list-at-cursor"] = list_at_cursor, ["code-action"] = code_action, ["cycle-collection"] = cycle_collection, ["cycle-privacy"] = cycle_privacy, ["on-attach"] = on_attach, setup = setup}

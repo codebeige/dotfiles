@@ -30,7 +30,9 @@
   (lsp.on-attach client bufnr))
 
 (fn setup [opts]
-  (lspconfig.clojure_lsp.setup (nfnl.assoc opts :on_attach on-attach)))
+  (if (= 1 (vim.fn.executable :clojure-lsp))
+    (lspconfig.clojure_lsp.setup (nfnl.assoc opts :on_attach on-attach))
+    (print "LSP: clojure-lsp not found")))
 
 {: list-at-cursor
  : code-action
