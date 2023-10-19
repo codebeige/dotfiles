@@ -9,6 +9,7 @@
 (set vim.o.completeopt "menu,menuone,noselect")
 (set vim.o.cursorline true)
 (set vim.o.diffopt (.. "vertical," vim.o.diffopt))
+(set vim.o.exrc true)
 (set vim.o.expandtab true)
 (set vim.o.ignorecase true)
 (set vim.o.inccommand "split")

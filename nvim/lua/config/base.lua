@@ -6,6 +6,7 @@ vim.o.colorcolumn = "80"
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.cursorline = true
 vim.o.diffopt = ("vertical," .. vim.o.diffopt)
+vim.o.exrc = true
 vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.inccommand = "split"
