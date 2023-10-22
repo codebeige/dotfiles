@@ -1,7 +1,6 @@
 -- [nfnl] Compiled from fnl/lsp/shared.fnl by https://github.com/Olical/nfnl, do not edit.
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
-local util = autoload("lib.util")
 local which_key = autoload("which-key")
 local telescope = autoload("telescope.builtin")
 local function format_range()

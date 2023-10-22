@@ -1,5 +1,4 @@
 (local {: autoload} (require :nfnl.module))
-(local util (autoload :lib.util))
 (local which-key (autoload :which-key))
 (local telescope (autoload :telescope.builtin))
 

@@ -6,7 +6,7 @@ local cmp_lsp = autoload("cmp_nvim_lsp")
 local fennel = autoload("lsp.fennel")
 local vscode = autoload("lsp.vscode")
 local _local_2_ = autoload("lsp.shared")
-local on_attach = _local_2_["on_attach"]
+local on_attach = _local_2_["on-attach"]
 local capabilities = cmp_lsp.default_capabilities()
 local function update_colorscheme()
   vim.api.nvim_set_hl(0, "LspReferenceText", {link = "Visual"})
@@ -21,7 +21,6 @@ local function config()
   update_colorscheme()
   local opts = {capabilities = capabilities, on_attach = on_attach}
   fennel.setup(opts)
-  clojure.setup(opts)
-  return vscode.setup(opts)
+  return clojure.setup(opts)
 end
 return {"neovim/nvim-lspconfig", config = config, dependencies = {"hrsh7th/cmp-nvim-lsp"}}
