@@ -7,13 +7,13 @@ require("config.diagnostic")
 require("config.terminal")
 require("config.clojure")
 require("config.fennel")
-local loaded = false
+local loaded_3f = false
 local function init()
-  if not __fnl_global__loaded_3f then
+  if not loaded_3f then
     scratch.init()
   else
   end
   return true
 end
-__fnl_global__loaded_3f = init()
+loaded_3f = init()
 return {init = init}

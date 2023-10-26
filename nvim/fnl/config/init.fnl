@@ -7,7 +7,7 @@
 (require :config.clojure)
 (require :config.fennel)
 
-(var loaded false)
+(var loaded? false)
 
 (fn init []
   (when (not loaded?)
