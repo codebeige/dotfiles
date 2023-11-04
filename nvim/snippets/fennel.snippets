@@ -3,3 +3,6 @@ snippet module [b]
 
 snippet autoload [b]
         (local ${2:${1/\v(.*).core$|^[^.]*\.|/\1}} (autoload :${1:nfnl.core}))
+
+snippet require [b]
+        (local ${2:${1/\v(.*).core$|^[^.]*\.|/\1}} (require :${1:nfnl.core}))

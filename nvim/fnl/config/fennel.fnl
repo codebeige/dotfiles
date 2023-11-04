@@ -7,7 +7,6 @@
     (set vim.g.fennel_fuzzy_indent_patterns patterns)))
 
 (fn init []
-  (vim.print :INIT)
   (let [group (vim.api.nvim_create_augroup :config_fennel {:clear true})]
     (vim.api.nvim_create_autocmd :FileType
                                  {:callback update-syntax

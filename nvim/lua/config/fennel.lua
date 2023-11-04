@@ -8,7 +8,6 @@ local function update_syntax()
   return nil
 end
 local function init()
-  vim.print("INIT")
   do
     local group = vim.api.nvim_create_augroup("config_fennel", {clear = true})
     vim.api.nvim_create_autocmd("FileType", {callback = update_syntax, group = group, once = true, pattern = "fennel"})
