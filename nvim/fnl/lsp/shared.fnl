@@ -54,13 +54,13 @@
     {:prefix "<LocalLeader>" :buffer bufnr :mode "v"})
 
   (if client.server_capabilities.documentHighlightProvider
-    (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" bufnr))]
+    (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" bufnr) {:clear true})]
       (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
-                                   {:buffer true
+                                   {:buffer 0
                                     :callback #(vim.lsp.buf.document_highlight)
                                     :group g})
       (vim.api.nvim_create_autocmd :CursorMoved
-                                   {:buffer true
+                                   {:buffer 0
                                     :callback #(vim.lsp.buf.clear_references)
                                     :group g})))
 

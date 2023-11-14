@@ -69,15 +69,15 @@ local function on_attach(client, bufnr)
   end
   which_key.register({x = {name = "transform", x = {_17_, "Code action..."}}}, {prefix = "<LocalLeader>", buffer = bufnr, mode = "v"})
   if client.server_capabilities.documentHighlightProvider then
-    local g = vim.api.nvim_create_augroup(string.format("lib_lsp_%d", bufnr))
+    local g = vim.api.nvim_create_augroup(string.format("lib_lsp_%d", bufnr), {clear = true})
     local function _18_()
       return vim.lsp.buf.document_highlight()
     end
-    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {buffer = true, callback = _18_, group = g})
+    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {buffer = 0, callback = _18_, group = g})
     local function _19_()
       return vim.lsp.buf.clear_references()
     end
-    vim.api.nvim_create_autocmd("CursorMoved", {buffer = true, callback = _19_, group = g})
+    vim.api.nvim_create_autocmd("CursorMoved", {buffer = 0, callback = _19_, group = g})
   else
   end
   do
