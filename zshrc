@@ -53,6 +53,7 @@ plugins=(
   rbenv
   react-native
   ruby
+  ssh-macos
   tmux
   tmuxinator
   web-search
