@@ -1,0 +1,27 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+  IPQoS throughput
+
+Host codebeige.net
+  HostName barnard.uberspace.de
+  User cdbg
+
+Host gmah.net
+  HostName giacobini.uberspace.de
+  User gmah7
+
+Host briareos
+  HostName briareos.codebeige.net
+  User tc
+
+Host b33n.net
+  HostName arend.uberspace.de
+  User b33n
+
+Host oneiros
+  HostName 192.168.200.1
+  User root
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedAlgorithms +ssh-rsa
