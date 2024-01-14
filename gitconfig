@@ -8,7 +8,7 @@
 [user]
 	name = Tibor Claassen
 	email = tc@codebeige.net
-	signingkey = ~/.ssh/id_ed25519
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINgtyvoMbx47fbf7BAjV5kDb/WjbOF4jRSmO1Zon9xbr
 [alias]
 	aa = add --all
 	amend = commit --amend
@@ -71,3 +71,5 @@
 	gpgsign = true
 [rebase]
 	autosquash = true
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
