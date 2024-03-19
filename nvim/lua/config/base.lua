@@ -2,7 +2,6 @@
 vim.cmd.language("en_US.UTF-8")
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-vim.o.clipboard = "unnamed"
 vim.o.colorcolumn = "80"
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.cursorline = true

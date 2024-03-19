@@ -5,7 +5,6 @@
 (set vim.g.mapleader " ")
 (set vim.g.maplocalleader ",")
 
-(set vim.o.clipboard "unnamed")
 (set vim.o.colorcolumn "80")
 (set vim.o.completeopt "menu,menuone,noselect")
 (set vim.o.cursorline true)
