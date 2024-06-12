@@ -7,4 +7,8 @@
   (let [hl (get-hl name)]
     (vim.api.nvim_set_hl 0 name (collect [k v (pairs hl) &into {:italic true}] k v))))
 
-{: make-italic}
+(fn link [name target]
+  (vim.api.nvim_set_hl 0 name {:link target}))
+
+{: link
+ : make-italic}

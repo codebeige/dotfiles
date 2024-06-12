@@ -26,4 +26,7 @@ local function make_italic(name)
   end
   return vim.api.nvim_set_hl(0, name, _3_())
 end
-return {["make-italic"] = make_italic}
+local function link(name, target)
+  return vim.api.nvim_set_hl(0, name, {link = target})
+end
+return {link = link, ["make-italic"] = make_italic}

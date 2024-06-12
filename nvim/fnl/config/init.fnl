@@ -1,7 +1,7 @@
 (local {: autoload} (require :nfnl.module))
 (local scratch (autoload :codebeige.scratch))
+(local highlight (autoload :config.highlight))
 
-(require :config.highlight)
 (require :config.diagnostic)
 (require :config.terminal)
 (require :config.clojure)
@@ -11,7 +11,8 @@
 
 (fn init []
   (when (not loaded?)
-    (scratch.init))
+    (scratch.init)
+    (highlight.init))
   true)
 
 (set loaded? (init))
