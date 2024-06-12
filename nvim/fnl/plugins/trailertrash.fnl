@@ -2,7 +2,7 @@
 (local which-key (autoload :which-key))
 
 (fn init []
- (set vim.g.trailertrash_blacklist ["COMMIT_EDITMSG$" "^conjure-log-*"]))
+ (set vim.g.trailertrash_blacklist ["^$" "COMMIT_EDITMSG$" "^conjure-log-*"]))
 
 (fn config []
 
