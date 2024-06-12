@@ -17,7 +17,7 @@ end
 
 if pcall(init) then
   require('config.base')
-  require('lazy').setup('plugins')
+  require('lazy').setup('plugins', {change_detection = {notify = false}})
   require('config')
 else
   print('Error: unable to install. Are you connected to the internet?')
