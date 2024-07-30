@@ -29,7 +29,6 @@ ZSH_CUSTOM=$HOME/.zsh/config
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
   vi-mode
-  ag
   aliases
   asdf-direnv
   base16-kitty
@@ -41,13 +40,10 @@ plugins=(
   docker
   docker-compose
   docker-compose-custom
-  fd
   fzf-git
   gh
   git
   git-custom
-  git-flow
-  git-flow-avh
   lein
   macos
   node
@@ -57,7 +53,6 @@ plugins=(
   rake
   rbenv
   react-native
-  ripgrep
   rsync
   ruby
   ssh-macos
