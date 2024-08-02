@@ -2,13 +2,9 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local actions = autoload("telescope.actions")
-local nfnl = autoload("nfnl.core")
 local telescope = autoload("telescope")
 local themes = autoload("telescope.themes")
 local which_key = autoload("which-key")
-local function map(cmd, label, opts)
-  return nfnl.merge({string.format("<Cmd>lua require('telescope.builtin').%s<CR>", cmd), label}, opts)
-end
 local function init_prompt()
   vim.b.lexima_disabled = true
   return nil
@@ -20,8 +16,7 @@ local function config()
   end
   telescope.load_extension("fzf")
   telescope.load_extension("ui-select")
-  which_key.register({name = "find", ["<CR>"] = nfnl.merge({":<C-U>Telescope ", "Enter find command..."}, {silent = false}), ["!"] = map("command_history()", "Command history"), ["*"] = map("grep_string({word_match = '-w'})", "Find word"), ["/"] = map("current_buffer_fuzzy_find()", "Search in buffer"), b = map("buffers()", "Buffers"), f = map("find_files()", "Files"), g = map("live_grep()", "Search in project"), h = map("help_tags()", "Help tags"), k = map("keymaps()", "Keymaps"), o = map("oldfiles()", "Oldfiles"), q = map("quickfix()", "Quickfix List"), r = map("resume()", "Resume previous"), t = {"<Cmd>Telescope<CR>", "Telescope pickers"}, z = map("grep_string({search = '', only_sort_text = true, prompt_title = 'Fuzzy Search'})", "Fuzzy text search")}, {prefix = "<Leader>f"})
-  which_key.register({name = "git", f = {name = "find", b = map("git_branches()", "Branches"), c = map("git_commits()", "Commits"), f = map("git_files()", "Git files"), h = map("git_bcommits()", "Buffer history"), i = map("git_status()", "Git status"), s = map("git_stash()", "Git stash")}}, {prefix = "<Leader>g"})
+  which_key.add({{"<Leader>f", group = "find"}, {"<Leader>f<CR>", ":<C-U>Telescope ", desc = "Enter find command...", silent = false}, {"<Leader>f!", "<Cmd>lua require('telescope.builtin').command_history()<CR>", desc = "Command history"}, {"<Leader>f/", "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", desc = "Fuzzy find in buffer..."}, {"<Leader>fb", "<Cmd>lua require('telescope.builtin').buffers()<CR>", desc = "Buffers"}, {"<Leader>ff", "<Cmd>lua require('telescope.builtin').find_files()<CR>", desc = "Files"}, {"<Leader>fg", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "Search in project"}, {"<Leader>fh", "<Cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "Help"}, {"<Leader>fk", "<Cmd>lua require('telescope.builtin').keymaps()<CR>", desc = "Keymaps"}, {"<Leader>fo", "<Cmd>lua require('telescope.builtin').oldfiles()<CR>", desc = "File history"}, {"<Leader>fq", "<Cmd>lua require('telescope.builtin').quickfix()<CR>", desc = "Quickfix list"}, {"<Leader>fr", "<Cmd>lua require('telescope.builtin').resume()<CR>", desc = "Resume previous"}, {"<Leader>ft", "<Cmd>Telescope<CR>", desc = "Telescope pickers"}, {"<Leader>f*", "<Cmd>lua require('telescope.builtin').grep_string({word_match = '-w'})<CR>", desc = "Find word"}, {"<Leader>fz", "<Cmd>lua require('telescope.builtin').grep_string({search = '', only_sort_text = true, prompt_title = 'Fuzzy Search'})", desc = "Fuzzy text search"}, {"<Leader>gf", group = "git find"}, {"<Leader>gfb", "<Cmd>lua require('telescope.builtin').git_branches()<CR>", desc = "Branches"}, {"<Leader>gfc", "<Cmd>lua require('telescope.builtin').git_commits()<CR>", desc = "Commits"}, {"<Leader>gff", "<Cmd>lua require('telescope.builtin').git_files()<CR>", desc = "Files"}, {"<Leader>gfh", "<Cmd>lua require('telescope.builtin').git_bcommits()<CR>", desc = "Buffer history"}, {"<Leader>gfi", "<Cmd>lua require('telescope.builtin').git_status()<CR>", desc = "Status"}, {"<Leader>gfs", "<Cmd>lua require('telescope.builtin').git_stash()<CR>", desc = "Stash"}})
   local g = vim.api.nvim_create_augroup("plugins_telescope", {clear = true})
   return vim.api.nvim_create_autocmd("FileType", {callback = init_prompt, group = g, pattern = "TelescopePrompt"})
 end

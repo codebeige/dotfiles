@@ -1,42 +1,31 @@
 (local {: autoload} (require :nfnl.module))
 (local which-key (autoload :which-key))
 
-(local motion-maps
-  {:ga ["<Plug>(EasyAlign)" "align"]
-   :gA ["<Plug>(LiveEasyAlign)" "align with preview"]})
+(fn config [_ _]
+  (which-key.add
+    [{1 "ga" 2 "<Plug>(EasyAlign)"     :desc "align"                :mode [:n :x]}
+     {1 "gA" 2 "<Plug>(LiveEasyAlign)" :desc "align (live preview)" :mode [:n :x]}
 
-(fn config []
-  (which-key.register motion-maps)
-  (which-key.register motion-maps {:mode :x})
-  (which-key.register
-    {:name "align"
-     :<CR> ["<Cmd>EasyAlign<CR>" "align ..."]
-     :p    ["<Cmd>LiveEasyAlign<CR>" "align with preview ..."]}
-    {:prefix "<Leader>a"
-     :silent false})
-  (which-key.register
-    {","      ["gaip*," "align on commas"]
-     "."      ["gaip." "align on leading dot"]
-     :/       ["gaip*<C-R>" "align on regex..."]
-     ::       ["gaip*:" "align on colons"]
-     :<Space> ["gaip " "align on first space"]
-     :=       ["gaip*=" "align on equal signs"]
-     :t       ["gaip*|" "align table"]}
-    {:noremap false
-     :prefix  "<Leader>a"})
-  (which-key.register
-    {:<CR>    ["<Plug>(EasyAlign)" "align ..."]
-     ","      ["ga*," "align on commas"]
-     "."      ["ga." "align on leading dot"]
-     :/       ["ga*<C-R>" "align on regex..."]
-     ::       ["ga*:" "align on colons"]
-     :<Space> ["ga " "align on first space"]
-     :=       ["ga*=" "align on equal signs"]
-     :p       ["<Plug>(LiveEasyAlign)" "align with preview ..."]
-     :t       ["ga*|" "align table"]}
-    {:mode :x
-     :noremap false
-     :prefix "<Leader>a"}))
+     {1 "<Leader>a" :group "align"}
+
+     {1 "<Leader>a,"       2 "gaip*,"     :desc "align on commas"      :noremap false}
+     {1 "<Leader>a."       2 "gaip."      :desc "align on leading dot" :noremap false}
+     {1 "<Leader>a/"       2 "gaip*<C-X>" :desc "align on regex..."    :noremap false}
+     {1 "<Leader>a:"       2 "gaip*:"     :desc "align on colons"      :noremap false}
+     {1 "<Leader>a<Space>" 2 "gaip "      :desc "align on first space" :noremap false}
+     {1 "<Leader>a="       2 "gaip*="     :desc "align on equal signs" :noremap false}
+     {1 "<Leader>at"       2 "gaip*|"     :desc "align table"          :noremap false}
+
+     {1 "<Leader>a<CR>" 2 "<Plug>(EasyAlign)"     :desc "align table"          :noremap false :mode :x}
+     {1 "<Leader>ap"    2 "<Plug>(LiveEasyAlign)" :desc "align (live preview)" :noremap false :mode :x}
+
+     {1 "<Leader>a,"       2 "ga*,"     :desc "align on commas"      :noremap false :mode :x}
+     {1 "<Leader>a."       2 "ga*,"     :desc "align on leading dot" :noremap false :mode :x}
+     {1 "<Leader>a/"       2 "ga*<C-X>" :desc "align on regex..."    :noremap false :mode :x}
+     {1 "<Leader>a:"       2 "ga*:"     :desc "align on colons"      :noremap false :mode :x}
+     {1 "<Leader>a<Space>" 2 "ga "      :desc "align on first space" :noremap false :mode :x}
+     {1 "<Leader>a="       2 "ga*="     :desc "align on equal signs" :noremap false :mode :x}
+     {1 "<Leader>at"       2 "ga*|"     :desc "align table"          :noremap false :mode :x}]))
 
 {1 :junegunn/vim-easy-align
  : config

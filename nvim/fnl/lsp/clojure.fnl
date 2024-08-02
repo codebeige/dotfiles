@@ -3,7 +3,6 @@
 (local lsp (autoload :lsp.shared))
 (local lspconfig (autoload :lspconfig))
 (local ts-utils (autoload :nvim-treesitter.ts_utils))
-(local util (autoload :lib.util))
 (local which-key (autoload :which-key))
 
 (fn list-at-cursor []
@@ -22,12 +21,10 @@
 (fn cycle-privacy []
   (code-action :cycle-privacy))
 
-(fn on-attach [client bufnr]
-  (which-key.register
-    {:xc [cycle-collection "Cycle collection"]}
-    {:buffer bufnr
-     :prefix "<LocalLeader>"})
-  (lsp.on-attach client bufnr))
+(fn on-attach [client buffer]
+  (lsp.on-attach client buffer)
+  (which-key.add
+    [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}]))
 
 (fn setup [opts]
   (if (= 1 (vim.fn.executable :clojure-lsp))

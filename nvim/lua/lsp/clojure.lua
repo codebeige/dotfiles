@@ -5,7 +5,6 @@ local nfnl = autoload("nfnl.core")
 local lsp = autoload("lsp.shared")
 local lspconfig = autoload("lspconfig")
 local ts_utils = autoload("nvim-treesitter.ts_utils")
-local util = autoload("lib.util")
 local which_key = autoload("which-key")
 local function list_at_cursor()
   local n = ts_utils.get_node_at_cursor()
@@ -22,11 +21,8 @@ local function cycle_collection()
   local _3_ = list_at_cursor()
   if (nil ~= _3_) then
     local n = _3_
-    local function _6_()
-      local _4_, _5_ = n:start()
-      return _4_, _5_
-    end
-    return code_action("cycle-coll", _6_())
+    local pv_4_, pv_5_ = n:start()
+    return code_action("cycle-coll", pv_4_, pv_5_)
   else
     return nil
   end
@@ -34,9 +30,12 @@ end
 local function cycle_privacy()
   return code_action("cycle-privacy")
 end
-local function on_attach(client, bufnr)
-  which_key.register({xc = {cycle_collection, "Cycle collection"}}, {buffer = bufnr, prefix = "<LocalLeader>"})
-  return lsp["on-attach"](client, bufnr)
+local function on_attach(client, buffer)
+  lsp["on-attach"](client, buffer)
+  local function _7_()
+    return cycle_collection()
+  end
+  return which_key.add({{"<LocalLeader>xc", _7_, buffer = buffer, desc = "Cycle collection"}})
 end
 local function setup(opts)
   if (1 == vim.fn.executable("clojure-lsp")) then

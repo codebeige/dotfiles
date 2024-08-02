@@ -2,12 +2,7 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local which_key = autoload("which-key")
-local motion_maps = {ga = {"<Plug>(EasyAlign)", "align"}, gA = {"<Plug>(LiveEasyAlign)", "align with preview"}}
-local function config()
-  which_key.register(motion_maps)
-  which_key.register(motion_maps, {mode = "x"})
-  which_key.register({name = "align", ["<CR>"] = {"<Cmd>EasyAlign<CR>", "align ..."}, p = {"<Cmd>LiveEasyAlign<CR>", "align with preview ..."}}, {prefix = "<Leader>a", silent = false})
-  which_key.register({[","] = {"gaip*,", "align on commas"}, ["."] = {"gaip.", "align on leading dot"}, ["/"] = {"gaip*<C-R>", "align on regex..."}, [":"] = {"gaip*:", "align on colons"}, ["<Space>"] = {"gaip ", "align on first space"}, ["="] = {"gaip*=", "align on equal signs"}, t = {"gaip*|", "align table"}}, {prefix = "<Leader>a", noremap = false})
-  return which_key.register({["<CR>"] = {"<Plug>(EasyAlign)", "align ..."}, [","] = {"ga*,", "align on commas"}, ["."] = {"ga.", "align on leading dot"}, ["/"] = {"ga*<C-R>", "align on regex..."}, [":"] = {"ga*:", "align on colons"}, ["<Space>"] = {"ga ", "align on first space"}, ["="] = {"ga*=", "align on equal signs"}, p = {"<Plug>(LiveEasyAlign)", "align with preview ..."}, t = {"ga*|", "align table"}}, {mode = "x", prefix = "<Leader>a", noremap = false})
+local function config(_, _0)
+  return which_key.add({{"ga", "<Plug>(EasyAlign)", desc = "align", mode = {"n", "x"}}, {"gA", "<Plug>(LiveEasyAlign)", desc = "align (live preview)", mode = {"n", "x"}}, {"<Leader>a", group = "align"}, {"<Leader>a,", "gaip*,", desc = "align on commas", noremap = false}, {"<Leader>a.", "gaip.", desc = "align on leading dot", noremap = false}, {"<Leader>a/", "gaip*<C-X>", desc = "align on regex...", noremap = false}, {"<Leader>a:", "gaip*:", desc = "align on colons", noremap = false}, {"<Leader>a<Space>", "gaip ", desc = "align on first space", noremap = false}, {"<Leader>a=", "gaip*=", desc = "align on equal signs", noremap = false}, {"<Leader>at", "gaip*|", desc = "align table", noremap = false}, {"<Leader>a<CR>", "<Plug>(EasyAlign)", desc = "align table", mode = "x", noremap = false}, {"<Leader>ap", "<Plug>(LiveEasyAlign)", desc = "align (live preview)", mode = "x", noremap = false}, {"<Leader>a,", "ga*,", desc = "align on commas", mode = "x", noremap = false}, {"<Leader>a.", "ga*,", desc = "align on leading dot", mode = "x", noremap = false}, {"<Leader>a/", "ga*<C-X>", desc = "align on regex...", mode = "x", noremap = false}, {"<Leader>a:", "ga*:", desc = "align on colons", mode = "x", noremap = false}, {"<Leader>a<Space>", "ga ", desc = "align on first space", mode = "x", noremap = false}, {"<Leader>a=", "ga*=", desc = "align on equal signs", mode = "x", noremap = false}, {"<Leader>at", "ga*|", desc = "align table", mode = "x", noremap = false}})
 end
 return {"junegunn/vim-easy-align", config = config, dependencies = {"tpope/vim-repeat"}}

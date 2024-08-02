@@ -16,45 +16,36 @@
                               (set vim.g.__operatorfunc nil)))
   (set vim.o.operatorfunc :v:lua.__operatorfunc))
 
-(fn on-attach [client bufnr]
-  (which-key.register
-    {"<C-]>" [#(vim.lsp.buf.definition) "Jump to definition"]
-     :K [#(vim.lsp.buf.hover) "Show documentation"]
-     "[" {:d [#(vim.diagnostic.goto_prev) "Previous diagnostic"]}
-     "]" {:d [#(vim.diagnostic.goto_next) "Next diagnostic"]}}
-    {:buffer bufnr})
+(fn on-attach [client buffer]
+  (which-key.add
+    [{1 "<C-]>" 2 #(vim.lsp.buf.definition)   : buffer :desc "Jump to definition"}
+     {1 "K"     2 #(vim.lsp.buf.hover)        : buffer :desc "Show documentation"}
+     {1 "[d"    2 #(vim.diagnostic.goto_prev) : buffer :desc "Previous diagnostic"}
+     {1 "]d"    2 #(vim.diagnostic.goto_next) : buffer :desc "Next diagnostic"}
 
-  (which-key.register
-    {:q {:name "format"
-         :q ["<Cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>" "Format selection"]}}
-    {:buffer bufnr :mode "v" :prefix "<LocalLeader>"})
+     {1 "<LocalLeader>b" :group "buffer"}
+     {1 "<LocalLeader>b=" 2 #(vim.lsp.buf.format {:async true}) : buffer :desc "Format buffer"}
+     {1 "<LocalLeader>bd" 2 #(vim.diagnostic.setloclist)        : buffer :desc "List diagnostics"}
 
-  (which-key.register
-    {:b {:name "buffer"
-         := ["<Cmd>lua vim.lsp.buf.format{async=true}<CR>" "Format buffer"]
-         :d [#(vim.diagnostic.setloclist) "List diagnostics"]}
-     :f {:name "find"
-         :d [#(telescope.diagnostics) "Diagnostics"]
-         :r [#(telescope.lsp_references) "References"]
-         :s [#(telescope.lsp_document_symbols) "Document symbols"]
-         :S [#(telescope.lsp_workspace_symbols) "Workspace symbols"]}
-     :v {:name "view"
-         :d [#(vim.diagnostic.open_float) "View diagnostics"]
-         :h [#(vim.lsp.buf.signature_help) "Signature help"]}
-     :q {:name "format"
-         :q ["<Cmd>lua require('lsp.shared')['format-move']()<CR>g@" "Format lines motion"]}
-     :x {:name "transform"
-         :r [#(vim.lsp.buf.rename) "Rename symbol..."]
-         :x [#(vim.lsp.buf.code_action) "Code action..."]}}
-    {:prefix "<LocalLeader>" :buffer bufnr})
+     {1 "<LocalLeader>f" :group "find"}
+     {1 "<LocalLeader>fd" 2 #(telescope.diagnostics)           : buffer :desc "Diagnostics"}
+     {1 "<LocalLeader>fr" 2 #(telescope.lsp_references)        : buffer :desc "References"}
+     {1 "<LocalLeader>fs" 2 #(telescope.lsp_document_symbols)  : buffer :desc "Document symbols"}
+     {1 "<LocalLeader>fS" 2 #(telescope.lsp_workspace_symbols) : buffer :desc "Workspace symbols"}
 
-  (which-key.register
-    {:x {:name "transform"
-         :x [#(vim.lsp.buf.code_action) "Code action..."]}}
-    {:prefix "<LocalLeader>" :buffer bufnr :mode "v"})
+     {1 "<LocalLeader>q" :group "format"}
+     {1 "<LocalLeader>qq" 2 "<Cmd>lua require('lsp.shared')['format-move']()<CR>g@" : buffer :desc "Format lines to {motion}"}
+     {1 "<LocalLeader>qq" 2 #(vim.lsp.buf.range_formatting)                         : buffer :desc "Format selection" :mode :v}
+
+     {1 "<LocalLeader>xr" 2 #(vim.lsp.buf.rename)      : buffer :desc "Rename symbol..."}
+     {1 "<LocalLeader>xx" 2 #(vim.lsp.buf.code_action) : buffer :desc "Code action..." :mode [:n :x]}
+
+     {1 "<LocalLeader>v" :group "view"}
+     {1 "<LocalLeader>vd" 2 #(vim.diagnostic.open_float)  : buffer :desc "View diagnostics"}
+     {1 "<LocalLeader>vh" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}])
 
   (if client.server_capabilities.documentHighlightProvider
-    (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" bufnr) {:clear true})]
+    (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" buffer) {:clear true})]
       (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
                                    {:buffer 0
                                     :callback #(vim.lsp.buf.document_highlight)

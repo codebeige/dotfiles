@@ -5,13 +5,9 @@
  (set vim.g.trailertrash_blacklist ["^$" "COMMIT_EDITMSG$" "^conjure-log-*"]))
 
 (fn config []
-
-  (which-key.register {:bt {1 "<Cmd>TrailerTrim<CR>"
-                            2 "Trim trailing whitespace"
-                            :mode [:n :x]}
-                       :t ["<Cmd>Trailer<CR>" "Toggle highlighting of trailing whitespace"]}
-                      {:mode [:n]
-                       :prefix "<Leader>"}))
+  (which-key.add
+    [{1 "<Leader>bt" 2 "<Cmd>TrailerTrim<CR>" :desc "Trim trailing whitespace"}
+     {1 "<Leader>ot" 2 "<Cmd>Trailer<CR>" :desc "Toggle highlighting of trailing whitespace"}]))
 
 {1 :csexton/trailertrash.vim
  : config

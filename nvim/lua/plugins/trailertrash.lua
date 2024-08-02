@@ -7,6 +7,6 @@ local function init()
   return nil
 end
 local function config()
-  return which_key.register({bt = {"<Cmd>TrailerTrim<CR>", "Trim trailing whitespace", mode = {"n", "x"}}, t = {"<Cmd>Trailer<CR>", "Toggle highlighting of trailing whitespace"}}, {mode = {"n"}, prefix = "<Leader>"})
+  return which_key.add({{"<Leader>bt", "<Cmd>TrailerTrim<CR>", desc = "Trim trailing whitespace"}, {"<Leader>ot", "<Cmd>Trailer<CR>", desc = "Toggle highlighting of trailing whitespace"}})
 end
 return {"csexton/trailertrash.vim", config = config, init = init}

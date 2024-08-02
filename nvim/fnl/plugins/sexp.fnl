@@ -1,115 +1,102 @@
 (local {: autoload} (require :nfnl.module))
-(local lib (autoload :lib.core))
 (local which-key (autoload :which-key))
 
 (local filetypes [:clojure :fennel :scheme :lisp :timl])
 
-(local keymaps-n
-  {:= {:name "indent"
-       := ["<Plug>(sexp_indent)" "indent form"]
-       :- ["<Plug>(sexp_indent_top)" "indent root form"]}
-   :< {:name "backward"
-       "(" ["<Plug>(sexp_capture_prev_element)" "capture previous element"]
-       ")" ["<Plug>(sexp_emit_tail_element)" "emit tail element"]
-       :e  ["<Plug>(sexp_swap_element_backward)" "swap element backward"]
-       :f  ["<Plug>(sexp_swap_list_backward)" "swap form backward"]
-       :I  ["<Plug>(sexp_insert_at_list_head)" "insert at form head"]}
-   :> {:name "forward"
-       "(" ["<Pulg>(sexp_emit_head_element)" "emit head element"]
-       ")" ["<Plug>(sexp_capture_next_element)" "capture next element"]
-       :e  ["<Plug>(sexp_swap_element_forward)" "swap element forward"]
-       :f  ["<Plug>(sexp_swap_list_forward)" "swap form forward"]
-       :I  ["<Plug>(sexp_insert_at_list_tail)" "insert at form tail"]}})
+(fn register-keymaps [{: buf}]
+  (which-key.add
+    [{1 "=" :group "indent"}
+     {1 "==" 2 "<Plug>(sexp_indent)"     :buffer buf :desc "indent form"}
+     {1 "=-" 2 "<Plug>(sexp_indent_top)" :buffer buf :desc "indent root form"}
 
-(local keymaps-xo
-  {:a {:name "around"
-       :e ["<Plug>(sexp_outer_element)" "around element"]
-       :f ["<Plug>(sexp_outer_list)" "a form"]
-       :F ["<Plug>(sexp_outer_top_list)" "a root form"]
-       :s ["a\"" "around string"]}
-   :i {:name "inside"
-       :e ["<Plug>(sexp_inner_element)" "inner element"]
-       :f ["<Plug>(sexp_inner_list)" "inner form"]
-       :F ["<Plug>(sexp_inner_top_list)" "inner root form"]
-       :s ["i\"" "inner string"]}})
+     {1 "<" :group "backward"}
+     {1 "<(" 2 "<Plug>(sexp_capture_prev_element)"  :buffer buf :desc "capture previous element"}
+     {1 "<)" 2 "<Plug>(sexp_emit_tail_element)"     :buffer buf :desc "emit tail element"}
+     {1 "<e" 2 "<Plug>(sexp_swap_element_backward)" :buffer buf :desc "swap element backward"}
+     {1 "<f" 2 "<Plug>(sexp_swap_list_backward)"    :buffer buf :desc "swap form backward"}
+     {1 "<I" 2 "<Plug>(sexp_insert_at_list_head)"   :buffer buf :desc "insert at form head"}
 
-(local keymaps-nxo
-  {"[" {"[" ["<Plug>(sexp_move_to_prev_top_element)" "previous root"]}
-   "]" {"]" ["<Plug>(sexp_move_to_next_top_element)" "next root"]}
-   "(" ["<Plug>(sexp_move_to_prev_bracket)" "previous bracket"]
-   ")" ["<Plug>(sexp_move_to_next_bracket)" "next bracket"]
-   :B  ["<Plug>(sexp_move_to_prev_element_head)" "previous element head"]
-   :W  ["<Plug>(sexp_move_to_next_element_head)" "next element head"]
-   :gE ["<Plug>(sexp_move_to_prev_element_tail)" "previous element tail"]
-   :E  ["<Plug>(sexp_move_to_next_element_tail)" "next element tail"]})
+     {1 ">" :group "forward"}
+     {1 ">(" 2 "<Plug>(sexp_emit_head_element)"    :buffer buf :desc "emit head element"}
+     {1 ">)" 2 "<Plug>(sexp_capture_next_element)" :buffer buf :desc "capture next element"}
+     {1 ">e" 2 "<Plug>(sexp_swap_element_forward)" :buffer buf :desc "swap element forward"}
+     {1 ">f" 2 "<Plug>(sexp_swap_list_forward)"    :buffer buf :desc "swap form forward"}
+     {1 ">I" 2 "<Plug>(sexp_insert_at_list_tail)"  :buffer buf :desc "insert at form tail"}
 
-(local keymaps-leader-n
-  {:x {:name "transform"
-       :d ["<Plug>(sexp_splice_list)" "splice form"]
-       :o {:name "raise"
-           :e ["<Plug>(sexp_raise_element)" "raise element"]
-           :f ["<Plug>(sexp_raise_list)" "raise form"]}
-       :s ["<Plug>(sexp_convolute)" "convolute surrounding forms"]}})
+     {1 "a" :group "around"}
+     {1 "ae" 2 "<Plug>(sexp_outer_element)"  :buffer buf :desc "around element" :mode [:x :o]}
+     {1 "af" 2 "<Plug>(sexp_outer_list)"     :buffer buf :desc "a form"         :mode [:x :o]}
+     {1 "aF" 2 "<Plug>(sexp_outer_top_list)" :buffer buf :desc "a root form"    :mode [:x :o]}
+     {1 "as" 2 "a\""                         :buffer buf :desc "around string"  :mode [:x :o]}
 
-(local keymaps-leader-nx
-  {"[" {"(" ["<Plug>(sexp_flow_to_prev_open)" "previous opening bracket"]
-            ")" ["<Plug>(sexp_flow_to_prev_close)" "previous closing bracket"]
-        :e ["<Plug>(sexp_select_prev_element)" "select previous element"]
-        :h  ["<Plug>(sexp_flow_to_prev_leaf_head)" "previous leaf head"]
-        :l  ["<Plug>(sexp_flow_to_prev_leaf_tail)" "previous leaf tail"]}
-   "]" {"(" ["<Plug>(sexp_flow_to_next_open)" "next opening bracket"]
-        ")" ["<Plug>(sexp_flow_to_next_close)" "next closing bracket"]
-        :e ["<Plug>(sexp_select_next_element)" "select next element"]
-        :h  ["<Plug>(sexp_flow_to_next_leaf_head)" "next leaf head"]
-        :l  ["<Plug>(sexp_flow_to_next_leaf_tail)" "next leaf tail"]}
-   :w {:name "wrap"
-       :e {:name "element"
-           "(" ["<Plug>(sexp_round_head_wrap_element)" "wrap element round head"]
-           ")" ["<Plug>(sexp_round_tail_wrap_element)" "wrap element round tail"]
-           "[" ["<Plug>(sexp_square_head_wrap_element)" "wrap element square head"]
-           "]" ["<Plug>(sexp_square_tail_wrap_element)" "wrap element square tail"]
-           "{" ["<Plug>(sexp_curly_head_wrap_element)" "wrap element curly head"]
-           "}" ["<Plug>(sexp_curly_tail_wrap_element)" "wrap element curly tail"]}
-       :f {:name "form"
-           "(" ["<Plug>(sexp_round_head_wrap_list)" "wrap form round head"]
-           ")" ["<Plug>(sexp_round_tail_wrap_list)" "wrap form round tail"]
-           "[" ["<Plug>(sexp_square_head_wrap_list)" "wrap form square head"]
-           "]" ["<Plug>(sexp_square_tail_wrap_list)" "wrap form square tail"]
-           "{" ["<Plug>(sexp_curly_head_wrap_list)" "wrap form curly head"]
-           "}" ["<Plug>(sexp_curly_tail_wrap_list)" "wrap form curly tail"]}}})
+     {1 "i" :group "inner"}
+     {1 "ie" 2 "<Plug>(sexp_inner_element)"  :buffer buf :desc "around element" :mode [:x :o]}
+     {1 "if" 2 "<Plug>(sexp_inner_list)"     :buffer buf :desc "a form"         :mode [:x :o]}
+     {1 "iF" 2 "<Plug>(sexp_inner_top_list)" :buffer buf :desc "a root form"    :mode [:x :o]}
+     {1 "is" 2 "i\""                         :buffer buf :desc "around string"  :mode [:x :o]}
 
-(local insert-mode-mappings
-  {"(" "<Plug>(sexp_insert_opening_round)"
-   "[" "<Plug>(sexp_insert_opening_square)"
-   "{" "<Plug>(sexp_insert_opening_curly)"
-   ")" "<Plug>(sexp_insert_closing_round)"
-   "]" "<Plug>(sexp_insert_closing_square)"
-   "}" "<Plug>(sexp_insert_closing_curly)"
-   "\"" "<Plug>(sexp_insert_double_quote)"
-   "<BS>" "<Plug>(sexp_insert_backspace)"})
+     {1 "[[" 2 "<Plug>(sexp_move_to_prev_top_element)"  :buffer buf :desc "previous root"         :mode [:n :x :o]}
+     {1 "]]" 2 "<Plug>(sexp_move_to_next_top_element)"  :buffer buf :desc "next root"             :mode [:n :x :o]}
+     {1 "("  2 "<Plug>(sexp_move_to_prev_bracket)"      :buffer buf :desc "previous bracket"      :mode [:n :x :o]}
+     {1 ")"  2 "<Plug>(sexp_move_to_next_bracket)"      :buffer buf :desc "next bracket"          :mode [:n :x :o]}
+     {1 "B"  2 "<Plug>(sexp_move_to_prev_element_head)" :buffer buf :desc "previous element head" :mode [:n :x :o]}
+     {1 "W"  2 "<Plug>(sexp_move_to_next_element_head)" :buffer buf :desc "next element head"     :mode [:n :x :o]}
+     {1 "gE" 2 "<Plug>(sexp_move_to_prev_element_tail)" :buffer buf :desc "previous element tail" :mode [:n :x :o]}
+     {1 "E"  2 "<Plug>(sexp_move_to_next_element_tail)" :buffer buf :desc "next element tail"     :mode [:n :x :o]}
 
-(fn register-keymaps [args]
-  (let [bufnr (vim.api.nvim_get_current_buf)]
-    (each [mode keymap (pairs {:n (lib.deep-merge keymaps-n
-                                                  keymaps-nxo)
-                               :x (lib.deep-merge keymaps-xo
-                                                  keymaps-nxo)
-                               :o (lib.deep-merge keymaps-xo
-                                                  keymaps-nxo)})]
-      (which-key.register keymap {:buffer bufnr :mode mode}))
+     {1 "<LocalLeader>x" :group "transform"}
+     {1 "<LocalLeader>xd" 2 "<Plug>(sexp_splice_list)" :buffer buf :desc "splice form"}
+     {1 "<LocalLeader>xs" 2 "<Plug>(sexp_convolute)"   :buffer buf :desc "convolute surrounding forms"}
 
-    (each [mode keymap (pairs {:n (lib.deep-merge keymaps-leader-n
-                                                  keymaps-leader-nx)
-                               :x keymaps-leader-nx})]
-      (which-key.register keymap {:buffer bufnr
-                                  :mode mode
-                                  :prefix "<LocalLeader>"}))
+     {1 "<LocalLeader>xo" :group "raise"}
+     {1 "<LocalLeader>xoe" 2 "<Plug>(sexp_raise_element)" :buffer buf :desc "raise element"}
+     {1 "<LocalLeader>xof" 2 "<Plug>(sexp_raise_list)"    :buffer buf :desc "raise form"}
 
-    (each [lhs rhs (pairs insert-mode-mappings)]
-      (vim.keymap.set :i lhs rhs {:buffer true :remap true :silent true}))))
+     {1 "<LocalLeader>[" :group "previous"}
+     {1 "<LocalLeader>[(" 2 "<Plug>(sexp_flow_to_prev_open)"      :buffer buf :desc "previous opening delimiter" :mode [:n :x]}
+     {1 "<LocalLeader>[)" 2 "<Plug>(sexp_flow_to_prev_close)"     :buffer buf :desc "previous closing delimiter" :mode [:n :x]}
+     {1 "<LocalLeader>[e" 2 "<Plug>(sexp_select_prev_element)"    :buffer buf :desc "select previous element"    :mode [:n :x]}
+     {1 "<LocalLeader>[h" 2 "<Plug>(sexp_flow_to_prev_leaf_head)" :buffer buf :desc "previous leaf head"         :mode [:n :x]}
+     {1 "<LocalLeader>[l" 2 "<Plug>(sexp_flow_to_prev_leaf_tail)" :buffer buf :desc "previous leaf tail"         :mode [:n :x]}
+
+     {1 "<LocalLeader>]" :group "next"}
+     {1 "<LocalLeader>](" 2 "<Plug>(sexp_flow_to_next_open)"      :buffer buf :desc "next opening delimiter" :mode [:n :x]}
+     {1 "<LocalLeader>])" 2 "<Plug>(sexp_flow_to_next_close)"     :buffer buf :desc "next closing delimiter" :mode [:n :x]}
+     {1 "<LocalLeader>]e" 2 "<Plug>(sexp_select_next_element)"    :buffer buf :desc "select next element"    :mode [:n :x]}
+     {1 "<LocalLeader>]h" 2 "<Plug>(sexp_flow_to_next_leaf_head)" :buffer buf :desc "next leaf head"         :mode [:n :x]}
+     {1 "<LocalLeader>]l" 2 "<Plug>(sexp_flow_to_next_leaf_tail)" :buffer buf :desc "next leaf tail"         :mode [:n :x]}
+
+     {1 "<LocalLeader>w"  :group "wrap"}
+
+     {1 "<LocalLeader>we" :group "element"}
+     {1 "<LocalLeader>we(" 2 "<Plug>(sexp_round_head_wrap_element)"  :buffer buf :desc "wrap element round head"  :mode [:n :x]}
+     {1 "<LocalLeader>we)" 2 "<Plug>(sexp_round_tail_wrap_element)"  :buffer buf :desc "wrap element round tail"  :mode [:n :x]}
+     {1 "<LocalLeader>we[" 2 "<Plug>(sexp_square_head_wrap_element)" :buffer buf :desc "wrap element square head" :mode [:n :x]}
+     {1 "<LocalLeader>we]" 2 "<Plug>(sexp_square_tail_wrap_element)" :buffer buf :desc "wrap element square tail" :mode [:n :x]}
+     {1 "<LocalLeader>we{" 2 "<Plug>(sexp_curly_head_wrap_element)"  :buffer buf :desc "wrap element curly head"  :mode [:n :x]}
+     {1 "<LocalLeader>we}" 2 "<Plug>(sexp_curly_tail_wrap_element)"  :buffer buf :desc "wrap element curly tail"  :mode [:n :x]}
+
+     {1 "<LocalLeader>wf" :group "form"}
+     {1 "<LocalLeader>wf(" 2 "<Plug>(sexp_round_head_wrap_list)"  :buffer buf :desc "wrap form round head"  :mode [:n :x]}
+     {1 "<LocalLeader>wf)" 2 "<Plug>(sexp_round_tail_wrap_list)"  :buffer buf :desc "wrap form round tail"  :mode [:n :x]}
+     {1 "<LocalLeader>wf[" 2 "<Plug>(sexp_square_head_wrap_list)" :buffer buf :desc "wrap form square head" :mode [:n :x]}
+     {1 "<LocalLeader>wf]" 2 "<Plug>(sexp_square_tail_wrap_list)" :buffer buf :desc "wrap form square tail" :mode [:n :x]}
+     {1 "<LocalLeader>wf{" 2 "<Plug>(sexp_curly_head_wrap_list)"  :buffer buf :desc "wrap form curly head"  :mode [:n :x]}
+     {1 "<LocalLeader>wf}" 2 "<Plug>(sexp_curly_tail_wrap_list)"  :buffer buf :desc "wrap form curly tail"  :mode [:n :x]}])
+
+    (vim.keymap.set :i "("    "<Plug>(sexp_insert_opening_round)"  {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "["    "<Plug>(sexp_insert_opening_square)" {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "{"    "<Plug>(sexp_insert_opening_curly)"  {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i ")"    "<Plug>(sexp_insert_closing_round)"  {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "]"    "<Plug>(sexp_insert_closing_square)" {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "}"    "<Plug>(sexp_insert_closing_curly)"  {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "\""   "<Plug>(sexp_insert_double_quote)"   {:buffer buf :remap true :silent true})
+    (vim.keymap.set :i "<BS>" "<Plug>(sexp_insert_backspace)"      {:buffer buf :remap true :silent true}))
 
 (fn init []
-  (set vim.g.sexp_filetypes "")
+  (set vim.g.sexp_filetypes ""))
+
+(fn config []
   (let [g (vim.api.nvim_create_augroup :plugins_sexp {:clear true})]
     (vim.api.nvim_create_autocmd :FileType {:callback register-keymaps
                                             :group g
@@ -117,4 +104,5 @@
 
 {1 :guns/vim-sexp
  :ft filetypes
- : init}
+ : init
+ : config}
