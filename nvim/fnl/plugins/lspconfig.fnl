@@ -2,7 +2,6 @@
 (local clojure (autoload :lsp.clojure))
 (local cmp-lsp (autoload :cmp_nvim_lsp))
 (local fennel (autoload :lsp.fennel))
-(local vscode (autoload :lsp.vscode))
 (local {: on-attach} (autoload :lsp.shared))
 
 (local capabilities
@@ -21,9 +20,7 @@
   (update-colorscheme)
   (let [opts {: capabilities :on_attach on-attach}]
     (fennel.setup opts)
-    (clojure.setup opts)
-    ; (vscode.setup opts)
-    ))
+    (clojure.setup opts)))
 
 {1 :neovim/nvim-lspconfig
  : config

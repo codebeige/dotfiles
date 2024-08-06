@@ -4,7 +4,6 @@ local autoload = _local_1_["autoload"]
 local clojure = autoload("lsp.clojure")
 local cmp_lsp = autoload("cmp_nvim_lsp")
 local fennel = autoload("lsp.fennel")
-local vscode = autoload("lsp.vscode")
 local _local_2_ = autoload("lsp.shared")
 local on_attach = _local_2_["on-attach"]
 local capabilities = cmp_lsp.default_capabilities()
