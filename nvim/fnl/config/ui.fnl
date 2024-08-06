@@ -1,0 +1,3 @@
+(local border :rounded)
+
+{: border}

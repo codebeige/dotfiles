@@ -7,7 +7,9 @@ local fennel = autoload("lsp.fennel")
 local tsserver = autoload("lsp.tsserver")
 local _local_2_ = autoload("lsp.shared")
 local on_attach = _local_2_["on-attach"]
+local ui = autoload("config.ui")
 local capabilities = cmp_lsp.default_capabilities()
+local handlers = {["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = ui.border}), ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signatureHelp, {border = ui.border})}
 local function update_colorscheme()
   vim.api.nvim_set_hl(0, "LspReferenceText", {link = "Visual"})
   vim.api.nvim_set_hl(0, "LspReferenceRead", {link = "LspReferenceText"})
@@ -19,7 +21,7 @@ local function config()
     vim.api.nvim_create_autocmd("ColorScheme", {callback = update_colorscheme, group = g, pattern = "*"})
   end
   update_colorscheme()
-  local opts = {capabilities = capabilities, on_attach = on_attach}
+  local opts = {capabilities = capabilities, handlers = handlers, on_attach = on_attach}
   fennel.setup(opts)
   clojure.setup(opts)
   return tsserver.setup(opts)

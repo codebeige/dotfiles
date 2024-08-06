@@ -1,5 +1,6 @@
 (local {: autoload} (require :nfnl.module))
 (local highlight (autoload :lib.highlight))
+(local ui (autoload :config.ui))
 
 (local signs {:Error "!"
               :Warn  "*"
@@ -23,4 +24,5 @@
 
 (update-highlights)
 
-(vim.diagnostic.config {:virtual_text {:prefix "•"}})
+(vim.diagnostic.config {:float {:border ui.border}
+                        :virtual_text {:prefix "•"}})

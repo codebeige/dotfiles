@@ -1,8 +1,8 @@
 (local {: autoload} (require :nfnl.module))
 (local {: tsserver} (autoload :lspconfig))
 
-(fn setup [_]
+(fn setup [opts]
   (when (= 1 (vim.fn.executable :typescript-language-server))
-    (tsserver.setup {})))
+    (tsserver.setup opts)))
 
 {: setup}

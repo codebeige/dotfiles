@@ -1,5 +1,6 @@
 (local {: autoload} (require :nfnl.module))
 (local which-key (autoload :which-key))
+(local ui (autoload :config.ui))
 
 (fn config [_ opts]
   (which-key.setup opts)
@@ -36,5 +37,6 @@
  :opts
  {:delay 200
   :preset :modern
+  :win {:border ui.border}
   :icons {:mappings false}
   :show_help false}}

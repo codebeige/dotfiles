@@ -2,6 +2,7 @@
 local _local_1_ = require("nfnl.module")
 local autoload = _local_1_["autoload"]
 local highlight = autoload("lib.highlight")
+local ui = autoload("config.ui")
 local signs = {Error = "!", Warn = "*", Info = "~", Hint = "?"}
 for s, t in pairs(signs) do
   local name = ("DiagnosticSign" .. s)
@@ -18,4 +19,4 @@ do
   vim.api.nvim_create_autocmd("ColorScheme", {group = g, pattern = "*", callback = update_highlights})
 end
 update_highlights()
-return vim.diagnostic.config({virtual_text = {prefix = "\226\128\162"}})
+return vim.diagnostic.config({float = {border = ui.border}, virtual_text = {prefix = "\226\128\162"}})

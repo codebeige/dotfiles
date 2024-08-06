@@ -34,10 +34,12 @@
      {1 "<Leader>f!" 2 "<Cmd>lua require('telescope.builtin').command_history()<CR>"           :desc "Command history"}
      {1 "<Leader>f/" 2 "<Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>" :desc "Fuzzy find in buffer..."}
      {1 "<Leader>fb" 2 "<Cmd>lua require('telescope.builtin').buffers()<CR>"                   :desc "Buffers"}
+     {1 "<Leader>fc" 2 "<Cmd>lua require('telescope.builtin').colorscheme()<CR>"               :desc "Colorschemes"}
      {1 "<Leader>ff" 2 "<Cmd>lua require('telescope.builtin').find_files()<CR>"                :desc "Files"}
      {1 "<Leader>fg" 2 "<Cmd>lua require('telescope.builtin').live_grep()<CR>"                 :desc "Search in project"}
      {1 "<Leader>fh" 2 "<Cmd>lua require('telescope.builtin').help_tags()<CR>"                 :desc "Help"}
      {1 "<Leader>fk" 2 "<Cmd>lua require('telescope.builtin').keymaps()<CR>"                   :desc "Keymaps"}
+     {1 "<Leader>fl" 2 "<Cmd>lua require('telescope.builtin').highlights()<CR>"                :desc "Highlights"}
      {1 "<Leader>fo" 2 "<Cmd>lua require('telescope.builtin').oldfiles()<CR>"                  :desc "File history"}
      {1 "<Leader>fq" 2 "<Cmd>lua require('telescope.builtin').quickfix()<CR>"                  :desc "Quickfix list"}
      {1 "<Leader>fr" 2 "<Cmd>lua require('telescope.builtin').resume()<CR>"                    :desc "Resume previous"}

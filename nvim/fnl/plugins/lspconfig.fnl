@@ -4,9 +4,16 @@
 (local fennel (autoload :lsp.fennel))
 (local tsserver (autoload :lsp.tsserver))
 (local {: on-attach} (autoload :lsp.shared))
+(local ui (autoload :config.ui))
 
 (local capabilities
   (cmp-lsp.default_capabilities))
+
+(local handlers
+  {:textDocument/hover
+   (vim.lsp.with vim.lsp.handlers.hover {:border ui.border})
+   :textDocument/signatureHelp
+   (vim.lsp.with vim.lsp.handlers.signatureHelp {:border ui.border})})
 
 (fn update-colorscheme []
   (vim.api.nvim_set_hl 0 :LspReferenceText {:link :Visual})
@@ -19,7 +26,9 @@
                                                :group g
                                                :pattern "*"}))
   (update-colorscheme)
-  (let [opts {: capabilities :on_attach on-attach}]
+  (let [opts {: capabilities
+              : handlers
+              :on_attach on-attach}]
     (fennel.setup opts)
     (clojure.setup opts)
     (tsserver.setup opts)))

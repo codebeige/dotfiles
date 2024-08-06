@@ -1,3 +1,6 @@
+(local border
+  ["╭" "─" "╮" "│" "╯" "─" "╰" "│"])
+
 (fn get-hl [name]
   (case (vim.api.nvim_get_hl 0 {:name name})
     {: link} (get-hl link)
@@ -10,5 +13,6 @@
 (fn link [name target]
   (vim.api.nvim_set_hl 0 name {:link target}))
 
-{: link
+{: border
+ : link
  : make-italic}
