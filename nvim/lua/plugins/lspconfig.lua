@@ -4,6 +4,7 @@ local autoload = _local_1_["autoload"]
 local clojure = autoload("lsp.clojure")
 local cmp_lsp = autoload("cmp_nvim_lsp")
 local fennel = autoload("lsp.fennel")
+local tsserver = autoload("lsp.tsserver")
 local _local_2_ = autoload("lsp.shared")
 local on_attach = _local_2_["on-attach"]
 local capabilities = cmp_lsp.default_capabilities()
@@ -20,6 +21,7 @@ local function config()
   update_colorscheme()
   local opts = {capabilities = capabilities, on_attach = on_attach}
   fennel.setup(opts)
-  return clojure.setup(opts)
+  clojure.setup(opts)
+  return tsserver.setup(opts)
 end
 return {"neovim/nvim-lspconfig", config = config, dependencies = {"hrsh7th/cmp-nvim-lsp"}}
