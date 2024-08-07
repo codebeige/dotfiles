@@ -35,7 +35,7 @@
 {1 :folke/which-key.nvim
  : config
  :opts
- {:delay 200
+ {:delay 500
   :preset :modern
   :win {:border ui.border}
   :icons {:mappings false}
