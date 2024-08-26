@@ -16,14 +16,33 @@ local function init ()
 end
 
 if pcall(init) then
+  local rig_plugin_dir = vim.fs.find('rig', {
+    type = 'directory',
+    path = '~/src',
+  })[1]
+  if rig_plugin_dir then
+    vim.opt.rtp:prepend(rig_plugin_dir)
+    require('rig').setup()
+  else
+    vim.print("Warning: rig plugin not found")
+  end
+
   require('config.base')
+
   require('lazy').setup('plugins', {
     change_detection = {notify = false},
     ui = {
       border = require('config.ui').border,
       backdrop = 100,
     },
+    performance = {
+      rtp = {
+        -- reset = false,
+        paths = { rig_plugin_dir },
+      },
+    }
   })
+
   require('config')
 else
   print('Error: unable to install. Are you connected to the internet?')
