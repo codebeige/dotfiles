@@ -24,5 +24,4 @@
         "test/lua/*-test.lua" {:type "compiled-test"
                                :alternate "test/fnl/{}-test.fnl"}}}))
 
-{1 :tpope/vim-projectionist
- : config}
+{: config}

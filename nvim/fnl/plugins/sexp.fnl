@@ -1,9 +1,7 @@
-(local {: autoload} (require :nfnl.module))
-(local which-key (autoload :which-key))
-
 (local filetypes [:clojure :fennel :scheme :lisp :timl])
 
 (fn register-keymaps [{: buf}]
+  (let [which-key (require :which-key)]
   (which-key.add
     [{1 "=" :group "indent"}
      {1 "==" 2 "<Plug>(sexp_indent)"     :buffer buf :desc "indent form"}
@@ -91,7 +89,7 @@
     (vim.keymap.set :i "]"    "<Plug>(sexp_insert_closing_square)" {:buffer buf :remap true :silent true})
     (vim.keymap.set :i "}"    "<Plug>(sexp_insert_closing_curly)"  {:buffer buf :remap true :silent true})
     (vim.keymap.set :i "\""   "<Plug>(sexp_insert_double_quote)"   {:buffer buf :remap true :silent true})
-    (vim.keymap.set :i "<BS>" "<Plug>(sexp_insert_backspace)"      {:buffer buf :remap true :silent true}))
+    (vim.keymap.set :i "<BS>" "<Plug>(sexp_insert_backspace)"      {:buffer buf :remap true :silent true})))
 
 (fn init []
   (set vim.g.sexp_filetypes ""))
@@ -102,7 +100,6 @@
                                             :group g
                                             :pattern filetypes})))
 
-{1 :guns/vim-sexp
- :ft filetypes
- : init
- : config}
+{: config
+ : filetypes
+ : init}

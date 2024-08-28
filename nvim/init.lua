@@ -27,7 +27,7 @@ if pcall(init) then
     vim.print("Warning: rig plugin not found")
   end
 
-  require('config.base')
+  require('config.base').setup()
 
   require('lazy').setup('plugins', {
     change_detection = {notify = false},
@@ -43,7 +43,7 @@ if pcall(init) then
     }
   })
 
-  require('config')
+  require('config.init').setup()
 else
   print('Error: unable to install. Are you connected to the internet?')
 end

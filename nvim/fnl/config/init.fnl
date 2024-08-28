@@ -1,20 +1,21 @@
 (local {: autoload} (require :nfnl.module))
 (local scratch (autoload :codebeige.scratch))
-(local highlight (autoload :config.highlight))
-
-(require :config.diagnostic)
-(require :config.terminal)
-(require :config.clojure)
-(require :config.fennel)
+(local highlight (autoload :config.init.highlight))
+(local diagnostic (autoload :config.init.diagnostic))
+(local terminal (autoload :config.init.terminal))
+(local clojure (autoload :config.init.clojure))
+(local fennel (autoload :config.init.fennel))
 
 (var loaded? false)
 
-(fn init []
+(fn setup []
   (when (not loaded?)
-    (scratch.init)
-    (highlight.init))
-  true)
+    (scratch.setup)
+    (highlight.setup)
+    (diagnostic.setup)
+    (terminal.setup)
+    (clojure.setup)
+    (fennel.setup)
+    (set loaded? true)))
 
-(set loaded? (init))
-
-{: init}
+{: setup}

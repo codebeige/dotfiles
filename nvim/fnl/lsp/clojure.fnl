@@ -1,12 +1,6 @@
-(local {: autoload} (require :nfnl.module))
-(local nfnl (autoload :nfnl.core))
-(local lsp (autoload :lsp.shared))
-(local lspconfig (autoload :lspconfig))
-(local ts-utils (autoload :nvim-treesitter.ts_utils))
-(local which-key (autoload :which-key))
-
 (fn list-at-cursor []
-  (let [n (ts-utils.get_node_at_cursor)]
+  (let [ts-utils (require :nvim-treesitter.ts_utils)
+        n (ts-utils.get_node_at_cursor)]
     (if (= 0 (n:named_child_count)) (n:parent) n)))
 
 (fn code-action [cmd line column]
@@ -22,14 +16,17 @@
   (code-action :cycle-privacy))
 
 (fn on-attach [client buffer]
-  (lsp.on-attach client buffer)
-  (which-key.add
-    [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}]))
+  (let [{: on-attach} (require :lsp.shared)
+        which-key (require :which-key)]
+    (on-attach client buffer)
+    (which-key.add
+      [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}])))
 
 (fn setup [opts]
-  (if (= 1 (vim.fn.executable :clojure-lsp))
-    (lspconfig.clojure_lsp.setup (nfnl.assoc opts :on_attach on-attach))
-    (print "LSP: clojure-lsp not found")))
+  (let [{:clojure_lsp clojure-lsp} (require :lspconfig)]
+    (if (= 1 (vim.fn.executable :clojure-lsp))
+      (clojure-lsp.setup (doto opts (tset :on_attach on-attach)))
+      (print "LSP: clojure-lsp not found"))))
 
 {: list-at-cursor
  : code-action

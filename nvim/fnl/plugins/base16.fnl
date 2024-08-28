@@ -1,14 +1,15 @@
-(local {: autoload} (require :nfnl.module))
-(local fwatch (autoload :fwatch))
-(local nfnl (autoload :nfnl.core))
-(local str (autoload :nfnl.string))
+(local colorscheme-file (vim.fs.normalize "~/.colortheme"))
 
-(local colorscheme-file
-  (nfnl.str (os.getenv :HOME) "/.colortheme"))
+(fn slurp [path]
+  (when path
+    (match (io.open path "r")
+      f (let [content (f:read "*all")]
+          (f:close)
+          content))))
 
 (fn current []
-  (match (nfnl.slurp colorscheme-file true)
-    name (-> name str.trim (string.gsub "-256$" ""))
+  (match (slurp colorscheme-file true)
+    name (-> name vim.trim (string.gsub "-256$" ""))
     _ :base16-tomorrow-night-eighties))
 
 (fn update []
@@ -17,9 +18,8 @@
       (vim.cmd.colorscheme name))))
 
 (fn config []
-  (update)
-  (fwatch.watch colorscheme-file {:on_event (vim.schedule_wrap update)}))
+  (let [{: watch} (require :fwatch)]
+    (update)
+    (watch colorscheme-file {:on_event (vim.schedule_wrap update)})))
 
-{1 :base16-project/base16-vim
- : config
- :priority 1000}
+{: config}

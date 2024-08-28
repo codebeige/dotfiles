@@ -47,7 +47,7 @@
         (save-layout buffer window)
         (close-windows windows)))))
 
-(fn init []
+(fn setup []
   (vim.api.nvim_create_user_command
     :Scratch
     (fn [{: bang : count :fargs [name filetype & more] :smods mods}]
@@ -65,4 +65,4 @@
      :count 0
      :nargs :*}))
 
-{: init}
+{: setup}
