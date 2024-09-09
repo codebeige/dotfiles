@@ -20,13 +20,13 @@
   (let [{: on-attach} (require :lsp.shared)
         clojure (require :lsp.clojure)
         fennel (require :lsp.fennel)
-        tsserver (require :lsp.tsserver)
-        {:default_capabilities capabilities} (require :cmp_nvim_lsp)
-        opts {: capabilities
+        ts (require :lsp.ts)
+        {:default_capabilities default-capabilities} (require :cmp_nvim_lsp)
+        opts {:capabilities (default-capabilities)
               : handlers
               :on_attach on-attach}]
-    ; (fennel.setup opts)
+    (fennel.setup opts)
     (clojure.setup opts)
-    (tsserver.setup opts)))
+    (ts.setup opts)))
 
 {: config}
