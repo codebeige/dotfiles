@@ -22,12 +22,13 @@ return {
     "base16-project/base16-vim",
     config = base16.config,
     dependencies = {"rktjmp/fwatch.nvim"},
-    priority = 1000,
+    priority = 100,
   },
   {
     "clojure-vim/vim-jack-in",
     dependencies = {"radenling/vim-dispatch-neovim"},
   },
+  "codebeige/rig.nvim",
   {
     "csexton/trailertrash.vim",
     config = trailertrash.config,
@@ -57,9 +58,6 @@ return {
     ft = sexp.filetypes,
     init = sexp.init,
     config = sexp.config,
-    dependencies = {
-      "folke/which-key.nvim",
-    },
   },
   {
     "jaawerth/fennel.vim",
@@ -69,7 +67,6 @@ return {
     "junegunn/vim-easy-align",
     config = easy_align.config,
     dependencies = {
-      "folke/which-key.nvim",
       "tpope/vim-repeat",
     },
   },
@@ -79,7 +76,6 @@ return {
     "neovim/nvim-lspconfig",
     config = lspconfig.config,
     dependencies = {
-      "folke/which-key.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "nvim-telescope/telescope.nvim",
     },
@@ -93,7 +89,6 @@ return {
     "nvim-telescope/telescope.nvim",
     config = telescope.config,
     dependencies = {
-      "folke/which-key.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       {"nvim-telescope/telescope-fzf-native.nvim", build = "make"}
@@ -112,9 +107,6 @@ return {
   {
     "Olical/conjure",
     config = conjure.config,
-    dependencies = {
-      "folke/which-key.nvim",
-    },
     init = conjure.init,
   },
   {
@@ -134,9 +126,6 @@ return {
   {
     "tpope/vim-fugitive",
     config = fugitive.config,
-    dependencies = {
-      "folke/which-key.nvim",
-    },
   },
   {
     "tpope/vim-projectionist",
@@ -150,9 +139,6 @@ return {
   {
     "tpope/vim-unimpaired",
     config = unimpaired.config,
-    dependencies = {
-      "folke/which-key.nvim",
-    },
   },
   {
     "tpope/vim-vinegar",
