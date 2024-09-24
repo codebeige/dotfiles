@@ -6,6 +6,7 @@
 
   (set vim.o.colorcolumn "80")
   (set vim.o.completeopt "menu,menuone,noselect")
+  (set vim.o.conceallevel 2)
   (set vim.o.cursorline true)
   (set vim.o.diffopt (.. "vertical," vim.o.diffopt))
   (set vim.o.expandtab true)
