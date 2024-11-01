@@ -1,4 +1,5 @@
 bindkey -M viins '^[' vi-cmd-mode
+bindkey -M viins '^B' insert-last-word
 
 bindkey -M vicmd k vi-up-line-or-history
 bindkey -M vicmd j vi-down-line-or-history
