@@ -28,8 +28,10 @@ local function init ()
     rig_plugin_dir = rig_plugin_dev_dir
   else
     rig_plugin_dir = vim.fn.stdpath('data') .. '/lazy/rig.nvim'
-    fetch('codebeige/rig.nvim', rig_plugin_dir)
-    dofile(rig_plugin_dir .. "/build.lua")
+    if not vim.loop.fs_stat(rig_plugin_dir) then
+      fetch('codebeige/rig.nvim', rig_plugin_dir)
+      dofile(rig_plugin_dir .. "/build.lua")
+    end
   end
   vim.opt.rtp:prepend(rig_plugin_dir)
 
@@ -44,7 +46,7 @@ local function init ()
     dev = {
       path = '~/src',
       patterns = { 'codebeige' },
-      fallback = false,
+      fallback = true,
     },
     ui = {
       border = require('config.ui').border,
