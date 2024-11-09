@@ -42,7 +42,8 @@ local function init ()
   fetch('folke/lazy.nvim', lazypath)
   vim.opt.rtp:prepend(lazypath)
 
-  require('lazy').setup('plugins', {
+  require('lazy').setup({
+    spec = require('plugins'),
     dev = {
       path = '~/src',
       patterns = { 'codebeige' },
