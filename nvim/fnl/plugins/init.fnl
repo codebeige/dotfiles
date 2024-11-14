@@ -14,6 +14,8 @@
 
  "codebeige/rig.nvim"
 
+ {1 "codebeige/pilot.nvim" :dev true :enabled true}
+
  {1 "csexton/trailertrash.vim"
   :config ($ :plugins.trailertrash.config)
   :init ($ :plugins.trailertrash.init)}
