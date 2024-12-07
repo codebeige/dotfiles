@@ -20,6 +20,9 @@
 
  "dcampos/nvim-snippy"
 
+ {1 "fatih/vim-go"
+  :build "GoInstallBinaries"}
+
  {1 "hrsh7th/nvim-cmp"
   :config ($ :plugins.cmp.config)
   :dependencies ["Olical/conjure"
