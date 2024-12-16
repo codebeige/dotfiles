@@ -3,7 +3,8 @@
 (fn update-highlights []
   (highlight.make-italic :Comment)
   (vim.api.nvim_set_hl 0 :NormalFloat {:link :Normal})
-  (vim.api.nvim_set_hl 0 :FloatBorder {:link :FloatNormal}))
+  (vim.api.nvim_set_hl 0 :FloatBorder {:link :FloatNormal})
+  (vim.api.nvim_set_hl 0 :MatchParen {:link :Visual}))
 
 (fn setup []
   (highlight.link :NormalFloat :Normal)
