@@ -21,7 +21,7 @@
  "dcampos/nvim-snippy"
 
  {1 "fatih/vim-go"
-  :build "GoInstallBinaries"}
+  :ft [:go]}
 
  {1 "hrsh7th/nvim-cmp"
   :config ($ :plugins.cmp.config)
