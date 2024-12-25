@@ -1,19 +1,17 @@
 (fn config []
   (let [{: setup} (require :nvim-treesitter.configs)]
-    (setup {:ensure_installed [:bash
-                               :clojure
+    (setup {:ensure_installed [:clojure
                                :comment
                                :css
                                :diff
                                :dockerfile
-                               :dot
                                :fennel
                                :git_rebase
                                :gitattributes
                                :gitcommit
                                :gitignore
-                               :graphql
                                :html
+                               :http
                                :java
                                :javascript
                                :jsdoc
@@ -21,11 +19,11 @@
                                :json5
                                :jsonc
                                :lua
+                               :luadoc
+                               :luap
                                :make
                                :markdown
                                :markdown_inline
-                               :mermaid
-                               :nix
                                :org
                                :python
                                :query
@@ -38,16 +36,23 @@
                                :vim
                                :yaml]
 
-                     :highlight {:enable true}
+            :auto_install true
 
-                     :incremental_selection
-                     {:enable true
-                      :keymaps {:init_selection "<LocalLeader>vv"
-                                :node_decremental "<LocalLeader>vr"
-                                :node_incremental "<LocalLeader>vm"
-                                :scope_incremental "<LocalLeader>vM"}}
+            :highlight
+            {:enable true
+             :additional_vim_regex_highlighting [:clojure
+                                                 :fennel
+                                                 :janet
+                                                 :racket]}
 
-                     :indent {:enable true}})
+            :incremental_selection
+            {:enable true
+             :keymaps {:init_selection "<LocalLeader>vv"
+                       :node_decremental "<LocalLeader>vr"
+                       :node_incremental "<LocalLeader>vm"
+                       :scope_incremental "<LocalLeader>vM"}}
+
+            :indent {:enable true}})
 
   (set vim.o.foldmethod :expr)
   (set vim.o.foldexpr "nvim_treesitter#foldexpr()")
