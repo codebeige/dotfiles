@@ -8,10 +8,6 @@ Host codebeige.net
   HostName barnard.uberspace.de
   User cdbg
 
-Host gmah.net
-  HostName giacobini.uberspace.de
-  User gmah7
-
 Host briareos
   HostName briareos.codebeige.net
   User tc
@@ -25,3 +21,7 @@ Host oneiros
   User root
   HostkeyAlgorithms +ssh-rsa
   PubkeyAcceptedAlgorithms +ssh-rsa
+
+Host alexander-ai.net
+  HostName lepus.uberspace.de
+  User axi
