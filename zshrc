@@ -30,7 +30,7 @@ ZSH_CUSTOM=$HOME/.zsh/config
 plugins=(
   vi-mode
   aliases
-  asdf-direnv
+  asdf
   base16-kitty
   colored-man-pages
   colorize
