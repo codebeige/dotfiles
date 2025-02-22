@@ -1,5 +1,6 @@
-{:cljmt {:extra-indents {as-> [[:inner 0]]
-                         async [[:inner 0]]}
-         :remove-multiple-non-indenting-spaces? true}
+{:cljfmt {:extra-indents {as-> [[:inner 0]]
+                          async [[:inner 0]]
+                          for-all [[:inner 0]]}
+          :remove-multiple-non-indenting-spaces? true}
  :keep-require-at-start? true
  :semantic-tokens? true}

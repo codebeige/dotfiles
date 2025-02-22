@@ -3,4 +3,5 @@
   {:exclude-when-defined-by #{cljs.core/defrecord
                               cljs.core/deftype
                               cljs.test/deftest
-                              clojure.test/deftest}}}}
+                              clojure.test/deftest}}}
+ :lint-as {clojure.test.check.clojure-test/defspec clojure.test/deftest}}
