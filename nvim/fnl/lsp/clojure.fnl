@@ -1,3 +1,5 @@
+(local {:clojure_lsp clojure-lsp} (require :lspconfig))
+
 (fn list-at-cursor []
   (let [ts-utils (require :nvim-treesitter.ts_utils)
         n (ts-utils.get_node_at_cursor)]
@@ -15,22 +17,14 @@
 (fn cycle-privacy []
   (code-action :cycle-privacy))
 
-(fn on-attach [client buffer]
-  (let [{: on-attach} (require :lsp.shared)
-        which-key (require :which-key)]
-    (on-attach client buffer)
+(fn on-attach [_ buffer]
+  (let [which-key (require :which-key)]
     (which-key.add
-      [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}])))
+      [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}
+       {1 "<LocalLeader>x-" 2 #(cycle-privacy) : buffer :desc "Cycle privacy"}])))
 
-(fn setup [opts]
-  (let [{:clojure_lsp clojure-lsp} (require :lspconfig)]
-    (if (= 1 (vim.fn.executable :clojure-lsp))
-      (clojure-lsp.setup (doto opts (tset :on_attach on-attach)))
-      (print "LSP: clojure-lsp not found"))))
+(fn setup [_]
+  (case (vim.fn.executable :clojure-lsp)
+    1 (clojure-lsp.setup {:on_attach on-attach})))
 
-{: list-at-cursor
- : code-action
- : cycle-collection
- : cycle-privacy
- : on-attach
- : setup}
+{: setup}

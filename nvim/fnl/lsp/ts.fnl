@@ -1,6 +1,7 @@
-(fn setup [opts]
-  (let [{:ts_ls ts-ls} (require :lspconfig)]
-    (when (= 1 (vim.fn.executable :typescript-language-server))
-      (ts-ls.setup opts))))
+(local {:ts_ls ts-ls} (require :lspconfig))
+
+(fn setup [_]
+  (case (vim.fn.executable :typescript-language-server)
+    1 (ts-ls.setup {})))
 
 {: setup}
