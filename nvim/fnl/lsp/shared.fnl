@@ -12,9 +12,10 @@
                               (set vim.g.__operatorfunc nil)))
   (set vim.o.operatorfunc :v:lua.__operatorfunc))
 
-(fn on-attach [client buffer]
+(fn on-attach [{:buf buffer : data}]
   (let [which-key (require :which-key)
-        telescope (require :telescope.builtin)]
+        telescope (require :telescope.builtin)
+        client (vim.lsp.get_client_by_id (. data :client_id))]
     (which-key.add
       [{1 "<C-]>" 2 #(vim.lsp.buf.definition)   : buffer :desc "Jump to definition"}
        {1 "K"     2 #(vim.lsp.buf.hover)        : buffer :desc "Show documentation"}
@@ -40,7 +41,7 @@
 
        {1 "<LocalLeader>v" :group "view"}
        {1 "<LocalLeader>vd" 2 #(vim.diagnostic.open_float)  : buffer :desc "View diagnostics"}
-       {1 "<LocalLeader>vh" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}]))
+       {1 "<LocalLeader>vh" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}])
 
   (if client.server_capabilities.documentHighlightProvider
     (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" buffer) {:clear true})]
@@ -58,7 +59,7 @@
                                                :callback #(vim.lsp.buf.format {:async false})
                                                :group g}))
 
-  (print (string.format "LSP ready. [%s]" (. client :name))))
+  (print (string.format "LSP ready. [%s]" (. client :name)))))
 
 {: format-move
  : on-attach}
