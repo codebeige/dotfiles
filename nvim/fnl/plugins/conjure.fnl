@@ -5,7 +5,7 @@
 
 (fn config []
   (let [which-key (require :which-key)
-        g (vim.api.nvim_create_augroup :plugins_conjure_config {:clear true})]
+        group (vim.api.nvim_create_augroup :plugins.conjure {:clear true})]
     (which-key.add
       [{1 "<LocalLeader>e"  :group "eval"}
        {1 "<LocalLeader>ec" :group "comment"}
@@ -18,7 +18,8 @@
       :BufEnter
       {:pattern "conjure-log-*"
        :callback (fn [{: buf}]
-                   (vim.diagnostic.disable buf))
-       :group g})))
+                   (vim.diagnostic.disable buf)
+                   nil)
+       : group})))
 
 {: config : init}

@@ -43,19 +43,25 @@
        {1 "<LocalLeader>vh" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}]))
 
   (if client.server_capabilities.documentHighlightProvider
-      (let [g (vim.api.nvim_create_augroup (string.format "lib_lsp_%d" buffer) {:clear true})]
+      (let [group (vim.api.nvim_create_augroup (string.format "lsp.shared.buffer-%d" buffer) {:clear true})]
         (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
                                      {: buffer
-                                      :callback #(vim.lsp.buf.document_highlight)
-                                      :group g})
+                                      :callback (fn [_]
+                                                  (vim.lsp.buf.document_highlight)
+                                                  nil)
+                                      : group})
         (vim.api.nvim_create_autocmd :CursorMoved
                                      {: buffer
-                                      :callback #(vim.lsp.buf.clear_references)
-                                      :group g})
+                                      :callback (fn [_]
+                                                  (vim.lsp.buf.clear_references)
+                                                  nil)
+                                      : group})
         (vim.api.nvim_create_autocmd :BufWritePre
                                      {: buffer
-                                      :callback #(vim.lsp.buf.format {:async false})
-                                      :group g}))))
+                                      :callback (fn [_]
+                                                  (vim.lsp.buf.format {:async false})
+                                                  nil)
+                                      : group}))))
 
 {: format-move
  : on-attach}

@@ -9,12 +9,13 @@
   (require :fennel))
 
 (fn setup []
-  (let [group (vim.api.nvim_create_augroup :config_fennel {:clear true})]
+  (let [group (vim.api.nvim_create_augroup :config.fennel {:clear true})]
     (vim.api.nvim_create_autocmd :FileType
-                                 {:callback on-filetype
-                                  :group group
+                                 {:pattern "fennel"
+                                  :callback (fn [_]
+                                              (on-filetype))
                                   :once true
-                                  :pattern "fennel"}))
+                                  : group}))
   (vim.cmd.digraph :fn 955))
 
 {: setup}

@@ -3,10 +3,12 @@
 
 (fn config []
   (let [which-key (require :which-key)
-        g (vim.api.nvim_create_augroup :plugins_fugitive {:clear true})]
-    (vim.api.nvim_create_autocmd :BufReadPost {:callback delete-on-close
-                                               :group g
-                                               :pattern "fugitive://*"})
+        group (vim.api.nvim_create_augroup :plugins.fugitive {:clear true})]
+    (vim.api.nvim_create_autocmd :BufReadPost {:callback (fn [_]
+                                                           (delete-on-close)
+                                                           nil)
+                                               :pattern "fugitive://*"
+                                               : group})
 
     (which-key.add
       [{1 "<Leader>g" :group "git"}

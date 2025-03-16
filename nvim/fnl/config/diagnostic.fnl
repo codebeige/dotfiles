@@ -16,10 +16,11 @@
     (highlight.make-italic :DiagnosticInfo)
     (highlight.make-italic :DiagnosticHint))
 
-  (let [g (vim.api.nvim_create_augroup :config_diagnostic {:clear true})]
-    (vim.api.nvim_create_autocmd :ColorScheme {:group g
-                                               :pattern "*"
-                                               :callback update-highlights}))
+  (let [g (vim.api.nvim_create_augroup :config.diagnostic {:clear true})]
+    (vim.api.nvim_create_autocmd :ColorScheme {:callback (fn [_]
+                                                           (update-highlights)
+                                                           nil)
+                                               :group g}))
 
   (update-highlights)
 

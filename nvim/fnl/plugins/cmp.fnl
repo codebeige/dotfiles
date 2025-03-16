@@ -83,10 +83,12 @@
     (cmp.setup.cmdline :: {:sources [{:name "cmdline"}
                                      {:name "path"}]})
 
-    (let [g (vim.api.nvim_create_augroup :config_cmp {:clear true})]
-      (vim.api.nvim_create_autocmd :ColorScheme {:callback update-colorscheme
-                                                 :group g
-                                                 :pattern "*"}))
+    (let [group (vim.api.nvim_create_augroup :config.cmp {:clear true})]
+      (vim.api.nvim_create_autocmd :ColorScheme
+                                   {:callback (fn [_]
+                                                (update-colorscheme)
+                                                nil)
+                                    : group}))
     (update-colorscheme)))
 
 {: config}

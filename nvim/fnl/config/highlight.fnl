@@ -8,10 +8,12 @@
 
 (fn setup []
   (highlight.link :NormalFloat :Normal)
-  (let [g (vim.api.nvim_create_augroup :config_highlight {:clear true})]
-    (vim.api.nvim_create_autocmd :ColorScheme {:group g
-                                               :pattern "*"
-                                               :callback update-highlights})
+  (let [group (vim.api.nvim_create_augroup :config.highlight {:clear true})]
+    (vim.api.nvim_create_autocmd :ColorScheme
+                                 {:callback (fn [_]
+                                              (update-highlights)
+                                              nil)
+                                  : group})
     (update-highlights)))
 
 {: setup}

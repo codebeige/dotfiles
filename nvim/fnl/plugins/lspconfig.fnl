@@ -9,8 +9,10 @@
   (vim.api.nvim_set_hl 0 :LspReferenceWrite {:link :LspReferenceText}))
 
 (fn config [_]
-  (let [group (vim.api.nvim_create_augroup :config_lspconfig {:clear true})]
-    (vim.api.nvim_create_autocmd :ColorScheme {:callback update-colorscheme
+  (let [group (vim.api.nvim_create_augroup :config.lspconfig {:clear true})]
+    (vim.api.nvim_create_autocmd :ColorScheme {:callback (fn [_]
+                                                           (update-colorscheme)
+                                                           nil)
                                                : group})
     (update-colorscheme))
 

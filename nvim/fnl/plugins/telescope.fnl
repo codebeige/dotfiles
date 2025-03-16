@@ -54,9 +54,11 @@
        {1 "<Leader>gfi" 2 "<Cmd>lua require('telescope.builtin').git_status()<CR>"   :desc "Status"}
        {1 "<Leader>gfs" 2 "<Cmd>lua require('telescope.builtin').git_stash()<CR>"    :desc "Stash"}])
 
-    (let [g (vim.api.nvim_create_augroup :plugins_telescope {:clear true})]
-      (vim.api.nvim_create_autocmd :FileType {:callback init-prompt
-                                              :group g
-                                              :pattern :TelescopePrompt}))))
+    (let [group (vim.api.nvim_create_augroup :plugins.telescope {:clear true})]
+      (vim.api.nvim_create_autocmd :FileType {:pattern :TelescopePrompt
+                                              :callback (fn [_]
+                                                          (init-prompt)
+                                                          nil)
+                                              : group}))))
 
 {: config}

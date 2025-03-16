@@ -15,9 +15,11 @@
       (set vim.bo.lispwords (.. vim.bo.lispwords ",cond,try,async"))
       (set vim.b.config_clojure_loaded true)))
 
-  (let [g (vim.api.nvim_create_augroup :config_clojure {:clear true})]
-    (vim.api.nvim_create_autocmd :FileType {:callback init-buffer
-                                            :group g
-                                            :pattern "clojure"})))
+  (let [group (vim.api.nvim_create_augroup :config.clojure {:clear true})]
+    (vim.api.nvim_create_autocmd :FileType {:pattern "clojure"
+                                            :callback (fn [_]
+                                                        (init-buffer)
+                                                        nil)
+                                            : group})))
 
 {: setup}

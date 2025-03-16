@@ -95,10 +95,12 @@
   (set vim.g.sexp_filetypes ""))
 
 (fn config []
-  (let [g (vim.api.nvim_create_augroup :plugins_sexp {:clear true})]
-    (vim.api.nvim_create_autocmd :FileType {:callback register-keymaps
-                                            :group g
-                                            :pattern filetypes})))
+  (let [group (vim.api.nvim_create_augroup :plugins.sexp {:clear true})]
+    (vim.api.nvim_create_autocmd :FileType {:callback (fn [e]
+                                                        (register-keymaps e)
+                                                        nil)
+                                            :pattern filetypes
+                                            : group})))
 
 {: config
  : filetypes
