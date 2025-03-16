@@ -1,4 +1,3 @@
-(local scratch (require :codebeige.scratch))
 (local highlight (require :config.init.highlight))
 (local diagnostic (require :config.init.diagnostic))
 (local terminal (require :config.init.terminal))
@@ -9,7 +8,6 @@
 
 (fn setup []
   (when (not loaded?)
-    (scratch.setup)
     (highlight.setup)
     (diagnostic.setup)
     (terminal.setup)
