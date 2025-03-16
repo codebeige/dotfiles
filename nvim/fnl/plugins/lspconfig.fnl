@@ -8,7 +8,7 @@
   (vim.api.nvim_set_hl 0 :LspReferenceRead {:link :LspReferenceText})
   (vim.api.nvim_set_hl 0 :LspReferenceWrite {:link :LspReferenceText}))
 
-(fn config [opts]
+(fn config [_]
   (let [group (vim.api.nvim_create_augroup :config_lspconfig {:clear true})]
     (vim.api.nvim_create_autocmd :ColorScheme {:callback update-colorscheme
                                                : group})
@@ -24,6 +24,6 @@
   (set (. vim.lsp.handlers :textDocument/signatureHelp)
        (vim.lsp.with vim.lsp.handlers.signature_help {:border border}))
 
-  (lsp.setup opts))
+  (lsp.setup))
 
 {: config}

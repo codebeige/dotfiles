@@ -1,3 +1,17 @@
+(fn format-range []
+  (let [view (vim.fn.winsaveview)]
+    (pcall #(vim.lsp.buf.range_formatting
+              {}
+              (vim.api.nvim_buf_get_mark 0 "[")
+              (vim.api.nvim_buf_get_mark 0 "]")))
+    (vim.fn.restview view)))
+
+(fn format-move []
+  (set vim.g.__operatorfunc (fn []
+                              (pcall format-range)
+                              (set vim.g.__operatorfunc nil)))
+  (set vim.o.operatorfunc :v:lua.__operatorfunc))
+
 (fn on-attach [client buffer]
   (let [which-key (require :which-key)
         telescope (require :telescope.builtin)]
@@ -18,7 +32,7 @@
        {1 "<LocalLeader>fS" 2 #(telescope.lsp_workspace_symbols) : buffer :desc "Workspace symbols"}
 
        {1 "<LocalLeader>q" :group "format"}
-       {1 "<LocalLeader>qq" 2 "<Cmd>lua require('lsp')['format-move']()<CR>g@" : buffer :desc "Format lines to {motion}"}
+       {1 "<LocalLeader>qq" 2 "<Cmd>lua require('lsp.shared')['format-move']()<CR>g@" : buffer :desc "Format lines to {motion}"}
        {1 "<LocalLeader>qq" 2 #(vim.lsp.buf.range_formatting)                  : buffer :desc "Format selection" :mode :v}
 
        {1 "<LocalLeader>xr" 2 #(vim.lsp.buf.rename)      : buffer :desc "Rename symbol..."}
@@ -43,4 +57,5 @@
                                       :callback #(vim.lsp.buf.format {:async false})
                                       :group g}))))
 
-{: on-attach}
+{: format-move
+ : on-attach}
