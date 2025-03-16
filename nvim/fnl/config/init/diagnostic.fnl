@@ -1,6 +1,5 @@
-(local {: autoload} (require :nfnl.module))
-(local highlight (autoload :lib.highlight))
-(local ui (autoload :config.ui))
+(local highlight (require :lib.highlight))
+(local ui (require :config.ui))
 
 (local signs {:Error "!"
               :Warn  "*"

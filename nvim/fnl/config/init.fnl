@@ -1,12 +1,11 @@
-(local {: autoload} (require :nfnl.module))
-(local scratch (autoload :codebeige.scratch))
-(local highlight (autoload :config.init.highlight))
-(local diagnostic (autoload :config.init.diagnostic))
-(local terminal (autoload :config.init.terminal))
-(local clojure (autoload :config.init.clojure))
-(local fennel (autoload :config.init.fennel))
+(local scratch (require :codebeige.scratch))
+(local highlight (require :config.init.highlight))
+(local diagnostic (require :config.init.diagnostic))
+(local terminal (require :config.init.terminal))
+(local clojure (require :config.init.clojure))
+(local fennel (require :config.init.fennel))
 
-(var loaded? false)
+(var loaded? false) ; TODO: remove?
 
 (fn setup []
   (when (not loaded?)

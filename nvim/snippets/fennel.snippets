@@ -1,8 +1,2 @@
-snippet module [b]
-        (local {: autoload} (require :nfnl.module))
-
-snippet autoload [b]
-        (local ${2:${1/\v(.*).core$|^[^.]*\.|/\1}} (autoload :${1:nfnl.core}))
-
 snippet require [b]
-        (local ${2:${1/\v(.*).core$|^[^.]*\.|/\1}} (require :${1:nfnl.core}))
+        (local ${2:${1/\v^[^.]*\.|/\1}} (require :$1))
