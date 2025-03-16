@@ -1,4 +1,5 @@
 (local {:clojure_lsp clojure-lsp} (require :lspconfig))
+(local shared (require :lsp.shared))
 
 (fn list-at-cursor []
   (let [ts-utils (require :nvim-treesitter.ts_utils)
@@ -17,7 +18,8 @@
 (fn cycle-privacy []
   (code-action :cycle-privacy))
 
-(fn on-attach [_ buffer]
+(fn on-attach [client buffer]
+  (shared.on-attach client buffer)
   (let [which-key (require :which-key)]
     (which-key.add
       [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}
