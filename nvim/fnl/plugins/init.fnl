@@ -22,9 +22,6 @@
 
  "dcampos/nvim-snippy"
 
- {1 "fatih/vim-go"
-  :ft [:go]}
-
  {1 "hrsh7th/nvim-cmp"
   :config ($ :plugins.cmp.config)
   :dependencies ["Olical/conjure"
@@ -53,11 +50,6 @@
  "kyazdani42/nvim-web-devicons"
 
  "lewis6991/spaceless.nvim"
-
- {1 "neovim/nvim-lspconfig"
-  :config ($ :plugins.lspconfig.config)
-  :dependencies ["hrsh7th/cmp-nvim-lsp"
-                 "nvim-telescope/telescope.nvim"]}
 
  {1 "nvim-lualine/lualine.nvim"
   :config ($ :plugins.lualine.config)

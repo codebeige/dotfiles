@@ -1,27 +1,17 @@
-(fn format-range []
-  (let [view (vim.fn.winsaveview)]
-    (pcall #(vim.lsp.buf.range_formatting
-              {}
-              (vim.api.nvim_buf_get_mark 0 "[")
-              (vim.api.nvim_buf_get_mark 0 "]")))
-    (vim.fn.restview view)))
+(local {: border} (require :config.ui))
+(local cmp-nvim-lsp (require :cmp_nvim_lsp))
 
-(fn format-move []
-  (set vim.g.__operatorfunc (fn []
-                              (pcall format-range)
-                              (set vim.g.__operatorfunc nil)))
-  (set vim.o.operatorfunc :v:lua.__operatorfunc))
+(local capabilities
+  (vim.tbl_deep_extend
+    :force
+    (vim.lsp.protocol.make_client_capabilities)
+    (cmp-nvim-lsp.default_capabilities)))
 
-(fn on-attach [client buffer]
+(fn on-attach [{:buf buffer : data}]
   (let [which-key (require :which-key)
         telescope (require :telescope.builtin)]
     (which-key.add
-      [{1 "<C-]>" 2 #(vim.lsp.buf.definition)   : buffer :desc "Jump to definition"}
-       {1 "K"     2 #(vim.lsp.buf.hover)        : buffer :desc "Show documentation"}
-       {1 "[d"    2 #(vim.diagnostic.goto_prev) : buffer :desc "Previous diagnostic"}
-       {1 "]d"    2 #(vim.diagnostic.goto_next) : buffer :desc "Next diagnostic"}
-
-       {1 "<LocalLeader>b" :group "buffer"}
+      [{1 "<LocalLeader>b" :group "buffer"}
        {1 "<LocalLeader>b=" 2 #(vim.lsp.buf.format {:async true}) : buffer :desc "Format buffer"}
        {1 "<LocalLeader>bd" 2 #(vim.diagnostic.setloclist)        : buffer :desc "List diagnostics"}
 
@@ -31,18 +21,16 @@
        {1 "<LocalLeader>fs" 2 #(telescope.lsp_document_symbols)  : buffer :desc "Document symbols"}
        {1 "<LocalLeader>fS" 2 #(telescope.lsp_workspace_symbols) : buffer :desc "Workspace symbols"}
 
-       {1 "<LocalLeader>q" :group "format"}
-       {1 "<LocalLeader>qq" 2 "<Cmd>lua require('lsp.shared')['format-move']()<CR>g@" : buffer :desc "Format lines to {motion}"}
-       {1 "<LocalLeader>qq" 2 #(vim.lsp.buf.range_formatting)                  : buffer :desc "Format selection" :mode :v}
+       {1 "grn" 2 #(vim.lsp.buf.rename)          : buffer :desc "Rename symbol..."}
+       {1 "gra" 2 #(vim.lsp.buf.code_action)     : buffer :desc "Code action..." :mode [:n :x]}
+       {1 "grr" 2 #(vim.lsp.buf.references)      : buffer :desc "List references"}
+       {1 "gri" 2 #(vim.lsp.buf.implementation)  : buffer :desc "List implementations"}
+       {1 "gO"  2 #(vim.lsp.buf.document_symbol) : buffer :desc "List symbols in buffer"}
 
-       {1 "<LocalLeader>xr" 2 #(vim.lsp.buf.rename)      : buffer :desc "Rename symbol..."}
-       {1 "<LocalLeader>xx" 2 #(vim.lsp.buf.code_action) : buffer :desc "Code action..." :mode [:n :x]}
+       {1 "<C-s>" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}]))
 
-       {1 "<LocalLeader>v" :group "view"}
-       {1 "<LocalLeader>vd" 2 #(vim.diagnostic.open_float)  : buffer :desc "View diagnostics"}
-       {1 "<LocalLeader>vh" 2 #(vim.lsp.buf.signature_help) : buffer :desc "Signature help"}]))
-
-  (if client.server_capabilities.documentHighlightProvider
+  (let [client (vim.lsp.get_client_by_id data.client_id)]
+    (if client.server_capabilities.documentHighlightProvider
       (let [group (vim.api.nvim_create_augroup (string.format "lsp.shared.buffer-%d" buffer) {:clear true})]
         (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
                                      {: buffer
@@ -61,7 +49,28 @@
                                       :callback (fn [_]
                                                   (vim.lsp.buf.format {:async false})
                                                   nil)
-                                      : group}))))
+                                      : group})))))
 
-{: format-move
- : on-attach}
+(fn update-colorscheme []
+  (vim.api.nvim_set_hl 0 :LspReferenceText {:link :Visual})
+  (vim.api.nvim_set_hl 0 :LspReferenceRead {:link :LspReferenceText})
+  (vim.api.nvim_set_hl 0 :LspReferenceWrite {:link :LspReferenceText}))
+
+(fn setup []
+  (set (. vim.lsp.handlers :textDocument/hover)
+       (vim.lsp.with vim.lsp.handlers.hover {:border border}))
+  (set (. vim.lsp.handlers :textDocument/signatureHelp)
+       (vim.lsp.with vim.lsp.handlers.signature_help {:border border}))
+
+  (let [group (vim.api.nvim_create_augroup :lsp.shared {:clear true})]
+    (vim.api.nvim_create_autocmd :LspAttach
+                                     {:callback (fn [e] (on-attach e) nil)
+                                      : group})
+    (vim.api.nvim_create_autocmd :ColorScheme {:callback (fn [_]
+                                                          (update-colorscheme)
+                                                          nil)
+                                              : group})
+    (update-colorscheme)))
+
+{: capabilities
+ : setup}

@@ -1,7 +1,8 @@
 (fn init []
   (set vim.g.conjure#eval#gsubs {:do-comment ["^%(comment[%s%c]" "(do "]})
-  (set vim.g.conjure#mapping#doc_word "ed")
-  (set vim.g.conjure#eval#mapping#prefix "<LocalLeader>"))
+  (set vim.g.conjure#eval#mapping#prefix "<LocalLeader>")
+  (set vim.g.conjure#mapping#doc_word false)
+  (set vim.g.conjure#completion#omnifunc false))
 
 (fn config []
   (let [which-key (require :which-key)
