@@ -1,14 +1,14 @@
 (local {: border} (require :config.ui))
 
-(local opts {:delay 500
-  :preset :modern
-  :win {:border border}
-  :icons {:mappings false}
-  :show_help false})
-
-(fn config [_ opts]
+(fn config [_ _]
   (let [which-key (require :which-key)]
-    (which-key.setup opts)
+    (which-key.setup {:delay 500
+                      :preset :modern
+                      :win {:border border}
+                      :icons {:separator "→"
+                              :mappings false
+                              :rules false}
+                      :show_help false})
     (which-key.add
       [{1 "[" :group "previous|above|up|enable"}
        {1 "]" :group "next|below|down|disable"}
@@ -37,5 +37,4 @@
 
        {1 "<Leader>p" 2 "<Cmd>Lazy<CR>" :desc "Open plugin manager..."}])))
 
-{: config
- : opts}
+{: config}
