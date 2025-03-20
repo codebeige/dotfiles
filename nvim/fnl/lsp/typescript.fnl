@@ -19,21 +19,23 @@
      :init_options ts-init-options
      : capabilities}))
 
-(fn get-tsdk [root-dir]
-  (case (vim.fs.root root-dir ["node_modules"])
-    dir (vim.fs.joinpath dir "node_modules" "typescript" "lib")))
+(local root-dir->tsdk {})
 
-(fn on-new-config-vue [config root-dir]
-  (set config.typescript.tsdk (get-tsdk root-dir)))
+(fn get-tsdk [root-dir]
+  (or (. root-dir->tsdk root-dir)
+      (let [tsdk (case (vim.fs.root root-dir ["node_modules"])
+                   dir (vim.fs.joinpath dir "node_modules" "typescript" "lib"))]
+        (set (. root-dir->tsdk root-dir) tsdk)
+        tsdk)))
 
 (fn on-ft-vue [{:buf buffer}]
-  (vim.lsp.start
-    {:name :vue-language-server
-     :cmd ["vue-language-server" "--stdio"]
-     :root_dir (vim.fs.root buffer ["package.json"])
-     :init_options {:typescript {}}
-     :on_new_config on-new-config-vue
-     : capabilities}))
+  (let [root-dir (vim.fs.root buffer ["package.json"])]
+    (vim.lsp.start
+      {:name :vue-language-server
+       :cmd ["vue-language-server" "--stdio"]
+       :root_dir root-dir
+       :init_options {:typescript {:tsdk (get-tsdk root-dir)}}
+       : capabilities})))
 
 (fn get-vue-dir []
   (case (-> ["npm" "ls" "--global" "--parseable" "@vue/language-server"]
