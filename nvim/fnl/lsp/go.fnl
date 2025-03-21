@@ -8,15 +8,12 @@
                &until mod-dir]
     (if (= root-dir v) k)))
 
-(fn starts-with [prefix s]
-  (= prefix (s:sub 1 (length prefix))))
-
 (fn mod-file->root-dir [file]
   (let [f (vim.fs.joinpath vim.env.PWD file)]
     (accumulate [root-dir nil
                  k v (pairs mod-dir->root-dir)
                  &until root-dir]
-      (if (starts-with k f) v))))
+      (if (vim.startswith f k) v))))
 
 (fn with-mod-dir [root-dir f]
   (if (root-dir->mod-dir root-dir)

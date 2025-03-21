@@ -20,19 +20,25 @@
 (fn on-attach [_ buffer]
   (let [which-key (require :which-key)]
     (which-key.add
-      [{1 "<LocalLeader>xc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}
-       {1 "<LocalLeader>x-" 2 #(cycle-privacy) : buffer :desc "Cycle privacy"}])))
+      [{1 "grc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}
+       {1 "gr-" 2 #(cycle-privacy) : buffer :desc "Cycle privacy"}])))
 
-(fn on-ft [{:buf buffer}]
+(fn root-dir [file]
+  (if (vim.startswith file "zipfile://")
+    (let [clients (vim.lsp.get_clients {:name :clojure-lsp})]
+      (. clients (length clients) :root_dir))
+    (vim.fs.root file ["deps.edn"
+                       "shadow-cljs.edn"
+                       "project.clj"
+                       "build.boot"
+                       "bb.edn"
+                       ".git"])))
+
+(fn on-ft [{: file}]
   (vim.lsp.start {:name :clojure-lsp
                   :cmd ["clojure-lsp"]
                   :on_attach on-attach
-                  :root_dir (vim.fs.root buffer ["deps.edn"
-                                                 "shadow-cljs.edn"
-                                                 "project.clj"
-                                                 "build.boot"
-                                                 "bb.edn"
-                                                 ".git"])
+                  :root_dir (root-dir file)
                   : capabilities}))
 
 (fn setup []
