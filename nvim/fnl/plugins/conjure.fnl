@@ -19,7 +19,7 @@
       :BufEnter
       {:pattern "conjure-log-*"
        :callback (fn [{: buf}]
-                   (vim.diagnostic.disable buf)
+                   (vim.diagnostic.enable false {:bufnr buf})
                    nil)
        : group})))
 
