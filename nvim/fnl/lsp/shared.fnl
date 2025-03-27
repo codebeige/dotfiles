@@ -93,6 +93,7 @@
   (vim.api.nvim_set_hl 0 :LspReferenceWrite {:link :LspReferenceText}))
 
 (fn setup []
+  (set (. vim.lsp.config :*) {: capabilities})
   (set (. vim.lsp.handlers :textDocument/hover)
        (vim.lsp.with vim.lsp.handlers.hover {:border border}))
   (set (. vim.lsp.handlers :textDocument/signatureHelp)

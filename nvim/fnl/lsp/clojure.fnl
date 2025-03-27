@@ -1,4 +1,4 @@
-(local {: capabilities} (require :lsp.shared))
+(local name :clojure-lsp)
 
 (fn list-at-cursor []
   (let [ts-utils (require :nvim-treesitter.ts_utils)
@@ -23,30 +23,23 @@
       [{1 "grc" 2 #(cycle-collection) : buffer :desc "Cycle collection"}
        {1 "gr-" 2 #(cycle-privacy) : buffer :desc "Cycle privacy"}])))
 
-(fn root-dir [file]
+(local root-markers
+  ["deps.edn" "shadow-cljs.edn" "project.clj" "build.boot" "bb.edn" ".git"])
+
+(fn root-dir* [file]
   (if (vim.startswith file "zipfile://")
-    (let [clients (vim.lsp.get_clients {:name :clojure-lsp})]
+    (let [clients (vim.lsp.get_clients {: name})]
       (. clients (length clients) :root_dir))
-    (vim.fs.root file ["deps.edn"
-                       "shadow-cljs.edn"
-                       "project.clj"
-                       "build.boot"
-                       "bb.edn"
-                       ".git"])))
+    (vim.fs.root file root-markers)))
 
-(fn on-ft [{: file}]
-  (vim.lsp.start {:name :clojure-lsp
-                  :cmd ["clojure-lsp"]
-                  :on_attach on-attach
-                  :root_dir (root-dir file)
-                  : capabilities}))
+(fn root-dir [buffer f]
+  (-> buffer vim.api.nvim_buf_get_name root-dir* f))
 
-(fn setup []
-  (case (vim.fn.executable :clojure-lsp)
-    1 (let [group (vim.api.nvim_create_augroup :lsp.clojure {:clear true})]
-        (vim.api.nvim_create_autocmd :FileType
-                                     {:pattern [:clojure :edn]
-                                      :callback (fn [e] (on-ft e) nil)
-                                      : group}))))
+(local config
+  {:cmd ["clojure-lsp"]
+   :filetypes [:clojure :edn]
+   :root_dir root-dir
+   :on_attach on-attach})
 
-{: setup}
+{: name
+ : config}

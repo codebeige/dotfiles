@@ -1,4 +1,4 @@
-(local {: capabilities} (require :lsp.shared))
+(local name :gopls)
 
 (local mod-dir->root-dir {})
 
@@ -9,45 +9,36 @@
     (if (= root-dir v) k)))
 
 (fn mod-file->root-dir [file]
-  (let [f (vim.fs.joinpath vim.env.PWD file)]
-    (accumulate [root-dir nil
-                 k v (pairs mod-dir->root-dir)
-                 &until root-dir]
-      (if (vim.startswith f k) v))))
+  (accumulate [root-dir nil
+               k v (pairs mod-dir->root-dir)
+               &until root-dir]
+    (if (vim.startswith file k) v)))
 
-(fn with-mod-dir [root-dir f]
-  (if (root-dir->mod-dir root-dir)
-    (f root-dir)
+(fn with-mod-dir [root f]
+  (if (root-dir->mod-dir root)
+    (f root)
     (let [on-exit (fn [{: code : stdout}]
                     (when (= 0 code)
-                      (set (. mod-dir->root-dir (vim.trim stdout)) root-dir))
-                    (f root-dir))]
+                      (set (. mod-dir->root-dir (vim.trim stdout)) root))
+                    (f root))]
       (case (pcall vim.system ["go" "env" "GOMODCACHE"] {:text true} on-exit)
-        false (f root-dir)))))
+        false (f root)))))
 
-(fn with-root-dir [file f]
-  (case (mod-file->root-dir file)
-    root-dir (f root-dir)
-    _ (with-mod-dir (vim.fs.root file ["go.work" "go.mod" ".git"]) f)))
+(local root-markers ["go.work" "go.mod" ".git"])
 
-(fn on-ft [{:buf buffer : file}]
-  (with-root-dir
-    file
-    (fn [root-dir]
-      (vim.schedule
-        #(vim.lsp.start
-           {:name :gopls
-            :cmd ["gopls"]
-            :root_dir root-dir
-            : capabilities}
-           {:bufnr buffer})))))
+(fn root-dir [buffer f]
+  (let [file (vim.api.nvim_buf_get_name buffer)]
+    (case (mod-file->root-dir file)
+      root (f root)
+      _ (case (vim.fs.root file root-markers)
+          root* (with-mod-dir root* f)
+          _ (f nil)))))
 
-(fn setup []
-  (case (vim.fn.executable :gopls)
-    1 (let [group (vim.api.nvim_create_augroup :lsp.go {:clear true})]
-        (vim.api.nvim_create_autocmd :FileType
-                                     {:pattern ["go" "gomod" "gowork" "gotmpl"]
-                                      :callback (fn [e] (on-ft e) nil)
-                                      : group}))))
+(local config
+  {:cmd ["gopls"]
+   :filetypes ["go" "gomod" "gowork" "gotmpl"]
+   :root_dir root-dir})
 
-{: setup}
+{: name
+ : config
+ : mod-dir->root-dir}
