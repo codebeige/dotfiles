@@ -1,16 +1,27 @@
 (local name :ts-ls)
 
-(fn find-package [name root-dir]
-  (case (-> ["npm" "ls" (if (not root-dir) "--global") "--parseable" name]
-            (vim.system {:text true :cwd root-dir})
+(fn has-package? [root-dir name]
+  (case (-> ["npm" "ls" "--parseable" name]
+            (vim.system {:cwd root-dir :text true})
             (: :wait))
-    {:code 0 : stdout} (case (vim.trim stdout)
-                         "" nil
-                         path path)))
+    {:code 0 : stdout} (< 0 (length (vim.trim stdout)))))
+
+(var plugin-dir* nil)
+
+(fn plugin-dir []
+  (or plugin-dir*
+      (when (vim.fn.executable :brew)
+        (case-try (-> ["brew" "--prefix" "vue-language-server"]
+                      (vim.system {:text true})
+                      (: :wait))
+                  {:code 0 : stdout} (vim.fs.find "typescript-plugin"
+                                                  {:path (vim.trim stdout)
+                                                   :type :directory})
+                  [path] (doto plugin-dir* (set path))))))
 
 (fn before-init [init-params {:root_dir root-dir}]
-  (when (find-package "vue" root-dir)
-    (case (find-package "@vue/typescript-plugin")
+  (when (has-package? root-dir :vue)
+    (case (plugin-dir)
       location (set init-params.initializationOptions.plugins
                     [{:name "@vue/typescript-plugin"
                       : location
