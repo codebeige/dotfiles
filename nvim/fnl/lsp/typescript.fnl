@@ -6,22 +6,25 @@
             (: :wait))
     {:code 0 : stdout} (< 0 (length (vim.trim stdout)))))
 
-(var plugin-dir* nil)
+(var server-location* nil)
 
-(fn plugin-dir []
-  (or plugin-dir*
+(fn server-location []
+  (or server-location*
       (when (vim.fn.executable :brew)
         (case-try (-> ["brew" "--prefix" "vue-language-server"]
                       (vim.system {:text true})
                       (: :wait))
-                  {:code 0 : stdout} (vim.fs.find "typescript-plugin"
-                                                  {:path (vim.trim stdout)
-                                                   :type :directory})
-                  [path] (doto plugin-dir* (set path))))))
+                  {:code 0 : stdout} (vim.fs.find
+                                       (fn [name path]
+                                         (and (= name "language-server")
+                                              (path:match "@vue$")))
+                                       {:path (vim.trim stdout)
+                                        :type :directory})
+                  [path] (doto server-location* (set path))))))
 
 (fn before-init [init-params {:root_dir root-dir}]
   (when (has-package? root-dir :vue)
-    (case (plugin-dir)
+    (case (server-location)
       location (set init-params.initializationOptions.plugins
                     [{:name "@vue/typescript-plugin"
                       : location

@@ -29,5 +29,6 @@ Session.vim
 .clj-kondo/
 .lnvim.fnl
 .lnvim.lua
+.nvim.lua
 .env/
 .venv/
