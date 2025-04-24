@@ -22,6 +22,6 @@ Host oneiros
   HostkeyAlgorithms +ssh-rsa
   PubkeyAcceptedAlgorithms +ssh-rsa
 
-Host alexander-ai.net
+Host alexander-software.com
   HostName lepus.uberspace.de
   User axi
