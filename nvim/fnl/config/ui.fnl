@@ -1,3 +1,0 @@
-(local border :rounded)
-
-{: border}

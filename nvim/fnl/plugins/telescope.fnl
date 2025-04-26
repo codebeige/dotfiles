@@ -1,5 +1,18 @@
-(fn init-prompt []
-  (set vim.b.lexima_disabled true))
+(fn destroy [winborder]
+  (vim.print {: winborder})
+  (set vim.o.winborder winborder))
+
+(fn init []
+  ; see https://github.com/nvim-telescope/telescope.nvim/issues/3436
+  (let [winborder vim.o.winborder]
+    (set vim.o.winborder :none)
+    (vim.api.nvim_create_autocmd :WinLeave {:callback
+                                            (fn [_]
+                                              (destroy winborder)
+                                              true)
+                                            :once true})))
+
+
 
 (fn config []
   (let [telescope (require :telescope)
@@ -55,10 +68,8 @@
        {1 "<Leader>gfs" 2 "<Cmd>lua require('telescope.builtin').git_stash()<CR>"    :desc "Stash"}])
 
     (let [group (vim.api.nvim_create_augroup :plugins.telescope {:clear true})]
-      (vim.api.nvim_create_autocmd :FileType {:pattern :TelescopePrompt
-                                              :callback (fn [_]
-                                                          (init-prompt)
-                                                          nil)
-                                              : group}))))
+      (vim.api.nvim_create_autocmd :User {:pattern :TelescopeFindPre
+                                          :callback (fn [_] (init) nil)
+                                          : group}))))
 
 {: config}

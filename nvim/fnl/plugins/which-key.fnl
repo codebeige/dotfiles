@@ -1,10 +1,7 @@
-(local {: border} (require :config.ui))
-
 (fn config [_ _]
   (let [which-key (require :which-key)]
     (which-key.setup {:delay 500
                       :preset :modern
-                      :win {:border border}
                       :icons {:separator "→"
                               :mappings false
                               :rules false}

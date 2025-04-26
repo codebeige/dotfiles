@@ -27,6 +27,7 @@
   (set vim.o.undofile true)
   (set vim.o.updatetime 500)
   (set vim.o.visualbell true)
+  (set vim.o.winborder :rounded)
 
   (set vim.g.python3_host_prog "/usr/local/opt/python/libexec/bin/python")
   (set vim.g.loaded_perl_provider 0)

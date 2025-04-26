@@ -1,9 +1,7 @@
 (local highlight (require :lib.highlight))
-(local ui (require :config.ui))
 
 (local config
-  {:float {:border ui.border}
-   :virtual_text {:prefix "•"}
+  {:virtual_text {:prefix "•"}
    :signs {:text {vim.diagnostic.severity.ERROR "!"
                   vim.diagnostic.severity.WARN  "*"
                   vim.diagnostic.severity.INFO  "~"

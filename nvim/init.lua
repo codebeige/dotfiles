@@ -50,7 +50,6 @@ local function init ()
       fallback = true,
     },
     ui = {
-      border = require('config.ui').border,
       backdrop = 100,
     },
   })
