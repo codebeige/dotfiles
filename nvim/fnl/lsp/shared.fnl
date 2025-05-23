@@ -50,14 +50,7 @@
 
     (when (client:supports_method :textDocument/formatting)
       (which-key.add
-        [{1 "<LocalLeader>bq" 2 #(vim.lsp.buf.format {:async true}) : buffer :desc "Format buffer"}])
-      (vim.api.nvim_create_autocmd :BufWritePre
-                                   {:callback
-                                    (fn [_]
-                                      (vim.lsp.buf.format {:async false})
-                                      nil)
-                                    : buffer
-                                    : group}))
+        [{1 "<LocalLeader>bq" 2 #(vim.lsp.buf.format {:async true}) : buffer :desc "Format buffer"}]))
 
     (when (client:supports_method :textDocument/documentHighlight)
       (vim.api.nvim_create_autocmd [:CursorHold :CursorHoldI]
