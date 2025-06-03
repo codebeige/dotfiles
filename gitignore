@@ -32,3 +32,5 @@ Session.vim
 .nvim.lua
 .env/
 .venv/
+.claude/
+CLAUDE.md
