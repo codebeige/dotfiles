@@ -1,0 +1,11 @@
+use_micromamba() {
+  local env="${1:-base}"
+
+  eval "$(micromamba shell hook --shell bash)"
+
+  if [[ "$CONDA_DEFAULT_ENV" != "$env_name" ]]; then
+    micromamba activate "$env"
+  fi
+
+  micromamba activate "${1:-base}"
+}
