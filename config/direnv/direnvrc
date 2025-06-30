@@ -1,0 +1,3 @@
+use_micromamba() {
+  micromamba activate "${1:-base}"
+}

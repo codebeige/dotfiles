@@ -46,6 +46,7 @@ plugins=(
   git-custom
   lein
   macos
+  micromamba
   node
   npm
   op
