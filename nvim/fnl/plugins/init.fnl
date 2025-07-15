@@ -98,9 +98,6 @@
  {1 "tpope/vim-surround"
   :init ($ :plugins.surround.init)}
 
- {1 "tpope/vim-unimpaired"
-  :config ($ :plugins.unimpaired.config)}
-
  {1 "tpope/vim-vinegar"
   :config ($ :plugins.vinegar.config)}
 
