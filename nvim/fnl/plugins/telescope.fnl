@@ -1,5 +1,4 @@
 (fn destroy [winborder]
-  (vim.print {: winborder})
   (set vim.o.winborder winborder))
 
 (fn init []
