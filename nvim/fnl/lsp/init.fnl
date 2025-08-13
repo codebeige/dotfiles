@@ -1,6 +1,8 @@
+(local basedpyright (require :lsp.basedpyright))
 (local clojure (require :lsp.clojure))
 (local fennel (require :lsp.fennel))
 (local go (require :lsp.go))
+(local ruff (require :lsp.ruff))
 (local shared (require :lsp.shared))
 (local typescript (require :lsp.typescript))
 (local vue (require :lsp.vue))
@@ -12,9 +14,11 @@
 
 (fn setup []
   (shared.setup)
+  (enable basedpyright)
   (enable clojure)
   (enable fennel)
   (enable go)
+  (enable ruff)
   (enable typescript)
   (enable vue))
 
