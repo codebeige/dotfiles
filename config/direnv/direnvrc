@@ -9,3 +9,11 @@ use_micromamba() {
 
   micromamba activate "${1:-base}"
 }
+
+use_venv() {
+  if [[ ! -d .env ]]; then
+    python -m venv .env
+  fi
+
+  source .env/bin/activate
+}
