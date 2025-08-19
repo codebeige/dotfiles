@@ -9,4 +9,6 @@
                "--middleware" "[cider.nrepl/cider-middleware]"]}
   :update
   {:deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
-   :ns-default antq.tool}}}
+   :ns-default antq.tool}
+  :clj-kondo
+  {:deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}}}}

@@ -1,7 +1,10 @@
 {:linters
  {:clojure-lsp/unused-public-var
-  {:exclude-when-defined-by #{cljs.core/defrecord
-                              cljs.core/deftype
-                              cljs.test/deftest
+  {:exclude-when-defined-by #{cljs.test/deftest
                               clojure.test/deftest}}}
- :lint-as {clojure.test.check.clojure-test/defspec clojure.test/deftest}}
+
+ :lint-as
+ {clojure.test.check.clojure-test/defspec clojure.test/deftest}
+
+ :hooks
+ {:analyze-call {libpython-clj2.python/from-import hooks.libpython-clj2.python/from-import}}}
