@@ -40,6 +40,7 @@ plugins=(
   docker
   docker-compose
   docker-compose-custom
+  eha-ghm
   fzf-git
   gh
   git
