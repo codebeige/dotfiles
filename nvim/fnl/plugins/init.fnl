@@ -98,6 +98,8 @@
  {1 "tpope/vim-surround"
   :init ($ :plugins.surround.init)}
 
+ "tpope/vim-unimpaired"
+
  {1 "tpope/vim-vinegar"
   :config ($ :plugins.vinegar.config)}
 
