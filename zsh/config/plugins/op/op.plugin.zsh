@@ -6,4 +6,6 @@ eval "$(op completion zsh)"
 compdef _op op
 
 # Initialize plugins
-source ~/.config/op/plugins.sh
+if [ -f ~/.config/op/plugins.sh ]; then
+  source ~/.config/op/plugins.sh
+fi
