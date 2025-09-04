@@ -1,0 +1,56 @@
+#!/usr/bin/env bb
+
+(ns scripts.init
+  (:require [babashka.cli :as cli]
+            [babashka.fs :as fs]))
+
+(def symlinks
+  {"Brewfile"               ".Brewfile"
+   "asdfrc"                 ".asdfrc"
+   "clojure/deps.edn"       ".clojure/deps.edn"
+   "config/clj-kondo"       ".config/clj-kondo"
+   "config/clojure-lsp"     ".config/clojure-lsp"
+   "config/direnv"          ".config/direnv"
+   "config/kitty"           ".config/kitty"
+   "config/pgcli"           ".config/pgcli"
+   "config/tmux/tmux.conf"  ".config/tmux/tmux.conf"
+   "ctags"                  ".ctags"
+   "gitconfig"              ".gitconfig"
+   "gitignore"              ".gitignore"
+   "inputrc"                ".inputrc"
+   "lesskey"                ".lesskey"
+   "luarocks/config.lua"    ".luarocks/config.lua"
+   "nvim"                   ".config/nvim"
+   "profile"                ".profile"
+   "shadow-cljs/config.edn" ".shadow-cljs/config.edn"
+   "ssh/config"             ".ssh/config"
+   "zsh"                    ".zsh"
+   "zshenv"                 ".zshenv"
+   "zshrc"                  ".zshrc"})
+
+(defn create-sym-links! [{:keys [force]}]
+  (let [root (-> *file* fs/parent fs/parent)
+        home (fs/home)]
+    (doseq [[target link] symlinks]
+      (let [f (fs/path home link)
+            exists? (fs/exists? f)]
+        (if (or force (not exists?))
+          (do
+           (when exists? (fs/delete f))
+           (fs/create-dirs (fs/parent f))
+           (fs/create-sym-link f (fs/path root target)))
+          (prn (format "Skipped %s, because it already exists. (Use --force to override)" f)))))))
+
+(def cli-spec
+  {:spec
+   {:force {:coerce :boolean
+            :desc "Overwrite existing files"
+            :alias :f}}})
+
+(defn -main [args]
+  (let [opts (cli/parse-opts args cli-spec)]
+    (create-sym-links! opts)))
+
+(-main *command-line-args*)
+
+; vi: ft=clojure
