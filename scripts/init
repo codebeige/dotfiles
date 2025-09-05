@@ -47,8 +47,9 @@
             :desc "Overwrite existing files"
             :alias :f}}})
 
-(defn -main [args]
+(defn -main [& args]
   (let [opts (cli/parse-opts args cli-spec)]
     (create-sym-links! opts)))
 
-(-main *command-line-args*)
+(when (= *file* (System/getProperty "babashka.file"))
+  (apply -main *command-line-args*))
