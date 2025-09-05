@@ -28,7 +28,7 @@
    "zshenv"                 ".zshenv"
    "zshrc"                  ".zshrc"})
 
-(defn create-sym-links! [{:keys [force]}]
+(defn- create-sym-links! [{:keys [force]}]
   (let [root (-> *file* fs/parent fs/parent)
         home (fs/home)]
     (doseq [[target link] symlinks]
@@ -52,5 +52,3 @@
     (create-sym-links! opts)))
 
 (-main *command-line-args*)
-
-; vi: ft=clojure
