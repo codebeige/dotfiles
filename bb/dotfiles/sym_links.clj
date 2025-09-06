@@ -1,8 +1,5 @@
-#!/usr/bin/env bb
-
-(ns scripts.init
-  (:require [babashka.cli :as cli]
-            [babashka.fs :as fs]))
+(ns dotfiles.sym-links
+  (:require [babashka.fs :as fs]))
 
 (def symlinks
   {"Brewfile"               ".Brewfile"
@@ -28,28 +25,13 @@
    "zshenv"                 ".zshenv"
    "zshrc"                  ".zshrc"})
 
-(defn- create-sym-links! [{:keys [force]}]
-  (let [root (-> *file* fs/parent fs/parent)
-        home (fs/home)]
-    (doseq [[target link] symlinks]
-      (let [f (fs/path home link)
-            exists? (fs/exists? f)]
-        (if (or force (not exists?))
-          (do
-           (when exists? (fs/delete f))
-           (fs/create-dirs (fs/parent f))
-           (fs/create-sym-link f (fs/path root target)))
-          (prn (format "Skipped %s, because it already exists. (Use --force to override)" f)))))))
-
-(def cli-spec
-  {:spec
-   {:force {:coerce :boolean
-            :desc "Overwrite existing files"
-            :alias :f}}})
-
-(defn -main [& args]
-  (let [opts (cli/parse-opts args cli-spec)]
-    (create-sym-links! opts)))
-
-(when (= *file* (System/getProperty "babashka.file"))
-  (apply -main *command-line-args*))
+(defn create! [{:keys [force]}]
+  (doseq [[target link] symlinks]
+    (let [f (fs/path (fs/home) link)
+          exists? (fs/exists? f)]
+      (if (or force (not exists?))
+        (do
+         (when exists? (fs/delete f))
+         (fs/create-dirs (fs/parent f))
+         (fs/create-sym-link f (fs/absolutize target)))
+        (prn (format "Skipped %s, because it already exists. (Use --force to override)" f))))))
