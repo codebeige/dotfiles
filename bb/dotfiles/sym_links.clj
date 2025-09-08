@@ -25,13 +25,13 @@
    "zshenv"                 ".zshenv"
    "zshrc"                  ".zshrc"})
 
-(defn create! [{:keys [force]}]
+(defn create! [force?]
   (doseq [[target link] symlinks]
     (let [f (fs/path (fs/home) link)
           exists? (fs/exists? f)]
-      (if (or force (not exists?))
+      (if (or force? (not exists?))
         (do
          (when exists? (fs/delete f))
          (fs/create-dirs (fs/parent f))
          (fs/create-sym-link f (fs/absolutize target)))
-        (prn (format "Skipped %s, because it already exists. (Use --force to override)" f))))))
+        (println (format "Skipped %s, because it already exists. (Use --force to override)" f))))))
