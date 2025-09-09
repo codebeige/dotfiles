@@ -12,6 +12,7 @@
    "config/pgcli"           ".config/pgcli"
    "config/tmux/tmux.conf"  ".config/tmux/tmux.conf"
    "ctags"                  ".ctags"
+   "envrc"                  ".envrc"
    "gitconfig"              ".gitconfig"
    "gitignore"              ".gitignore"
    "inputrc"                ".inputrc"
