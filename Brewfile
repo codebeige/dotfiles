@@ -13,7 +13,6 @@ brew "openjdk"
 brew "clojure"
 brew "cmake"
 brew "ruby"
-brew "cocoapods"
 brew "dash-shell"
 brew "direnv"
 brew "fd"
@@ -92,7 +91,6 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Darkroom", id: 953286746
 mas "Day One", id: 1055511498
-mas "Developer", id: 640199958
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
@@ -105,9 +103,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
-mas "Reeder", id: 1529448980
 mas "Slack", id: 803453959
 mas "Things", id: 904280696
 mas "Typeface", id: 1062679359
-mas "Xcode", id: 497799835
 mas "xScope", id: 889428659
