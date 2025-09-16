@@ -89,19 +89,16 @@ cask "tunnelblick"
 cask "vuescan"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
-mas "Darkroom", id: 953286746
 mas "Day One", id: 1055511498
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Mela", id: 1568924476
-mas "MindNode", id: 1289197285
 mas "MindNode Next", id: 6446116532
 mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
 mas "Slack", id: 803453959
 mas "Things", id: 904280696
