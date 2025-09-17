@@ -30,6 +30,7 @@ Session.vim
 .lnvim.fnl
 .lnvim.lua
 .nvim.lua
+.nvim.fnl
 .env/
 .venv/
 .claude/
