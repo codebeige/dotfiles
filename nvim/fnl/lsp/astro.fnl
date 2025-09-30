@@ -1,21 +1,17 @@
-(local name :vls)
-
+(local name :astro)
 (local {: tsdk-dir} (require :lsp.typescript))
 
 (fn before-init [init-params {:root_dir root-dir}]
   (case (vim.fs.root root-dir ["node_modules"])
-    root (case (or
-                 vim.b.vue-language-server-tsdk
-                 vim.g.vue-language-server-tsdk
-                 (tsdk-dir root))
+    root (case (tsdk-dir root)
            tsdk (set init-params.initializationOptions
                      {:typescript {: tsdk}}))))
 
 (local config
-  {:cmd ["vue-language-server" "--stdio"]
-   :filetypes [:vue]
-   :root_markers ["package.json"]
+  {:cmd ["astro-ls" "--stdio"]
+   :filetypes [:astro]
+   :root_markers ["package.json" "tsconfig.json" "jsconfig.json" ".git"]
    :before_init before-init})
 
-{: name
- : config}
+{: config
+ : name}

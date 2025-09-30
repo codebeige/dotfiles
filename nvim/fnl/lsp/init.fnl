@@ -1,3 +1,4 @@
+(local astro (require :lsp.astro))
 (local basedpyright (require :lsp.basedpyright))
 (local clojure (require :lsp.clojure))
 (local fennel (require :lsp.fennel))
@@ -14,6 +15,7 @@
 
 (fn setup []
   (shared.setup)
+  (enable astro)
   (enable basedpyright)
   (enable clojure)
   (enable fennel)
