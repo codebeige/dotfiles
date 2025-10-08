@@ -17,3 +17,13 @@ use_venv() {
 
   source .env/bin/activate
 }
+
+
+use_poetry() {
+  if [[ ! -d .venv ]]; then
+    mkdir .venv
+    poetry install
+  fi
+
+  eval $(poetry env activate)
+}
