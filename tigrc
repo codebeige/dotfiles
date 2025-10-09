@@ -1,0 +1,4 @@
+color cursor      black yellow
+color cursor-blur black magenta
+color title-focus black red
+color title-blur  black cyan
