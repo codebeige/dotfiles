@@ -47,8 +47,10 @@ end
 
 local function init ()
   load_rig()
-  require('rig').setup()
+  local rig = require("rig")
+  rig.setup()
   require('config.base').setup()
+  rig.exrc()
 
   load_plugin('folke/lazy.nvim')
   require('lazy').setup({
