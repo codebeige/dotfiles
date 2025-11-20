@@ -10,8 +10,7 @@
 	email = tc@codebeige.net
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINgtyvoMbx47fbf7BAjV5kDb/WjbOF4jRSmO1Zon9xbr
 [alias]
-	aa = add --all
-	amend = commit --amend
+	aa = add --all amend = commit --amend
 	br = branch
 	ci = commit
 	cia = commit --amend
@@ -21,7 +20,11 @@
 	dc = diff --cached
 	dt = difftool
 	fix = commit --fixup
+	l = pull
+	ll = !git fetch && git reset --hard origin/$(current_branch)
 	mt = mergetool
+	p = push
+	pp = push -f
 	rb = rebase
 	rba = rebase --abort
 	rbc = rebase --continue
@@ -34,10 +37,21 @@
 	rt = remote
 	ru = remote update
 	sb = show-branch
-	sm = submodule
+	sm = !git switch $(git_main_branch)
 	squ = commit --squash
 	st = status
 	staged = diff --cached
+	x = reset --soft
+	xm = reset --mixed
+	xx = reset --hard
+	u = restore
+	c = commit
+	ca = commit --verbose --all --amend
+	cc = commit --verbose --all
+	s = switch
+	ss = switch --create
+	wip = "!git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message \"--wip-- [skip ci]\""
+	unwip = !git rev-list --max-count=1 --format=\"%s\" HEAD | grep -q \"\\--wip--\" && git reset HEAD~1
 [push]
 	default = simple
 	autoSetupRemote = true
