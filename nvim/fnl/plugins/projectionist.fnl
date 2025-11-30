@@ -3,10 +3,16 @@
        {"deps.edn|project.clj|build.boot"
         {"src/*.clj" {:type "source"
                       :alternate "test/{}_test.clj"}
+         "test/*_test.clj" {:type "test"
+                            :alternate "src/{}.clj"}
          "src/*.cljs" {:type "source"
                        :alternate "test/{}_test.cljs"}
+         "test/*_test.cljs" {:type "test"
+                             :alternate "src/{}.cljs"}
          "src/*.cljc" {:type "source"
-                       :alternate "test/{}_test.cljc"}}
+                       :alternate "test/{}_test.cljc"}
+         "test/*_test.cljc" {:type "test"
+                             :alternate "src/{}.cljc"}}
        "shadow-cljs.edn"
        {"src/*.cljs" {:type "source"
                       :alternate "test/{}_test.cljs"}
