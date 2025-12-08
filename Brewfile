@@ -85,6 +85,7 @@ cask "notion"
 cask "pitch"
 cask "rar"
 cask "temurin"
+cask "transmit
 cask "tunnelblick"
 cask "vuescan"
 cask "zoom"
