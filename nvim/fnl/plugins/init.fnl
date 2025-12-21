@@ -22,11 +22,6 @@
 
  "dcampos/nvim-snippy"
 
- {1 "editor-code-assistant/eca-nvim"
-  :dependencies ["MunifTanjim/nui.nvim"
-                 "nvim-lua/plenary.nvim"]
-  :opts {}}
-
  {1 "hrsh7th/nvim-cmp"
   :config ($ :plugins.cmp.config)
   :dependencies ["Olical/conjure"
