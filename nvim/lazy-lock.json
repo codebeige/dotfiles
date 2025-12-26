@@ -7,7 +7,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "cmp-path": { "branch": "main", "commit": "c642487086dbd9a93160e1679a1327be111cbc25" },
   "cmp-snippy": { "branch": "master", "commit": "6e39210aa3a74e2bf6462f492eaf0d436cd2b7d3" },
-  "conjure": { "branch": "main", "commit": "f92b09ede8e88d6e24231001940008ced62f9304" },
+  "conjure": { "branch": "main", "commit": "90e7dbda6b2ba4e00e2876e7a50311e2e0ba51d2" },
   "fennel.vim": { "branch": "main", "commit": "c6a9c035ca108cbb24273d96cd6277fb8fbc60b4" },
   "fwatch.nvim": { "branch": "main", "commit": "a691f7349dc66285cd75a1a698dd28bca45f2bf8" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
