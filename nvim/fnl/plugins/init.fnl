@@ -83,8 +83,8 @@
  {1 "romainl/vim-qf"
   :init ($ :plugins.qf.init)}
 
+ "tpope/vim-abolish"
  "tpope/vim-commentary"
-
  "tpope/vim-eunuch"
 
  {1 "tpope/vim-fugitive"
