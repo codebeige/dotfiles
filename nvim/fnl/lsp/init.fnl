@@ -1,12 +1,12 @@
 (local astro (require :lsp.astro))
 (local basedpyright (require :lsp.basedpyright))
 (local clojure (require :lsp.clojure))
+(local css (require :lsp.css))
 (local fennel (require :lsp.fennel))
-(local go (require :lsp.go))
+(local html (require :lsp.html))
 (local ruff (require :lsp.ruff))
 (local shared (require :lsp.shared))
 (local typescript (require :lsp.typescript))
-(local vue (require :lsp.vue))
 
 (fn enable [{: name : config}]
   (set (. vim.lsp.config name) config)
@@ -18,10 +18,10 @@
   (enable astro)
   (enable basedpyright)
   (enable clojure)
+  (enable css)
   (enable fennel)
-  (enable go)
+  (enable html)
   (enable ruff)
-  (enable typescript)
-  (enable vue))
+  (enable typescript))
 
 {: setup}

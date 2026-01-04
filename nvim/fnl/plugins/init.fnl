@@ -104,4 +104,7 @@
   :config ($ :plugins.vinegar.config)}
 
  {1 "windwp/nvim-autopairs"
- :config ($ :plugins.autopairs.config)}]
+  :config ($ :plugins.autopairs.config)}
+
+ {1 "windwp/nvim-ts-autotag"
+  :config ($ :plugins.autotag.config)}]
