@@ -13,7 +13,7 @@ function kitty-set-theme {
 
 function kitty-switch-theme {
   local name=$(
-    ls $KITTY_THEMES/ \
+    ls $KITTY_THEMES/*.conf~*-256.conf \
     | xargs basename -s .conf \
     | fzf --preview "head -n 20 $KITTY_THEMES/{}.conf && kitty @ set-colors $KITTY_THEMES/{}.conf"
   )
