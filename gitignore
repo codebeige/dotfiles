@@ -34,4 +34,4 @@ Session.vim
 .env/
 .venv/
 .claude/
-CLAUDE.md
+CLAUDE.local.md
