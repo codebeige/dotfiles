@@ -4,6 +4,7 @@
 (def symlinks
   {"Brewfile"               ".Brewfile"
    "asdfrc"                 ".asdfrc"
+   "claude/CLAUDE.md"       ".claude/CLAUDE.md"
    "clojure/deps.edn"       ".clojure/deps.edn"
    "config/clj-kondo"       ".config/clj-kondo"
    "config/clojure-lsp"     ".config/clojure-lsp"
