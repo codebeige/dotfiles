@@ -33,5 +33,5 @@ Session.vim
 .nvim.fnl
 .env/
 .venv/
-.claude/
+.claude/settings.local.json
 CLAUDE.local.md
