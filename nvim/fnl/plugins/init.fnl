@@ -62,14 +62,6 @@
                  {1 "nvim-telescope/telescope-fzf-native.nvim" :build "make"}]
   :version "*"}
 
- {1 "nvim-treesitter/nvim-treesitter"
-  :build ":TSUpdate"
-  :config ($ :plugins.treesitter.config)}
-
- {1 "nvim-treesitter/playground"
-  :cmd ["TSPlaygroundToggle"
-        "TSHighlightCapturesUnderCursor"]}
-
  {1 "Olical/conjure"
   :config ($ :plugins.conjure.config)
   :init ($ :plugins.conjure.init)}
@@ -82,6 +74,10 @@
 
  {1 "romainl/vim-qf"
   :init ($ :plugins.qf.init)}
+
+ {1 :romus204/tree-sitter-manager.nvim
+ :config ($ :plugins.tree-sitter-manager.config)}
+
 
  "tpope/vim-abolish"
  "tpope/vim-commentary"
