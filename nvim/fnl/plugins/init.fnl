@@ -1,5 +1,7 @@
 (local plugins
-  [{:github "rktjmp/fwatch.nvim"}
+  [{:github "codebeige/rig.nvim"
+    :build :rig/build}
+   {:github "rktjmp/fwatch.nvim"}
    {:github "nvim-lua/plenary.nvim"}
    {:github "tpope/vim-dispatch"}
    {:github "tpope/vim-repeat"}

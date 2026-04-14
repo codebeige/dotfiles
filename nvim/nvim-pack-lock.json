@@ -76,6 +76,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim.git"
     },
+    "rig.nvim": {
+      "rev": "47e35713a76272d6317c09b8bd15ff50d5b94947",
+      "src": "https://github.com/codebeige/rig.nvim.git"
+    },
     "spaceless.nvim": {
       "rev": "927fb0afb416ea39306af5842c247d810dfd5938",
       "src": "https://github.com/lewis6991/spaceless.nvim.git"

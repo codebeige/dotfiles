@@ -23,7 +23,7 @@ local function load_rig()
   if vim.uv.fs_stat(rig_dev_dir) then
     plugin_dir = rig_dev_dir
   else
-    plugin_dir = vim.fs.joinpath(vim.fn.stdpath('data'), 'rig.nvim')
+    plugin_dir = vim.fs.joinpath(vim.fn.stdpath('data'), 'site/pack/core/opt/rig.nvim')
     if not vim.uv.fs_stat(plugin_dir) then
       fetch('codebeige/rig.nvim', plugin_dir)
     end
