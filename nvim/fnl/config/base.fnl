@@ -34,6 +34,9 @@
 
   (when (vim.fn.executable "rg")
     (set vim.o.grepprg "rg --vimgrep --no-heading --smart-case")
-    (set vim.o.grepformat "%f:%l:%c:%m")))
+    (set vim.o.grepformat "%f:%l:%c:%m"))
+
+  (let [ui2 (require :vim._core.ui2)]
+    (ui2.enable)))
 
 {: setup}

@@ -1,106 +1,106 @@
-(fn $ [s]
-  (let [(_ _ m k) (string.find s "^(.*)%.([^.]+)$")]
-    (fn [...]
-      (let [f (. (require m) k)]
-        (f ...)))))
+(local plugins
+  [{:github "rktjmp/fwatch.nvim"}
+   {:github "nvim-lua/plenary.nvim"}
+   {:github "tpope/vim-dispatch"}
+   {:github "tpope/vim-repeat"}
+   {:github "kyazdani42/nvim-web-devicons"}
+   {:github "dcampos/nvim-snippy"}
+   {:github "Olical/conjure"
+    :init :conjure/init
+    :config :conjure/config}
+   {:github "PaterJason/cmp-conjure"}
+   {:github "dcampos/cmp-snippy"}
+   {:github "hrsh7th/cmp-buffer"}
+   {:github "hrsh7th/cmp-cmdline"}
+   {:github "hrsh7th/cmp-nvim-lsp"}
+   {:github "hrsh7th/cmp-path"}
+   {:github "nvim-telescope/telescope-ui-select.nvim"}
+   {:github "nvim-telescope/telescope-fzf-native.nvim"
+    :build :telescope-fzf-native/build}
+   {:github "base16-project/base16-vim"
+    :config :base16/config}
+   {:github "clojure-vim/vim-jack-in"}
+   {:github "radenling/vim-dispatch-neovim"}
+   {:github "csexton/trailertrash.vim"
+    :init :trailertrash/init
+    :config :trailertrash/config}
+   {:github "hrsh7th/nvim-cmp"
+    :config :cmp/config}
+   {:github "folke/which-key.nvim"
+    :config :which-key/config}
+   {:github "guns/vim-sexp"
+    :init :sexp/init
+    :config :sexp/config}
+   {:github "jaawerth/fennel.vim"}
+   {:github "junegunn/vim-easy-align"
+    :config :easy-align/config}
+   {:github "lewis6991/spaceless.nvim"}
+   {:github "nvim-lualine/lualine.nvim"
+    :config :lualine/config}
+   {:github "nvim-telescope/telescope.nvim"
+    :config :telescope/config}
+   {:github "Olical/nfnl"}
+   {:github "romainl/vim-qf"
+    :init :qf/init}
+   {:github "romus204/tree-sitter-manager.nvim"
+    :config :tree-sitter-manager/config}
+   {:github "tpope/vim-abolish"}
+   {:github "tpope/vim-commentary"}
+   {:github "tpope/vim-eunuch"}
+   {:github "tpope/vim-fugitive"
+    :config :fugitive/config}
+   {:github "tpope/vim-projectionist"
+    :config :projectionist/config}
+   {:github "tpope/vim-surround"
+    :init :surround/init}
+   {:github "tpope/vim-unimpaired"
+    :config :unimpaired/config}
+   {:github "tpope/vim-vinegar"
+    :config :vinegar/config}
+   {:github "windwp/nvim-autopairs"
+    :config :autopairs/config}
+   {:github "windwp/nvim-ts-autotag"
+    :config :autotag/config}
+   {:github "codebeige/canvas.nvim"}])
 
-[{1 "base16-project/base16-vim"
-  :config ($ :plugins.base16.config)
-  :dependencies ["rktjmp/fwatch.nvim"]
-  :priority 100}
+(fn invoke [s ...]
+  (let [(_ _ m k) (string.find s "^(.*)/(.+)$")
+        f (. (require (string.format "plugins.%s" m)) k)]
+    (f ...)))
 
- {1 "clojure-vim/vim-jack-in"
-  :dependencies ["radenling/vim-dispatch-neovim"]}
+(fn register-hooks []
+  (let [group (vim.api.nvim_create_augroup :plugins.build {:clear true})]
+    (vim.api.nvim_create_autocmd
+      :PackChanged
+      {:group group
+       :callback (fn [ev]
+                   (case ev.data.spec.data.build-hook
+                     build (invoke build ev.data)))})))
 
- "codebeige/rig.nvim"
+(fn init []
+  (each [_ {: init} (ipairs plugins)]
+    (when init (invoke init))))
 
- {1 "codebeige/canvas.nvim" :enabled true}
+(fn src [{: src : github}]
+  (or src (and github (string.format "https://github.com/%s.git" github))))
 
- {1 "csexton/trailertrash.vim"
-  :config ($ :plugins.trailertrash.config)
-  :init ($ :plugins.trailertrash.init)}
+(fn data [{: data : build}]
+  (doto (or data {}) (tset :build-hook build)))
 
- "dcampos/nvim-snippy"
+(fn install []
+  (vim.pack.add
+    (icollect [_ {: name : version &as spec} (ipairs plugins)]
+      {:src (src spec) : name : version :data (data spec)})
+    {:load true}))
 
- {1 "hrsh7th/nvim-cmp"
-  :config ($ :plugins.cmp.config)
-  :dependencies ["Olical/conjure"
-                 "PaterJason/cmp-conjure"
-                 "dcampos/cmp-snippy"
-                 "hrsh7th/cmp-buffer"
-                 "hrsh7th/cmp-cmdline"
-                 "hrsh7th/cmp-nvim-lsp"
-                 "hrsh7th/cmp-path"]}
+(fn config []
+  (each [_ {: config} (ipairs plugins)]
+    (when config (invoke config))))
 
- {1 "folke/which-key.nvim"
-  :config ($ :plugins.which-key.config)}
+(fn setup []
+  (register-hooks)
+  (init)
+  (install)
+  (config))
 
- {1 "guns/vim-sexp"
-  :ft [:clojure :fennel :scheme :lisp :timl]
-  :config ($ :plugins.sexp.config)
-  :init ($ :plugins.sexp.init)}
-
- {1 "jaawerth/fennel.vim"
-  :ft [:fennel]}
-
- {1 "junegunn/vim-easy-align"
-  :config  ($ :plugins.easy-align.config)
-  :dependencies ["tpope/vim-repeat"]}
-
- "kyazdani42/nvim-web-devicons"
-
- "lewis6991/spaceless.nvim"
-
- {1 "nvim-lualine/lualine.nvim"
-  :config ($ :plugins.lualine.config)
-  :dependencies ["base16-project/base16-vim"]}
-
- {1 "nvim-telescope/telescope.nvim"
-  :config ($ :plugins.telescope.config)
-  :dependencies ["nvim-lua/plenary.nvim"
-                 "nvim-telescope/telescope-ui-select.nvim"
-                 {1 "nvim-telescope/telescope-fzf-native.nvim" :build "make"}]
-  :version "*"}
-
- {1 "Olical/conjure"
-  :config ($ :plugins.conjure.config)
-  :init ($ :plugins.conjure.init)}
-
- {1 "Olical/nfnl"
-  :ft "fennel"}
-
- {1 "radenling/vim-dispatch-neovim"
-  :dependencies ["tpope/vim-dispatch"]}
-
- {1 "romainl/vim-qf"
-  :init ($ :plugins.qf.init)}
-
- {1 :romus204/tree-sitter-manager.nvim
- :config ($ :plugins.tree-sitter-manager.config)}
-
-
- "tpope/vim-abolish"
- "tpope/vim-commentary"
- "tpope/vim-eunuch"
-
- {1 "tpope/vim-fugitive"
-  :config ($ :plugins.fugitive.config)}
-
- {1 "tpope/vim-projectionist"
-  :config ($ :plugins.projectionist.config)}
-
- "tpope/vim-repeat"
-
- {1 "tpope/vim-surround"
-  :init ($ :plugins.surround.init)}
-
- "tpope/vim-unimpaired"
-
- {1 "tpope/vim-vinegar"
-  :config ($ :plugins.vinegar.config)}
-
- {1 "windwp/nvim-autopairs"
-  :config ($ :plugins.autopairs.config)}
-
- {1 "windwp/nvim-ts-autotag"
-  :config ($ :plugins.autotag.config)}]
+{: setup}

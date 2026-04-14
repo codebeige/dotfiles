@@ -32,6 +32,6 @@
 
        {1 "<C-L>" 2 "<Esc>" :desc "Esc" :mode :i}
 
-       {1 "<Leader>p" 2 "<Cmd>Lazy<CR>" :desc "Open plugin manager..."}])))
+       {1 "<Leader>p" 2 "<Cmd>lua vim.pack.update()<CR>" :desc "Update plugins..."}])))
 
 {: config}

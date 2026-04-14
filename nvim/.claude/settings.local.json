@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "WebFetch(domain:neovim.io)",
+      "WebFetch(domain:echasnovski.com)",
+      "WebFetch(domain:briandouglas.ie)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:dotfiles.substack.com)",
+      "WebFetch(domain:bower.sh)",
+      "Bash(nvim:*)"
+    ]
+  }
+}
