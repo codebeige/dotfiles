@@ -1,10 +1,15 @@
+tap "babashka/brew"
 tap "borkdude/brew"
 tap "clojure-lsp/brew"
 tap "codebeige/tap"
+tap "daveschumaker/claude-sounds"
 tap "lucagrulla/tap"
 brew "asdf"
+brew "astro"
 brew "awscli"
 brew "basedpyright"
+brew "bat"
+brew "bbin"
 brew "borkdude/brew/babashka"
 brew "borkdude/brew/clj-kondo"
 brew "cloc"
@@ -13,6 +18,7 @@ brew "clojure-lsp/brew/clojure-lsp-native"
 brew "cmake"
 brew "codebeige/tap/fennel-ls"
 brew "dash-shell"
+brew "daveschumaker/claude-sounds/claude-sounds"
 brew "direnv"
 brew "fd"
 brew "fennel"
@@ -20,10 +26,10 @@ brew "fzf"
 brew "gh"
 brew "ghostscript"
 brew "git"
-brew "go"
-brew "gopls"
+brew "htop"
 brew "huggingface-cli"
 brew "imagemagick"
+brew "jq"
 brew "leiningen"
 brew "lua"
 brew "luajit"
@@ -36,9 +42,7 @@ brew "neovim"
 brew "node"
 brew "openjdk"
 brew "opentofu"
-brew "pkgconf"
 brew "podman"
-brew "python@3.13"
 brew "ripgrep"
 brew "ruby"
 brew "ruff"
@@ -46,6 +50,7 @@ brew "rust"
 brew "sd"
 brew "sleepwatcher"
 brew "tig"
+brew "tldr"
 brew "tmux"
 brew "tree"
 brew "tree-sitter-cli"
@@ -53,6 +58,7 @@ brew "typescript"
 brew "typescript-language-server"
 brew "vscode-langservers-extracted"
 brew "watchexec"
+brew "wget"
 brew "watchman"
 cask "1password"
 cask "1password-cli"
@@ -62,6 +68,7 @@ cask "amadine"
 cask "blender"
 cask "choosy"
 cask "claude"
+cask "claude-code"
 cask "dash"
 cask "docker-desktop"
 cask "dropbox"
@@ -71,26 +78,35 @@ cask "git-credential-manager"
 cask "glyphs"
 cask "google-chrome"
 cask "google-chrome@canary"
-cask "grammarly-desktop"
 cask "kitty"
+cask "linear-linear"
+cask "ludwig"
 cask "microsoft-edge"
+cask "miro"
 cask "monodraw"
 cask "notion"
+cask "ollama-app"
 cask "pitch"
 cask "rar"
 cask "temurin"
+cask "transmit"
 cask "vuescan"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
+mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
-mas "Keynote", id: 409183694
+mas "Keynote", id: 361285480
 mas "Kindle", id: 302584613
 mas "Mela", id: 1568924476
 mas "MindNode Next", id: 6446116532
 mas "NordVPN", id: 905953485
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+mas "Noteshelf 3", id: 6458735203
+mas "Numbers", id: 361304891
+mas "Pages",   id: 361309726
+mas "Photomator", id: 1444636541
+mas "Pixelmator Pro", id: 1289583905
 mas "Slack", id: 803453959
+mas "Tayasui Sketches", id: 1178074963
 mas "Things", id: 904280696
 mas "Typeface", id: 1062679359
 mas "iA Writer", id: 775737590
