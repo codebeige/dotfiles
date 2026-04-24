@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "72c2a517a2227a0a405f401bb953bada72df5003",
+      "rev": "3b6128ba023812420defc3e870714e2131a564dd",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/dcampos/cmp-snippy.git"
     },
     "conjure": {
-      "rev": "f66b3e7f45d325bd556cd785502761e583971920",
+      "rev": "2ddd752d43b35d72aa3e339c3ae051b8dbad8549",
       "src": "https://github.com/Olical/conjure.git"
     },
     "fennel.vim": {
@@ -65,7 +65,7 @@
       "src": "https://github.com/dcampos/nvim-snippy.git"
     },
     "nvim-ts-autotag": {
-      "rev": "8e1c0a389f20bf7f5b0dd0e00306c1247bda2595",
+      "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
       "src": "https://github.com/windwp/nvim-ts-autotag.git"
     },
     "nvim-web-devicons": {
@@ -93,7 +93,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim.git"
     },
     "telescope.nvim": {
-      "rev": "3ab376cfae65b921dda454df5967f8df673effc6",
+      "rev": "506338434fec5ad19cb1f8d45bf92d66c4917393",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "trailertrash.vim": {
@@ -101,7 +101,7 @@
       "src": "https://github.com/csexton/trailertrash.vim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "fa63bc63ae08b661843d9976a43becfbd3daf76c",
+      "rev": "33a94d022e3a5a500d878b784ba7fec61559c70a",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
