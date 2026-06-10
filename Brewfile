@@ -60,6 +60,7 @@ brew "vscode-langservers-extracted"
 brew "watchexec"
 brew "wget"
 brew "watchman"
+brew "xcode-build-server"
 cask "1password"
 cask "1password-cli"
 cask "affinity"
@@ -112,4 +113,5 @@ mas "Things", id: 904280696
 mas "Typeface", id: 1062679359
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
+mas "Xcode", id: 497799835
 mas "xScope", id: 889428659

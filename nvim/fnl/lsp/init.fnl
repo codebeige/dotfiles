@@ -6,6 +6,7 @@
 (local html (require :lsp.html))
 (local ruff (require :lsp.ruff))
 (local shared (require :lsp.shared))
+(local sourcekit (require :lsp.sourcekit))
 (local typescript (require :lsp.typescript))
 
 (fn enable [{: name : config}]
@@ -22,6 +23,7 @@
   (enable fennel)
   (enable html)
   (enable ruff)
+  (enable sourcekit)
   (enable typescript))
 
 {: setup}
