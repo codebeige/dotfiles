@@ -33,7 +33,7 @@
       "src": "https://github.com/dcampos/cmp-snippy.git"
     },
     "conjure": {
-      "rev": "8a3bb39987357c1ae4d9b267e8481401d904cac4",
+      "rev": "16b436c0124dae26250986fd4e660529d6bb14f0",
       "src": "https://github.com/Olical/conjure.git"
     },
     "fennel.vim": {
@@ -101,7 +101,7 @@
       "src": "https://github.com/csexton/trailertrash.vim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "f448f54ece0cdba82a31e41186720f902c91c090",
+      "rev": "95f81026390077f8eea9eef6d32ad59d4c3bd3ee",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
