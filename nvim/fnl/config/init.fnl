@@ -3,6 +3,7 @@
 (local terminal (require :config.terminal))
 (local clojure (require :config.clojure))
 (local fennel (require :config.fennel))
+(local golang (require :config.golang))
 (local lsp (require :lsp))
 
 (fn setup []
@@ -11,6 +12,7 @@
   (terminal.setup)
   (clojure.setup)
   (fennel.setup)
+  (golang.setup)
   (lsp.setup))
 
 {: setup}

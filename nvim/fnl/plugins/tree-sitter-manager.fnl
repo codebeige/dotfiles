@@ -7,6 +7,11 @@
               :gitattributes
               :gitcommit
               :gitignore
+              :go
+              :gomod
+              :gowork
+              :gosum
+              :gotmpl
               :html
               :java
               :javascript
@@ -22,12 +27,8 @@
               :regex
               :vim])
 
-(local lisps [:clojure :fennel :janet :racket])
 
-(fn enable [opts]
-  (let [ft (. opts :match)]
-    (when  (not (vim.tbl_contains lisps ft))
-      (set vim.bo.indentexpr "v:lua.vim.treesitter.indentexpr()")))
+(fn enable [_]
   (set vim.wo.foldmethod :expr)
   (set vim.wo.foldexpr "v:lua.vim.treesitter.foldexpr()")
   (set vim.wo.foldenable false))
