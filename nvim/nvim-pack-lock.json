@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "c086276f0227f41d17b68b1fe2e378b3b113401d",
+      "rev": "e89c8ca390bbbb21f875b457b1f2e6d5d1950ca2",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -93,7 +93,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim.git"
     },
     "telescope.nvim": {
-      "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
+      "rev": "9377230aa5305d9e9aca4ed8dadf1070fb4aa9fc",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "trailertrash.vim": {
@@ -101,7 +101,7 @@
       "src": "https://github.com/csexton/trailertrash.vim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "95f81026390077f8eea9eef6d32ad59d4c3bd3ee",
+      "rev": "ae305699da5e97b6cffdd5cc6f6045b1b0bd26ea",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
