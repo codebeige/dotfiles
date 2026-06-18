@@ -37,7 +37,7 @@
 
 (local config
   {:cmd ["clojure-lsp"]
-   :filetypes [:clojure :edn]
+   :filetypes [:clojure]
    :root_dir root-dir
    :on_attach on-attach})
 

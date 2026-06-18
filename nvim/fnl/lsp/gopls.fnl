@@ -54,7 +54,7 @@
 
 (local config
   {:cmd ["gopls"]
-   :filetypes [:go :gomod :gowork :gotmpl]
+   :filetypes [:go :gomod :gowork]
    :on_attach on-attach
    :root_markers [["go.work" "go.mod"] ".git"]
    :reuse_client reuse-client
