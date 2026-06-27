@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "e89c8ca390bbbb21f875b457b1f2e6d5d1950ca2",
+      "rev": "65a386074124f211536dc04f7427cbcbd80ee183",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/hrsh7th/nvim-cmp.git"
     },
     "nvim-snippy": {
-      "rev": "f8b34f206a14eb00b5723dbc15e9a5911f1210ab",
+      "rev": "1f5a5c82cb4902522806a58cf25479f6f8fe16ac",
       "src": "https://github.com/dcampos/nvim-snippy.git"
     },
     "nvim-ts-autotag": {
@@ -93,7 +93,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim.git"
     },
     "telescope.nvim": {
-      "rev": "9377230aa5305d9e9aca4ed8dadf1070fb4aa9fc",
+      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "trailertrash.vim": {
