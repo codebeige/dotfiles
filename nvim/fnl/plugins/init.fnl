@@ -39,6 +39,8 @@
    {:github "lewis6991/spaceless.nvim"}
    {:github "nvim-lualine/lualine.nvim"
     :config :lualine/config}
+   {:github "nvim-mini/mini.ai"
+    :config :mini-ai/config}
    {:github "nvim-mini/mini.surround"
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
