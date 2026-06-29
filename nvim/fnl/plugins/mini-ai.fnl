@@ -5,11 +5,17 @@
      :to {:line to-line
           :col (-> to-line vim.fn.getline string.len (math.max 1))}}))
 
+(fn first-char-col [line]
+  (case (-> line vim.fn.getline (string.find "^%s+"))
+    (_ x) (+ 1 x)
+    nil 1))
+
 (fn line [count]
   (let [from-line (vim.fn.line :.)
+        from-col (first-char-col from-line)
         to-line (+ from-line (- count 1))]
     {:from {:line from-line
-            :col 1}
+            :col from-col}
      :to {:line to-line
           :col (-> to-line vim.fn.getline string.len)}}))
 
