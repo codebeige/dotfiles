@@ -104,10 +104,6 @@
       "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
-    "trailertrash.vim": {
-      "rev": "d4109aac96972ae759b389d3b374c1f4c058ee4f",
-      "src": "https://github.com/csexton/trailertrash.vim.git"
-    },
     "tree-sitter-manager.nvim": {
       "rev": "ae305699da5e97b6cffdd5cc6f6045b1b0bd26ea",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"

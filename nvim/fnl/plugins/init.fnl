@@ -23,9 +23,6 @@
     :config :base16/config}
    {:github "clojure-vim/vim-jack-in"}
    {:github "radenling/vim-dispatch-neovim"}
-   {:github "csexton/trailertrash.vim"
-    :init :trailertrash/init
-    :config :trailertrash/config}
    {:github "hrsh7th/nvim-cmp"
     :config :cmp/config}
    {:github "folke/which-key.nvim"
