@@ -38,6 +38,8 @@
     :config :mini-ai/config}
    {:github "nvim-mini/mini.align"
     :config :mini-align/config}
+   {:github "nvim-mini/mini.comment"
+    :config :mini-comment/config}
    {:github "nvim-mini/mini.surround"
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
@@ -48,7 +50,6 @@
    {:github "romus204/tree-sitter-manager.nvim"
     :config :tree-sitter-manager/config}
    {:github "tpope/vim-abolish"}
-   {:github "tpope/vim-commentary"}
    {:github "tpope/vim-eunuch"}
    {:github "tpope/vim-fugitive"
     :config :fugitive/config}
