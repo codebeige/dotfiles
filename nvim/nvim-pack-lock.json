@@ -49,8 +49,12 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim.git"
     },
     "mini.ai": {
-      "rev": "d73c36349aa7b0bab5f77ad71701a1d42211a1df",
+      "rev": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
       "src": "https://github.com/nvim-mini/mini.ai.git"
+    },
+    "mini.align": {
+      "rev": "34014f8c9c0740904ed6760f9eee58f4ae00c131",
+      "src": "https://github.com/nvim-mini/mini.align.git"
     },
     "mini.surround": {
       "rev": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
@@ -123,10 +127,6 @@
     "vim-dispatch-neovim": {
       "rev": "c8c4e21a95c25032a041002f9bf6e45a75a73021",
       "src": "https://github.com/radenling/vim-dispatch-neovim.git"
-    },
-    "vim-easy-align": {
-      "rev": "9815a55dbcd817784458df7a18acacc6f82b1241",
-      "src": "https://github.com/junegunn/vim-easy-align.git"
     },
     "vim-eunuch": {
       "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",

@@ -31,13 +31,13 @@
     :init :sexp/init
     :config :sexp/config}
    {:github "jaawerth/fennel.vim"}
-   {:github "junegunn/vim-easy-align"
-    :config :easy-align/config}
    {:github "lewis6991/spaceless.nvim"}
    {:github "nvim-lualine/lualine.nvim"
     :config :lualine/config}
    {:github "nvim-mini/mini.ai"
     :config :mini-ai/config}
+   {:github "nvim-mini/mini.align"
+    :config :mini-align/config}
    {:github "nvim-mini/mini.surround"
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
