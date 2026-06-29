@@ -39,6 +39,8 @@
    {:github "lewis6991/spaceless.nvim"}
    {:github "nvim-lualine/lualine.nvim"
     :config :lualine/config}
+   {:github "nvim-mini/mini.surround"
+    :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
     :config :telescope/config}
    {:github "Olical/nfnl"}
@@ -53,8 +55,6 @@
     :config :fugitive/config}
    {:github "tpope/vim-projectionist"
     :config :projectionist/config}
-   {:github "tpope/vim-surround"
-    :init :surround/init}
    {:github "tpope/vim-unimpaired"
     :config :unimpaired/config}
    {:github "tpope/vim-vinegar"
