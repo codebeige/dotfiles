@@ -6,11 +6,11 @@
    {:github "tpope/vim-dispatch"}
    {:github "tpope/vim-repeat"}
    {:github "kyazdani42/nvim-web-devicons"}
-   {:github "dcampos/nvim-snippy"}
+   {:github "dcampos/nvim-snippy"
+    :config :snippy/config}
    {:github "Olical/conjure"
     :init :conjure/init
     :config :conjure/config}
-   {:github "PaterJason/cmp-conjure"}
    {:github "dcampos/cmp-snippy"}
    {:github "hrsh7th/cmp-buffer"}
    {:github "hrsh7th/cmp-cmdline"}
