@@ -36,6 +36,7 @@
     :config :lualine/config}
    {:github "nvim-mini/mini.ai"
     :config :mini-ai/config}
+   {:github :nvim-mini/mini.extra}
    {:github "nvim-mini/mini.align"
     :config :mini-align/config}
    {:github "nvim-mini/mini.comment"
