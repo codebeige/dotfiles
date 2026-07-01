@@ -36,9 +36,9 @@
        {:i (mini-extra.gen_ai_spec.indent)
         :l (if (= 3 (vim.fn.has :nvim-0.13)) false lines)}
        :mappings
-       {:around_next ">a"
-        :inside_next ">i"
-        :around_last "<a"
-        :inside_last "<i"}})))
+       {:around_next "]a"
+        :inside_next "]i"
+        :around_last "[a"
+        :inside_last "[i"}})))
 
 {: config}
