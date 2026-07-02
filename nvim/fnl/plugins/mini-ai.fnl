@@ -33,8 +33,10 @@
         mini-extra (require :mini.extra)]
     (mini-ai.setup
       {:custom_textobjects
-       {:i (mini-extra.gen_ai_spec.indent)
-        :l (if (= 3 (vim.fn.has :nvim-0.13)) false lines)}
+       {:f (mini-ai.gen_spec.treesitter {:a "@function.outer"
+                                         :i "@function.inner"})
+        :i (mini-extra.gen_ai_spec.indent)
+        :l (if (= 1 (vim.fn.has :nvim-0.13)) false lines)}
        :mappings
        {:around_next "]a"
         :inside_next "]i"

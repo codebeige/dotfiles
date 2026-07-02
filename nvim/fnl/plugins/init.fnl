@@ -45,6 +45,7 @@
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
     :config :telescope/config}
+   {:github "nvim-treesitter/nvim-treesitter-textobjects"}
    {:github "Olical/nfnl"}
    {:github "romainl/vim-qf"
     :init :qf/init}

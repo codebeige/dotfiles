@@ -80,6 +80,10 @@
       "rev": "1f5a5c82cb4902522806a58cf25479f6f8fe16ac",
       "src": "https://github.com/dcampos/nvim-snippy.git"
     },
+    "nvim-treesitter-textobjects": {
+      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
+    },
     "nvim-ts-autotag": {
       "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
       "src": "https://github.com/windwp/nvim-ts-autotag.git"
