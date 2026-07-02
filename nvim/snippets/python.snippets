@@ -2,3 +2,11 @@
 
 snippet #! "Python shebang" b
     #!/usr/bin/env python3
+
+snippet main "Script entry point" b
+    def main():
+        $0
+        return 0
+
+    if __name__ == '__main__':
+        sys.exit(main())
