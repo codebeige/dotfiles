@@ -52,10 +52,6 @@
       "rev": "34014f8c9c0740904ed6760f9eee58f4ae00c131",
       "src": "https://github.com/nvim-mini/mini.align.git"
     },
-    "mini.comment": {
-      "rev": "4677392f091e8b5c18d4b535130220a6d1da4aca",
-      "src": "https://github.com/nvim-mini/mini.comment.git"
-    },
     "mini.extra": {
       "rev": "e5ecf197f8954d002cb9e85b3715851e2c8d3cd5",
       "src": "https://github.com/nvim-mini/mini.extra.git"
@@ -87,10 +83,6 @@
     "nvim-ts-autotag": {
       "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
       "src": "https://github.com/windwp/nvim-ts-autotag.git"
-    },
-    "nvim-web-devicons": {
-      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
-      "src": "https://github.com/kyazdani42/nvim-web-devicons.git"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

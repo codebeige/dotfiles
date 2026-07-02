@@ -5,7 +5,6 @@
    {:github "nvim-lua/plenary.nvim"}
    {:github "tpope/vim-dispatch"}
    {:github "tpope/vim-repeat"}
-   {:github "kyazdani42/nvim-web-devicons"}
    {:github "dcampos/nvim-snippy"
     :config :snippy/config}
    {:github "Olical/conjure"
@@ -39,8 +38,6 @@
    {:github :nvim-mini/mini.extra}
    {:github "nvim-mini/mini.align"
     :config :mini-align/config}
-   {:github "nvim-mini/mini.comment"
-    :config :mini-comment/config}
    {:github "nvim-mini/mini.surround"
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
