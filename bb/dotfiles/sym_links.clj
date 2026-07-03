@@ -13,6 +13,7 @@
    "config/kitty"           ".config/kitty"
    "config/pgcli"           ".config/pgcli"
    "config/tmux/tmux.conf"  ".config/tmux/tmux.conf"
+   "config/ruff/ruff.toml"  ".config/ruff/ruff.toml"
    "ctags"                  ".ctags"
    "gitconfig"              ".gitconfig"
    "gitignore"              ".gitignore"
