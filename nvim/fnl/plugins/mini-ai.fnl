@@ -68,8 +68,12 @@
         mini-extra (require :mini.extra)]
     (mini-ai.setup
       {:custom_textobjects
-       {:f (mini-ai.gen_spec.treesitter {:a "@function.outer"
+       {:c (mini-ai.gen_spec.treesitter {:a "@class.outer"
+                                         :i "@class.inner"})
+        :f (mini-ai.gen_spec.treesitter {:a "@function.outer"
                                          :i "@function.inner"})
+        :g (mini-ai.gen_spec.treesitter {:a "@comment.outer"
+                                         :i "@comment.inner"})
         :i (mini-extra.gen_ai_spec.indent)
         :l (if (= 1 (vim.fn.has :nvim-0.13)) false lines)
         :r top-level-block}
