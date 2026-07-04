@@ -30,7 +30,7 @@
        {1 "<Leader>ss" 2 ":<C-U>s/"     :desc "Substitute in current line..."     :silent false}
        {1 "<Leader>ss" 2 ":s/"          :desc "Substitute in selection..."        :silent false :mode :x}
 
-       {1 "<C-L>" 2 "<Esc>" :desc "Esc" :mode :i}
+       {1 "<C-L>" 2 "<Esc>" :desc "Esc" :mode [:i :s]}
 
        {1 "<Leader>p" 2 "<Cmd>lua vim.pack.update()<CR>" :desc "Update plugins..."}])))
 
