@@ -8,5 +8,20 @@ snippet main "Script entry point" b
         $0
         return 0
 
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         sys.exit(main())
+
+snippet repl "Repl eval block" b
+    if __name__ == "__repl__":
+        ${0:print("Happy eval! 🐍")}
+
+snippet tests "Simple test setup" b
+    test_cases = (
+        ((${2:None},), ${3:None}),$0
+    )
+
+    for args, expected in test_cases:
+        actual = ${1:f}(*args)
+        assert actual == expected, (
+            f"expected {expected}, but got {actual}: $1{args})"
+        )
