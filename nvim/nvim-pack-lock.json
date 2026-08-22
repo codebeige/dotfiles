@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "368c02b3bc6b04f1d17ab0bd72c214df62a75d04",
+      "rev": "66829e04041ceba72a9006d1c6c9d0c818e2b3dd",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/nvim-mini/mini.surround.git"
     },
     "nfnl": {
-      "rev": "ac0177c5549df7abba7a19554c18a7765386c894",
+      "rev": "a4c47a1e7e52aaf234b358f73135acf783054e35",
       "src": "https://github.com/Olical/nfnl.git"
     },
     "nvim-autopairs": {
@@ -105,7 +105,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim.git"
     },
     "telescope.nvim": {
-      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
+      "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "tree-sitter-manager.nvim": {
@@ -125,7 +125,7 @@
       "src": "https://github.com/radenling/vim-dispatch-neovim.git"
     },
     "vim-eunuch": {
-      "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",
+      "rev": "929490937745cd96130d3e7948f762f0aa403314",
       "src": "https://github.com/tpope/vim-eunuch.git"
     },
     "vim-fugitive": {
