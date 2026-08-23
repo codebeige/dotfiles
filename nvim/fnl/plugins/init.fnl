@@ -11,6 +11,7 @@
     :init :conjure/init
     :config :conjure/config}
    {:github "dcampos/cmp-snippy"}
+   {:github "egberts/vim-syntax-ebnf"}
    {:github "hrsh7th/cmp-buffer"}
    {:github "hrsh7th/cmp-cmdline"}
    {:github "hrsh7th/cmp-nvim-lsp"}

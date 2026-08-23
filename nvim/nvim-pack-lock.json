@@ -152,6 +152,10 @@
       "rev": "1bf50921308f0188d1c1ecf8a712cc72ab2775e5",
       "src": "https://github.com/guns/vim-sexp.git"
     },
+    "vim-syntax-ebnf": {
+      "rev": "20083d7c5f93d07bb588c75b1ae6ec42ce4c2a42",
+      "src": "https://github.com/egberts/vim-syntax-ebnf.git"
+    },
     "vim-unimpaired": {
       "rev": "db65482581a28e4ccf355be297f1864a4e66985c",
       "src": "https://github.com/tpope/vim-unimpaired.git"
