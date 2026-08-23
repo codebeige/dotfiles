@@ -65,7 +65,7 @@
       "src": "https://github.com/Olical/nfnl.git"
     },
     "nvim-autopairs": {
-      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
+      "rev": "430522f95fe4fb7c511ec64f8c1a90cc6a66c05c",
       "src": "https://github.com/windwp/nvim-autopairs.git"
     },
     "nvim-cmp": {
@@ -109,7 +109,7 @@
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "9dc4ffc4fb010e7abb976a92360c2c5a7d324c15",
+      "rev": "023590c8f068788a0513a4409bf37ff7f9d1deff",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
