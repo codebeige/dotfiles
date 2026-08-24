@@ -8,7 +8,7 @@
 [user]
 	name = Tibor Claassen
 	email = tc@codebeige.net
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINgtyvoMbx47fbf7BAjV5kDb/WjbOF4jRSmO1Zon9xbr
+	signingkey = ~/.ssh/id_ed25519.pub
 [alias]
 	aa = add --all amend = commit --amend
 	br = branch
@@ -72,7 +72,7 @@
 [difftool]
 	prompt = false
 [include]
-  path = ~/.gitenv
+  path = ~/.gitconfig.local
 [pull]
 	rebase = true
 [init]
