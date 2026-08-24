@@ -23,7 +23,6 @@
    "nvim"                   ".config/nvim"
    "profile"                ".profile"
    "shadow-cljs/config.edn" ".shadow-cljs/config.edn"
-   "ssh/config"             ".ssh/config"
    "tigrc"                  ".tigrc"
    "tool-versions"          ".tool-versions"
    "zsh"                    ".zsh"
