@@ -2,10 +2,7 @@
   (set vim.g.conjure#eval#gsubs {:do-comment ["^%(comment[%s%c]" "(do "]})
   (set vim.g.conjure#eval#mapping#prefix "<LocalLeader>")
   (set vim.g.conjure#mapping#doc_word false)
-  (set vim.g.conjure#completion#omnifunc false)
-  (set vim.g.conjure#log#botright true)
-  (set vim.g.conjure#log#split#height 0.3)
-  (set vim.g.conjure#log#jump_to_latest#enabled true))
+  (set vim.g.conjure#completion#omnifunc false))
 
 (fn config []
   (let [which-key (require :which-key)
