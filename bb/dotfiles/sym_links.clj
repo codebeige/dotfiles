@@ -7,7 +7,7 @@
    "claude/CLAUDE.md"       ".claude/CLAUDE.md"
    "claude/rules"           ".claude/rules"
    "claude/settings.json"   ".claude/settings.json"
-   "claude/statusline.zsh"  ".claude/statusline.zsh"
+   "claude/statusline.bb"   ".claude/statusline.bb"
    "clojure/deps.edn"       ".clojure/deps.edn"
    "config/clj-kondo"       ".config/clj-kondo"
    "config/clojure-lsp"     ".config/clojure-lsp"

@@ -1,7 +1,7 @@
 {
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.zsh"
+    "command": "~/.claude/statusline.bb"
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
