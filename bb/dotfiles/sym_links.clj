@@ -5,6 +5,8 @@
   {"Brewfile"               ".Brewfile"
    "asdfrc"                 ".asdfrc"
    "claude/CLAUDE.md"       ".claude/CLAUDE.md"
+   "claude/settings.json"   ".claude/settings.json"
+   "claude/statusline.zsh"  ".claude/statusline.zsh"
    "clojure/deps.edn"       ".clojure/deps.edn"
    "config/clj-kondo"       ".config/clj-kondo"
    "config/clojure-lsp"     ".config/clojure-lsp"

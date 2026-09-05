@@ -1,0 +1,20 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.zsh"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
+  "remoteControlAtStartup": false
+}
