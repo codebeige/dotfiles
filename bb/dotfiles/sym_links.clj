@@ -37,7 +37,8 @@
           exists? (fs/exists? f)]
       (if (or force? (not exists?))
         (do
-         (when exists? (fs/delete f))
+         (when exists? (fs/delete-tree f))
          (fs/create-dirs (fs/parent f))
-         (fs/create-sym-link f (fs/absolutize target)))
+         (fs/create-sym-link f (fs/absolutize target))
+         (println (format "Created %s" f)))
         (println (format "Skipped %s, because it already exists. (Use --force to override)" f))))))
