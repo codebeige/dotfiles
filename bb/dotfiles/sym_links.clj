@@ -5,6 +5,7 @@
   {"Brewfile"               ".Brewfile"
    "asdfrc"                 ".asdfrc"
    "claude/CLAUDE.md"       ".claude/CLAUDE.md"
+   "claude/rules"           ".claude/rules"
    "claude/settings.json"   ".claude/settings.json"
    "claude/statusline.zsh"  ".claude/statusline.zsh"
    "clojure/deps.edn"       ".clojure/deps.edn"
