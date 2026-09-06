@@ -29,7 +29,7 @@
       "src": "https://github.com/dcampos/cmp-snippy.git"
     },
     "conjure": {
-      "rev": "b7ff6c52b84a555cb57ea0d37b005473d4726a81",
+      "rev": "84c739c753bd07c006849d10ebce1863dd41af7f",
       "src": "https://github.com/Olical/conjure.git"
     },
     "fennel.vim": {
@@ -77,7 +77,7 @@
       "src": "https://github.com/dcampos/nvim-snippy.git"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
     },
     "nvim-ts-autotag": {
@@ -109,7 +109,7 @@
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "023590c8f068788a0513a4409bf37ff7f9d1deff",
+      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
