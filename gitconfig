@@ -58,6 +58,7 @@
 [merge]
 	tool = nvim
 	conflictstyle = diff3
+	ff = only
 [github]
 	user = codebeige
 [diff]
