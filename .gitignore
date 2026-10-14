@@ -4,3 +4,4 @@ vim/.netrwhist
 emacs.d/*
 !emacs.d/init.el
 !emacs.d/config
+cljconf/org.clojure/clojure-cli.repl/clojuredocs-export.json

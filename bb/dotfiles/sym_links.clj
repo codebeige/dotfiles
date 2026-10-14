@@ -8,6 +8,7 @@
    "claude/rules"           ".claude/rules"
    "claude/settings.json"   ".claude/settings.json"
    "claude/statusline.bb"   ".claude/statusline.bb"
+   "cljconf"                ".clojure/.cljconf"
    "clojure/deps.edn"       ".clojure/deps.edn"
    "config/clj-kondo"       ".config/clj-kondo"
    "config/clojure-lsp"     ".config/clojure-lsp"
@@ -15,8 +16,8 @@
    "config/gh"              ".config/gh"
    "config/kitty"           ".config/kitty"
    "config/pgcli"           ".config/pgcli"
-   "config/tmux/tmux.conf"  ".config/tmux/tmux.conf"
    "config/ruff/ruff.toml"  ".config/ruff/ruff.toml"
+   "config/tmux/tmux.conf"  ".config/tmux/tmux.conf"
    "ctags"                  ".ctags"
    "gitconfig"              ".gitconfig"
    "gitignore"              ".gitignore"
@@ -35,7 +36,7 @@
 (defn create! [force?]
   (doseq [[target link] symlinks]
     (let [f (fs/path (fs/home) link)
-          exists? (fs/exists? f)]
+          exists? (fs/exists? f {:nofollow-links true})]
       (if (or force? (not exists?))
         (do
          (when exists? (fs/delete-tree f))

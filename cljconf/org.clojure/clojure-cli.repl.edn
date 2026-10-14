@@ -1,0 +1,18 @@
+{:bracket-pairs true
+ :doc-at-cursor "\u001b[100;9u"
+ :eval-form-at-cursor "\u001b[101;9u"
+ :history :project
+ :inspect "\u001b[105;9u"
+ :keybindings dev.keybindings/install
+ :middleware [dev.heap/middleware
+              dev.timing/middleware
+              ^:optional cider.nrepl/cider-middleware]
+ :paredit/barf-backward "\u001b[91;11u"
+ :paredit/barf-forward "\u001b[93;11u"
+ :paredit/raise "\u001b[111;9u"
+ :paredit/slurp-backward "\u001b[91;9u"
+ :paredit/slurp-forward "\u001b[93;9u"
+ :paredit/splice "\u001b[57;12u"
+ :paredit/wrap-list "\u001b[57;10u"
+ :print-hook dev.hooks/pprint-values
+ :prompt dev.full-width-prompt/prompt}

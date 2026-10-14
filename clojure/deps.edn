@@ -1,12 +1,22 @@
 {:aliases
- {:repl/cljs
+ {:repl/clj
+  {:extra-deps
+   {cider/cider-nrepl {:mvn/version "RELEASE"}
+    io.github.clojure/clojure-cli.repl-server {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "clojure-cli.repl.server" "repl"]}
+
+  :repl/serve
+  {:extra-deps
+   {cider/cider-nrepl {:mvn/version "RELEASE"}
+    io.github.clojure/clojure-cli.repl-server {:mvn/version "RELEASE"}}
+   :main-opts ["-m" "clojure-cli.repl.server"]}
+
+  :repl/attach
+  {:replace-paths []
+   :replace-deps {io.github.clojure/clojure-cli.repl-client {:mvn/version "RELEASE"}}
+   :jvm-opts ["--enable-native-access=ALL-UNNAMED"]
+   :main-opts ["-m" "clojure-cli.repl.client"]}
+
+  :repl/cljs
   {:extra-deps {org.clojure/clojurescript {:mvn/version "RELEASE"}}
-   :main-opts ["-m" "cljs.main"]}
-  :repl/nrepl
-  {:extra-deps {cider/cider-nrepl {:mvn/version "RELEASE"}
-                nrepl/nrepl {:mvn/version "RELEASE"}}
-   :main-opts ["-m" "nrepl.cmdline"
-               "--middleware" "[cider.nrepl/cider-middleware]"]}
-  :repl/rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "RELEASE"}}
-               :jvm-opts ["--enable-native-access=ALL-UNNAMED"]
-               :main-opts ["-m" "rebel-readline.main"]}}}
+   :main-opts ["-m" "cljs.main"]}}}
