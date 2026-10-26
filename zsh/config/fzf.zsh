@@ -16,7 +16,11 @@ function () {
   export FZF_DEFAULT_OPTS=$opts[*]
 }
 
-if (( $+commands[rg] )); then
+if (( $+commands[fd] )); then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+  export FZF_CTRL_T_COMMAND='fd --hidden --follow --exclude .git'
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+elif (( $+commands[rg] )); then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 fi
 
