@@ -34,7 +34,13 @@
     "Creates symbolic links to relevant configuration files and ensures all\n"
     "required dependencies are installed.\n" ]))
 
-(defn -main [& args]
+(defn init
+  "Install dotfiles in your home directory.
+
+  Parses `args` against [[spec]] and prints usage when `--help` is given.
+  Otherwise creates the symbolic links, overwriting existing files only
+  with `--force`."
+  [& args]
   (let [{:keys [force help]} (cli/parse-opts args spec)]
     (if help
       (do

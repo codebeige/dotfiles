@@ -1,2 +1,2 @@
 {:paths ["bb"]
- :tasks {init dotfiles.cli/-main}}
+ :tasks {init dotfiles.cli/init}}
