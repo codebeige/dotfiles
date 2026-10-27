@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "66829e04041ceba72a9006d1c6c9d0c818e2b3dd",
+      "rev": "b7201d490772993a8baaa53736ab091b0abe998b",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/dcampos/cmp-snippy.git"
     },
     "conjure": {
-      "rev": "84c739c753bd07c006849d10ebce1863dd41af7f",
+      "rev": "b23c76a8c874fe7ac5ad95255efc66173b049088",
       "src": "https://github.com/Olical/conjure.git"
     },
     "fennel.vim": {
@@ -45,27 +45,27 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim.git"
     },
     "mini.ai": {
-      "rev": "25248c6aa002391936a6200f12d1466015987133",
+      "rev": "a4f5648dedf435e6306205135d1babb563b55d28",
       "src": "https://github.com/nvim-mini/mini.ai.git"
     },
     "mini.align": {
-      "rev": "77d7446b9f2452193f13ced9fb73a8b3aa4a4f4d",
+      "rev": "a7f24f57e68a72fd6c19e442288ab835a9c40cdd",
       "src": "https://github.com/nvim-mini/mini.align.git"
     },
     "mini.extra": {
-      "rev": "9c6affac2b176142f48b185bd7abc5db7ec20ac8",
+      "rev": "6cbc59d875a9768819091d0a56223205022cbe72",
       "src": "https://github.com/nvim-mini/mini.extra.git"
     },
     "mini.surround": {
-      "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
+      "rev": "5357f00aca51a3b43e7775901b1ad9699f8c2678",
       "src": "https://github.com/nvim-mini/mini.surround.git"
     },
     "nfnl": {
-      "rev": "a4c47a1e7e52aaf234b358f73135acf783054e35",
+      "rev": "7a4ba217167fee57e9bf175405636ced49aa9f83",
       "src": "https://github.com/Olical/nfnl.git"
     },
     "nvim-autopairs": {
-      "rev": "430522f95fe4fb7c511ec64f8c1a90cc6a66c05c",
+      "rev": "3172f40c16563db871a58f20d205c710ad782311",
       "src": "https://github.com/windwp/nvim-autopairs.git"
     },
     "nvim-cmp": {
@@ -81,7 +81,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects.git"
     },
     "nvim-ts-autotag": {
-      "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
+      "rev": "d7220b55e16ed3c04e88086256def5d282429493",
       "src": "https://github.com/windwp/nvim-ts-autotag.git"
     },
     "plenary.nvim": {
@@ -109,7 +109,7 @@
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "1425eacb78bfee34face0fe06a8384ac3c4d9c8e",
+      "rev": "06c90a3af8eb471f4a4ff979d681312284a8583a",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim.git"
     },
     "vim-abolish": {
@@ -133,7 +133,7 @@
       "src": "https://github.com/tpope/vim-fugitive.git"
     },
     "vim-jack-in": {
-      "rev": "45e5293cff0802a51dbed31a9b0141b0f80e2952",
+      "rev": "6fa90601f22d830e3c27883da045090674a1b855",
       "src": "https://github.com/clojure-vim/vim-jack-in.git"
     },
     "vim-projectionist": {
@@ -149,7 +149,7 @@
       "src": "https://github.com/tpope/vim-repeat.git"
     },
     "vim-sexp": {
-      "rev": "1bf50921308f0188d1c1ecf8a712cc72ab2775e5",
+      "rev": "b2ff4532c5913f539fe96fd8425e0e150ab21997",
       "src": "https://github.com/guns/vim-sexp.git"
     },
     "vim-syntax-ebnf": {
