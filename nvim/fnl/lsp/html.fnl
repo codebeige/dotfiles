@@ -5,7 +5,7 @@
    :filetypes [:html]
    :root_markers ["package.json" ".git"]
    :init_options {:provideFormatter true
-                  :embeddedLanguges {:css true :javascript true}}})
+                  :embeddedLanguages {:css true :javascript true}}})
 
 {: name
  : config}
