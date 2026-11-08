@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "b7201d490772993a8baaa53736ab091b0abe998b",
+      "rev": "cd11247c404739be0c4a77042e862c3a3967eb26",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/hrsh7th/cmp-cmdline.git"
     },
     "cmp-nvim-lsp": {
-      "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
+      "rev": "cd4ee08a988deb47ac3726f418fb27fe1a95729d",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp.git"
     },
     "cmp-path": {
@@ -53,7 +53,7 @@
       "src": "https://github.com/nvim-mini/mini.align.git"
     },
     "mini.extra": {
-      "rev": "6cbc59d875a9768819091d0a56223205022cbe72",
+      "rev": "ba6cb52e666cfadb2917be305db36f38a9edaa39",
       "src": "https://github.com/nvim-mini/mini.extra.git"
     },
     "mini.surround": {
@@ -69,11 +69,11 @@
       "src": "https://github.com/windwp/nvim-autopairs.git"
     },
     "nvim-cmp": {
-      "rev": "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3",
+      "rev": "fe29aba4117227a6df637bc41e4b4fb4e98864a0",
       "src": "https://github.com/hrsh7th/nvim-cmp.git"
     },
     "nvim-snippy": {
-      "rev": "1f5a5c82cb4902522806a58cf25479f6f8fe16ac",
+      "rev": "fb49f5cf32bd20d0aa8804648c15775ace2fc66a",
       "src": "https://github.com/dcampos/nvim-snippy.git"
     },
     "nvim-treesitter-textobjects": {
@@ -133,7 +133,7 @@
       "src": "https://github.com/tpope/vim-fugitive.git"
     },
     "vim-jack-in": {
-      "rev": "6fa90601f22d830e3c27883da045090674a1b855",
+      "rev": "206f00a67768f285a3364945b54087478ada58a5",
       "src": "https://github.com/clojure-vim/vim-jack-in.git"
     },
     "vim-projectionist": {
