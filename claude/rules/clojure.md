@@ -253,9 +253,8 @@ Good:
 
 ## Reaching into maps
 
-Never thread keyword lookups to walk a nested map. Say where you are going in
-one step with `get-in`, which states the whole path in one place and reads as
-the lookup it is.
+To walk a nested map, prefer `get-in` when the keywords are all there is to
+the chain. It states the whole path in one place and reads as the lookup it is.
 
 Bad:
 
@@ -267,6 +266,12 @@ Good:
 
 ```clojure
 (get-in custom [:overrides :warning])
+```
+
+Keyword lookups may be threaded when the chain has other steps too.
+
+```clojure
+(-> opts meta :org.babashka/cli :args not-empty)
 ```
 
 A single key needs neither. Call the keyword on the map.

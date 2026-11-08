@@ -4,7 +4,7 @@
     "command": "~/.claude/statusline.bb"
   },
   "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
