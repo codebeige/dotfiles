@@ -8,6 +8,10 @@ function kitty-set-theme {
   kitty @ set-colors --all --configured $KITTY_THEMES/$name.conf
   local background_color=$(kitty @ get-colors | rg '^background\s+' --replace '')
   kitty @ set-colors --all --configured cursor_text_color=$background_color
+  {
+    cat $KITTY_THEMES/$name.conf
+    print "cursor_text_color $background_color"
+  } >| ~/.config/kitty/current-theme.conf
 }
 
 
