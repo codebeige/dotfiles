@@ -6,6 +6,8 @@ local function fetch(repo, path)
       'git',
       'clone',
       '--filter=blob:none',
+      '--branch',
+      'stable',
       url,
       path,
     }, { text = true }

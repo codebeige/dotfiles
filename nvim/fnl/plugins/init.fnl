@@ -89,10 +89,22 @@
 (fn data [{: data : build}]
   (doto (or data {}) (tset :build-hook build)))
 
+(fn dev-dir [{: github}]
+  (when (and github (vim.startswith github "codebeige/"))
+    (let [dir (vim.fs.normalize (.. "~/src/" (vim.fs.basename github)))]
+      (when (vim.uv.fs_stat dir) dir))))
+
+(fn use-dev-copy [dir]
+  (when (not (vim.list_contains (vim.opt.rtp:get) dir))
+    (vim.opt.rtp:prepend dir))
+  nil)
+
 (fn install []
   (vim.pack.add
     (icollect [_ {: name : version &as spec} (ipairs plugins)]
-      {:src (src spec) : name : version :data (data spec)})
+      (case (dev-dir spec)
+        dir (use-dev-copy dir)
+        _ {:src (src spec) : name : version :data (data spec)}))
     {:load true}))
 
 (fn config []
