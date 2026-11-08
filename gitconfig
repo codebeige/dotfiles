@@ -23,6 +23,8 @@
 	l = pull
 	ll = !git fetch && git reset --hard origin/$(current_branch)
 	mt = mergetool
+	diffview = !nvim -c DiffviewOpen
+	dv = diffview
 	p = push
 	pp = push -f
 	rb = rebase
