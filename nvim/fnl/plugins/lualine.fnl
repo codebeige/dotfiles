@@ -20,7 +20,8 @@
   (lualine.setup {:inactive_sections {:lualine_c [fugitive-commit-name :filename]}
                   :options {:icons_enabled false
                             :theme get-theme}
-                  :sections {:lualine_c [fugitive-commit-name :filename]}})
+                  :sections {:lualine_c [fugitive-commit-name :filename]
+                             :lualine_x [:encoding :filetype]}})
 
   (set vim.o.showmode false)))
 

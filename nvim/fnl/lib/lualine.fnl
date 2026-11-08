@@ -1,7 +1,7 @@
 (fn theme-name []
   (case vim.g.colors_name
     nil "auto"
-    theme (string.gsub vim.g.colors_name "^base16%-" "")))
+    _ (string.gsub vim.g.colors_name "^base16%-" "")))
 
 (fn make-theme []
   (let [bg       (.. :# vim.g.base16_gui01)
@@ -25,7 +25,7 @@
                 :b {:fg light_fg :bg alt_bg}}
      :terminal {:a {:fg bg :bg insert}
                 :b {:fg light_fg :bg alt_bg}}
-     :visual   {:a {:fg bg :bg insert}
+     :visual   {:a {:fg bg :bg visual}
                 :b {:fg light_fg :bg alt_bg}}
      :inactive {:a {:fg dark_fg :bg bg}
                 :b {:fg dark_fg :bg bg}

@@ -32,6 +32,10 @@
       "rev": "b23c76a8c874fe7ac5ad95255efc66173b049088",
       "src": "https://github.com/Olical/conjure.git"
     },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim.git"
+    },
     "fennel.vim": {
       "rev": "c6a9c035ca108cbb24273d96cd6277fb8fbc60b4",
       "src": "https://github.com/jaawerth/fennel.vim.git"
@@ -105,7 +109,7 @@
       "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim.git"
     },
     "telescope.nvim": {
-      "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
+      "rev": "1e1bab730218eaf97fce743be3f56e51075928ac",
       "src": "https://github.com/nvim-telescope/telescope.nvim.git"
     },
     "tree-sitter-manager.nvim": {

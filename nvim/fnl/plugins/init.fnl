@@ -49,6 +49,8 @@
     :init :qf/init}
    {:github "romus204/tree-sitter-manager.nvim"
     :config :tree-sitter-manager/config}
+   {:github "sindrets/diffview.nvim"
+    :config :diffview/config}
    {:github "tpope/vim-abolish"}
    {:github "tpope/vim-eunuch"}
    {:github "tpope/vim-fugitive"
