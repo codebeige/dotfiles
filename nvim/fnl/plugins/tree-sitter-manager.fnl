@@ -18,14 +18,18 @@
               :jsdoc
               :json
               :json5
-              :lua
               :luadoc
               :luap
               :make
-              :markdown
-              :markdown_inline
-              :regex
-              :vim])
+              :regex])
+
+(local exclude [:c
+                :lua
+                :markdown
+                :markdown_inline
+                :query
+                :vim
+                :vimdoc])
 
 
 (fn enable [_]
@@ -36,6 +40,7 @@
 (fn config []
   (let [{: setup} (require :tree-sitter-manager)]
     (setup {:auto_install true
+            :noauto_install exclude
             :ensure_installed langs}))
   (let [group (vim.api.nvim_create_augroup :treesitter {:clear true})]
     (vim.api.nvim_create_autocmd :FileType
