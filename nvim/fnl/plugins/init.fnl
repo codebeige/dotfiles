@@ -78,8 +78,9 @@
       :PackChanged
       {:group group
        :callback (fn [ev]
-                   (case ev.data.spec.data.build-hook
-                     build (invoke build ev.data)))})))
+                   (when (not= ev.data.kind :delete)
+                     (case (?. ev.data.spec :data :build-hook)
+                       build (invoke build ev.data))))})))
 
 (fn init []
   (each [_ {: init} (ipairs plugins)]
