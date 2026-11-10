@@ -43,8 +43,11 @@
     :config :mini-surround/config}
    {:github "nvim-telescope/telescope.nvim"
     :config :telescope/config}
+   {:github "nvim-tree/nvim-web-devicons"}
    {:github "nvim-treesitter/nvim-treesitter-textobjects"}
    {:github "Olical/nfnl"}
+   {:github "pwntester/octo.nvim"
+    :config :octo/config}
    {:github "romainl/vim-qf"
     :init :qf/init}
    {:github "romus204/tree-sitter-manager.nvim"

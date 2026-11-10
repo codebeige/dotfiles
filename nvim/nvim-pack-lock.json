@@ -1,7 +1,7 @@
 {
   "plugins": {
     "base16-vim": {
-      "rev": "cd11247c404739be0c4a77042e862c3a3967eb26",
+      "rev": "89dd1b4684e231c3a1301139eefff3f92b530320",
       "src": "https://github.com/base16-project/base16-vim.git"
     },
     "canvas.nvim": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/dcampos/cmp-snippy.git"
     },
     "conjure": {
-      "rev": "b23c76a8c874fe7ac5ad95255efc66173b049088",
+      "rev": "f01c94468247439b6b1067560a9a3e19e96e06d5",
       "src": "https://github.com/Olical/conjure.git"
     },
     "diffview.nvim": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim.git"
     },
     "mini.ai": {
-      "rev": "a4f5648dedf435e6306205135d1babb563b55d28",
+      "rev": "98a5d73937930a2bb08129020601ab8d5016d706",
       "src": "https://github.com/nvim-mini/mini.ai.git"
     },
     "mini.align": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/nvim-mini/mini.align.git"
     },
     "mini.extra": {
-      "rev": "ba6cb52e666cfadb2917be305db36f38a9edaa39",
+      "rev": "71f1f63dfcc206251259a3d4789e3cdc51630606",
       "src": "https://github.com/nvim-mini/mini.extra.git"
     },
     "mini.surround": {
@@ -87,6 +87,14 @@
     "nvim-ts-autotag": {
       "rev": "d7220b55e16ed3c04e88086256def5d282429493",
       "src": "https://github.com/windwp/nvim-ts-autotag.git"
+    },
+    "nvim-web-devicons": {
+      "rev": "0dc0cfb0c6858041174a53c7aa4adaf65e994b3c",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons.git"
+    },
+    "octo.nvim": {
+      "rev": "419e67aee457406423e7cb4fc41d721ecda61bcd",
+      "src": "https://github.com/pwntester/octo.nvim.git"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
