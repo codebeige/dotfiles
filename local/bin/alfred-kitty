@@ -1,0 +1,18 @@
+#!/bin/zsh
+kitten=/Applications/kitty.app/Contents/MacOS/kitten
+pid=$(pgrep -x kitty | head -1)
+
+if [[ -z $pid ]]; then
+  open -a kitty
+  for i in {1..50}; do
+    pid=$(pgrep -x kitty | head -1)
+    [[ -n $pid && -S /tmp/kitty-$pid ]] && break
+    sleep 0.1
+  done
+  match="recent:0"
+else
+  match="id:$($kitten @ --to unix:/tmp/kitty-$pid launch --type=os-window --cwd ~)"
+fi
+
+printf '%s\r' "$1" | $kitten @ --to unix:/tmp/kitty-$pid send-text --match "$match" --stdin
+osascript -e 'tell application "System Events" to set frontmost of process "kitty" to true'

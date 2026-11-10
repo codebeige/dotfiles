@@ -23,6 +23,7 @@
    "gitignore"              ".gitignore"
    "inputrc"                ".inputrc"
    "lesskey"                ".lesskey"
+   "local/bin/alfred-kitty" ".local/bin/alfred-kitty"
    "luarocks/config.lua"    ".luarocks/config.lua"
    "nvim"                   ".config/nvim"
    "profile"                ".profile"
