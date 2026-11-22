@@ -34,6 +34,7 @@ plugins=(
   vi-mode
   aliases
   asdf
+  aws
   base16-kitty
   colored-man-pages
   colorize
@@ -42,12 +43,9 @@ plugins=(
   cp
   docker
   docker-compose
-  docker-compose-custom
-  eha-ghm
   fzf-git
   gh
   git
-  git-custom
   lein
   macos
   micromamba
@@ -55,15 +53,9 @@ plugins=(
   npm
   op
   per-directory-history
-  rake
-  rbenv
-  react-native
   rsync
-  ruby
   ssh-macos
   tmux
-  tmuxinator
-  web-search
 )
 
 # Configure plugins
