@@ -33,29 +33,39 @@ ZSH_CUSTOM=$HOME/.zsh/config
 plugins=(
   vi-mode
   aliases
+  ansible
   asdf
   aws
   base16-kitty
+  brew
   colored-man-pages
   colorize
   copyfile
   copypath
   cp
+  direnv
   docker
   docker-compose
+  emoji
   fzf-git
   gh
   git
+  kitty
   lein
   macos
   micromamba
   node
   npm
   op
+  opentofu
   per-directory-history
+  podman
   rsync
   ssh-macos
+  terraform
+  tig
   tmux
+  uv
 )
 
 # Configure plugins
