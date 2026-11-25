@@ -18,9 +18,9 @@
        {1 "<Leader>gF"    2 "<Cmd>Git fetch --all --prune --prune-tags --jobs=10 --quiet<CR>"                                              :desc "Git fetch"}
        {1 "<Leader>gl"    2 "<Cmd>Git pull<CR>"                                                                                            :desc "Git pull"}
        {1 "<Leader>gL"    2 "<Cmd>Git fetch --all --prune --prune-tags --jobs=10 --quiet<bar>Git reset --hard HEAD<bar>Git merge @{u}<CR>" :desc "Git pull with reset"}
-       {1 "<Leader>gp"    2 "<Cmd>Git push --tags --delete --quiet<CR>"                                                                    :desc "Git push"}
-       {1 "<Leader>gP"    2 "<Cmd>Git push --force --tags --delete --quiet<CR>"                                                            :desc "Git push forced"}
-       {1 "<Leader>gs"    2 "<Cmd>Git push --tags --delete --quiet --set-upstream origin HEAD<CR>"                                         :desc "Git push upstream"}
+       {1 "<Leader>gp"    2 "<Cmd>Git push<CR>"                                                                    :desc "Git push"}
+       {1 "<Leader>gP"    2 "<Cmd>Git push --force<CR>"                                                            :desc "Git push forced"}
+       {1 "<Leader>gs"    2 "<Cmd>Git push --set-upstream origin HEAD<CR>"                                         :desc "Git push upstream"}
        {1 "<Leader>gr"    2 "<Cmd>Gread<CR>"                                                                                               :desc "Read from index"}
        {1 "<Leader>gw"    2 "<Cmd>Gwrite<CR>"                                                                                              :desc "Write to index"}
        {1 "<Leader>g-"    2 "<Cmd>Git add --all<bar>Git commit --no-verify --no-gpg-sign --message '--wip-- [skip ci]'<CR>"                :desc "Create WIP commit"}
